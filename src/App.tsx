@@ -1,14 +1,12 @@
-import './App.css'
-
-function App() {
+import { FC } from "react";
+import "./App.css";
+import Header from "./components/Header";
+const App: FC = () => {
   return (
     <div>
-       <h1 className="text-3xl font-bold underline bg-slate-500">
-      Hello world!
-    </h1>
-
+      <Header />
     </div>
-  )
-}
+  );
+};
 
-export default App
+export default App;
