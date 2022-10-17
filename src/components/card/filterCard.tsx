@@ -1,9 +1,9 @@
-import React from 'react'
+import {FC} from 'react'
 
-const filterCard = () => {
+const filterCard : FC= () => {
   return (
     <div>filterCard</div>
   )
-}
+}S
 
 export default filterCard
