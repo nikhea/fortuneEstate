@@ -10,9 +10,9 @@ import { Link } from "react-router-dom";
 const style = {
   LinkAuth: `uppercase justify-end`,
   emailText: `flex text-center items-center`,
-  container: ` flex justify-between w-[95%]  m-auto my-3 text-xs`,
+  container: ` flex justify-between w-[95%]  m-auto mt-[3em] text-xs mb-[5em]`,
   social: `flex mx-[100px] `,
-  rightSide: `flex bg-blue-500  `,
+  rightSide: `flex   `,
 };
 const SubNav: FC = () => {
   return (
