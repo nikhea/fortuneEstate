@@ -5,10 +5,11 @@ import MainText from "../Header/MainText";
 import SubNav from "../Header/SubNav";
 
 const style = {
-  iframeContainer: `w-full h-screen  object-contain overflow-x-hidden relative`,
-  video: `h-full w-full object-cover  `,
+  iframeContainer: `w-full h-screen  object-contain overflow-x-hidden relative bg-fixed`,
+  video: `h-full w-full object-cover  bg-fixed`,
   container: `h-full`,
-  textContainer:  `absolute text-white z-10 w-full`
+  textContainer: `absolute text-white z-10 w-full`,
+  overlay: `h-full w-full top-0 left-0 absolute bg-gradient-to-tl from-black bg-fixed`,
 };
 const Youtube: FC = () => {
   return (
@@ -18,6 +19,7 @@ const Youtube: FC = () => {
         <MainNav />
         <MainText />
       </div>
+      <div className={style.overlay}></div>
       <video className={style.video} src={YoutubeVideo} autoPlay loop muted />
     </div>
   );

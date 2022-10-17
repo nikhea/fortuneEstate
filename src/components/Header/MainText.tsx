@@ -1,11 +1,11 @@
 import { FC } from "react";
 
 const style = {
-  container: `flex  w-[95%] mt-5 m-auto flex-col items-center`,
+  container: `flex  w-[95%] mt-10 m-auto flex-col items-center`,
   title: `text-[5.5rem] font-light`,
   subTitle: `text-8xl font-light font-bold`,
   text: `text-lg font-light my-6 tracking-widest`,
-  btn:`uppercase bg-blue-400 rounded-full px-9 py-2 tracking-widest`
+  btn:`uppercase bg-blue-400 rounded-full px-9 py-2 tracking-widest mt-9 `
 };
 const MainText: FC = () => {
   return (

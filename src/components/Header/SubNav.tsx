@@ -10,12 +10,14 @@ import { Link } from "react-router-dom";
 const style = {
   LinkAuth: `uppercase justify-end`,
   emailText: `flex text-center items-center`,
-  container: ` flex justify-between w-[95%]  m-auto mt-[3em] text-xs mb-[5em]`,
-  social: `flex mx-[100px] `,
-  rightSide: `flex   `,
+  container: ` flex justify-between w-[95%]  m-auto  text-xs  items-center`,
+  social: `flex mx-[40px] `,
+  rightSide: `flex`,
+  background:` py-[0.1px] h-[4em] flex`
 };
 const SubNav: FC = () => {
   return (
+    <div className={style.background}>
     <div className={`${style.container}`}>
       <div className={style.emailText}>
         <Link to="" className={style.emailText}>
@@ -49,6 +51,7 @@ const SubNav: FC = () => {
           /<Link to="">register</Link>
         </div>
       </div>
+    </div>
     </div>
   );
 };
