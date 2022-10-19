@@ -7,6 +7,7 @@ const App: FC = () => {
     <div>
       <Header />
       <FilterCard />
+    
     </div>
   );
 };

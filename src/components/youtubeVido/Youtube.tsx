@@ -5,7 +5,7 @@ import MainText from "../Header/MainText";
 import SubNav from "../Header/SubNav";
 
 const style = {
-  iframeContainer: `w-full h-screen  object-contain overflow-x-hidden relative bg-fixed`,
+  iframeContainer: `w-full h-screen  object-contain overflow-x-hidden relative bg-fixed z-1`,
   video: `h-full w-full object-cover  bg-fixed`,
   container: `h-full`,
   textContainer: `absolute text-white z-10 w-full`,
