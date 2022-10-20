@@ -14,8 +14,10 @@
     "eject": "react-scripts eject"
   },
   "dependencies": {
+    "@types/react-alice-carousel": "^1.15.3",
     "@types/styled-components": "^5.1.26",
     "react": "^18.2.0",
+    "react-alice-carousel": "^2.6.4",
     "react-dom": "^18.2.0",
     "react-icons": "^4.6.0",
     "react-router-dom": "^6.4.2",

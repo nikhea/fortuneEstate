@@ -1,9 +1,9 @@
 import { FC } from "react";
 
 const style = {
-  container: `flex  w-full -mt-[5em] m-auto overflow-hidden absolute z-50 `,
-  cardContainer: `w-[95%] m-auto rounded-[30px] bg-white shadow-2xl mb-20`,
-  card: ` w-full pt-10 pb-20`,
+  container: `flex  w-full m-auto absolut top-[70%] overflow-hidden  z-50 `,
+  cardContainer: `w-[95%] m-auto rounded-[30px] bg-white shadow-2xl mb-3`,
+  card: ` w-full pt-8 pb-5`,
   form: ` flex flex-wrap`,
   input: ` rounded-full w-[16.5em] py-3 px-4 my-3 mx-6 bg-gray-200 outline-none`,
   inputPrice: `  rounded-full w-[10em] py-3 px-4 my-3 mx-6 bg-gray-200 outline-none`,
