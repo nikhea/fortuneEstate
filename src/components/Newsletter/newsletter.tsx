@@ -1,7 +1,7 @@
 import { FC } from "react";
 
 const style = {
-  container: `text-white  w-[85%] m-auto flex justify-between pt-[4.5%] pr-[0%] pb-[4%] pl-[0%]`,
+  container: `text-white  w-[85%] m-auto   flex flex-col lg:flex-row items-center justify-between  pt-[4.5%] pr-[0%] pb-[4%] pl-[0%]`,
   bgContainer: `bg-[#2EA8F2]`,
   textContainer: ``,
   title: `text-3xl leading-[2em] `,
