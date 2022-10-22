@@ -8,7 +8,7 @@ const style = {
   input: ` rounded-full w-[16.5em] py-3 px-4 my-3 mx-6 bg-gray-200 outline-none`,
   inputPrice: `  rounded-full w-[10em] py-3 px-4 my-3 mx-6 bg-gray-200 outline-none`,
   inputSymbol: ` rounded-full w-[5em] py-3 px-4 my-3 mx-6 bg-gray-200 outline-none`,
-  btn: `rounded-full  py-3 px-6 my-3 mx-6 block uppercase flex bg-blue-300 outline-none text-white `,
+  btn: `rounded-full  py-3 px-6 my-3 mx-6 block uppercase flex bg-gradient-to-r from-cyan-500 to-blue-500 outline-none text-white `,
 };
 const filterCard: FC = () => {
   return (

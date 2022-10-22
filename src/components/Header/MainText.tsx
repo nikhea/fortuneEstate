@@ -5,7 +5,7 @@ const style = {
   title: `text-[5.5rem] font-light`,
   subTitle: `text-8xl font-light font-bold`,
   text: `text-lg font-light my-2 tracking-widest`,
-  btn:`uppercase bg-blue-400 rounded-full px-9 py-2 tracking-widest mt-5 `
+  btn:`uppercase bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full px-9 py-2 tracking-widest mt-5 `
 };
 const MainText: FC = () => {
   return (

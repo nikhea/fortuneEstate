@@ -5,7 +5,7 @@ const style = {
   lists: `capitalize flex justify-between mr-[100px]`,
   list: ` mx-[35px] text-center items `,
   logo: `w-[200px]`,
-  btn:`uppercase bg-blue-400 rounded-full px-9 py-2 tracking-widest`
+  btn:`uppercase bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full px-9 py-2 tracking-widest`
 
 };
 const MainNav: FC = () => {
