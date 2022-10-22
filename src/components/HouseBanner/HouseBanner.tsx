@@ -1,7 +1,7 @@
 import { FC } from "react";
 
 const style ={
-    container: `w-[95%] m-auto flex justify-center `,
+    container: `w-[95%] m-auto my-[4em] flex justify-center `,
     logo:`w-[70%] md:max-w-[40%] `,
     img:`w-full`
 }

@@ -1,7 +1,7 @@
 import React from "react";
 
 const style = {
-  container: `w-[95%] m-auto flex flex-col justify-center items-center`,
+  container: `w-[95%] m-auto mb-[2em] flex flex-col justify-center items-center`,
   Sociallogo: ``,
   textContainer: `text-center text-[#212121] leading-[1.5] font-extralight  text-[15px] my-[20px]`,
   language: `leading-[2] `,
