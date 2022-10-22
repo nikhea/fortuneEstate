@@ -5,6 +5,7 @@ import FilterCard from "./components/card/filterCard";
 import Carousel from "./components/caroules/carousel";
 import NewsLetter from "./components/Newsletter/newsletter";
 import Footer from "./components/footer/footer";
+import HouseBanner from "./components/HouseBanner/HouseBanner";
 const style = {
   app: `relative `,
 };
@@ -15,6 +16,7 @@ const App: FC = () => {
       <FilterCard />
       <Carousel />
       <NewsLetter />
+      <HouseBanner />
       <Footer />
     </div>
   );

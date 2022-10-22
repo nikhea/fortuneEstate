@@ -1,7 +1,7 @@
 import { FC } from "react";
 
 const style = {
-  bgContainer: `bg-[#efefef] mt-[4em]`,
+  bgContainer: `bg-[#efefef] `,
   container: `w-[95%] m-auto flex justify-center pt-[27px] pb-[48px]`,
   title:`text-[#212121] leading-[1.5] font-extralight text-[15px]`
 };
