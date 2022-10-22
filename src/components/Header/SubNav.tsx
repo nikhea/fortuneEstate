@@ -13,8 +13,10 @@ const style = {
   container: ` flex justify-between w-[95%]  m-auto  text-xs  items-center`,
   social: `flex mx-[40px] `,
   rightSide: `flex`,
-  background:` py-[0.1px] h-[4em] flex`
+  background:` py-[0.1px] h-[3em] flex bg-[#0D304A]`
 };
+
+// linear-gradient(271deg, #0D304A, #0D304A);
 const SubNav: FC = () => {
   return (
     <div className={style.background}>
