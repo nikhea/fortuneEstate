@@ -6,6 +6,7 @@ import Carousel from "./components/caroules/carousel";
 import NewsLetter from "./components/Newsletter/newsletter";
 import Footer from "./components/footer/footer";
 import HouseBanner from "./components/HouseBanner/HouseBanner";
+import Social from './components/social'
 const style = {
   app: `relative `,
 };
@@ -17,6 +18,7 @@ const App: FC = () => {
       <Carousel />
       <NewsLetter />
       <HouseBanner />
+      <Social />
       <Footer />
     </div>
   );
