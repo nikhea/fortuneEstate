@@ -8,5 +8,6 @@
     box-sizing: border-box;
 }
 body{
-    position: relative;
+    /* position: relative; */
+    /* background-image: linear-gradient(180deg, #2EA8F2 0%, #2EA8F2 100%) */
 }
