@@ -2,7 +2,7 @@ import { FC } from "react";
 import { Link } from "react-router-dom";
 const style = {
   container: ` flex justify-between w-[95%]  m-auto my-3 text-center items-center`,
-  lists: `capitalize flex justify-between mr-[100px]`,
+  lists: `capitalize hidden md:flex justify-between mr-[100px]`,
   list: ` mx-[35px] text-center items `,
   logo: `w-[200px]`,
   btn:`uppercase bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full px-9 py-2 tracking-widest`
