@@ -20,16 +20,16 @@ const MainNav: FC = () => {
           <Link to="/">home</Link>
         </li>
         <li className={style.list}>
-          <Link to="/">all countries</Link>
+          <Link to="/allcountries">all countries</Link>
         </li>
         <li className={style.list}>
           <Link to="/contact">contact us</Link>
         </li>
         <li className={style.list}>
-          <Link to="/">blog</Link>
+          <Link to="/blog">blog</Link>
         </li>
         <li className={style.list}>
-          <Link to="/">advert services</Link>
+          <Link to="/advertservice">advert services</Link>
         </li>
       </ul>
 
