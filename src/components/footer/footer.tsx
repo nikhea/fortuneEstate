@@ -1,5 +1,8 @@
 import { FC } from "react";
 
+import ScrollToTop from "../ScrollToTop/scrollToTop";
+
+
 const style = {
   bgContainer: `bg-[#efefef] `,
   container: `w-[95%] m-auto flex justify-center pt-[27px] pb-[48px]`,
@@ -11,6 +14,7 @@ const footer: FC = () => {
       <div className={style.container}>
         <h1 className={style.title}>© 2021 - TheHouse48 Inc. All Right Reserved</h1>
       </div>
+      <ScrollToTop />
     </div>
   );
 };
