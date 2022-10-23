@@ -20,7 +20,7 @@ const Youtube: FC = () => {
         <MainText />
       </div>
       <div className={style.overlay}></div>
-      <video className={style.video} src={YoutubeVideo} autoPlay loop muted />
+      {/* <video className={style.video} src={YoutubeVideo} autoPlay loop muted /> */}
     </div>
   );
 };
