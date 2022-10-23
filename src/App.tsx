@@ -1,24 +1,16 @@
 import { FC } from "react";
 import "./App.css";
-import Header from "./components/Header";
-import FilterCard from "./components/card/filterCard";
-import Carousel from "./components/caroules/carousel";
-import NewsLetter from "./components/Newsletter/newsletter";
+
 import Footer from "./components/footer/footer";
-import HouseBanner from "./components/HouseBanner/HouseBanner";
-import Social from './components/social'
+import Home from "./pages/home/Home";
+
 const style = {
   app: `relative `,
 };
 const App: FC = () => {
   return (
     <div className={style.app}>
-      <Header />
-      <FilterCard />
-      <Carousel />
-      <NewsLetter />
-      <HouseBanner />
-      <Social />
+      <Home />
       <Footer />
     </div>
   );
