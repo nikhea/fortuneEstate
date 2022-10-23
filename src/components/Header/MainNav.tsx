@@ -23,7 +23,7 @@ const MainNav: FC = () => {
           <Link to="/">all countries</Link>
         </li>
         <li className={style.list}>
-          <Link to="/">contact us</Link>
+          <Link to="/contact">contact us</Link>
         </li>
         <li className={style.list}>
           <Link to="/">blog</Link>
