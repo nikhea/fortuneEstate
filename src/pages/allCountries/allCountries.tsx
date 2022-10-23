@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { GoLocation } from "react-icons/go";
+import { MdLocationPin } from "react-icons/md";
 import ContinentBanner from "../../components/ContinentBanner/continentBanner";
 
 const continent = [
@@ -40,7 +40,7 @@ const style = {
   title: ` uppercase text-[2rem] text-[#7f7f7f] font-normal tracking-[1.1px]`,
   image:``,
   link: `flex items-center `,
-  btn: `bg-[#06c4e5] text-[1.1rem] tracking-[3px] text-white py-3 px-3`,
+  btn: `bg-[#06c4e5] text-[0.9rem] tracking-[3px] text-white py-2 px-2`,
 };
 const allCountries: FC = () => {
   return (
@@ -53,7 +53,7 @@ const allCountries: FC = () => {
             <h1 className={style.title}>{continent.name}</h1>
             <button className={style.btn}>
               <a href={continent.link} className={style.link}>
-                <GoLocation color="#" style={{ marginRight: "11px" }} /> view continents
+                <MdLocationPin size={20} color="#" style={{ marginRight: "11px" }} /> view continents
               </a>
             </button>
           </div>
