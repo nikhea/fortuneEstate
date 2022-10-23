@@ -35,7 +35,7 @@ const continent = [
   },
 ];
 const style = {
-  container: `w-[90%] m-auto flex flex-wrap my-[4rem]`,
+  container: `w-[90%] m-auto items-center justify-center flex flex-wrap my-[4rem]`,
   items: `mx-6 mb-9 leading-[2]`,
   title: ` uppercase text-[2rem] text-[#7f7f7f] font-normal tracking-[1.1px]`,
   image: ``,

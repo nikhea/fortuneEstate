@@ -1,8 +1,8 @@
 import React from 'react'
-
+import ContinentBanner from '../../components/ContinentBanner/continentBanner'
 const blog = () => {
   return (
-    <div>blog</div>
+    <div>   <ContinentBanner /></div>
   )
 }
 
