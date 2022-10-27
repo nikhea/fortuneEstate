@@ -6,6 +6,7 @@ import {
   AiOutlineTwitter,
 } from "react-icons/ai";
 import { Link } from "react-router-dom";
+import Signup from "../SignUp/Signup"
 
 const style = {
   LinkAuth: `uppercase justify-end`,
@@ -13,7 +14,7 @@ const style = {
   container: ` flex justify-between w-[95%]  m-auto  text-xs  items-center`,
   social: `flex mx-[40px] `,
   rightSide: `flex`,
-  background:` py-[0.1px] h-[3em] flex bg-[#0D304A]`
+  background:` py-[0.1px] h-[3em] flex bg-[#0D304A] fixed right-0 left-0 top-0 `
 };
 
 // linear-gradient(271deg, #0D304A, #0D304A);
@@ -51,6 +52,7 @@ const SubNav: FC = () => {
             Sign up
           </Link>
           /<Link to="">register</Link>
+          <Signup/>
         </div>
       </div>
     </div>

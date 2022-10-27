@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { Link } from "react-router-dom";
 const style = {
-  container: ` flex justify-between w-[95%]  m-auto my-3 text-center items-center`,
+  container: ` flex justify-between w-[95%]  m-auto my-3 text-center items-center mt-[4rem]`,
   lists: `capitalize hidden md:flex justify-between mr-[100px]`,
   list: ` mx-[35px] text-center items `,
   logo: `w-[200px]`,
