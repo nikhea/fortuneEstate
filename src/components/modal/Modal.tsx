@@ -1,13 +1,13 @@
 import { FC, useState } from "react";
 import ReactModal from "react-modal";
-
+import Auth from "../autht/auth";
 interface modals {
   modalIsOpen: any;
   setIsOpen: any;
 }
 const Modal: FC = () => {
   let subtitle: { style: { color: string } };
-  const [modalIsOpen, setIsOpen] = useState(false);
+  const [modalIsOpen, setIsOpen] = useState(true);
 
   const openModal = () => {
     setIsOpen(true);
@@ -21,11 +21,9 @@ const Modal: FC = () => {
   const closeModal = () => {
     setIsOpen(false);
   };
-  const style = {
-    container: `w-[59%]`,
-  };
+
   return (
-    <div className={style.container}>
+    <div>
       <ReactModal
         isOpen={modalIsOpen}
         onAfterOpen={afterOpenModal}
@@ -36,13 +34,22 @@ const Modal: FC = () => {
             backgroundColor: "rgba(0, 0, 0, 0.6)",
             zIndex: 999999999999,
           },
+
           content: {
             color: "lightsteelblue",
+            width: "60%",
+            margin: " 0 auto",
+            overflow: "hidden",
+            // display: "flex",
+            border: "none",
+            borderRadius: "20px",
+            // justifyContent: "space-between",
+            padding: "0px",
           },
         }}
         contentLabel="Example Modal"
       >
-     
+        <Auth />
       </ReactModal>
     </div>
   );
