@@ -1,6 +1,6 @@
 import { FC, useState } from "react";
 import ReactModal from "react-modal";
-const Signup = () => {
+const Modal = () => {
   let subtitle: { style: { color: string } };
   const [modalIsOpen, setIsOpen] = useState(true);
 
@@ -13,7 +13,7 @@ const Signup = () => {
     subtitle.style.color = "#f00";
   };
 
-  function closeModal() {
+  const closeModal=() =>{
     setIsOpen(false);
   }
   const style = {
@@ -43,4 +43,4 @@ const Signup = () => {
   );
 };
 
-export default Signup;
+export default Modal;

@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, useState } from "react";
 import { MdOutlineMail } from "react-icons/md";
 import {
   AiOutlineInstagram,
@@ -6,7 +6,7 @@ import {
   AiOutlineTwitter,
 } from "react-icons/ai";
 import { Link } from "react-router-dom";
-import Signup from "../SignUp/Signup"
+import Signup from "../modal/Modal"
 
 const style = {
   LinkAuth: `uppercase justify-end`,
