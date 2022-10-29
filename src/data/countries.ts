@@ -49,4 +49,19 @@ export const countries = [
     name: `cuba`,
     link: ``,
   },
+  {
+    image: `https://www.thehouse48.com/wp-content/uploads/elementor/thumbs/pexels-julius-silver-870711-pjha6b2l89rm89pjacg7wnqubskls3b7i2fj0oangk.jpg`,
+    name: `austria`,
+    link: ``,
+  },
+  {
+    image: `https://www.thehouse48.com/wp-content/uploads/elementor/thumbs/pexels-christian-paul-del-rosario-1076240-pjhccrnlpf69chqo4re4jcyzenulajslyetm55ym2s.jpg`,
+    name: `bosnai & herzegovina`,
+    link: ``,
+  },
+  {
+    image: `https://www.thehouse48.com/wp-content/uploads/elementor/thumbs/ne-3-1-pdhigtacej4acirrui0rp7ghym6q37udkz78ahlg04.jpg`,
+    name: `barabados`,
+    link: ``,
+  }
 ];
