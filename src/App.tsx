@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, Suspense } from "react";
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
 import Layout from "./Layout/Layout";
@@ -12,13 +12,16 @@ import Home from "./pages/home/Home";
 const App: FC = () => {
   return (
     <Layout>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/advertservice" element={<AdvertService />} />
-        <Route path="/blog" element={<Blog />} />
-        <Route path="/allcountries" element={<AllCountries />} />
-      </Routes>
+      <Suspense fallback={<h1>Loading...</h1>}>
+        
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/advertservice" element={<AdvertService />} />
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/allcountries" element={<AllCountries />} />
+        </Routes>
+      </Suspense>
     </Layout>
   );
 };
