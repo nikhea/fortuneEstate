@@ -38,7 +38,7 @@ const Countrie: FC = () => {
             {/* {console.log(continent.image)} */}
             <h1 className={style.title}>{continent.name}</h1>
             <button className={style.btn}>
-              <Link to="/allcountries" className={style.link}>
+              <Link to="/:id/properties" className={style.link}>
                 view properties
               </Link>
             </button>

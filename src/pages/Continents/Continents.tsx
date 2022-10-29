@@ -18,7 +18,7 @@ const style = {
   discoverTitle: `text-[#7f7f7f] capitalize font-bold text-5xl mb-[1em]`,
   btn: `bg-[#06c4e5] text-[0.9rem] tracking-[3px] text-white py-2 px-2 uppercase rounded`,
 };
-const allCountries: FC = () => {
+const Continents: FC = () => {
   return (
     <div>
       <ContinentBanner />
@@ -65,4 +65,4 @@ export const Discover = () => {
   );
 };
 
-export default allCountries;
+export default Continents;
