@@ -4,6 +4,7 @@ import "react-lazy-load-image-component/src/effects/blur.css";
 import { MdLocationPin } from "react-icons/md";
 import ContinentBanner from "../../components/ContinentBanner/continentBanner";
 import { continent } from "../../data/continent";
+import Spinner from "../../components/UI/spinner/spinner"
 
 const style = {
   container: `w-[90%] m-auto items-center justify-center flex flex-wrap my-[4rem]`,
@@ -39,6 +40,7 @@ const allCountries: FC = () => {
                   style={{ marginRight: "11px" }}
                 />{" "}
                 view continents
+                {/* <Spinner/> */}
               </a>
             </button>
           </div>

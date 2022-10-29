@@ -1,7 +1,7 @@
-import React from "react";
-import "spinner.tsx";
-const spinner = () => {
+import { FC } from "react";
+import "./spinner.css";
+const Spinner: FC = () => {
   return <span className="loader"></span>;
 };
 
-export default spinner;
+export default Spinner;
