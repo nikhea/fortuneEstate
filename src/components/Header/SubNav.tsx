@@ -14,7 +14,7 @@ const style = {
   container: ` flex justify-between w-[95%]  m-auto  text-xs  items-center`,
   social: `flex mx-[40px] `,
   rightSide: `flex`,
-  background: ` py-[0.1px] h-[3em] flex bg-[#0D304A] fixed right-0 left-0 top-0 text-white`,
+  background: ` py-[0.1px] h-[3em] flex bg-[#0D304A] fixed right-0 left-0 top-0 text-white z-[99]`,
 };
 
 // linear-gradient(271deg, #0D304A, #0D304A);
@@ -48,7 +48,7 @@ const SubNav: FC = () => {
             />
           </div>
           <div className={style.LinkAuth}>
-            <Modal />
+            {/* <Modal /> */}
             <Link to="" style={{ marginRight: "11px" }}>
               Sign up
             </Link>

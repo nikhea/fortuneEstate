@@ -19,7 +19,6 @@ const App: FC = () => {
         <Route path="/blog" element={<Blog />} />
         <Route path="/allcountries" element={<AllCountries />} />
       </Routes>
- 
     </Layout>
   );
 };

@@ -6,7 +6,6 @@ import HouseBanner from "../components/HouseBanner/HouseBanner";
 import Social from "../components/social";
 import Footer from "../components/footer/footer";
 interface layout {
-  // Children:any
   children: React.ReactNode;
 }
 

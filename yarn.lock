@@ -463,6 +463,14 @@
   dependencies:
     "@types/react" "*"
 
+"@types/react-lazy-load-image-component@^1.5.2":
+  "integrity" "sha512-4NLJsMJVrMv18FuMIkUUBVj/PH9A+BvLKrZC75EWiEFn1IsMrZHgL1tVKw5QBfoa0Qjz6SkWIzEvwcyZ8PgnIg=="
+  "resolved" "https://registry.npmjs.org/@types/react-lazy-load-image-component/-/react-lazy-load-image-component-1.5.2.tgz"
+  "version" "1.5.2"
+  dependencies:
+    "@types/react" "*"
+    "csstype" "^3.0.2"
+
 "@types/react-modal@^3.13.1":
   "integrity" "sha512-iY/gPvTDIy6Z+37l+ibmrY+GTV4KQTHcCyR5FIytm182RQS69G5ps4PH2FxtC7bAQ2QRHXMevsBgck7IQruHNg=="
   "resolved" "https://registry.npmjs.org/@types/react-modal/-/react-modal-3.13.1.tgz"
@@ -1262,6 +1270,11 @@
   "resolved" "https://registry.npmjs.org/lines-and-columns/-/lines-and-columns-1.2.4.tgz"
   "version" "1.2.4"
 
+"lodash.debounce@^4.0.8":
+  "integrity" "sha512-FT1yDzDYEoYWhnSGnpE/4Kj1fLZkDFyqRb7fNt6FdYOSxlUWAtp42Eh6Wb0rGIv/m9Bgo7x4GhQbm5Ys4SG5ow=="
+  "resolved" "https://registry.npmjs.org/lodash.debounce/-/lodash.debounce-4.0.8.tgz"
+  "version" "4.0.8"
+
 "lodash.flatmap@^4.5.0":
   "integrity" "sha512-/OcpcAGWlrZyoHGeHh3cAoa6nGdX6QYtmzNP84Jqol6UEQQ2gIaU3H+0eICcjcKGl0/XF8LWOujNn9lffsnaOg=="
   "resolved" "https://registry.npmjs.org/lodash.flatmap/-/lodash.flatmap-4.5.0.tgz"
@@ -1276,6 +1289,11 @@
   "integrity" "sha512-0KpjqXRVvrYyCsX1swR/XTK0va6VQkQM6MNo7PqW77ByjAhoARA8EfrP1N4+KlKj8YS0ZUCtRT/YUuhyYDujIQ=="
   "resolved" "https://registry.npmjs.org/lodash.merge/-/lodash.merge-4.6.2.tgz"
   "version" "4.6.2"
+
+"lodash.throttle@^4.1.1":
+  "integrity" "sha512-wIkUCfVKpVsWo3JSZlc+8MB5it+2AN5W8J7YVMST30UrvcQNZ1Okbj+rbVniijTWE6FGYy4XJq/rHkas8qJMLQ=="
+  "resolved" "https://registry.npmjs.org/lodash.throttle/-/lodash.throttle-4.1.1.tgz"
+  "version" "4.1.1"
 
 "lodash.topath@^4.5.2":
   "integrity" "sha512-1/W4dM+35DwvE/iEd1M9ekewOSTlpFekhw9mhAtrwjVqUr83/ilQiyAvmg4tVX7Unkcfl1KC+i9WdaT4B6aQcg=="
@@ -1578,7 +1596,7 @@
   dependencies:
     "vanilla-swipe" "^2.2.0"
 
-"react-dom@^0.14.0 || ^15.0.0 || ^16 || ^17 || ^18", "react-dom@^16.8.0 || ^17.0.0 || ^18.0.0", "react-dom@^18.2.0", "react-dom@>= 16.8.0", "react-dom@>=16.6.0", "react-dom@>=16.8":
+"react-dom@^0.14.0 || ^15.0.0 || ^16 || ^17 || ^18", "react-dom@^15.x.x || ^16.x.x || ^17.x.x || ^18.x.x", "react-dom@^16.8.0 || ^17.0.0 || ^18.0.0", "react-dom@^18.2.0", "react-dom@>= 16.8.0", "react-dom@>=16.6.0", "react-dom@>=16.8":
   "integrity" "sha512-6IMTriUmvsjHUjNtEDudZfuDQUoWXVxKHhlEGSk81n4YFS+r/Kl99wXiwlVXtPBtJenozv2P+hxDsw9eA7Xo6g=="
   "resolved" "https://registry.npmjs.org/react-dom/-/react-dom-18.2.0.tgz"
   "version" "18.2.0"
@@ -1595,6 +1613,14 @@
   "integrity" "sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ=="
   "resolved" "https://registry.npmjs.org/react-is/-/react-is-16.13.1.tgz"
   "version" "16.13.1"
+
+"react-lazy-load-image-component@^1.5.5":
+  "integrity" "sha512-pPtq48tIhkLIZg6MAhB3VvVhntJLrc3MBun/lQkNmNtrRFXdjEc5aHlPT5EhpXPQR1nsNVwN91ne6Aagm3rtNQ=="
+  "resolved" "https://registry.npmjs.org/react-lazy-load-image-component/-/react-lazy-load-image-component-1.5.5.tgz"
+  "version" "1.5.5"
+  dependencies:
+    "lodash.debounce" "^4.0.8"
+    "lodash.throttle" "^4.1.1"
 
 "react-lifecycles-compat@^3.0.0":
   "integrity" "sha512-fBASbA6LnOU9dOU2eW7aQ8xmYBSXUIWr+UmF9b1efZBazGNO+rcXT/icdKnYm2pTwcRylVUYwW7H1PHfLekVzA=="
@@ -1661,7 +1687,7 @@
     "loose-envify" "^1.4.0"
     "prop-types" "^15.6.2"
 
-"react@*", "react@^0.14.0 || ^15.0.0 || ^16 || ^17 || ^18", "react@^16.8.0 || ^17.0.0 || ^18.0.0", "react@^16.8.0 || 17.x || ^18", "react@^18.2.0", "react@>= 16.8.0", "react@>=15.4", "react@>=16.6.0", "react@>=16.8", "react@>=16.8.0":
+"react@*", "react@^0.14.0 || ^15.0.0 || ^16 || ^17 || ^18", "react@^15.x.x || ^16.x.x || ^17.x.x || ^18.x.x", "react@^16.8.0 || ^17.0.0 || ^18.0.0", "react@^16.8.0 || 17.x || ^18", "react@^18.2.0", "react@>= 16.8.0", "react@>=15.4", "react@>=16.6.0", "react@>=16.8", "react@>=16.8.0":
   "integrity" "sha512-/3IjMdb2L9QbBdWiW5e3P2/npwMBaU9mHCSCUzNln0ZCYbcfTsGbTJrU/kGemdH2IWmB2ioZ+zkxtmq6g09fGQ=="
   "resolved" "https://registry.npmjs.org/react/-/react-18.2.0.tgz"
   "version" "18.2.0"
