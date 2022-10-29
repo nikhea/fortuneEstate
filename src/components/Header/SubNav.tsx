@@ -1,4 +1,4 @@
-import { FC, useState } from "react";
+import { FC } from "react";
 import { MdOutlineMail } from "react-icons/md";
 import {
   AiOutlineInstagram,
@@ -14,7 +14,7 @@ const style = {
   container: ` flex justify-between w-[95%]  m-auto  text-xs  items-center`,
   social: `flex mx-[40px] `,
   rightSide: `flex`,
-  background: ` py-[0.1px] h-[3em] flex bg-[#0D304A] fixed right-0 left-0 top-0 `,
+  background: ` py-[0.1px] h-[3em] flex bg-[#0D304A] fixed right-0 left-0 top-0 text-white`,
 };
 
 // linear-gradient(271deg, #0D304A, #0D304A);

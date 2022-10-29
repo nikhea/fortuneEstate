@@ -1,11 +1,11 @@
 import { FC } from "react";
 import YoutubeVideo from "../../assets/home.mp4";
-import MainNav from "../Header/MainNav";
+
 import MainText from "../Header/MainText";
-import SubNav from "../Header/SubNav";
+
 
 const style = {
-  iframeContainer: `w-full h-screen  object-contain overflow-x-hidden relative bg-fixed z-1`,
+  iframeContainer: `w-full h-screen  object-contain overflow-x-hidden relative bg-fixed absolute top-0`,
   video: `h-full w-full object-cover  bg-fixed`,
   container: `h-full`,
   textContainer: `absolute text-white z-[1] w-full`,
@@ -15,12 +15,10 @@ const Youtube: FC = () => {
   return (
     <div className={style.iframeContainer}>
       <div className={style.textContainer}>
-        <SubNav />
-        <MainNav />
         <MainText />
       </div>
       <div className={style.overlay}></div>
-      {/* <video className={style.video} src={YoutubeVideo} autoPlay loop muted /> */}
+      <video className={style.video} src={YoutubeVideo} autoPlay loop muted />
     </div>
   );
 };

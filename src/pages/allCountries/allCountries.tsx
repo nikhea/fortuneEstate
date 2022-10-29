@@ -43,7 +43,7 @@ const style = {
   discoverContainer: `w-[92%] m-auto bg-[#e6e9efa3] h-[60vh] mb-[7%]`,
   discoverText: `text-center flex items-center h-full justify-center flex-col `,
   discoverTitle: `text-[#7f7f7f] capitalize font-bold text-5xl mb-[1em]`,
-  btn: `bg-[#06c4e5] text-[0.9rem] tracking-[3px] text-white py-2 px-2 uppercase`,
+  btn: `bg-[#06c4e5] text-[0.9rem] tracking-[3px] text-white py-2 px-2 uppercase rounded`,
 };
 const allCountries: FC = () => {
   return (
