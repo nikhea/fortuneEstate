@@ -14,7 +14,7 @@ interface pageChange {
 const properties: FC = () => {
   const [Slicedproperties] = useState(propertiesData);
   const [pageNumber, setPageNumber] = useState(0);
-  const propertiesPerPage = 10;
+  const propertiesPerPage = 13;
   const productCount = Math.ceil(Slicedproperties.length / propertiesPerPage);
   const pagesVisted = pageNumber * propertiesPerPage;
 

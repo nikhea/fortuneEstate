@@ -91,7 +91,7 @@ const propertiesList: FC<propertiesList> = ({
             </div>
             <h1 className={style.title}>{title}</h1>
             <div className={style.location}>
-              <MdLocationPin size={20} />
+              <MdLocationPin size={15} style={{marginRight: "5px" }} />
               <p>{location}</p>
             </div>
             <div className={style.sub}>
