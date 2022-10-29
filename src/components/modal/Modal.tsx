@@ -36,8 +36,8 @@ const Modal: FC = () => {
           },
 
           content: {
-            color: "lightsteelblue",
-            width: "60%",
+            // color: "lightsteelblue",
+            width: "70%",
             margin: " 0 auto",
             overflow: "hidden",
             // display: "flex",
