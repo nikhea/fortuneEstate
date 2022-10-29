@@ -1,6 +1,6 @@
 import { FC, useState } from "react";
 import ReactModal from "react-modal";
-import Auth from "../autht/auth";
+import Auth from "../../autht/auth";
 interface modals {
   modalIsOpen: any;
   setIsOpen: any;

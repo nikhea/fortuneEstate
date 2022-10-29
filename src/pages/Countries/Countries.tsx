@@ -1,6 +1,7 @@
 import { FC } from "react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
+import { Link } from "react-router-dom";
 import { continent } from "../../data/continent";
 import Spinner from "../../components/UI/spinner/spinner";
 const style = {
@@ -19,6 +20,7 @@ const bg2 =
   "https://www.thehouse48.com/wp-content/uploads/2021/12/chris-barbalis-98731-unsplash.jpg";
 const bg =
   "https://www.thehouse48.com/wp-content/uploads/2021/12/chuttersnap-603079-unsplash-e1546425079773.jpg";
+  const bg3 = "https://www.thehouse48.com/wp-content/uploads/elementor/thumbs/architecture-building-canal-804954-pjkp3dtzc7d35m1dy3y1708yg1xkn4k4k5w2xn6uys.jpg"
 
 const Countrie: FC = () => {
   return (
@@ -36,9 +38,9 @@ const Countrie: FC = () => {
             {/* {console.log(continent.image)} */}
             <h1 className={style.title}>{continent.name}</h1>
             <button className={style.btn}>
-              <a href={continent.link} className={style.link}>
+              <Link to="/allcountries" className={style.link}>
                 view properties
-              </a>
+              </Link>
             </button>
           </div>
         ))}

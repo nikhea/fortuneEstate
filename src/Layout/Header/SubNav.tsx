@@ -6,7 +6,7 @@ import {
   AiOutlineTwitter,
 } from "react-icons/ai";
 import { Link } from "react-router-dom";
-import Modal from "../modal/Modal";
+import Modal from "../../components/UI/modal/Modal";
 
 const style = {
   LinkAuth: `uppercase justify-end`,

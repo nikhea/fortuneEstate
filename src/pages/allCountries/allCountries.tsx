@@ -1,6 +1,7 @@
 import { FC } from "react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
+import {Link} from "react-router-dom"
 import { MdLocationPin } from "react-icons/md";
 import ContinentBanner from "../../components/ContinentBanner/continentBanner";
 import { continent } from "../../data/continent";
@@ -33,7 +34,7 @@ const allCountries: FC = () => {
             {/* {console.log(continent.image)} */}
             <h1 className={style.title}>{continent.name}</h1>
             <button className={style.btn}>
-              <a href={continent.link} className={style.link}>
+              <Link to="/1/countries" className={style.link}>
                 <MdLocationPin
                   size={20}
                   color="#"
@@ -41,7 +42,7 @@ const allCountries: FC = () => {
                 />{" "}
                 view continents
                 {/* <Spinner/> */}
-              </a>
+              </Link>
             </button>
           </div>
         ))}

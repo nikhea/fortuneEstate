@@ -1,7 +1,7 @@
 import { FC } from "react";
-import Header from "../../components/Header";
+import Header from "../../Layout/Header";
 import FilterCard from "../../components/card/filterCard";
-import Carousel from "../../components/caroules/carousel";
+import Carousel from "../../components/UI/caroules/carousel";
 
 const App: FC = () => {
   return (

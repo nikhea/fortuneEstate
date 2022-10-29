@@ -38,7 +38,7 @@ const CountrieBanner: FC<CountrieProps> = ({
 
           <div className={style.textInner}>
             <div className={style.hr}></div>
-            <Link className={style.btn} to="/">
+            <Link className={style.btn} to="/allcountries">
               view all countries
             </Link>
           </div>

@@ -1,6 +1,6 @@
 import { FC } from "react";
 
-import ScrollToTop from "../ScrollToTop/scrollToTop";
+import ScrollToTop from "../../components/ScrollToTop/scrollToTop";
 
 
 const style = {

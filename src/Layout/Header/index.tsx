@@ -1,10 +1,8 @@
 import { FC } from "react";
 
-import YoutubeVideo from "../youtubeVido/Youtube";
+import YoutubeVideo from "../../components/youtubeVido/Youtube";
 
-const style = {
-
-};
+const style = {};
 const index: FC = () => {
   return (
     <div>

@@ -2,10 +2,11 @@ import { FC } from "react";
 import AliceCarousel from "react-alice-carousel";
 import "react-alice-carousel/lib/alice-carousel.css";
 
-import AbujaAura11zon from "../../images/Abuja-Aura_11zon-1.jpeg";
-import FhmkGif from "../../images/Fhmk-1-1.gif";
-import LagosJpg from "../../images/Lagos-970x250-1_11zon.jpg";
-import UntitledDesign from "../../images/Untitled-design-3-1.png";
+import AbujaAura11zon from "../../../images/Abuja-Aura_11zon-1.jpeg";
+import FhmkGif from "../../../images/Fhmk-1-1.gif";
+import LagosJpg from "../../../images/Lagos-970x250-1_11zon.jpg";
+import UntitledDesign from "../../../images/Untitled-design-3-1.png";
+
 const handleDragStart = (e: { preventDefault: () => any }) =>
   e.preventDefault();
 

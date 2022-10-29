@@ -1,8 +1,7 @@
 import { FC } from "react";
 import YoutubeVideo from "../../assets/home.mp4";
 
-import MainText from "../Header/MainText";
-
+import MainText from "../../Layout/Header/MainText";
 
 const style = {
   iframeContainer: `w-full h-screen  object-contain overflow-x-hidden relative bg-fixed absolute top-0`,

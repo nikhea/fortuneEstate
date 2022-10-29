@@ -5,15 +5,14 @@ const style = {
   lists: `capitalize hidden md:flex justify-between mr-[100px]`,
   list: ` mx-[35px] text-center items `,
   logo: `w-[200px]`,
-  btn:`uppercase bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full px-9 py-2 tracking-widest`
-
+  btn: `uppercase bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full px-9 py-2 tracking-widest`,
 };
 const MainNav: FC = () => {
   return (
     <div className={style.container}>
-      <div className={style.logo}>
+      <Link to="/" className={style.logo}>
         <img src="https://www.thehouse48.com/wp-content/uploads/2021/11/cropped-H48-1280x400-1.png" />
-      </div>
+      </Link>
 
       <ul className={style.lists}>
         <li className={style.list}>
