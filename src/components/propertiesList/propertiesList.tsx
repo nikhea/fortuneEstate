@@ -25,7 +25,7 @@ interface propertiesList {
 }
 const style = {
   container: `mx-5`,
-  cardContainer: ` mx-[5px] rounded bg-white hover:shadow-2xl mb-5 `,
+  cardContainer: ` mx-[5px] rounded bg-white hover:shadow-xl  mb-5 transistion ease-out duration-1000 `,
   MainContainer: ``,
   imgContainer: `w-full flex rounded`,
   image: ` w-full h-full object-cover flex rounded-t`,
