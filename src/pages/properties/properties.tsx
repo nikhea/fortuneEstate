@@ -1,5 +1,5 @@
 import { FC, useState } from "react";
-import "./properties.css"
+import "./properties.css";
 import MainCard from "../../components/card/MainCard";
 import PropertiesList from "../../components/propertiesList/propertiesList";
 import Pagination from "../../components/UI/Pagination";
@@ -42,6 +42,14 @@ const properties: FC = () => {
       />
     </div>
   ));
+  const displaySlicedproperties = Slicedproperties.sort((a, b) => b - a)
+    .slice(0, 3)
+    .map((property, index) => (
+      <div key={index} className="my-5">
+        <MainCard width={20}>{JSON.stringify(property)}</MainCard>
+      </div>
+    ));
+
   const pageChange = ({ selected }) => {
     setPageNumber(selected);
   };
@@ -59,7 +67,7 @@ const properties: FC = () => {
         <h1 className={style.newListingTitle}> new listing</h1>
         <h3 className="divider"></h3>
         <MainCard width={20}>
-          <h1>lorem ipsum dolor sit amet, consectetur adip</h1>
+          <div>{displaySlicedproperties}</div>
         </MainCard>
       </div>
     </div>
