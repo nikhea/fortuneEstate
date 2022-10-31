@@ -3,12 +3,13 @@ import "./properties.css";
 import MainCard from "../../components/card/MainCard";
 import PropertiesList from "../../components/propertiesList/propertiesList";
 import Pagination from "../../components/UI/Pagination";
+import NewListing from "../../components/propertiesList/newListing";
 import { propertiesData } from "../../data/property";
 const style = {
   bgContainer: `bg-[#F6F6F6] py-[6em]  pl-[2em] overflow-hidden md:grid md:grid-cols-10`,
   container: ` w-full md:grid grid-cols-1 md:grid-cols-2   m-0 p-0 `,
-  newListing: `col-start-8 col-end-10`,
-  newListingTitle: `text-[1.5rem] uppercase z-1 p-0 text-[#0D304A] text-center  unset font-[500]`,
+  newListing: `col-start-8 col-end-11`,
+  newListingTitle: `text-[1.5rem] uppercase z-1 p-0 text-[#0D304A] text-center  unset font-[500] m-10`,
 };
 // container: ` w-full  grid  grid-cols-1 md:grid-cols-2 grid-rows-3  m-0 p-0 `,
 interface pageChange {
@@ -45,8 +46,14 @@ const properties: FC = () => {
   const displaySlicedproperties = Slicedproperties.sort((a, b) => b - a)
     .slice(0, 3)
     .map((property, index) => (
-      <div key={index} className="my-5">
-        <MainCard width={20}>{JSON.stringify(property)}</MainCard>
+      <div key={index}>
+        <NewListing
+          image={property.image}
+          title={property.title}
+          price={property.price}
+          location={property.location}
+          tage={property.tage}
+        />
       </div>
     ));
 
@@ -66,9 +73,9 @@ const properties: FC = () => {
       <div className={style.newListing}>
         <h1 className={style.newListingTitle}> new listing</h1>
         <h3 className="divider"></h3>
-        <MainCard width={20}>
+        <div>
           <div>{displaySlicedproperties}</div>
-        </MainCard>
+        </div>
       </div>
     </div>
   );
