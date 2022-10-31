@@ -1,4 +1,4 @@
-import { FC, useState} from "react";
+import { FC, useState } from "react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
 import { Link } from "react-router-dom";
@@ -7,6 +7,7 @@ import {
   MdOutlineFavoriteBorder,
   MdOutlineFavorite,
 } from "react-icons/md";
+import { FaBed, FaBath, FaUserCircle } from "react-icons/fa";
 import { GrFavorite } from "react-icons/gr";
 import Spinner from "../../components/UI/spinner/spinner";
 interface propertiesList {
@@ -23,28 +24,28 @@ interface propertiesList {
   agentImage: string;
 }
 const style = {
-    container: `mx-5`,
-    cardContainer: ` mx-[5px] rounded bg-white hover:shadow-2xl mb-5 `,
-    MainContainer: ``,
-    imgContainer: `w-full flex rounded`,
-    image: ` w-full h-full object-cover flex rounded-t`,
-    textContainer: ` flex flex-col justify-between pt-[2em] px-[2em]`,
-    sub: `flex justify-between items-center  mb-[20px] leading`,
-    price: `text-[#736efe] font-bold text-[1rem]`,
-    title: `font-bold text-xl leading-10`,
-    location: `font-[400] text-[#8392A5] leading-10 flex items-center `,
-    bed: `text-sm  leading-10`,
-    span: `font-[400] text-[#8392A5]`,
-    bath: `text-sm leading-10`,
-    hr: `bg-[#8392a5] h-[.1px]   text-center flex items-center justify-center mb-5`,
-    agent: `text-sm leading-10 font-[400] text-[#8392A5] ml-3`,
-    agentImage: ` w-[15%] h-[15%] rounded-full`,
-    imgAgent: ` w-full h-full rounded-full`,
-    agentDetails: `flex items-center`,
-    card: ` w-full rounded sm:fle block `,
-    like: `cursor-pointer`,
-    tag: `rounded text-[0.7rem] py-1 px-3   block capitalize  flex bg-[#736EFE] outline-none text-white `,
-  };
+  container: `mx-5`,
+  cardContainer: ` mx-[5px] rounded bg-white hover:shadow-2xl mb-5 `,
+  MainContainer: ``,
+  imgContainer: `w-full flex rounded`,
+  image: ` w-full h-full object-cover flex rounded-t`,
+  textContainer: ` flex flex-col justify-between pt-[2em] px-[2em]`,
+  sub: `flex justify-between items-center  mb-[20px] leading`,
+  price: `text-[#736efe] font-bold text-[1rem]`,
+  title: `font-bold text-xl leading-10`,
+  location: `font-[400] text-[#8392A5] leading-10 flex items-center `,
+  bed: `text-sm  leading-10 flex items-center`,
+  span: `font-[400] text-[#8392A5]`,
+  bath: `text-sm leading-10 flex items-center`,
+  hr: `bg-[#8392a5] h-[.1px]   text-center flex items-center justify-center mb-5`,
+  agent: `text-sm leading-10 font-[400] text-[#8392A5] ml-3`,
+  agentImage: ` max-w-[35px]  h-[35px] rounded-full flex items-center`,
+  imgAgent: ` w-full h-full rounded-full`,
+  agentDetails: `flex items-center`,
+  card: ` w-full rounded sm:fle block `,
+  like: `cursor-pointer`,
+  tag: `rounded text-[0.7rem] py-1 px-3   block capitalize  flex bg-[#736EFE] outline-none text-white `,
+};
 const propertiesList: FC<propertiesList> = ({
   image,
   images,
@@ -58,14 +59,13 @@ const propertiesList: FC<propertiesList> = ({
   agent,
   agentImage,
 }) => {
-    const [likes, setLike] =useState(false)
+  const [likes, setLike] = useState(false);
 
   const handleClick = () => {
     like = !like;
 
     console.log(like);
-    setLike(like)
-    
+    setLike(like);
   };
   return (
     <div className={style.container}>
@@ -78,7 +78,7 @@ const propertiesList: FC<propertiesList> = ({
               src={image}
               className={style.image}
             />
-               {/* <img
+            {/* <img
               alt={title}
               src={image}
               className={style.image} */}
@@ -91,27 +91,34 @@ const propertiesList: FC<propertiesList> = ({
             </div>
             <h1 className={style.title}>{title}</h1>
             <div className={style.location}>
-              <MdLocationPin size={15} style={{marginRight: "5px" }} />
+              <MdLocationPin size={15} style={{ marginRight: "5px" }} />
               <p>{location}</p>
             </div>
             <div className={style.sub}>
               <p className={style.bed}>
-                <span className={style.span}>Bath :</span> {bed}
+                <span className={style.span}>
+                  <FaBed size={15} style={{ marginRight: "5px" }} />
+                </span>
+                {bed}
               </p>
               <p className={style.bath}>
-                <span className={style.span}>bath :</span> {bath}
+                <span className={style.span}> <FaBath size={15} style={{ marginRight: "5px" }} /></span> {bath}
               </p>
             </div>
             <div className={style.hr}></div>
             <div className={style.sub}>
               <div className={style.agentDetails}>
                 <div className={style.agentImage}>
-                  <LazyLoadImage
-                    className={style.imgAgent}
-                    alt={title}
-                    effect="blur"
-                    src={agentImage}
-                  />
+                  {agentImage ? (
+                    <LazyLoadImage
+                      className={style.imgAgent}
+                      alt={title}
+                      effect="blur"
+                      src={agentImage}
+                    />
+                  ) : (
+                    <FaUserCircle color='#8392A5' size={15} />
+                  )}
                 </div>
                 <p className={style.agent}> {agent}</p>
               </div>

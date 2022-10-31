@@ -10,7 +10,7 @@ export const propertiesData = [
     bath: 1,
     like: false,
     agent: `The House48`,
-    agentImage: `https://thispersondoesnotexist.com/image`,
+    agentImage: ``,
   },
   {
     image: `https://www.thehouse48.com/wp-content/uploads/WPL/478/img_london-1-420x284.jpg`,
@@ -23,7 +23,7 @@ export const propertiesData = [
     bath: 1,
     like: true,
     agent: `The House48`,
-    agentImage: `https://thispersondoesnotexist.com/image`,
+    agentImage: ``,
   },
   {
     image: `https://www.thehouse48.com/wp-content/uploads/WPL/478/img_london-1-420x284.jpg`,
