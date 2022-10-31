@@ -3,12 +3,13 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
 import { Link } from "react-router-dom";
 import { countries } from "../../data/countries";
+import Button from "../../components/UI/FormElement/Button";
 import Spinner from "../../components/UI/spinner/spinner";
 const style = {
-  container: `w-[90%] m-auto items-center justify-center grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 grid-rows-3 my-[4rem]`,
+  container: `w-[90%] m-auto items-center justify-center grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 grid-rows-3 my-[4rem] overflow-hidden`,
   items: `mx-6 mb-9 leading-[2] fl items-center flex-col `,
   title: ` uppercase text-[1.5rem] text-[#7f7f7f] font-normal tracking-[1.1px] text-center`,
-  imgContainer:``,
+  imgContainer: ``,
   image: ` w-[100vw] bg-black  `,
   link: `flex items-center text-center justify-center `,
   discoverContainer: `w-[92%] m-auto bg-[#e6e9efa3] h-[60vh] mb-[7%]`,
@@ -42,11 +43,11 @@ const Countrie: FC = () => {
             </div>
             {/* {console.log(countries.image)} */}
             <h1 className={style.title}>{countrie.name}</h1>
-            <button className={style.btn}>
-              <Link to="/:id/properties" className={style.link}>
-                view properties
-              </Link>
-            </button>
+            <Link to="/:id/properties">
+              <Button uppercase primary isCurve full>
+                <div className={style.link}>view properties</div>
+              </Button>
+            </Link>
           </div>
         ))}
       </div>

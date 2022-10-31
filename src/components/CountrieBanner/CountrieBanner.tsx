@@ -1,6 +1,6 @@
 import { FC } from "react";
 import { Link } from "react-router-dom";
-
+import Button from "../../components/UI/FormElement/Button";
 interface CountrieProps {
   CountrieName: string;
   CountrieBanner: string;
@@ -41,6 +41,9 @@ const CountrieBanner: FC<CountrieProps> = ({
             <Link className={style.btn} to="/Continents">
               view all countries
             </Link>
+            {/* <Link  to="/Continents">
+              <Button linearGradient border padding rounded uppercase > view all countries</Button>
+            </Link> */}
           </div>
         </div>
       </div>

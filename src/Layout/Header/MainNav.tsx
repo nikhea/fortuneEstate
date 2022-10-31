@@ -1,11 +1,12 @@
 import { FC } from "react";
 import { Link } from "react-router-dom";
+import Button from "../../components/UI/FormElement/Button";
 const style = {
   container: ` flex justify-between w-[95%]  m-auto my-3 text-center items-center mt-[4rem]`,
   lists: `capitalize hidden md:flex justify-between mr-[100px]`,
   list: ` mx-[35px] text-center items `,
   logo: `w-[200px]`,
-  btn: `uppercase bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full px-9 py-2 tracking-widest`,
+  btn: `uppercase  rounded-full `,
 };
 const MainNav: FC = () => {
   return (
@@ -32,7 +33,9 @@ const MainNav: FC = () => {
         </li>
       </ul>
 
-      <button className={style.btn}>adverties</button>
+      <Button primary rounded linearGradient uppercase>
+        adverties
+      </Button>
     </div>
   );
 };
