@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { MdLocationPin } from "react-icons/md";
 import ContinentBanner from "../../components/ContinentBanner/continentBanner";
 import { continent } from "../../data/continent";
+import Button from "../../components/UI/FormElement/Button";
 import Spinner from "../../components/UI/spinner/spinner";
 
 const style = {
@@ -37,7 +38,7 @@ const Continents: FC = () => {
             </div>
             {/* {console.log(continent.image)} */}
             <h1 className={style.title}>{continent.name}</h1>
-            <button className={style.btn}>
+            <Button isCurve disabled>
               <Link to="/1/countries" className={style.link}>
                 <MdLocationPin
                   size={20}
@@ -47,7 +48,7 @@ const Continents: FC = () => {
                 view continents
                 {/* <Spinner/> */}
               </Link>
-            </button>
+            </Button>
           </div>
         ))}
       </div>
