@@ -8,7 +8,8 @@ import { propertiesData } from "../../data/property";
 const style = {
   bgContainer: `bg-[#F6F6F6] py-[6em]  pl-[2em] overflow-hidden md:grid md:grid-cols-10`,
   container: ` w-full md:grid grid-cols-1 md:grid-cols-2   m-0 p-0 `,
-  newListing: `col-start-8 col-end-11`,
+  colLeft: ` flex flex-col  col-start-8 col-end-11 -mt-10 m-auto ml-[1em] mr-[2em]    `,
+  newListing: ``,
   newListingTitle: `text-[1.5rem] uppercase z-1 p-0 text-[#0D304A] text-center  unset font-[500] m-10`,
 };
 // container: ` w-full  grid  grid-cols-1 md:grid-cols-2 grid-rows-3  m-0 p-0 `,
@@ -70,11 +71,27 @@ const properties: FC = () => {
           <h1>properties Per Page{propertiesPerPage}</h1>
         </MainCard>
       </div>
-      <div className={style.newListing}>
-        <h1 className={style.newListingTitle}> new listing</h1>
-        <h3 className="divider"></h3>
-        <div>
-          <div>{displaySlicedproperties}</div>
+      <div className={style.colLeft}>
+        <div className={style.newListing}>
+          <h1 className={style.newListingTitle}> search</h1>
+          <h3 className="divider"></h3>
+          <div>
+            <div>{displaySlicedproperties}</div>
+          </div>
+        </div>
+        <div className={style.newListing}>
+          <h1 className={style.newListingTitle}>new listing</h1>
+          <h3 className="divider"></h3>
+          <div>
+            <div>{displaySlicedproperties}</div>
+          </div>
+        </div>
+        <div className={style.newListing}>
+          <h1 className={style.newListingTitle}>featured properties</h1>
+          <h3 className="divider"></h3>
+          <div>
+            <div>{displaySlicedproperties}</div>
+          </div>
         </div>
       </div>
     </div>
