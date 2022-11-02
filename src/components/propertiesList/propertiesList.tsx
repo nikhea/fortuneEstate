@@ -2,6 +2,8 @@ import { FC, useState } from "react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
 import { Link } from "react-router-dom";
+import { routes } from "../../routes/routes";
+
 import {
   MdLocationPin,
   MdOutlineFavoriteBorder,
@@ -71,25 +73,29 @@ const propertiesList: FC<propertiesList> = ({
     <div className={style.container}>
       <div className={style.cardContainer}>
         <div className={style.card}>
-          <div className={style.imgContainer}>
-            <LazyLoadImage
-              alt={title}
-              effect="blur"
-              src={image}
-              className={style.image}
-            />
-            {/* <img
+          <Link to={routes.property}>
+            <div className={style.imgContainer}>
+              <LazyLoadImage
+                alt={title}
+                effect="blur"
+                src={image}
+                className={style.image}
+              />
+              {/* <img
               alt={title}
               src={image}
               className={style.image} */}
-            {/* /> */}
-          </div>
+              {/* /> */}
+            </div>
+          </Link>
           <div className={style.textContainer}>
             <div className={style.sub}>
               <p className={style.tag}>{tage}</p>
               <p className={style.price}>$ {price}</p>
             </div>
-            <h1 className={style.title}>{title}</h1>
+            <Link to={routes.property}>
+              <h1 className={style.title}>{title}</h1>
+            </Link>
             <div className={style.location}>
               <MdLocationPin size={15} style={{ marginRight: "5px" }} />
               <p>{location}</p>
@@ -102,7 +108,11 @@ const propertiesList: FC<propertiesList> = ({
                 {bed}
               </p>
               <p className={style.bath}>
-                <span className={style.span}> <FaBath size={15} style={{ marginRight: "5px" }} /></span> {bath}
+                <span className={style.span}>
+                  {" "}
+                  <FaBath size={15} style={{ marginRight: "5px" }} />
+                </span>{" "}
+                {bath}
               </p>
             </div>
             <div className={style.hr}></div>
@@ -117,7 +127,7 @@ const propertiesList: FC<propertiesList> = ({
                       src={agentImage}
                     />
                   ) : (
-                    <FaUserCircle color='#8392A5' size={15} />
+                    <FaUserCircle color="#8392A5" size={15} />
                   )}
                 </div>
                 <p className={style.agent}> {agent}</p>
