@@ -1,5 +1,6 @@
 import { FC } from "react";
 import { Link } from "react-router-dom";
+import {routes} from "../../routes/routes"
 import Button from "../../components/UI/FormElement/Button";
 interface CountrieProps {
   CountrieName: string;
@@ -38,7 +39,7 @@ const CountrieBanner: FC<CountrieProps> = ({
 
           <div className={style.textInner}>
             <div className={style.hr}></div>
-            <Link className={style.btn} to="/Continents">
+            <Link className={style.btn} to={routes.continents}>
               view all countries
             </Link>
             {/* <Link  to="/Continents">

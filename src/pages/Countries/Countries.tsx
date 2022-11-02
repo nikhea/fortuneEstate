@@ -2,6 +2,7 @@ import { FC } from "react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
 import { Link } from "react-router-dom";
+import { routes } from "../../routes/routes";
 import { countries } from "../../data/countries";
 import Button from "../../components/UI/FormElement/Button";
 import Spinner from "../../components/UI/spinner/spinner";
@@ -43,7 +44,7 @@ const Countrie: FC = () => {
             </div>
             {/* {console.log(countries.image)} */}
             <h1 className={style.title}>{countrie.name}</h1>
-            <Link to="/:id/properties">
+            <Link to={routes.properties}>
               <Button uppercase primary isCurve full>
                 <div className={style.link}>view properties</div>
               </Button>
