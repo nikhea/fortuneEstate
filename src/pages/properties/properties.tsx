@@ -22,7 +22,7 @@ const style = {
   headerLength: `flex items-end `,
   headerView: `flex items-center `,
   headerSort: `flex items-center`,
-  headerSelect:`ml-5`
+  headerSelect: `ml-5`,
 };
 // container: ` w-full  grid  grid-cols-1 md:grid-cols-2 grid-rows-3  m-0 p-0 `,
 interface pageChange {
@@ -56,6 +56,12 @@ const properties: FC = () => {
       />
     </div>
   ));
+  const descending = () => {
+    return Slicedproperties.sort((a, b) => b - a);
+  };
+  const ascending = () => {
+    return Slicedproperties.sort((a, b) => a - b);
+  };
   const displaySlicedproperties = Slicedproperties.sort((a, b) => b - a)
     .slice(0, 3)
     .map((property, index) => (
@@ -97,10 +103,13 @@ const properties: FC = () => {
                 </div>
               </div>
               <select className={style.headerSelect}>
-                <option value="Religious center ascending">
+                <option onClick={ascending} value="Religious center ascending">
                   Religious center ascending
                 </option>
-                <option value="Religious center descending">
+                <option
+                  onClick={descending}
+                  value="Religious center descending"
+                >
                   Religious center descending
                 </option>
               </select>
