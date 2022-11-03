@@ -1,7 +1,7 @@
 import { FC } from "react";
 import Button from "../../components/UI/FormElement/Button";
 const style = {
-  container: `flex  w-full m-auto absolut top-[70%] overflow-hidden  z-50 `,
+  container: `flex  w-full m-auto top-[70%] overflow-hidden   `,
   cardContainer: `w-[95%] m-auto rounded-[30px] bg-white shadow-2xl mb-3`,
   card: ` w-full pt-8 pb-5`,
   form: ` flex flex-wrap`,
@@ -12,6 +12,7 @@ const style = {
 };
 const filterCard: FC = () => {
   return (
+    <div>
     <div className={style.container}>
       <div className={style.cardContainer}>
         <div className={style.card}>
@@ -56,6 +57,7 @@ const filterCard: FC = () => {
           </form>
         </div>
       </div>
+    </div>
     </div>
   );
 };

@@ -11,7 +11,7 @@ interface layout {
 
 const Layout: FC<layout> = ({ children }) => {
   return (
-    <div>
+    <div className="">
       <SubNav />
       <MainNav />
       {children}

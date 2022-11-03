@@ -5,9 +5,12 @@ import Carousel from "../../components/UI/caroules/carousel";
 
 const App: FC = () => {
   return (
-    <div>
+    <div className="relative">
       <Header />
-      <FilterCard />
+      <div className="relative top-[70%] -mt-20">
+        <FilterCard />
+      </div>
+      
       <Carousel />
     </div>
   );
