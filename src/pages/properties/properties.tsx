@@ -4,6 +4,7 @@ import MainCard from "../../components/card/MainCard";
 import PropertiesList from "../../components/propertiesList/propertiesList";
 import Pagination from "../../components/UI/Pagination";
 import NewListing from "../../components/propertiesList/newListing";
+import FeaturedListing from "../../components/propertiesList/featuredListing"
 import { propertiesData } from "../../data/property";
 import {
   MdOutlineGridView,
@@ -135,13 +136,7 @@ const properties: FC = () => {
             <div>{displaySlicedproperties}</div>
           </div>
         </div>
-        <div className={style.newListing}>
-          <h1 className={style.newListingTitle}>featured properties</h1>
-          <h3 className="divider"></h3>
-          <div>
-            <div>{displaySlicedproperties}</div>
-          </div>
-        </div>
+        <FeaturedListing/>
       </div>
     </div>
   );
