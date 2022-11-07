@@ -5,3 +5,7 @@ export const HTTP_VERBS = {
     PATCH: 'patch',
     DELETE: 'delete'
   }
+
+
+// Contenet
+export const BRAND_PUBLISH_PRODUCT = '/brand/product/publish'
