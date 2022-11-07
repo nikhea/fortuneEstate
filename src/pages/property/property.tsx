@@ -1,6 +1,6 @@
 import { FC } from "react";
 import FeaturedListing from "../../components/propertiesList/featuredListing";
-// import ImageCard from "./components/image";
+import ImageCard from "./components/image";
 import TitlePrice from "./components/titlePrice";
 import AdditionalDetails from "./components/additionalDetails";
 import LocationAddress from "./components/LocationAddress";
@@ -18,6 +18,9 @@ const property: FC = () => {
   };
   return (
     <div className={style.bgContainer}>
+      <div className={style.full}>
+        <ImageCard />
+      </div>
       <div className={style.full}>
         <TitlePrice />
       </div>

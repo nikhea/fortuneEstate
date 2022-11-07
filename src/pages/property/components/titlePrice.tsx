@@ -4,7 +4,7 @@ import PropertiesCard from "../../../components/card/PropertyCard";
 
 const TitlePrice: FC = () => {
   const style = {
-    container:`mx-9 w-[50%]`,
+    container: `mx-9 w-[50%] m-auto`,
     Header: ``,
     titleHeader: `flex items-center `,
     title: `font-[500] text-3xl mr-8 drop-shadow-2xl my-5`,
@@ -17,29 +17,30 @@ const TitlePrice: FC = () => {
     Bathcontainer: ` flex items-center justify-between my-5`,
     bed: ``,
     bath: ``,
-   
   };
   return (
-    <PropertiesCard width={100} height={100}>
-     <div className={style.container}>
-     <header className={style.Header}>
-        <div className={style.titleHeader}>
-          <h1 className={style.title}>5 Bedroom Villla</h1>
-          <p className={style.tag}>for sale</p>
+    <div className="w-[90%] m-auto">
+      <PropertiesCard width={100} height={100}>
+        <div className={style.container}>
+          <header className={style.Header}>
+            <div className={style.titleHeader}>
+              <h1 className={style.title}>5 Bedroom Villla</h1>
+              <p className={style.tag}>for sale</p>
+            </div>
+          </header>
+          <div className={style.priceContainer}>
+            <h2 className={style.price}>US $,400,000</h2>
+            <p className={style.sqft}>1,375/sqft</p>
+          </div>
+          <p className={style.location}>Sandy Lane, Saint James</p>
+          <hr className={style.hr} />
+          <div className={style.Bathcontainer}>
+            <p className={style.bed}>5 Bed</p>
+            <p className={style.bath}>4 Bath</p>
+          </div>
         </div>
-      </header>
-      <div className={style.priceContainer}>
-        <h2 className={style.price}>US $,400,000</h2>
-        <p className={style.sqft}>1,375/sqft</p>
-      </div>
-      <p className={style.location}>Sandy Lane, Saint James</p>
-      <hr className={style.hr} />
-      <div className={style.Bathcontainer}>
-        <p className={style.bed}>5 Bed</p>
-        <p className={style.bath}>4 Bath</p>
-      </div>
-     </div>
-    </PropertiesCard>
+      </PropertiesCard>
+    </div>
   );
 };
 

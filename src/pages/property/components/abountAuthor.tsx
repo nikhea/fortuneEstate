@@ -13,7 +13,7 @@ const AboutAuthor: FC = () => {
       <div>
         <header className={style.header}>
           <div className="hr"></div>
-          <h1 className={style.title}>AboutAuthor</h1>
+          <h1 className={style.title}>About Author</h1>
         </header>
       </div>
     </PropertiesCard>
