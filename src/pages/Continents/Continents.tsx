@@ -23,25 +23,20 @@ const style = {
   // btn: `bg-[#06c4e5] w-full  text-center text-[0.9rem] tracking-[3px] text-white py-2  capitalize  rounded cursor-not-allowed`,
 };
 interface Props {
+  id: number;
   attributes: any;
-  name: any;
+  name: string;
   image: string;
 }
 const Continents: FC = () => {
-  const {
-    data: continents,
-    error,
-    isLoading,
-  } = useQuery(["contients"], getAllCONTINENTS);
-  // const p = continents?.data.map((_contin) => {});
-  if (isLoading) return <Spinner />;
-
+  const { data: continents } = useQuery(["contients"], getAllCONTINENTS);
+  console.log(continents);
   return (
     <div>
       <ContinentBanner />
       <div className={style.container}>
         {continents?.data.map((continent: Props, index: Key) => (
-          <div className={style.items} key={index}>
+          <div className={style.items} key={continent.id}>
             <div className={style.imgContainer}>
               <LazyLoadImage
                 alt={continent.attributes.name}
@@ -52,7 +47,7 @@ const Continents: FC = () => {
             </div>
             <h1 className={style.title}>{continent.attributes.name}</h1>
             <Link to={routes.countries}>
-              <Button uppercase primary isCurve full disabled>
+              <Button uppercase primary isCurve full>
                 <div className={style.link}>
                   <MdLocationPin
                     size={20}
