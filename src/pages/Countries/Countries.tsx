@@ -9,11 +9,11 @@ import { getCONTINENT } from "../../services/api/shared";
 import Button from "../../components/UI/FormElement/Button";
 import Spinner from "../../components/UI/spinner/spinner";
 const style = {
-  container: `w-[90%] m-auto items-center justify-center grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 grid-rows-3 my-[4rem] overflow-hidden`,
+  container: `w-[90%] m-auto items-center justify-center grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3  my-[4rem] overflow-hidden`,
   items: `mx-6 mb-9 leading-[2] fl items-center flex-col `,
   title: ` uppercase text-[1.5rem] text-[#7f7f7f] font-normal tracking-[1.1px] text-center`,
   imgContainer: ``,
-  image: ` w-[100vw] bg-black  `,
+  image: ` w-[100vw] bg-black rounded `,
   link: `flex items-center text-center justify-center `,
   discoverContainer: `w-[92%] m-auto bg-[#e6e9efa3] h-[60vh] mb-[7%]`,
   discoverText: `text-center flex items-center h-full justify-center flex-col `,
