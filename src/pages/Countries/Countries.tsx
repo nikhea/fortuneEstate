@@ -1,9 +1,11 @@
-import { FC } from "react";
+import { FC, Key } from "react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
-import { Link } from "react-router-dom";
+import { useQuery } from "@tanstack/react-query";
+import { Link, useParams } from "react-router-dom";
 import { routes } from "../../routes/routes";
-import { countries } from "../../data/countries";
+// import { countries } from "../../data/countries";
+import { getCONTINENT } from "../../services/api/shared";
 import Button from "../../components/UI/FormElement/Button";
 import Spinner from "../../components/UI/spinner/spinner";
 const style = {
@@ -26,24 +28,37 @@ const bg =
 const bg3 =
   "https://www.thehouse48.com/wp-content/uploads/elementor/thumbs/architecture-building-canal-804954-pjkp3dtzc7d35m1dy3y1708yg1xkn4k4k5w2xn6uys.jpg";
 
+interface Props {
+  id?: number;
+  attributes?: any;
+  name?: string;
+  image?: string;
+}
 const Countrie: FC = () => {
+  const { id } = useParams();
+  const { data: continent, error } = useQuery(["continent", id], () =>
+    getCONTINENT(id)
+  );
+  console.log(continent?.data.attributes);
+  const { name, bgImage, countries } = continent?.data.attributes || {};
+  console.log(name, bgImage);
+
   return (
     <div>
-      <CountrieBanner CountrieName={`africa`} CountrieBanner={bg2} />
+      <CountrieBanner CountrieName={name} CountrieBanner={bg2} />
       <div className={style.container}>
-        {countries.map((countrie, index) => (
-          <div className={style.items} key={index}>
-            {/* <img className={style.image} src={countrie.image} alt={countrie.name} /> */}
+        {countries?.data.map((countrie: Props, index: Key) => (
+          <div className={style.items} key={countrie.id}>
             <div className={style.imgContainer}>
               <LazyLoadImage
-                alt={countrie.name}
+                alt={countrie.attributes.name}
                 effect="blur"
-                src={countrie.image}
+                src={countrie.attributes.image}
                 className={style.image}
               />{" "}
             </div>
-            {/* {console.log(countries.image)} */}
-            <h1 className={style.title}>{countrie.name}</h1>
+
+            <h1 className={style.title}>{countrie.attributes.name}</h1>
             <Link to={routes.properties}>
               <Button uppercase primary isCurve full>
                 <div className={style.link}>view properties</div>

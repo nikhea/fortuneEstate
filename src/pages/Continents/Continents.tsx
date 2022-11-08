@@ -1,4 +1,4 @@
-import { FC, Key } from "react";
+import { FC, Key, useState, useEffect } from "react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
 import { Link } from "react-router-dom";
@@ -29,8 +29,12 @@ interface Props {
   image: string;
 }
 const Continents: FC = () => {
-  const { data: continents } = useQuery(["contients"], getAllCONTINENTS);
-  console.log(continents);
+  const { data: continents, status } = useQuery(
+    ["continents"],
+    getAllCONTINENTS
+  );
+  console.log(status + "continents status");
+  
   return (
     <div>
       <ContinentBanner />
@@ -46,7 +50,7 @@ const Continents: FC = () => {
               />
             </div>
             <h1 className={style.title}>{continent.attributes.name}</h1>
-            <Link to={routes.countries}>
+            <Link to={`${routes.countries}/${continent.id}`}>
               <Button uppercase primary isCurve full>
                 <div className={style.link}>
                   <MdLocationPin
@@ -55,7 +59,7 @@ const Continents: FC = () => {
                     style={{ marginRight: "11px" }}
                   />{" "}
                   view continents
-                  {/* <Spinner /> */}
+                  <Spinner />
                 </div>
               </Button>
             </Link>
@@ -81,3 +85,5 @@ export const Discover = () => {
 };
 
 export default Continents;
+
+// const { data: continents, error } = useQuery(["contients"],getAllCONTINENTS );
