@@ -4,7 +4,7 @@ export const routes = {
   advertServices: "/advertservice",
   blog: "/blog",
   continents: "/continents",
-  countries: "/countries",
+  countries: "/continent",
   properties: "/properties",
   property: "/property",
 };

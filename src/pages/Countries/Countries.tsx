@@ -35,7 +35,7 @@ interface Props {
   image?: string;
 }
 const Countrie: FC = () => {
-  const { id } = useParams();
+  const {id, CountinentName} = useParams();
   const { data: continent, error } = useQuery(["continent", id], () =>
     getCONTINENT(id)
   );

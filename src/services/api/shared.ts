@@ -24,3 +24,15 @@ export const getCONTINENT = async (id: any) => {
     data: res.data.data,
   };
 };
+
+export const getPropertiesByCountry = async (id: any) => {
+  const res = await axios.get(
+    `http://localhost:1337/api/countries/${id}?populate=properties`
+  );
+  //   return await res
+  return {
+    status: res.status,
+    data: res.data.data,
+  };
+};
+// http://localhost:1337/api/countries/1?populate=properties

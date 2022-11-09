@@ -34,7 +34,7 @@ const Continents: FC = () => {
     getAllCONTINENTS
   );
   console.log(status + "continents status");
-  
+
   return (
     <div>
       <ContinentBanner />
@@ -50,7 +50,9 @@ const Continents: FC = () => {
               />
             </div>
             <h1 className={style.title}>{continent.attributes.name}</h1>
-            <Link to={`${routes.countries}/${continent.id}`}>
+            <Link
+              to={`${routes.countries}/${continent.attributes.name}/${continent.id}`}
+            >
               <Button uppercase primary isCurve full>
                 <div className={style.link}>
                   <MdLocationPin

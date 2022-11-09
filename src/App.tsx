@@ -23,7 +23,10 @@ const App: FC = () => {
           <Route path={routes.advertServices} element={<AdvertService />} />
           <Route path={routes.blog} element={<Blog />} />
           <Route path={routes.continents} element={<Continents />} />
-          <Route path={`${routes.countries}/:id`} element={<Countries />} />
+          <Route
+            path={`${routes.countries}/:CountinentName/:id`}
+            element={<Countries />}
+          />
           <Route path={routes.properties} element={<Properties />} />
           <Route path={routes.property} element={<Property />} />
 
@@ -35,3 +38,4 @@ const App: FC = () => {
 };
 
 export default App;
+<Route path={`${routes.countries}/:id`} element={<Countries />} />;
