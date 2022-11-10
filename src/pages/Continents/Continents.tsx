@@ -1,6 +1,7 @@
 import { FC, Key, useState, useEffect } from "react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
+import Tilt from "react-parallax-tilt";
 import { Link } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { routes } from "../../routes/routes";
@@ -15,7 +16,7 @@ const style = {
   items: `mx-6 mb-9 leading-[2] fl items-center flex-col `,
   title: ` uppercase text-[1.5rem] text-[#7f7f7f] font-normal tracking-[1.1px] text-center`,
   imgContainer: ``,
-  image: ` w-[100vw] bg-black rounded `,
+  image: ` w-[100vw] bg-black rounded-[15px] cursor-pointer`,
   link: `flex items-center text-center justify-center `,
   discoverContainer: `w-[92%] m-auto bg-[#e6e9efa3] h-[60vh] mb-[7%]`,
   discoverText: `text-center flex items-center h-full justify-center flex-col `,
@@ -42,12 +43,14 @@ const Continents: FC = () => {
         {continents?.data.map((continent: Props, index: Key) => (
           <div className={style.items} key={continent.id}>
             <div className={style.imgContainer}>
+            <Tilt scale={1}>
               <LazyLoadImage
                 alt={continent.attributes.name}
                 effect="blur"
                 src={continent.attributes.Image}
                 className={style.image}
               />
+              </Tilt>
             </div>
             <h1 className={style.title}>{continent.attributes.name}</h1>
             <Link

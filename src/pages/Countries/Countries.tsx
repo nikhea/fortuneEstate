@@ -1,6 +1,7 @@
 import { FC, Key } from "react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
+import Tilt from "react-parallax-tilt";
 import { useQuery } from "@tanstack/react-query";
 import { Link, useParams } from "react-router-dom";
 import { routes } from "../../routes/routes";
@@ -13,7 +14,7 @@ const style = {
   items: `mx-6 mb-9 leading-[2] fl items-center flex-col `,
   title: ` uppercase text-[1.5rem] text-[#7f7f7f] font-normal tracking-[1.1px] text-center`,
   imgContainer: ``,
-  image: ` w-[100vw] bg-black rounded `,
+  image: ` w-[100vw] bg-black rounded-[15px] cursor-pointer `,
   link: `flex items-center text-center justify-center `,
   discoverContainer: `w-[92%] m-auto bg-[#e6e9efa3] h-[60vh] mb-[7%]`,
   discoverText: `text-center flex items-center h-full justify-center flex-col `,
@@ -35,7 +36,7 @@ interface Props {
   image?: string;
 }
 const Countrie: FC = () => {
-  const {id, CountinentName} = useParams();
+  const { id, CountinentName } = useParams();
   const { data: continent, error } = useQuery(["continent", id], () =>
     getCONTINENT(id)
   );
@@ -50,16 +51,20 @@ const Countrie: FC = () => {
         {countries?.data.map((countrie: Props, index: Key) => (
           <div className={style.items} key={countrie.id}>
             <div className={style.imgContainer}>
-              <LazyLoadImage
-                alt={countrie.attributes.name}
-                effect="blur"
-                src={countrie.attributes.image}
-                className={style.image}
-              />{" "}
+              <Tilt scale={1}>
+                <LazyLoadImage
+                  alt={countrie.attributes.name}
+                  effect="blur"
+                  src={countrie.attributes.image}
+                  className={style.image}
+                />
+              </Tilt>
             </div>
 
             <h1 className={style.title}>{countrie.attributes.name}</h1>
-            <Link to={routes.properties}>
+            <Link
+              to={`${routes.properties}/${countrie.attributes.name}/${countrie.id}`}
+            >
               <Button uppercase primary isCurve full>
                 <div className={style.link}>view properties</div>
               </Button>

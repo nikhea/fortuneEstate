@@ -1,16 +1,19 @@
 import { FC, useState } from "react";
+import { useQuery } from "@tanstack/react-query";
+import { Link, useParams } from "react-router-dom";
 import "./properties.css";
 import MainCard from "../../components/card/MainCard";
 import PropertiesList from "../../components/propertiesList/propertiesList";
 import Pagination from "../../components/UI/Pagination";
 import NewListing from "../../components/propertiesList/newListing";
-import FeaturedListing from "../../components/propertiesList/featuredListing"
+import FeaturedListing from "../../components/propertiesList/featuredListing";
 import { propertiesData } from "../../data/property";
 import {
   MdOutlineGridView,
   MdOutlineList,
   MdOutlineHome,
 } from "react-icons/md";
+import { getPropertiesByCountry } from "../../services/api/shared";
 const style = {
   bgContainer: `bg-[#F6F6F6] py-[6em]  pl-[2em] overflow-hidden md:grid md:grid-cols-10`,
   container: ` w-full md:grid grid-cols-1 md:grid-cols-2   m-0 p-0 `,
@@ -30,6 +33,15 @@ interface pageChange {
   selected?: any;
 }
 const properties: FC = () => {
+  const { id, countrieName } = useParams();
+  console.log(id, "countryid", countrieName);
+
+  // const { data: propertiesdata, error } = useQuery(["properties", id], () =>
+  //   getPropertiesByCountry(id)
+  // );
+  // const { properties } = propertiesdata?.data.attributes || {};
+  // console.log(properties.length, "properties",);
+
   const propertiesLength = propertiesData.length;
   const [Slicedproperties] = useState(propertiesData);
   const [pageNumber, setPageNumber] = useState(0);
@@ -136,7 +148,7 @@ const properties: FC = () => {
             <div>{displaySlicedproperties}</div>
           </div>
         </div>
-        <FeaturedListing/>
+        <FeaturedListing />
       </div>
     </div>
   );

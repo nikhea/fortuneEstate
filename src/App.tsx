@@ -27,7 +27,7 @@ const App: FC = () => {
             path={`${routes.countries}/:CountinentName/:id`}
             element={<Countries />}
           />
-          <Route path={routes.properties} element={<Properties />} />
+          <Route path={`${routes.properties}/:countryName/:id`} element={<Properties />} />
           <Route path={routes.property} element={<Property />} />
 
           {/* <Route path="/Continents/:id/Countries/:id/properties/id/property" element={<Property />} /> */}

@@ -1,6 +1,7 @@
 import { FC, useState } from "react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
+import Tilt from "react-parallax-tilt";
 import { Link } from "react-router-dom";
 import { routes } from "../../routes/routes";
 
@@ -75,17 +76,14 @@ const propertiesList: FC<propertiesList> = ({
         <div className={style.card}>
           <Link to={routes.property}>
             <div className={style.imgContainer}>
-              <LazyLoadImage
-                alt={title}
-                effect="blur"
-                src={image}
-                className={style.image}
-              />
-              {/* <img
-              alt={title}
-              src={image}
-              className={style.image} */}
-              {/* /> */}
+              <Tilt scale={1}>
+                <LazyLoadImage
+                  alt={title}
+                  effect="blur"
+                  src={image}
+                  className={style.image}
+                />
+              </Tilt>
             </div>
           </Link>
           <div className={style.textContainer}>
