@@ -5,43 +5,94 @@
   grid-template-columns:
     1fr 2fr
     1fr 1fr 1fr
-    2fr 1fr
-  /* grid-template-rows: repeat(3, 1fr); */
-  /* grid-auto-rows: minmax(100px, auto); */
+    2fr 1fr;
+  grid-template-rows: repeat(12, 1fr);
+  grid-auto-rows: minmax(100px, auto);
+  justify-items: stretch;
 }
 
 .gridItem {
-  /* width: 100%;
   position: relative;
-  height:400px;
-  border-radius:30px */
+  height: 400px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+.gridItem:nth-of-type(1) {
+  grid-column: 1 / 3;
+}
+.gridItem:nth-of-type(2) {
+  grid-column: 3 / 12;
+}
+.gridItem:nth-of-type(3) {
+  grid-column: 1 / 3;
+}
+.gridItem:nth-of-type(4) {
+  grid-column: 3 / 6;
+}
+.gridItem:nth-of-type(5) {
+  grid-column: 6/ 12;
+}
+.gridItem:nth-of-type(6) {
+  grid-column: 1 / 6;
+}
+.gridItem:nth-of-type(7) {
+  grid-column: 6 / 12;
 }
 
-.content {
-  position: relative;
-  background: #000;
+@media screen and (max-width: 768px) {
+  .gridItem {
+    position: relative;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+  .gridItem:nth-of-type(1) {
+    grid-column: 1 / 12;
+  }
+  .gridItem:nth-of-type(2) {
+    grid-column: 1 / 12;
+  }
+  .gridItem:nth-of-type(3) {
+    grid-column: 1 / 12;
+  }
+  .gridItem:nth-of-type(4) {
+    grid-column: 1 / 12;
+  }
+  .gridItem:nth-of-type(5) {
+    grid-column: 1 / 12;
+  }
+  .gridItem:nth-of-type(6) {
+    grid-column: 1 / 12;
+  }
+  .gridItem:nth-of-type(7) {
+    grid-column: 1 / 12;
+  }
 }
 
-.gridItm:before {
-  width: 24px;
-  height: 2px;
-  background-color: white;
-  display: block;
-  opacity: 0.7;
-  content: "";
-  margin: 0 auto 24px;
-  -webkit-transition: width 0.3s ease-in;
-  -o-transition: width 0.3s ease-in;
-  transition: width 0.3s ease-in;
+/* .gridItem {
+  position: relative;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 10px;
 }
-.gridItem:hover::before {
-  width: 54px;
+.gridItem:nth-of-type(1) {
+  grid-column: 1 / 6;
 }
-/* description: `text-white uppercase 
-font-[500] absolute z-50 top-0 bottom-0 
-left-0 right-0 hover:bg-gradient-to-tl 
-from-black 
-bg-fixed flex items-end 
- justify-center transistion 
-ease-out duration-1000
-after:w-[24px] after:h-[2px] after:bg-white  */
+.gridItem:nth-of-type(2) {
+  grid-column: 6 / 12;
+}
+.gridItem:nth-of-type(3) {
+  grid-column: 1 / 3;
+}
+.gridItem:nth-of-type(4) {
+  grid-column: 3 / 6;
+}
+.gridItem:nth-of-type(5) {
+  grid-column: 6 / 12;
+}
+.gridItem:nth-of-type(6) {
+  grid-column: 1 / 6;
+}
+.gridItem:nth-of-type(7) {
+  grid-column: 6 / 12;
+} */

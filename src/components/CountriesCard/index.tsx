@@ -40,7 +40,7 @@ const CountriesCard: FC = () => {
           <Link
             to={`${routes.properties}/${countries.attributes.name}/${countries.id}`}
             key={countries.id}
-            className={style.gridItem}
+            className="gridItem"
           >
             {/* <div className="gridItem"> */}
             <LazyLoadImage
