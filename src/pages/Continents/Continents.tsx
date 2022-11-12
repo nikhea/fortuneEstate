@@ -64,7 +64,7 @@ const Continents: FC = () => {
                     style={{ marginRight: "11px" }}
                   />{" "}
                   view continents
-                  <Spinner />
+                  {/* <Spinner /> */}
                 </div>
               </Button>
             </Link>

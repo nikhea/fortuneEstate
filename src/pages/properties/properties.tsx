@@ -36,11 +36,11 @@ const properties: FC = () => {
   const { id, countrieName } = useParams();
   console.log(id, "countryid", countrieName);
 
-  // const { data: propertiesdata, error } = useQuery(["properties", id], () =>
-  //   getPropertiesByCountry(id)
-  // );
-  // const { properties } = propertiesdata?.data.attributes || {};
-  // console.log(properties.length, "properties",);
+  const { data: propertiesdata, error } = useQuery(["properties", id], () =>
+    getPropertiesByCountry(id)
+  );
+  const { properties } = propertiesdata?.data.attributes || {};
+  console.log(properties, "properties",);
 
   const propertiesLength = propertiesData.length;
   const [Slicedproperties] = useState(propertiesData);

@@ -46,7 +46,10 @@ const Countrie: FC = () => {
 
   return (
     <div>
-      <CountrieBanner CountrieName={name} CountrieBanner={bg2} />
+      <CountrieBanner
+        CountrieName={name}
+        CountrieBanner={`${bgImage ? bgImage : bg}`}
+      />
       <div className={style.container}>
         {countries?.data.map((countrie: Props, index: Key) => (
           <div className={style.items} key={countrie.id}>
