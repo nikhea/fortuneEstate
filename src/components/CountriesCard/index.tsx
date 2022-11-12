@@ -7,13 +7,16 @@ import { Link } from "react-router-dom";
 import { getAllCountry } from "../../services/api/shared";
 import { routes } from "../../routes/routes";
 const style = {
-  container: `w-[90%] m-auto my-10`,
+  container: `w-[80%] m-auto my-10`,
   textContainer: `flex items-center text-center flex-col`,
   gridContainer: `gri grid-cols-1 grid-cols-2 `,
   image: `w-full h-full object-cover relative rounded`,
+  title: `text-[36px] tracking-wide `,
+  description: `text-[#999] text-[16px] mb-10 mt-5 tracking-widest ` ,
   gridItem: `relative rounded  h-[400px] object-cover`,
   hr: `m-5`,
-  description: `text-white uppercase 
+
+  text: `text-white uppercase 
   font-[500] absolute z-50 top-0 bottom-0 
   left-0 right-0 hover:bg-gradient-to-tl 
   from-black 
@@ -29,8 +32,8 @@ const CountriesCard: FC = () => {
   return (
     <div className={style.container}>
       <div className={style.textContainer}>
-        <h1>Exceptional properties around the world</h1>
-        <p>
+        <h1 className={style.title}>Exceptional properties around the world</h1>
+        <p className={style.description}>
           Great cities or exclusive localities. Choose the luxury that suits
           you.
         </p>
@@ -48,7 +51,7 @@ const CountriesCard: FC = () => {
               alt={countries.attributes.name}
               className={style.image}
             />
-            <p className={style.description}>
+            <p className={style.text}>
               <div className={style.hr}>{countries.attributes.name}</div>
             </p>
             {/* </div> */}
