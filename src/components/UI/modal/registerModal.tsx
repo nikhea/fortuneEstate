@@ -37,10 +37,12 @@ const ModalComponent: FC = NiceModal.create<any>(({ name }) => {
 
           content: {
             // color: "lightsteelblue",
+            top: "30px",
             width: "70%",
+            height: "91%",
             margin: " 0 auto",
-            overflowY: "scroll",
-            // overflow: "hidden",
+            // overflowY: "scroll",
+            overflow: "hidden",
             // display: "flex",
             border: "none",
             borderRadius: "20px",

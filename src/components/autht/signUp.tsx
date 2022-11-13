@@ -10,7 +10,7 @@ const style = {
   content: `w-full mx-[5%]`,
   text: `text-[#0A2952] text-[2.125rem] uppercase font-bold `,
   header: `flex items-center justify-between w-full mt-[20px] mb-[10px]`,
-  formSignIn: ` h-[60%] flex flex-col items-center justify-center`,
+  formSignIn: ` h-full md:h-[65%]  flex flex-col items-center justify-center`,
   checkbox: `flex items-center [&>*]:mr-[15px] font-light my-[20px]`,
   inputHalf: `flex justify-between [&>*]:w-[47%]`,
   input: `my-[12px] bg-[#f1f1f1] rounded-[25px] py-[15px] px-[23px] text-[#9a9a9a] text-[.9375rem] font-bol w-full outline-none pr-[23px]`,
