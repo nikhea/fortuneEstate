@@ -46,7 +46,7 @@ const CountriesCard: FC = () => {
             className="gridItem"
           >
             {/* <div className="gridItem"> */}
-            <LazyLoadImage
+            <img
               src={countries.attributes.image}
               alt={countries.attributes.name}
               className={style.image}
@@ -63,3 +63,8 @@ const CountriesCard: FC = () => {
 };
 
 export default CountriesCard;
+{/* <LazyLoadImage
+src={countries.attributes.image}
+alt={countries.attributes.name}
+className={style.image}
+/> */}

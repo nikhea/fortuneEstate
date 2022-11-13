@@ -55,9 +55,9 @@ const Countrie: FC = () => {
           <div className={style.items} key={countrie.id}>
             <div className={style.imgContainer}>
               <Tilt scale={1}>
-                <LazyLoadImage
+                <img
                   alt={countrie.attributes.name}
-                  effect="blur"
+                  // effect="blur"
                   src={countrie.attributes.image}
                   className={style.image}
                 />

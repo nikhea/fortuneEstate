@@ -6,10 +6,15 @@ import {
   AiOutlineTwitter,
 } from "react-icons/ai";
 import { Link } from "react-router-dom";
-import Modal from "../../components/UI/modal/Modal";
+import SignupModal from "../../components/UI/modal/signUpModal";
+import RegisterModal from "../../components/UI/modal/registerModal";
+import NiceModal from "@ebay/nice-modal-react";
 
+NiceModal.register("signUpModal", SignupModal);
+NiceModal.register("registerModal", RegisterModal);
 const style = {
-  LinkAuth: `uppercase justify-end`,
+  LinkAuth: `uppercase justify-end flex`,
+  Link: `block cursor-pointer`,
   emailText: `flex text-center items-center`,
   container: ` flex justify-between w-[95%]  m-auto  text-xs  items-center`,
   social: `flex mx-[40px] `,
@@ -20,6 +25,12 @@ const style = {
 
 // linear-gradient(271deg, #0D304A, #0D304A);
 const SubNav: FC = () => {
+  const showSignUpModal = () => {
+    NiceModal.show("signUpModal");
+  };
+  const showregisterModal = () => {
+    NiceModal.show("registerModal");
+  };
   return (
     <div className={style.background}>
       <div className={style.fixed}>
@@ -55,10 +66,17 @@ const SubNav: FC = () => {
             </div>
             <div className={style.LinkAuth}>
               {/* <Modal /> */}
-              <Link to="" style={{ marginRight: "11px" }}>
+              <p
+                onClick={showSignUpModal}
+                className={style.Link}
+                style={{ marginRight: "11px" }}
+              >
                 Sign up
-              </Link>
-              /<Link to="">register</Link>
+              </p>
+              /
+              <p onClick={showregisterModal} className={style.Link}>
+                register
+              </p>
             </div>
           </div>
         </div>

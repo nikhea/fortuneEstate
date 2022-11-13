@@ -77,9 +77,9 @@ const propertiesList: FC<propertiesList> = ({
           <Link to={routes.property}>
             <div className={style.imgContainer}>
               <Tilt scale={1}>
-                <LazyLoadImage
+                <img
                   alt={title}
-                  effect="blur"
+                  // effect="blur"
                   src={image}
                   className={style.image}
                 />

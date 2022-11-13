@@ -1,21 +1,22 @@
 import { FC, useState } from "react";
+import NiceModal, { useModal } from "@ebay/nice-modal-react";
 import ReactModal from "react-modal";
-import Auth from "../../autht/auth";
+import Register from "../../autht/register";
+
 interface modals {
-  modalIsOpen: any;
-  setIsOpen: any;
+  modalIsOpen?: any;
+  setIsOpen?: any;
 }
-const Modal: FC = () => {
-  let subtitle: { style: { color: string } };
+
+const ModalComponent: FC = NiceModal.create<any>(({ name }) => {
+  console.log(name);
+
+  const modal = useModal();
+
   const [modalIsOpen, setIsOpen] = useState(true);
 
   const openModal = () => {
     setIsOpen(true);
-  };
-
-  const afterOpenModal = () => {
-    // references are now sync'd and can be accessed.
-    subtitle.style.color = "#f00";
   };
 
   const closeModal = () => {
@@ -25,9 +26,8 @@ const Modal: FC = () => {
   return (
     <div>
       <ReactModal
-        isOpen={modalIsOpen}
-        onAfterOpen={afterOpenModal}
-        onRequestClose={closeModal}
+        isOpen={modal.visible}
+        onRequestClose={() => modal.remove()}
         shouldCloseOnOverlayClick={true}
         style={{
           overlay: {
@@ -39,7 +39,8 @@ const Modal: FC = () => {
             // color: "lightsteelblue",
             width: "70%",
             margin: " 0 auto",
-            overflow: "hidden",
+            overflowY: "scroll",
+            // overflow: "hidden",
             // display: "flex",
             border: "none",
             borderRadius: "20px",
@@ -47,12 +48,11 @@ const Modal: FC = () => {
             padding: "0px",
           },
         }}
-        contentLabel="Example Modal"
       >
-        <Auth />
+        <Register />
       </ReactModal>
     </div>
   );
-};
+});
 
-export default Modal;
+export default ModalComponent;

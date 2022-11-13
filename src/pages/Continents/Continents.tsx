@@ -44,9 +44,9 @@ const Continents: FC = () => {
           <div className={style.items} key={continent.id}>
             <div className={style.imgContainer}>
             <Tilt scale={1}>
-              <LazyLoadImage
+              <img
                 alt={continent.attributes.name}
-                effect="blur"
+                // effect="blur"
                 src={continent.attributes.Image}
                 className={style.image}
               />
