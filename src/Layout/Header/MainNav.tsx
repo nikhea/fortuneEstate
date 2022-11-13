@@ -29,14 +29,14 @@ const MainNav: FC = () => {
             <Link to={routes.contact}>contact us</Link>
           </li>
           <li className={style.list}>
-            <Link to={routes.blog}>blog</Link>
+            <Link to={routes.advertServices}>advert services</Link>
           </li>
           <li className={style.list}>
-            <Link to={routes.advertServices}>advert services</Link>
+            <Link to={routes.dashboard}>dashboard</Link>
           </li>
         </ul>
 
-        <Button primary rounded linearGradient uppercase >
+        <Button primary rounded linearGradient uppercase>
           adverties
         </Button>
       </div>

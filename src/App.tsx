@@ -6,7 +6,7 @@ import Spinner from "./components/UI/spinner/spinner";
 import Layout from "./Layout/Layout";
 import AdvertService from "./pages/advertServices/advertServices";
 import Continents from "./pages/Continents/Continents";
-import Blog from "./pages/Blog/blog";
+import DashBoard from "./pages/dashBoard/dashBoard";
 import Contact from "./pages/contact/Contact";
 import Home from "./pages/home/Home";
 import Countries from "./pages/Countries/Countries";
@@ -21,13 +21,16 @@ const App: FC = () => {
           <Route path={routes.home} element={<Home />} />
           <Route path={routes.contact} element={<Contact />} />
           <Route path={routes.advertServices} element={<AdvertService />} />
-          <Route path={routes.blog} element={<Blog />} />
+          <Route path={routes.dashboard} element={<DashBoard />} />
           <Route path={routes.continents} element={<Continents />} />
           <Route
             path={`${routes.countries}/:CountinentName/:id`}
             element={<Countries />}
           />
-          <Route path={`${routes.properties}/:countryName/:id`} element={<Properties />} />
+          <Route
+            path={`${routes.properties}/:countryName/:id`}
+            element={<Properties />}
+          />
           <Route path={routes.property} element={<Property />} />
 
           {/* <Route path="/Continents/:id/Countries/:id/properties/id/property" element={<Property />} /> */}

@@ -7,7 +7,7 @@ import PropertiesList from "../../components/propertiesList/propertiesList";
 import Pagination from "../../components/UI/Pagination";
 import NewListing from "../../components/propertiesList/newListing";
 import FeaturedListing from "../../components/propertiesList/featuredListing";
-import { propertiesData } from "../../data/property";
+// import { propertiesData } from "../../data/property";
 import {
   MdOutlineGridView,
   MdOutlineList,
@@ -32,6 +32,22 @@ const style = {
 interface pageChange {
   selected?: any;
 }
+interface Props {
+  id?: number;
+  attributes?: any;
+  name?: string;
+  image?: string;
+  images?: any;
+  tage?: string;
+  title?: string;
+  price?: number;
+  location?: string;
+  bed?: number;
+  bath?: number;
+  like?: boolean;
+  agent?: string;
+  agentImage?: string;
+}
 const properties: FC = () => {
   const { id, countrieName } = useParams();
   console.log(id, "countryid", countrieName);
@@ -40,54 +56,55 @@ const properties: FC = () => {
     getPropertiesByCountry(id)
   );
   const { properties } = propertiesdata?.data.attributes || {};
-  console.log(properties, "properties",);
+  console.log(properties?.data, "properties");
 
-  const propertiesLength = propertiesData.length;
-  const [Slicedproperties] = useState(propertiesData);
+  const propertiesLength = properties?.data.length;
+  const [Slicedproperties] = useState(properties?.data || []);
   const [pageNumber, setPageNumber] = useState(0);
-  const propertiesPerPage = 10;
-  const productCount = Math.ceil(Slicedproperties.length / propertiesPerPage);
+  const propertiesPerPage = 4;
+  const productCount = Math.ceil(Slicedproperties?.length / propertiesPerPage);
   const pagesVisted = pageNumber * propertiesPerPage;
 
   const displayproperties = Slicedproperties.slice(
     pagesVisted,
     pagesVisted + propertiesPerPage
-  ).map((property, index) => (
+  ).map((property: Props, index: any) => (
     <div key={index}>
       <PropertiesList
-        image={property.image}
+        image={property.attributes.image}
         images={property.images}
-        tage={property.tage}
-        price={property.price}
-        title={property.title}
-        location={property.location}
-        bed={property.bed}
-        bath={property.bath}
-        like={property.like}
-        agent={property.agent}
-        agentImage={property.agentImage}
+        tage={property.attributes.tage}
+        price={property.attributes.price}
+        title={property.attributes.title}
+        location={property.attributes.location}
+        bed={property.attributes.bed}
+        bath={property.attributes.bath}
+        like={property.attributes.ike}
+        agent={property.attributes.agent}
+        agentImage={property.attributes.agentImage}
       />
+      {JSON.stringify(property.attributes.title)}
     </div>
   ));
-  const descending = () => {
-    return Slicedproperties.sort((a, b) => b - a);
-  };
-  const ascending = () => {
-    return Slicedproperties.sort((a, b) => a - b);
-  };
-  const displaySlicedproperties = Slicedproperties.sort((a, b) => b - a)
-    .slice(0, 3)
-    .map((property, index) => (
-      <div key={index}>
-        <NewListing
-          image={property.image}
-          title={property.title}
-          price={property.price}
-          location={property.location}
-          tage={property.tage}
-        />
-      </div>
-    ));
+  // const descending = () => {
+  //   return Slicedproperties.sort((a, b) => b - a);
+  // };
+  // const ascending = () => {
+  //   return Slicedproperties.sort((a, b) => a - b);
+  // };
+  // const displaySlicedproperties = Slicedproperties.sort((a, b) => b - a)
+  //   .slice(0, 3)
+  //   .map((property: any, index: any) => (
+  //     <div key={index}>
+  //       <NewListing
+  //         image={property.image}
+  //         title={property.title}
+  //         price={property.price}
+  //         location={property.location}
+  //         tage={property.tage}
+  //       />
+  //     </div>
+  //   ));
 
   const pageChange = ({ selected }) => {
     setPageNumber(selected);
@@ -116,13 +133,10 @@ const properties: FC = () => {
                 </div>
               </div>
               <select className={style.headerSelect}>
-                <option onClick={ascending} value="Religious center ascending">
+                <option value="Religious center ascending">
                   Religious center ascending
                 </option>
-                <option
-                  onClick={descending}
-                  value="Religious center descending"
-                >
+                <option value="Religious center descending">
                   Religious center descending
                 </option>
               </select>
@@ -137,16 +151,12 @@ const properties: FC = () => {
         <div className={style.newListing}>
           <h1 className={style.newListingTitle}> search</h1>
           <h3 className="divider"></h3>
-          <div>
-            <div>{displaySlicedproperties}</div>
-          </div>
+          {/* <div><div>{displaySlicedproperties}</div></div> */}
         </div>
         <div className={style.newListing}>
           <h1 className={style.newListingTitle}>new listing</h1>
           <h3 className="divider"></h3>
-          <div>
-            <div>{displaySlicedproperties}</div>
-          </div>
+          <div>{/* <div>{displaySlicedproperties}</div> */}</div>
         </div>
         <FeaturedListing />
       </div>

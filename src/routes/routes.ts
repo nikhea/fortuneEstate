@@ -2,7 +2,7 @@ export const routes = {
   home: "/",
   contact: "/contact",
   advertServices: "/advertservice",
-  blog: "/blog",
+  dashboard: "/dashboard",
   continents: "/continents",
   countries: "/continent",
   properties: "/properties",

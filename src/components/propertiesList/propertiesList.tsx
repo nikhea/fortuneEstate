@@ -14,17 +14,17 @@ import { FaBed, FaBath, FaUserCircle } from "react-icons/fa";
 import { GrFavorite } from "react-icons/gr";
 import Spinner from "../../components/UI/spinner/spinner";
 interface propertiesList {
-  image: string;
+  image?: string;
   images?: any[];
-  tage: string;
-  price: number;
-  title: string;
-  location: string;
-  bed: number;
-  bath: number;
-  like: boolean;
-  agent: string;
-  agentImage: string;
+  tage?: string;
+  price?: number;
+  title?: string;
+  location?: string;
+  bed?: number;
+  bath?: number;
+  like?: boolean;
+  agent?: string;
+  agentImage?: string;
 }
 const style = {
   container: `mx-5`,
