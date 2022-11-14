@@ -49,11 +49,11 @@ interface Props {
   agentImage?: string;
 }
 const properties: FC = () => {
-  const { id, countrieName } = useParams();
-  console.log(id, "countryid", countrieName);
+  const { id, countryName } = useParams();
+  console.log(id, "countryid", "country nane", countryName);
 
-  const { data: propertiesdata, error } = useQuery(["properties", id], () =>
-    getPropertiesByCountry(id)
+  const { data: propertiesdata, error } = useQuery(["properties", id, countryName], () =>
+    getPropertiesByCountry(id, countryName)
   );
   const { properties } = propertiesdata?.data.attributes || {};
   console.log(properties?.data, "properties");

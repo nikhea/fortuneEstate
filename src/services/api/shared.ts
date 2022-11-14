@@ -34,7 +34,7 @@ export const getAllCountry = async () => {
     data: res.data.data,
   };
 };
-export const getPropertiesByCountry = async (id: any) => {
+export const getPropertiesByCountry = async (id: number,  countryName: string) => {
   const res = await axios.get(
     `http://localhost:1337/api/countries/${id}?populate=properties`
   );

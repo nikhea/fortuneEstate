@@ -40,10 +40,7 @@ const Countrie: FC = () => {
   const { data: continent, error } = useQuery(["continent", id], () =>
     getCONTINENT(id)
   );
-  console.log(continent?.data.attributes);
   const { name, bgImage, countries } = continent?.data.attributes || {};
-  console.log(name, bgImage);
-
   return (
     <div>
       <CountrieBanner

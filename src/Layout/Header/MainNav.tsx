@@ -51,6 +51,7 @@ const MainNav: FC = () => {
           <li className={style.list}>
             <Link to={routes.dashboard}>dashboard</Link>
           </li>
+          
         </ul>
         <span className={style.btnadvertising}>
           <Button primary rounded linearGradient uppercase>
@@ -90,6 +91,7 @@ const MainNav: FC = () => {
               <li className={style.listSM} onClick={CloseDrawer}>
                 <Link to={routes.dashboard}>dashboard</Link>
               </li>
+              {/* <div className={style.hr} /> */}
             </ul>
           </Drawer>
         </span>

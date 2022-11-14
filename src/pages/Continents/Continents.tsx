@@ -34,8 +34,6 @@ const Continents: FC = () => {
     ["continents"],
     getAllCONTINENTS
   );
-  console.log(continents + "continents status");
-
   return (
     <div>
       <ContinentBanner />
