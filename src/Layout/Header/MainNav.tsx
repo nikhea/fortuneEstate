@@ -1,7 +1,7 @@
 import { FC, useState } from "react";
 import Drawer from "react-modern-drawer";
 import "react-modern-drawer/dist/index.css";
-import Humburger from "hamburger-react"
+import Humburger from "hamburger-react";
 import { Link } from "react-router-dom";
 import { routes } from "../../routes/routes";
 import Button from "../../components/UI/FormElement/Button";
@@ -13,7 +13,8 @@ const style = {
   btn: `uppercase  rounded-full `,
   shadow: ``,
   btnadvertising: `hidden md:flex`,
-  drawertoggle: `md:hidden absolute z-[999] right-10`,
+  drawertoggle: `md:hidden absolut z-[] right-10`,
+  drawerInsidetoggle:`absolute right-10 top-[50px]  `,
   drawer: ` md:hidden`,
   listsSM: ` h-full w-full flex flex-col items-center justify-center`,
   listSM: `  w-full h-ful my-5`,
@@ -34,7 +35,7 @@ const MainNav: FC = () => {
         </Link>
 
         <ul className={style.lists}>
-          <li className={style.list} >
+          <li className={style.list}>
             <Link to={routes.home}>home</Link>
           </li>
           <li className={style.list}>
@@ -61,8 +62,12 @@ const MainNav: FC = () => {
             onClose={toggleDrawer}
             direction="right"
             // className="w-[80vw]"
-            style={{width: "80vw"}}
+            style={{ width: "80vw", zIndex: "999" }}
           >
+            <button className={style.drawerInsidetoggle} onClick={toggleDrawer}>
+              <Humburger toggled={isOpen} />
+              {/* <Humburger toggled={isOpen} toggle={setIsOpen}/> */}
+            </button>
             <ul className={style.listsSM}>
               <li className={style.listSM} onClick={toggleDrawer}>
                 <Link to={routes.home}>home</Link>
@@ -83,7 +88,7 @@ const MainNav: FC = () => {
           </Drawer>
         </span>
         <button className={style.drawertoggle} onClick={toggleDrawer}>
-          <Humburger toggled={isOpen}/>
+          <Humburger toggled={isOpen} />
           {/* <Humburger toggled={isOpen} toggle={setIsOpen}/> */}
         </button>
       </div>
@@ -92,4 +97,6 @@ const MainNav: FC = () => {
 };
 
 export default MainNav;
-{/* <Humburger toggled={isOpen} toggle={setIsOpen}/> */}
+{
+  /* <Humburger toggled={isOpen} toggle={setIsOpen}/> */
+}
