@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import { routes } from "../../routes/routes";
 import Button from "../../components/UI/FormElement/Button";
 const style = {
-  container: ` flex justify-between w-[95%]  m-auto m-0 text-center items-center  `,
+  container: ` flex justify-between w-[95%]  m-auto m-0 text-cente items-center  `,
   lists: `capitalize hidden md:flex justify-between mr-[100px]`,
   list: ` mx-[35px] text-center items `,
   logo: `w-[200px]`,
@@ -14,10 +14,11 @@ const style = {
   shadow: ``,
   btnadvertising: `hidden md:flex`,
   drawertoggle: `md:hidden absolut z-[] right-10`,
-  drawerInsidetoggle:`absolute right-10 top-[50px]  `,
+  drawerInsidetoggle: `absolute right-10 top-[50px] cursor-pointer `,
   drawer: ` md:hidden`,
-  listsSM: ` h-full w-full flex flex-col items-center justify-center`,
-  listSM: `  w-full h-ful my-5`,
+  listsSM: ` h-full w-full  flex flex-col flex-end justify-items-start  uppercase mt-[150px] w-[80%] m-auto text-sm tracking-widest`,
+  listSM: `  w-full h-ful  `,
+  hr: `bg-[#181818] h-[1px] w-full my-3`,
 };
 const MainNav: FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -61,25 +62,30 @@ const MainNav: FC = () => {
             open={isOpen}
             onClose={toggleDrawer}
             direction="right"
+            duration={1000}
             // className="w-[80vw]"
             style={{ width: "80vw", zIndex: "999" }}
           >
             <button className={style.drawerInsidetoggle} onClick={toggleDrawer}>
               <Humburger toggled={isOpen} />
-              {/* <Humburger toggled={isOpen} toggle={setIsOpen}/> */}
             </button>
             <ul className={style.listsSM}>
               <li className={style.listSM} onClick={toggleDrawer}>
                 <Link to={routes.home}>home</Link>
+                <div className={style.hr} />
               </li>
+              {/* <div className={style.hr}></div> */}
               <li className={style.listSM} onClick={toggleDrawer}>
                 <Link to={routes.continents}>all countries</Link>
+                <div className={style.hr} />
               </li>
               <li className={style.listSM} onClick={toggleDrawer}>
                 <Link to={routes.contact}>contact us</Link>
+                <div className={style.hr} />{" "}
               </li>
               <li className={style.listSM} onClick={toggleDrawer}>
                 <Link to={routes.advertServices}>advert services</Link>
+                <div className={style.hr} />{" "}
               </li>
               <li className={style.listSM} onClick={CloseDrawer}>
                 <Link to={routes.dashboard}>dashboard</Link>
