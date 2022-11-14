@@ -6,7 +6,7 @@ const imageLink =
 // bg-[url('${imageLink}')]
 console.log(imageLink);
 const style = {
-  bgImage: ` mt-[5em] w-full h-[100vh] md:h-[340px]  bg-cover bg-center bg-no-repeat relative bg-fixed object-content z-50 bg-[url('https://www.thehouse48.com/wp-content/uploads/2021/12/chuttersnap-603079-unsplash-e1546425079773.jpg')]`,
+  bgImage: ` md:mt-[5em] w-full h-[100vh] md:h-[340px]  bg-cover bg-center bg-no-repeat relative bg-fixed object-content z-50 bg-[url('https://www.thehouse48.com/wp-content/uploads/2021/12/chuttersnap-603079-unsplash-e1546425079773.jpg')]`,
   container: `h-full  w-[85%] m-auto flex flex-col md:flex-row justify-between items-center`,
   textContainer: `text-white z-50 `,
   title: `text-7xl font-black uppercase tracking-wider`,
