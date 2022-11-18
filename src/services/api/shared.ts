@@ -1,5 +1,5 @@
 import { baseURL, GET_CONTINENTS, GET_CONTINENT } from "../../utils/constant";
-import { request } from "../../utils/axios";
+import { request, Axiosclient } from "../../utils/axios";
 import axios from "axios";
 interface getAllCONTINENTS {
   url: string;
@@ -7,7 +7,7 @@ interface getAllCONTINENTS {
 }
 export const getAllCONTINENTS = async () => {
   // const res = await axios.get(`${baseURL}${GET_CONTINENTS}`);
-  const res = await axios.get("http://localhost:1337/api/continents");
+  const res = await Axiosclient.get("/continents");
   // console.log(JSON.stringify(res || {}))+ "res");
 
   return {
@@ -18,9 +18,7 @@ export const getAllCONTINENTS = async () => {
 
 export const getCONTINENT = async (id: any) => {
   //   const res = await axios.get(`${baseURL}${GET_CONTINENT}/${id}`);
-  const res = await axios.get(
-    `http://localhost:1337/api/continents/${id}?populate=countries`
-  );
+  const res = await Axiosclient.get(`/continents/${id}?populate=countries`);
   //   return await res
   return {
     status: res.status,
@@ -28,21 +26,37 @@ export const getCONTINENT = async (id: any) => {
   };
 };
 export const getAllCountry = async () => {
-  const res = await axios.get(`http://localhost:1337/api/countries`);
+  const res = await Axiosclient.get(`/countries`);
   return {
     status: res.status,
     data: res.data.data,
   };
 };
-export const getPropertiesByCountry = async (id: number,  countryName: string) => {
-  const res = await axios.get(
-    `http://localhost:1337/api/countries/${id}?populate=properties`
-  );
+export const getPropertiesByCountry = async (id: any, countryName: any) => {
+  const res = await Axiosclient.get(`countries/${id}?populate=properties`);
   //   return await res
   return {
     status: res.status,
     data: res.data.data,
   };
 };
+export const getProperties = async (id: number, countryName: string) => {
+  const res = await Axiosclient.get(`/properties?populate=*`);
+  //   return await res
+  return {
+    status: res.status,
+    data: res.data.data,
+  };
+};
+export const getSingelProperties = async (id: number, countryName: string) => {
+  const res = await Axiosclient.get(`/properties/${id}?populate=*`);
+  //   return await res
+  return {
+    status: res.status,
+    data: res.data.data,
+  };
+};
+
+// http://localhost:1337/api/properties/1?populate=*
 // http://localhost:1337/api/countries?populate=properties
 // http://localhost:1337/api/countries/1?populate=properties

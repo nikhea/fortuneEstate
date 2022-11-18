@@ -1,5 +1,5 @@
 import { FC } from "react";
-import MainNav from "./Header/MainNav2";
+import MainNav from "./Header/MainNav";
 import SubNav from "./Header/SubNav";
 import NewsLetter from "./Newsletter/newsletter";
 import HouseBanner from "../components/HouseBanner/HouseBanner";
