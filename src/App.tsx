@@ -20,7 +20,8 @@ import ListingStats from "./pages/dashBoard/pages/ListingStats";
 import ListingManager from "./pages/dashBoard/pages/ListingManager";
 import Profile from "./pages/dashBoard/pages/profile";
 import Settings from "./pages/dashBoard/pages/settings";
-import DashboardProperties from "./pages/dashBoard/pages/Properties"
+import DashboardProperties from "./pages/dashBoard/pages/Properties";
+import TrackLisiting from "./pages/dashBoard/pages/trackLisiting";
 const App: FC = () => {
   return (
     <>
@@ -51,9 +52,13 @@ const App: FC = () => {
             <Route path={routes.upload} element={<Upload />} />
             <Route path={routes.lisitingManager} element={<ListingManager />} />
             <Route path={routes.lisitingStat} element={<ListingStats />} />
+            <Route path={routes.tracklisiting} element={<TrackLisiting />} />
             <Route path={routes.profile} element={<Profile />} />
             <Route path={routes.settings} element={<Settings />} />
-            <Route path={routes.dashboardProperties} element={<DashboardProperties />} />
+            <Route
+              path={routes.dashboardProperties}
+              element={<DashboardProperties />}
+            />
           </Route>
         </Routes>
       </Suspense>

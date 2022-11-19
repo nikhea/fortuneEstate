@@ -2,7 +2,7 @@ import { FC, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { routes } from "../../routes/routes";
 import { IoSettingsSharp } from "react-icons/io5";
-import { FaUser, FaCloudUploadAlt } from "react-icons/fa";
+import { FaUser, FaCloudUploadAlt, FaMagento } from "react-icons/fa";
 import { MdDashboard } from "react-icons/md";
 import { BiStats } from "react-icons/bi";
 import { SiGoogletagmanager } from "react-icons/si";
@@ -28,7 +28,6 @@ const style = {
   hr: `bg-[#181818] h-[1px] w-full my-3`,
 };
 const SideBar: FC = () => {
-
   return (
     <div className={style.sidBarLayout}>
       <Link to={routes.home} className={style.logo}>
@@ -75,6 +74,7 @@ const SideBar: FC = () => {
               listing Manager
             </NavLink>
           </li>
+
           <li className={style.list}>
             <NavLink
               className={({ isActive }) => (isActive ? `${style.active}` : "")}
@@ -86,6 +86,19 @@ const SideBar: FC = () => {
                 style={{ marginRight: "11px" }}
               />
               listing Stats
+            </NavLink>
+          </li>
+          <li className={style.list}>
+            <NavLink
+              className={({ isActive }) => (isActive ? `${style.active}` : "")}
+              to={routes.tracklisiting}
+            >
+              <FaMagento
+                // color="red"
+                size={20}
+                style={{ marginRight: "11px" }}
+              />
+              track your listing
             </NavLink>
           </li>
           <li className={style.list}>
@@ -131,7 +144,6 @@ const SideBar: FC = () => {
           </li>
         </div>
       </ul>
- 
     </div>
   );
 };

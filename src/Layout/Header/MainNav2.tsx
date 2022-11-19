@@ -11,7 +11,7 @@ const style = {
   list: ` mx-[30px] text-center items `,
   logo: `w-[200px]`,
   active: `bg-gradient-to-r from-cyan-500 to-blue-500 text-white py-2 px-5 rounded-full`,
-  activeSM: `text-blue-500 [&>*]:bg-green-500`,
+  activeSM: `text-blue-500 [&+*]:bg-blue-500`,
   btn: `uppercase  rounded-full `,
   shadow: ``,
   btnadvertising: `hidden md:flex`,

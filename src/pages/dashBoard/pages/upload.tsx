@@ -2,7 +2,7 @@ import React from 'react'
 
 const upload = () => {
   return (
-    <div>upload</div>
+    <div className="bg-red-700 ">upload</div>
   )
 }
 

@@ -12,7 +12,7 @@ const style = {
   logo: `w-[200px]`,
   active: `bg-gradient-to-r from-cyan-500 to-blue-500 text-black py-2 px-5 rounded-full`,
   btn: `uppercase  rounded-full `,
-  activeSM: ` text-blue-500 [&>*]:bg-green-500`,
+  activeSM: ` text-blue-500 [&+*]:bg-blue-500`,
   shadow: ``,
   btnadvertising: `hidden md:flex`,
   drawertoggle: `md:hidden absolut z-[] right-10 text-white`,

@@ -10,6 +10,7 @@ export const routes = {
   upload: "/upload",
   lisitingStat: "/lisitingstats",
   lisitingManager: "/lisitingManager",
+  tracklisiting: "/tracklisiting",
   dashboardProperties: "/dashboardproperties",
   profile: "/profile",
   settings: "/settings",

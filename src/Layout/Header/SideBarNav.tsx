@@ -5,23 +5,24 @@ import Humburger from "hamburger-react";
 import { Link, NavLink } from "react-router-dom";
 import { routes } from "../../routes/routes";
 import { IoSettingsSharp } from "react-icons/io5";
-import { FaUser, FaCloudUploadAlt } from "react-icons/fa";
+import { FaUser, FaCloudUploadAlt, FaMagento } from "react-icons/fa";
 import { MdDashboard } from "react-icons/md";
 import { BiStats } from "react-icons/bi";
 import { SiGoogletagmanager } from "react-icons/si";
 import { HiHomeModern } from "react-icons/hi2";
 const style = {
-  container: `flex justify-between items-center mt-1`,
+  container: `flex justify-between items-center mt-1 flex-row-reverse`,
   drawertoggle: `md:hidden absolut z-[] right-10 mr-4`,
-  drawerInsidetoggle: `absolute right-[10px] top-[0px] cursor-pointer `,
-  drawerInsidetoggleClose:`absolute right-[10px] top-[10px] cursor-pointer`,
+  drawerInsidetoggle: `absolute left-[80px] top-[0px] cursor-pointer `,
+  drawerInsidetoggleClose: `absolute left-[20px] top-[10px] cursor-pointer`,
+  // drawerInsidetoggleClose: `absolute right-[10px] top-[10px] cursor-pointer`,
   drawer: ` md:hidden`,
   list: `   w-full [&>*]:py-2 [&>*]:px-5  [&>*]:w-full my-5 [&>*]:inline-block [&>*]:flex [&>*]:items-center  `,
   logo: `w-[150px]`,
   active: `bg-[#8392A5] bg-[#E5E5E5] text-white  `,
-  listsSM: ` h-full w-full  flex flex-col justify-betwee  uppercase mt-[50px] mb-[20px] w-full m-auto text-sm tracking-widest`,
+  listsSM: ` h-full w-full  flex flex-col justify-betwee uppercase mt-[40px] mb-[20px] w-full m-auto text-sm tracking-widest`,
   upNavigation: ``,
-  downNavigation: `mt-[150px]`,
+  downNavigation: `mt-[90px]`,
 };
 const SideBarNav = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -40,12 +41,15 @@ const SideBarNav = () => {
         <Drawer
           open={isOpen}
           onClose={toggleDrawer}
-          direction="right"
+          direction="left"
           duration={1000}
           // className="w-[80vw]"
           style={{ width: "80vw", zIndex: "999" }}
         >
-          <button className={style.drawerInsidetoggleClose} onClick={toggleDrawer}>
+          <button
+            className={style.drawerInsidetoggleClose}
+            onClick={toggleDrawer}
+          >
             <Humburger toggled={isOpen} />
           </button>
           <ul className={style.listsSM}>
@@ -108,6 +112,21 @@ const SideBarNav = () => {
                     style={{ marginRight: "11px" }}
                   />
                   listing Stats
+                </NavLink>
+              </li>
+              <li className={style.list} onClick={toggleDrawer}>
+                <NavLink
+                  className={({ isActive }) =>
+                    isActive ? `${style.active}` : ""
+                  }
+                  to={routes.tracklisiting}
+                >
+                  <FaMagento
+                    // color="red"
+                    size={20}
+                    style={{ marginRight: "11px" }}
+                  />
+                  track your listing
                 </NavLink>
               </li>
               <li className={style.list} onClick={toggleDrawer}>
