@@ -16,7 +16,7 @@ const style = {
   downNavigation: ``,
   logo: `w-[190px]`,
   icon: `text-red-300`,
-  active: `bg-[#8392A5] text-white  `,
+  active: `bg-[#8392A5] bg-[#E5E5E5] text-white  `,
   btn: `uppercase  rounded-full `,
   shadow: ``,
   btnadvertising: `hidden md:flex`,
