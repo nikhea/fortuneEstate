@@ -8,13 +8,14 @@ import Button from "../../components/UI/FormElement/Button";
 const style = {
   container: ` flex justify-between w-[95%]  m-auto m-0 text-cente items-center  `,
   lists: `capitalize hidden md:flex justify-between mr-[100px]`,
-  list: ` mx-[35px] text-center items `,
+  list: ` mx-[35px] text-center items  text-white`,
   logo: `w-[200px]`,
-  active: `text-green-500`,
+  active: `bg-gradient-to-r from-cyan-500 to-blue-500 text-black py-2 px-5 rounded-full`,
   btn: `uppercase  rounded-full `,
+  activeSM: ` text-blue-500 [&>*]:bg-green-500`,
   shadow: ``,
   btnadvertising: `hidden md:flex`,
-  drawertoggle: `md:hidden absolut z-[] right-10`,
+  drawertoggle: `md:hidden absolut z-[] right-10 text-white`,
   drawerInsidetoggle: `absolute right-10 top-[50px] cursor-pointer `,
   drawer: ` md:hidden`,
   listsSM: ` h-full w-full  flex flex-col flex-end justify-items-start  uppercase mt-[150px] w-[80%] m-auto text-sm tracking-widest`,
@@ -32,9 +33,9 @@ const MainNav: FC = () => {
   return (
     <div className={style.shadow}>
       <div className={style.container}>
-        <Link to={routes.home} className={style.logo}>
+        <NavLink to={routes.home} className={style.logo}>
           <img src="https://www.thehouse48.com/wp-content/uploads/2021/11/cropped-H48-1280x400-1.png" />
-        </Link>
+        </NavLink>
 
         <ul className={style.lists}>
           <li className={style.list}>
@@ -89,7 +90,7 @@ const MainNav: FC = () => {
             onClose={toggleDrawer}
             direction="right"
             duration={1000}
-            // className="w-[80vw]"
+            className="md:hidden"
             style={{ width: "80vw", zIndex: "999" }}
           >
             <button className={style.drawerInsidetoggle} onClick={toggleDrawer}>
@@ -97,24 +98,59 @@ const MainNav: FC = () => {
             </button>
             <ul className={style.listsSM}>
               <li className={style.listSM} onClick={toggleDrawer}>
-                <Link to={routes.home}>home</Link>
+                <NavLink
+                  className={({ isActive }) =>
+                    isActive ? `${style.activeSM}` : ""
+                  }
+                  to={routes.home}
+                >
+                  home
+                </NavLink>
                 <div className={style.hr} />
               </li>
               {/* <div className={style.hr}></div> */}
               <li className={style.listSM} onClick={toggleDrawer}>
-                <Link to={routes.continents}>all countries</Link>
+                <NavLink
+                  className={({ isActive }) =>
+                    isActive ? `${style.activeSM}` : ""
+                  }
+                  to={routes.continents}
+                >
+                  all countries
+                </NavLink>
                 <div className={style.hr} />
               </li>
               <li className={style.listSM} onClick={toggleDrawer}>
-                <Link to={routes.contact}>contact us</Link>
+                <NavLink
+                  className={({ isActive }) =>
+                    isActive ? `${style.activeSM}` : ""
+                  }
+                  to={routes.contact}
+                >
+                  contact us
+                </NavLink>
                 <div className={style.hr} />{" "}
               </li>
               <li className={style.listSM} onClick={toggleDrawer}>
-                <Link to={routes.advertServices}>advert services</Link>
+                <NavLink
+                  className={({ isActive }) =>
+                    isActive ? `${style.activeSM}` : ""
+                  }
+                  to={routes.advertServices}
+                >
+                  advert services
+                </NavLink>
                 <div className={style.hr} />{" "}
               </li>
               <li className={style.listSM} onClick={CloseDrawer}>
-                <Link to={routes.dashboard}>dashboard</Link>
+                <NavLink
+                  className={({ isActive }) =>
+                    isActive ? `${style.activeSM}` : ""
+                  }
+                  to={routes.dashboard}
+                >
+                  dashboard
+                </NavLink>
               </li>
               {/* <div className={style.hr} /> */}
             </ul>

@@ -14,7 +14,7 @@ const Layout: FC<layout> = ({ children }) => {
   return (
     <div className="">
       <SubNav />
-      <MainNav />
+      {/* <MainNav /> */}
       <Outlet />
       <NewsLetter />
       <HouseBanner />

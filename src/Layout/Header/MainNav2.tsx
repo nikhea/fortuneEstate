@@ -8,9 +8,10 @@ import Button from "../../components/UI/FormElement/Button";
 const style = {
   container: ` flex justify-between w-[95%]  m-auto m-0 text-cente items-center  `,
   lists: `capitalize hidden md:flex justify-between mr-[100px]`,
-  list: ` mx-[35px] text-center items `,
+  list: ` mx-[30px] text-center items `,
   logo: `w-[200px]`,
-  active: `text-green-500`,
+  active: `bg-gradient-to-r from-cyan-500 to-blue-500 text-white py-2 px-5 rounded-full`,
+  activeSM: `text-blue-500 [&>*]:bg-green-500`,
   btn: `uppercase  rounded-full `,
   shadow: ``,
   btnadvertising: `hidden md:flex`,
@@ -89,7 +90,7 @@ const MainNav: FC = () => {
             onClose={toggleDrawer}
             direction="right"
             duration={1000}
-            // className="w-[80vw]"
+            className="md:hidden"
             style={{ width: "80vw", zIndex: "999" }}
           >
             <button className={style.drawerInsidetoggle} onClick={toggleDrawer}>
@@ -97,24 +98,59 @@ const MainNav: FC = () => {
             </button>
             <ul className={style.listsSM}>
               <li className={style.listSM} onClick={toggleDrawer}>
-                <Link to={routes.home}>home</Link>
+                <NavLink
+                  // className={({ isActive }) =>
+                  //   isActive ? `${style.activeSM}` : ""
+                  // }
+                  to={routes.home}
+                >
+                  home
+                </NavLink>
                 <div className={style.hr} />
               </li>
               {/* <div className={style.hr}></div> */}
               <li className={style.listSM} onClick={toggleDrawer}>
-                <Link to={routes.continents}>all countries</Link>
+                <NavLink
+                  className={({ isActive }) =>
+                    isActive ? `${style.activeSM}` : ""
+                  }
+                  to={routes.continents}
+                >
+                  all countries
+                </NavLink>
                 <div className={style.hr} />
               </li>
               <li className={style.listSM} onClick={toggleDrawer}>
-                <Link to={routes.contact}>contact us</Link>
+                <NavLink
+                  className={({ isActive }) =>
+                    isActive ? `${style.activeSM}` : ""
+                  }
+                  to={routes.contact}
+                >
+                  contact us
+                </NavLink>
                 <div className={style.hr} />{" "}
               </li>
               <li className={style.listSM} onClick={toggleDrawer}>
-                <Link to={routes.advertServices}>advert services</Link>
+                <NavLink
+                  className={({ isActive }) =>
+                    isActive ? `${style.activeSM}` : ""
+                  }
+                  to={routes.advertServices}
+                >
+                  advert services
+                </NavLink>
                 <div className={style.hr} />{" "}
               </li>
               <li className={style.listSM} onClick={CloseDrawer}>
-                <Link to={routes.dashboard}>dashboard</Link>
+                <NavLink
+                  className={({ isActive }) =>
+                    isActive ? `${style.activeSM}` : ""
+                  }
+                  to={routes.dashboard}
+                >
+                  dashboard
+                </NavLink>
               </li>
               {/* <div className={style.hr} /> */}
             </ul>

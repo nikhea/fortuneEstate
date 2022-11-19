@@ -1,17 +1,22 @@
 import { FC } from "react";
 import YoutubeVideo from "../../assets/home.mp4";
 import MainText from "../../Layout/Header/MainText";
-
+import MainNav from "../../Layout/Header/MainNav";
 const style = {
   iframeContainer: `w-full h-screen  object-contain overflow-x-hidden relative bg-fixed`,
   video: `h-full w-full object-cover  bg-fixed`,
   container: `h-full`,
+
+  MainNavContainer: `absolute  z-[2] w-full h-full`,
   textContainer: `absolute text-white z-[1] w-full h-full`,
   overlay: `h-full w-full top-0 left-0 absolute bg-gradient-to-tl from-black bg-fixed`,
 };
 const Youtube: FC = () => {
   return (
     <div className={style.iframeContainer}>
+      <div className={style.MainNavContainer}>
+        <MainNav />
+      </div>
       <div className={style.textContainer}>
         <MainText />
       </div>
