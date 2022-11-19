@@ -90,7 +90,7 @@ const SideBar: FC = () => {
           <li className={style.list}>
             <NavLink
               className={({ isActive }) => (isActive ? `${style.active}` : "")}
-              to={routes.lisitingStat}
+              to={routes.dashboardProperties}
             >
               <HiHomeModern
                 // color="red"

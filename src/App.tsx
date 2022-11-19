@@ -20,7 +20,7 @@ import ListingStats from "./pages/dashBoard/pages/ListingStats";
 import ListingManager from "./pages/dashBoard/pages/ListingManager";
 import Profile from "./pages/dashBoard/pages/profile";
 import Settings from "./pages/dashBoard/pages/settings";
-
+import DashboardProperties from "./pages/dashBoard/pages/Properties"
 const App: FC = () => {
   return (
     <>
@@ -53,6 +53,7 @@ const App: FC = () => {
             <Route path={routes.lisitingStat} element={<ListingStats />} />
             <Route path={routes.profile} element={<Profile />} />
             <Route path={routes.settings} element={<Settings />} />
+            <Route path={routes.dashboardProperties} element={<DashboardProperties />} />
           </Route>
         </Routes>
       </Suspense>
