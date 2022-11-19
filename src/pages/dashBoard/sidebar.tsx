@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { routes } from "../../routes/routes";
 import { IoSettingsSharp } from "react-icons/io5";
@@ -6,7 +6,7 @@ import { FaUser, FaCloudUploadAlt } from "react-icons/fa";
 import { MdDashboard } from "react-icons/md";
 import { BiStats } from "react-icons/bi";
 import { SiGoogletagmanager } from "react-icons/si";
-import {HiHomeModern} from "react-icons/hi2"
+import { HiHomeModern } from "react-icons/hi2";
 const style = {
   sidBarLayout: ` bg-white overflow-hidden hidden md:flex flex-col h-full`,
   container: ` flex justify-between w-[95%]  m-auto m-0 text-cente items-center  `,
@@ -28,6 +28,7 @@ const style = {
   hr: `bg-[#181818] h-[1px] w-full my-3`,
 };
 const SideBar: FC = () => {
+
   return (
     <div className={style.sidBarLayout}>
       <Link to={routes.home} className={style.logo}>
@@ -130,6 +131,7 @@ const SideBar: FC = () => {
           </li>
         </div>
       </ul>
+ 
     </div>
   );
 };
