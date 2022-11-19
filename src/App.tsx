@@ -5,21 +5,21 @@ import { routes } from "./routes/routes";
 import Spinner from "./components/UI/spinner/spinner";
 import Layout from "./Layout/Layout";
 import HomePageLayout from "./Layout/HomePageLayout";
+import DashBoardLayout from "./Layout/DashBoardLayout";
 
-import MainNav from "./Layout/Header/MainNav";
-import SubNav from "./Layout/Header/SubNav";
-import NewsLetter from "./Layout/Newsletter/newsletter";
-import HouseBanner from "./components/HouseBanner/HouseBanner";
-import Social from "./components/social";
-import Footer from "./Layout/footer/footer";
 import AdvertService from "./pages/advertServices/advertServices";
 import Continents from "./pages/Continents/Continents";
-import DashBoard from "./pages/dashBoard/dashBoard";
 import Contact from "./pages/contact/Contact";
 import Home from "./pages/home/Home";
 import Countries from "./pages/Countries/Countries";
 import Properties from "./pages/properties/properties";
 import Property from "./pages/property/property";
+import DashBoard from "./pages/dashBoard/dashBoard";
+import Upload from "./pages/dashBoard/pages/upload";
+import ListingStats from "./pages/dashBoard/pages/ListingStats";
+import ListingManager from "./pages/dashBoard/pages/ListingManager";
+import Profile from "./pages/dashBoard/pages/profile";
+import Settings from "./pages/dashBoard/pages/settings";
 
 const App: FC = () => {
   return (
@@ -32,7 +32,7 @@ const App: FC = () => {
           <Route path="" element={<Layout />}>
             <Route path={routes.contact} element={<Contact />} />
             <Route path={routes.advertServices} element={<AdvertService />} />
-            <Route path={routes.dashboard} element={<DashBoard />} />
+            {/* <Route path={routes.dashboard} element={<DashBoard />} /> */}
             <Route path={routes.continents} element={<Continents />} />
             <Route
               path={`${routes.countries}/:CountinentName/:id`}
@@ -45,6 +45,14 @@ const App: FC = () => {
             <Route path={routes.property} element={<Property />} />
 
             {/* <Route path="/Continents/:id/Countries/:id/properties/id/property" element={<Property />} /> */}
+          </Route>
+          <Route path="" element={<DashBoardLayout />}>
+            <Route path={routes.dashboard} element={<DashBoard />} />
+            <Route path={routes.upload} element={<Upload />} />
+            <Route path={routes.lisitingManager} element={<ListingManager />} />
+            <Route path={routes.lisitingStat} element={<ListingStats />} />
+            <Route path={routes.profile} element={<Profile />} />
+            <Route path={routes.settings} element={<Settings />} />
           </Route>
         </Routes>
       </Suspense>

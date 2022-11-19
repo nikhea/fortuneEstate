@@ -7,4 +7,9 @@ export const routes = {
   countries: "/continent",
   properties: "/properties",
   property: "/property",
+  upload: "/upload",
+  lisitingStat: "/lisitingstats",
+  lisitingManager: "/lisitingManager",
+  profile: "/profile",
+  settings: "/settings",
 };

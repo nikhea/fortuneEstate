@@ -2,14 +2,15 @@ import { FC, useState } from "react";
 import Drawer from "react-modern-drawer";
 import "react-modern-drawer/dist/index.css";
 import Humburger from "hamburger-react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { routes } from "../../routes/routes";
 import Button from "../../components/UI/FormElement/Button";
 const style = {
   container: ` flex justify-between w-[95%]  m-auto m-0 text-cente items-center  `,
   lists: `capitalize hidden md:flex justify-between mr-[100px]`,
-  list: ` mx-[35px] text-center items text-red-500`,
+  list: ` mx-[35px] text-center items `,
   logo: `w-[200px]`,
+  active: `text-green-500`,
   btn: `uppercase  rounded-full `,
   shadow: ``,
   btnadvertising: `hidden md:flex`,
@@ -37,19 +38,44 @@ const MainNav: FC = () => {
 
         <ul className={style.lists}>
           <li className={style.list}>
-            <Link to={routes.home}>home</Link>
+            <NavLink
+              // className={({ isActive }) => (isActive ? `${style.active}` : "")}
+              to={routes.home}
+            >
+              home
+            </NavLink>
           </li>
           <li className={style.list}>
-            <Link to={routes.continents}>all countries</Link>
+            <NavLink
+              className={({ isActive }) => (isActive ? `${style.active}` : "")}
+              to={routes.continents}
+            >
+              all countries
+            </NavLink>
           </li>
           <li className={style.list}>
-            <Link to={routes.contact}>contact us</Link>
+            <NavLink
+              className={({ isActive }) => (isActive ? `${style.active}` : "")}
+              to={routes.contact}
+            >
+              contact us
+            </NavLink>
           </li>
           <li className={style.list}>
-            <Link to={routes.advertServices}>advert services</Link>
+            <NavLink
+              className={({ isActive }) => (isActive ? `${style.active}` : "")}
+              to={routes.advertServices}
+            >
+              advert services
+            </NavLink>
           </li>
           <li className={style.list}>
-            <Link to={routes.dashboard}>dashboard</Link>
+            <NavLink
+              className={({ isActive }) => (isActive ? `${style.active}` : "")}
+              to={routes.dashboard}
+            >
+              dashboard
+            </NavLink>
           </li>
         </ul>
         <span className={style.btnadvertising}>

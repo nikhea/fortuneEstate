@@ -1,7 +1,8 @@
-import React from 'react'
+import { FC} from 'react'
+
 const dashBoard = () => {
   return (
-    <div> dashbord </div>
+    <div className=" w-full h-full">dashBoard</div>
   )
 }
 

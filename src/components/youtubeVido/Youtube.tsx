@@ -1,6 +1,5 @@
 import { FC } from "react";
 import YoutubeVideo from "../../assets/home.mp4";
-
 import MainText from "../../Layout/Header/MainText";
 
 const style = {
