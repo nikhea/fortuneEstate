@@ -7,6 +7,9 @@ import { Link } from "react-router-dom";
 import { AiOutlineClose } from "react-icons/ai";
 import StickyBox from "react-sticky-box";
 import NiceModal from "@ebay/nice-modal-react";
+import { useForm, useController } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
 
 const style = {
   container: `flex  `,
@@ -18,12 +21,44 @@ const style = {
   form: ` h-[] flex flex-col items-center justify-center`,
   checkbox: `flex items-center [&>*]:mr-[15px] font-light my-[20px]`,
   inputHalf: `flex justify-between `,
-  input: `my-[10px] bg-[#f1f1f1] rounded-[25px] py-[15px] px-[23px] text-[#9a9a9a] text-[.9375rem] font-bol w-full outline-none pr-[23px]`,
-  btn: `w-[100%] text-white  my-[4px] mx-[5px] py-[0] px-[25px] h-[44px] text-[1rem]  rounded-full  outline-none  bg-gradient-to-r from-cyan-500 to-blue-500 uppercase`,
   forgot: `flex justify-between items-center`,
   forgotpassword: `text-blue-600`,
+  errors: `block `,
 };
+interface FormData {
+  email: string;
+  firstname: string;
+  lastname: string;
+  username: string;
+  password: string;
+  confirmpassword: string;
+  role: string;
+}
+const schema = yup.object().shape({
+  email: yup.string().email().required(),
+  username: yup.string().required(),
+  firstname: yup.string().required(),
+  lastname: yup.string().required(),
+  role: yup.string().required(),
+  // age: yup.number().required(),
+  password: yup.string().min(6).max(15).required(),
+  confirmpassword: yup
+    .string()
+    .oneOf([yup.ref("password"), null])
+    .required(),
+  // usertype: yup.string().required(),
+});
 const auth: FC = () => {
+  const {
+    register,
+    control,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm<FormData>({
+    resolver: yupResolver(schema),
+  });
+  const { field } = useController({ name: "role", control });
   const closeRegisterModal = () => {
     NiceModal.remove("registerModal");
   };
@@ -33,6 +68,18 @@ const auth: FC = () => {
     { value: "agent", label: "agent" },
     { value: "agency", label: "agency" },
   ];
+  const submitForm = (data: any) => {
+    console.log(data, "data");
+  };
+  const handleSelectChange = (option: any) => {
+    field.onChange(option.value);
+
+    return field.onChange(option.value);
+  };
+
+  console.log(errors.firstname?.message);
+  console.log(errors);
+  const default_value = "Subscriber";
   return (
     <div className={style.container}>
       {/* <StickyBox offsetTop={20} offsetBottom={20}> */}
@@ -49,65 +96,113 @@ const auth: FC = () => {
             //   style={{ marginRight: "11px" }}
           />
         </div>
-        <form className={style.form}>
+        <form className={style.form} onSubmit={handleSubmit(submitForm)}>
           <div>
-            <Input
-              type="email"
-              placeholder="your email*"
-              inputFull
-              required
-              rounded
-            />
-            <Input
-              type="text"
-              placeholder="your username*"
-              inputFull
-              required
-              rounded
-            />
+            <span>
+              <Input
+                type="email"
+                name="email"
+                placeholder="your email*"
+                inputFull
+                required
+                rounded
+                errors={errors}
+                inputRef={register("email", { required: true })}
+              />
+              {/* <p className={style.errors}>
+                {errors.email?.message && <p>{errors.email?.message}</p>}
+              </p> */}
+            </span>
+            <span>
+              <Input
+                type="text"
+                name="username"
+                placeholder="your username*"
+                inputFull
+                required
+                rounded
+                inputRef={register("username", { required: true })}
+              />
+              <p className={style.errors}>
+                {errors.username?.message && <p>{errors.username?.message}</p>}
+              </p>
+            </span>
             <span className={style.inputHalf}>
               <Input
                 type="text"
+                name="firstname"
                 placeholder="first name*"
                 inputHalf
                 required
                 rounded
+                inputRef={register("firstname", { required: true })}
               />
+              <p className={style.errors}>{errors?.firstname?.message}</p>
+
               <Input
                 type="text"
+                name="lastname"
                 placeholder="last name*"
                 inputHalf
                 required
                 rounded
+                inputRef={register("lastname", { required: true })}
               />
+              <p className={style.errors}>{errors?.lastname?.message}</p>
             </span>
             <span className={style.inputHalf}>
               <Input
                 type="password"
+                name="password"
                 placeholder="your password*"
                 inputHalf
                 required
                 rounded
+                inputRef={register("password", { required: true })}
               />
+              <p className={style.errors}>{errors?.password?.message}</p>
               <Input
                 type="password"
+                name="confirmpassword"
                 placeholder="retype password*"
                 inputHalf
                 required
                 rounded
+                inputRef={register("confirmpassword", { required: true })}
               />
+              <p className={style.errors}>
+                {errors.confirmpassword?.message && (
+                  <p>"Passwords must match"</p>
+                )}
+              </p>
             </span>
-            <Select inputFull required options={options} placeholder="user type" />
+            <span>
+              <Select
+                inputFull
+                placeholder="user type"
+                options={options}
+                field={options.find(({ value }) => value === field.value)}
+                handleSelectChange={handleSelectChange}
+              />
+              <p className={style.errors}>{errors.role?.message}</p>
+            </span>
             <div className={style.checkbox}>
               <input type="checkbox" />
               <span>I Agree To The Terms Of Service</span>
             </div>
           </div>
-          <Button padding marginTop primary full rounded linearGradient uppercase
-           types="submit">register</Button>
-          {/* <button className={style.btn} type="submit">
+          <Button
+            padding
+            marginTop
+            primary
+            full
+            rounded
+            linearGradient
+            uppercase
+            types="submit"
+          >
             register
-          </button> */}
+          </Button>
         </form>
       </div>
     </div>
@@ -115,12 +210,3 @@ const auth: FC = () => {
 };
 
 export default auth;
-
-// <select className={style.input}>
-// <option value="" selected disabled>
-//   user type
-// </option>
-// <option value="subscriber">subscriber</option>
-// <option value="agent">agent</option>
-// <option value="agency">agency</option>
-// </select>

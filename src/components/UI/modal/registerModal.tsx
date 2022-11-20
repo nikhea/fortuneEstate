@@ -9,7 +9,7 @@ interface modals {
 }
 
 const ModalComponent: FC = NiceModal.create<any>(({ name }) => {
-  console.log(name);
+  // console.log(name);
 
   const modal = useModal();
 

@@ -9,6 +9,8 @@ export interface optionsProps {
 }
 interface inputProps {
   // type: any;
+  name?: string;
+  register?: any;
   placeholder: string;
   required?: boolean;
   inputFull?: boolean;
@@ -17,6 +19,8 @@ interface inputProps {
   bold?: boolean;
   rounded?: boolean;
   options: optionsProps[];
+  field: any;
+  handleSelectChange: any;
 }
 
 // const options = [
@@ -38,11 +42,14 @@ const InputSelect: FC<inputProps> = ({
   isCurve,
   rounded,
   bold,
+  name,
+  register,
   required,
   placeholder,
   options,
+  handleSelectChange,
+  field,
 }) => {
-  const { register, handleSubmit, control } = useForm();
   const [selectedOption, setSelectedOption] = useState(null);
 
   let inputSelectContainer = {
@@ -67,12 +74,14 @@ const InputSelect: FC<inputProps> = ({
   return (
     <div className={classnames(inputSelectContainer)}>
       <Select
-        // defaultValue={options[0]}
+        value={field}
         placeholder={placeholder}
+        name={name}
         styles={customStyles}
         className="react-select-container"
         classNamePrefix="react-select"
-        // onChange={setSelectedOption}
+        // ref={register}
+        onChange={handleSelectChange}
         options={options}
         required={required}
       />

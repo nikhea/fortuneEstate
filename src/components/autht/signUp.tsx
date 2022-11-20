@@ -39,8 +39,16 @@ const auth: FC = () => {
         </div>
         <form className={style.formSignIn}>
           <div>
-            <Input type="email" placeholder="your email*" inputFull required rounded />
             <Input
+              type="email"
+              name="email"
+              placeholder="your email*"
+              inputFull
+              required
+              rounded
+            />
+            <Input
+              name="password"
               type="password"
               placeholder="your password*"
               inputFull
