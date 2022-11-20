@@ -1,6 +1,7 @@
 import { FC, useState } from "react";
 import AuthBG from "../../images/authBG.png";
 import Input from "../../components/UI/FormElement/input/input";
+import Select from "../../components/UI/FormElement/select/select";
 import { Link } from "react-router-dom";
 import { AiOutlineClose } from "react-icons/ai";
 import StickyBox from "react-sticky-box";
@@ -25,6 +26,11 @@ const auth: FC = () => {
   const closeRegisterModal = () => {
     NiceModal.remove("registerModal");
   };
+  const options = [
+    { value: "chocolate", label: "Chocolate" },
+    { value: "strawberry", label: "Strawberry" },
+    { value: "vanilla", label: "Vanilla" },
+  ];
   return (
     <div className={style.container}>
       {/* <StickyBox offsetTop={20} offsetBottom={20}> */}
@@ -43,7 +49,7 @@ const auth: FC = () => {
         </div>
         <form className={style.form}>
           <div>
-            <Input
+            {/* <Input
               type="email"
               placeholder="your email*"
               inputFull
@@ -56,9 +62,9 @@ const auth: FC = () => {
               inputFull
               required
               rounded
-            />
+            /> */}
             <span className={style.inputHalf}>
-              <Input
+              {/* <Input
                 type="text"
                 placeholder="first name*"
                 inputHalf
@@ -71,10 +77,10 @@ const auth: FC = () => {
                 inputHalf
                 required
                 rounded
-              />
+              /> */}
             </span>
             <span className={style.inputHalf}>
-              <Input
+              {/* <Input
                 type="password"
                 placeholder="your password*"
                 inputHalf
@@ -87,8 +93,9 @@ const auth: FC = () => {
                 inputHalf
                 required
                 rounded
-              />
+              /> */}
             </span>
+            <Select options={options} />
             <select className={style.input}>
               <option value="" selected disabled>
                 user type

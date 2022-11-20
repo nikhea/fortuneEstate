@@ -1,0 +1,42 @@
+input {
+  border: none;
+}
+.react-select-container {
+  @apply outline-none border-0 rounded-full;
+}
+.react-select__value-container {
+  @apply bg-[#f1f1f1]  text-[#9a9a9a] text-[.9375rem]  outline-none pr-[px]   py-[10px] px-[23px] border-0;
+}
+.react-select__value-container:focus {
+  @apply border-0;
+}
+.react-select__value-container:active {
+  @apply border-0;
+}
+
+.react-select__value-container.css-1kwwvb1-ValueContainer2 {
+  @apply bg-[#f1f1f1] border-0  text-[#9a9a9a] text-[.9375rem]  outline-none pr-[px] rounded-full rounded-r-none  py-[10px] px-[23px] border-0;
+}
+
+.react-select__indicators {
+  @apply bg-[#f1f1f1]   text-[#9a9a9a] text-[.9375rem]  outline-none pr-[15px] rounded-full rounded-l-none;
+}
+.react-select__indicator-separator {
+  display: none;
+}
+.react-select__control.css-nqaof0-control {
+  border: none;
+  box-shadow: none;
+  border-color: none;
+}
+.react-select__control.react-select__control--is-focused {
+  outline: none;
+  border: none;
+  box-shadow: none;
+}
+/* .react-select__value-container{
+    @apply   bg-[#f1f1f1]   text-[#9a9a9a] text-[.9375rem]  outline-none pr-[px];
+
+} */
+/* .css-nqaof0-control */
+/* .react-select__control.react-select__control--is-focused.react-select__control--menu-is-open.css-nqaof0-control { */
