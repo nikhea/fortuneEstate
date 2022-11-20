@@ -2,6 +2,7 @@ import { FC, useState } from "react";
 import AuthBG from "../../images/authBG.png";
 import Input from "../../components/UI/FormElement/input/input";
 import Select from "../../components/UI/FormElement/select/select";
+import Button from "../../components/UI/FormElement/Button";
 import { Link } from "react-router-dom";
 import { AiOutlineClose } from "react-icons/ai";
 import StickyBox from "react-sticky-box";
@@ -27,9 +28,10 @@ const auth: FC = () => {
     NiceModal.remove("registerModal");
   };
   const options = [
-    { value: "chocolate", label: "Chocolate" },
-    { value: "strawberry", label: "Strawberry" },
-    { value: "vanilla", label: "Vanilla" },
+    // { value: "user agent", label: "user agent" },
+    { value: "subscriber", label: "subscriber" },
+    { value: "agent", label: "agent" },
+    { value: "agency", label: "agency" },
   ];
   return (
     <div className={style.container}>
@@ -49,7 +51,7 @@ const auth: FC = () => {
         </div>
         <form className={style.form}>
           <div>
-            {/* <Input
+            <Input
               type="email"
               placeholder="your email*"
               inputFull
@@ -62,9 +64,9 @@ const auth: FC = () => {
               inputFull
               required
               rounded
-            /> */}
+            />
             <span className={style.inputHalf}>
-              {/* <Input
+              <Input
                 type="text"
                 placeholder="first name*"
                 inputHalf
@@ -77,10 +79,10 @@ const auth: FC = () => {
                 inputHalf
                 required
                 rounded
-              /> */}
+              />
             </span>
             <span className={style.inputHalf}>
-              {/* <Input
+              <Input
                 type="password"
                 placeholder="your password*"
                 inputHalf
@@ -93,25 +95,19 @@ const auth: FC = () => {
                 inputHalf
                 required
                 rounded
-              /> */}
+              />
             </span>
-            <Select options={options} />
-            <select className={style.input}>
-              <option value="" selected disabled>
-                user type
-              </option>
-              <option value="subscriber">subscriber</option>
-              <option value="agent">agent</option>
-              <option value="agency">agency</option>
-            </select>
+            <Select inputFull required options={options} placeholder="user type" />
             <div className={style.checkbox}>
               <input type="checkbox" />
               <span>I Agree To The Terms Of Service</span>
             </div>
           </div>
-          <button className={style.btn} type="submit">
+          <Button padding marginTop primary full rounded linearGradient uppercase
+           types="submit">register</Button>
+          {/* <button className={style.btn} type="submit">
             register
-          </button>
+          </button> */}
         </form>
       </div>
     </div>
@@ -119,3 +115,12 @@ const auth: FC = () => {
 };
 
 export default auth;
+
+// <select className={style.input}>
+// <option value="" selected disabled>
+//   user type
+// </option>
+// <option value="subscriber">subscriber</option>
+// <option value="agent">agent</option>
+// <option value="agency">agency</option>
+// </select>

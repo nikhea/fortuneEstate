@@ -14,6 +14,8 @@ interface Button {
   padding?: boolean;
   linearGradient?: boolean;
   border?: boolean;
+  marginTop?: boolean;
+  types?: any;
 }
 
 const Button: FC<Button> = ({
@@ -28,7 +30,9 @@ const Button: FC<Button> = ({
   disabled,
   uppercase,
   padding,
+  marginTop,
   linearGradient,
+  types,
   border,
 }) => {
   const style = {
@@ -40,6 +44,7 @@ const Button: FC<Button> = ({
     full: `w-full`,
     bold: ``,
     margin: `m-0`,
+    marginTop: `m-0 mt-0`,
     curve: `rounded-[8px] `,
     uppercase: `uppercase`,
     padding: `!px-[5em] !py-[1em]`,
@@ -62,8 +67,9 @@ const Button: FC<Button> = ({
     [`${style.linearGradient}`]: linearGradient,
     [`${style.padding}`]: padding,
     [`${style.border}`]: border,
+    [`${style.marginTop}`]: marginTop,
   };
-  return <button className={classnames(btn)}>{children}</button>;
+  return <button type={types} className={classnames(btn)}>{children}</button>;
 };
 
 export default Button;

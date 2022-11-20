@@ -1,15 +1,15 @@
 import { FC, useState } from "react";
-import "./select.css"
+import "./select.css";
 import Select from "react-select";
 import classnames from "classnames";
-
+import { Controller, useForm } from "react-hook-form";
 export interface optionsProps {
   value: string;
   label: string;
 }
 interface inputProps {
   // type: any;
-  // placeholder: string;
+  placeholder: string;
   required?: boolean;
   inputFull?: boolean;
   inputHalf?: boolean;
@@ -38,23 +38,26 @@ const InputSelect: FC<inputProps> = ({
   isCurve,
   rounded,
   bold,
+  required,
+  placeholder,
   options,
 }) => {
+  const { register, handleSubmit, control } = useForm();
   const [selectedOption, setSelectedOption] = useState(null);
 
-  // let inputSelect = {
-  //   [`${style.input}`]: true,
-  //   [`${style.inputFull}`]: inputFull,
-  //   [`${style.inputHalf}`]: inputHalf,
-  //   [`${style.curve}`]: isCurve,
-  //   [`${style.rounded}`]: rounded,
-  //   [`${style.bold}`]: bold,
-  // };
+  let inputSelectContainer = {
+    // [`${style.input}`]: true,
+    [`${style.inputFull}`]: inputFull,
+    [`${style.inputHalf}`]: inputHalf,
+    // [`${style.curve}`]: isCurve,
+    // [`${style.rounded}`]: rounded,
+    // [`${style.bold}`]: bold,
+  };
   const customStyles = {
     option: (provided: any, state: { isSelected: any }) => ({
       ...provided,
-      color: state.isSelected ? "yellow" : "black",
-      backgroundColor: state.isSelected ? "green" : "white",
+      // color: state.isSelected ? "yellow" : "black",
+      // backgroundColor: state.isSelected ? "green" : "white",
     }),
     control: (provided: any) => ({
       ...provided,
@@ -62,14 +65,18 @@ const InputSelect: FC<inputProps> = ({
     }),
   };
   return (
-    <Select
-      defaultValue={selectedOption}
-      styles={customStyles}
-      className="react-select-container"
-      classNamePrefix="react-select"
-      // onChange={setSelectedOption}
-      options={options}
-    />
+    <div className={classnames(inputSelectContainer)}>
+      <Select
+        // defaultValue={options[0]}
+        placeholder={placeholder}
+        styles={customStyles}
+        className="react-select-container"
+        classNamePrefix="react-select"
+        // onChange={setSelectedOption}
+        options={options}
+        required={required}
+      />
+    </div>
   );
 };
 export default InputSelect;
