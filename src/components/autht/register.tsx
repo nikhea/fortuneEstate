@@ -1,5 +1,6 @@
 import { FC, useState } from "react";
 import AuthBG from "../../images/authBG.png";
+import Input from "../../components/UI/FormElement/input/input";
 import { Link } from "react-router-dom";
 import { AiOutlineClose } from "react-icons/ai";
 import StickyBox from "react-sticky-box";
@@ -14,7 +15,7 @@ const style = {
   header: `flex items-center justify-between w-full mt-[20px] mb-[10px]`,
   form: ` h-[] flex flex-col items-center justify-center`,
   checkbox: `flex items-center [&>*]:mr-[15px] font-light my-[20px]`,
-  inputHalf: `flex justify-between [&>*]:w-[47%]`,
+  inputHalf: `flex justify-between `,
   input: `my-[10px] bg-[#f1f1f1] rounded-[25px] py-[15px] px-[23px] text-[#9a9a9a] text-[.9375rem] font-bol w-full outline-none pr-[23px]`,
   btn: `w-[100%] text-white  my-[4px] mx-[5px] py-[0] px-[25px] h-[44px] text-[1rem]  rounded-full  outline-none  bg-gradient-to-r from-cyan-500 to-blue-500 uppercase`,
   forgot: `flex justify-between items-center`,
@@ -27,7 +28,7 @@ const auth: FC = () => {
   return (
     <div className={style.container}>
       {/* <StickyBox offsetTop={20} offsetBottom={20}> */}
-        <img src={AuthBG} alt={AuthBG} className={style.img} />
+      <img src={AuthBG} alt={AuthBG} className={style.img} />
       {/* </StickyBox> */}
       {/* REGISTER */}
       <div className={style.content}>
@@ -42,44 +43,50 @@ const auth: FC = () => {
         </div>
         <form className={style.form}>
           <div>
-            <input
-              className={style.input}
+            <Input
               type="email"
               placeholder="your email*"
+              inputFull
               required
+              rounded
             />
-            <input
-              className={style.input}
+            <Input
               type="text"
               placeholder="your username*"
+              inputFull
               required
+              rounded
             />
             <span className={style.inputHalf}>
-              <input
-                className={style.input}
+              <Input
                 type="text"
                 placeholder="first name*"
+                inputHalf
                 required
+                rounded
               />
-              <input
-                className={style.input}
+              <Input
                 type="text"
                 placeholder="last name*"
+                inputHalf
                 required
+                rounded
               />
             </span>
             <span className={style.inputHalf}>
-              <input
-                className={style.input}
+              <Input
                 type="password"
                 placeholder="your password*"
+                inputHalf
                 required
+                rounded
               />
-              <input
-                className={style.input}
-                type="text"
+              <Input
+                type="password"
                 placeholder="retype password*"
+                inputHalf
                 required
+                rounded
               />
             </span>
             <select className={style.input}>

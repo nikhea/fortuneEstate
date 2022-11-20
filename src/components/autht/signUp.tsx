@@ -1,4 +1,5 @@
 import { FC, useState } from "react";
+import Input from "../../components/UI/FormElement/input/input";
 import AuthBG from "../../images/authBG.png";
 import { Link } from "react-router-dom";
 import { AiOutlineClose } from "react-icons/ai";
@@ -25,8 +26,53 @@ const auth: FC = () => {
   return (
     <div className={style.container}>
       <img src={AuthBG} alt={AuthBG} className={style.img} />
-      {/* REGISTER */}
-      {/* <div className={style.content}>
+
+      {/* SIGN UP */}
+      <div className={style.content}>
+        <div className={style.header}>
+          <h2 className={style.text}>sign in</h2>
+          <AiOutlineClose
+            size={20}
+            onClick={closeSignUpModal}
+            style={{ cursor: "pointer" }}
+          />
+        </div>
+        <form className={style.formSignIn}>
+          <div>
+            <Input type="email" placeholder="your email*" inputFull required rounded />
+            <Input
+              type="password"
+              placeholder="your password*"
+              inputFull
+              rounded
+              required
+            />
+            <div className={style.forgot}>
+              <div className={style.checkbox}>
+                <input type="checkbox" />
+                <span>Remeber Me</span>
+              </div>
+              <p className={style.forgotpassword}>
+                <Link to="#">Forgot your password?</Link>
+              </p>
+            </div>
+          </div>
+          <button className={style.btn} type="submit">
+            login
+          </button>
+        </form>
+      </div>
+    </div>
+  );
+};
+
+export default auth;
+
+{
+  /* REGISTER */
+}
+{
+  /* <div className={style.content}>
         <div className={style.header}>
           <h2 className={style.text}>register</h2>
           <AiOutlineClose
@@ -90,48 +136,5 @@ const auth: FC = () => {
           <button className={style.btn} type="submit">
             register
           </button>
-        </form> */}
-      {/* SIGN UP */}
-      <div className={style.content}>
-        <div className={style.header}>
-          <h2 className={style.text}>sign in</h2>
-          <AiOutlineClose
-            size={20}
-            onClick={closeSignUpModal}
-            style={{ cursor: "pointer" }}
-          />
-        </div>
-        <form className={style.formSignIn}>
-          <div>
-            <input
-              className={style.input}
-              type="email"
-              placeholder="your email*"
-              required
-            />
-            <input
-              className={style.input}
-              type="password"
-              placeholder="your password*"
-              required
-            />
-            <div className={style.forgot}>
-              <div className={style.checkbox}>
-                <input type="checkbox" />
-                <span>Remeber Me</span>
-              </div>
-              <p className={style.forgotpassword}>
-                <Link to="#">Forgot your password?</Link>
-              </p>
-            </div>
-          </div>
-          <button className={style.btn} type="submit">
-            login
-          </button>
-        </form>
-      </div>
-    </div>
-  );
-};
-
-export default auth;
+        </form> */
+}
