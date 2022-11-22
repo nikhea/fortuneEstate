@@ -6,7 +6,7 @@ import SideBar from "../pages/dashBoard/sidebar";
 import SideBarNav from "../Layout/Header/SideBarNav";
 const dashBoard: FC = () => {
   const style = {
-    dashBoardLayout: ` border-l-[5px] border-b-[5px] border-t-[5px]  border-[#E5E5E5] bg-[#E5E5E5] h-screen overflow-hidden flex flex-col md:flex-row `,
+    dashBoardLayout: ` border-l-[5px] border-b-[5px] border-t-[5px]  border-[#E5E5E5] bg-[#E5E5E5] h-screen overflow-hidde flex flex-col md:flex-row `,
     container: `  w-[95%]  m-auto`,
     sidebar: `hidden md:block md:col-start-1 md:col-end-1 h-full md:w-[20%]`,
     sidebarNav: ` md:hidden`,
