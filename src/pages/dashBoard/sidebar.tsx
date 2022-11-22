@@ -8,7 +8,7 @@ import { BiStats } from "react-icons/bi";
 import { SiGoogletagmanager } from "react-icons/si";
 import { HiHomeModern } from "react-icons/hi2";
 const style = {
-  sidBarLayout: ` bg-white overflow-hidden hidden md:flex flex-col h-full`,
+  sidBarLayout: ` bg-white overflow-hidde hidden md:flex flex-col h-full py-[1em]`,
   container: ` flex justify-between w-[95%]  m-auto m-0 text-cente items-center  `,
   lists: `capitalize justify-between  mt-8 w-full h-full flex flex-col`,
   list: `  w-full [&>*]:py-2 [&>*]:px-5  [&>*]:w-full my-5 [&>*]:inline-block [&>*]:flex [&>*]:items-center `,

@@ -1,11 +1,19 @@
 // @ts-ignore
 import { useMemo } from "react";
 import "./table.css";
-import { Column, useTable, useSortBy, useGlobalFilter } from "react-table";
+import {
+  Column,
+  useTable,
+  useSortBy,
+  useGlobalFilter,
+  useBlockLayout,
+} from "react-table";
+import { useSticky } from "react-table-sticky";
 import MOCK_DATA from "../../../../data/MOCK_DATA.json";
 import { column } from "./colum";
 import { FaSortDown, FaSortUp } from "react-icons/fa";
 import GlobalFilterInput from "./GlobalFilters";
+import { StickyStyles } from "./StyledTable";
 interface DataInterface {
   id: number;
   first_name: string;
@@ -36,7 +44,9 @@ const basic = () => {
       data,
     },
     useGlobalFilter,
-    useSortBy
+    useSortBy,
+    // useBlockLayout,
+    // useSticky
   );
   return (
     <>
