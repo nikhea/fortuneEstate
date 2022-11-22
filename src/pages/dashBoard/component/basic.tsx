@@ -41,7 +41,7 @@ const basic = () => {
         ))}
       </thead>
       <tbody {...getTableBodyProps()}>
-        {rows.map((row) => {
+        {rows.slice(0).map((row) => {
           prepareRow(row);
           return (
             <tr {...row.getRowProps()}>
