@@ -1,7 +1,7 @@
 import { FC, useState } from "react";
 import NiceModal, { useModal } from "@ebay/nice-modal-react";
 import ReactModal from "react-modal";
-import SignUp from "../../autht/signUp";
+import SignUp from "../../autht/signIn";
 
 interface modals {
   modalIsOpen?: any;

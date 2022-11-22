@@ -1,9 +1,19 @@
-import React from 'react'
+import React from "react";
+import TableLsiting from "../component/basic";
 
+
+const style = {
+  container: `w-[99.5%] m-auto bg-gree-500 h-full bg-white`
+}
 const trackLisiting = () => {
   return (
-    <div className="bg-green-500">trackYourLisiting</div>
-  )
-}
+    <div className={style.container}>
+      trackYourLisiting
+      <TableLsiting />
+      hjkxzhj
+      nxjzkjhcx
+    </div>
+  );
+};
 
-export default trackLisiting
+export default trackLisiting;

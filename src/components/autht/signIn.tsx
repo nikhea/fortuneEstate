@@ -4,7 +4,14 @@ import AuthBG from "../../images/authBG.png";
 import { Link } from "react-router-dom";
 import { AiOutlineClose } from "react-icons/ai";
 import NiceModal from "@ebay/nice-modal-react";
-
+import { useForm, useController } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
+import { SignInSchema } from "./SCHEMA";
+interface FormData {
+  email: string;
+  password: string;
+}
 const style = {
   container: `flex  `,
   img: `hidden md:flex h-full`,
@@ -18,10 +25,26 @@ const style = {
   btn: `w-[100%] text-white  my-[4px] mx-[5px] py-[0] px-[25px] h-[44px] text-[1rem]  rounded-full  outline-none  bg-gradient-to-r from-cyan-500 to-blue-500 uppercase`,
   forgot: `flex justify-between items-center`,
   forgotpassword: `text-blue-600`,
+  errors: ``,
 };
 const auth: FC = () => {
-  const closeSignUpModal = () => {
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm<FormData>({
+    resolver: yupResolver(SignInSchema),
+  });
+  const closeSignInModal = () => {
     NiceModal.remove("signUpModal");
+  };
+  const submitForm = (data: any) => {
+    console.log(data, "data");
+    reset();
+    setTimeout(() => {
+      closeSignInModal();
+    }, 1000);
   };
   return (
     <div className={style.container}>
@@ -33,11 +56,11 @@ const auth: FC = () => {
           <h2 className={style.text}>sign in</h2>
           <AiOutlineClose
             size={20}
-            onClick={closeSignUpModal}
+            onClick={closeSignInModal}
             style={{ cursor: "pointer" }}
           />
         </div>
-        <form className={style.formSignIn}>
+        <form className={style.formSignIn} onSubmit={handleSubmit(submitForm)}>
           <div>
             <Input
               type="email"
@@ -46,7 +69,11 @@ const auth: FC = () => {
               inputFull
               required
               rounded
+              inputRef={register("email", { required: true })}
             />
+            <p className={style.errors}>
+              {errors.email?.message && <p>{errors.email?.message}</p>}
+            </p>
             <Input
               name="password"
               type="password"
@@ -54,7 +81,11 @@ const auth: FC = () => {
               inputFull
               rounded
               required
+              inputRef={register("password", { required: true })}
             />
+            <p className={style.errors}>
+              {errors.password?.message && <p>{errors?.password?.message}</p>}
+            </p>
             <div className={style.forgot}>
               <div className={style.checkbox}>
                 <input type="checkbox" />

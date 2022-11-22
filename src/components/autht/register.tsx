@@ -10,6 +10,7 @@ import NiceModal from "@ebay/nice-modal-react";
 import { useForm, useController } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
+import { registerSchema } from "./SCHEMA";
 
 const style = {
   container: `flex  `,
@@ -34,29 +35,17 @@ interface FormData {
   confirmpassword: string;
   role: string;
 }
-const schema = yup.object().shape({
-  email: yup.string().email().required(),
-  username: yup.string().required(),
-  firstname: yup.string().required(),
-  lastname: yup.string().required(),
-  role: yup.string().required(),
-  // age: yup.number().required(),
-  password: yup.string().min(6).max(15).required(),
-  confirmpassword: yup
-    .string()
-    .oneOf([yup.ref("password"), null])
-    .required(),
-  // usertype: yup.string().required(),
-});
+
 const auth: FC = () => {
   const {
     register,
     control,
     handleSubmit,
     watch,
+    reset,
     formState: { errors },
   } = useForm<FormData>({
-    resolver: yupResolver(schema),
+    resolver: yupResolver(registerSchema),
   });
   const { field } = useController({ name: "role", control });
   const closeRegisterModal = () => {
@@ -70,16 +59,16 @@ const auth: FC = () => {
   ];
   const submitForm = (data: any) => {
     console.log(data, "data");
+    reset();
+    setTimeout(() => {
+      closeRegisterModal();
+    }, 1000);
   };
   const handleSelectChange = (option: any) => {
     field.onChange(option.value);
 
     return field.onChange(option.value);
   };
-
-  console.log(errors.firstname?.message);
-  console.log(errors);
-  const default_value = "Subscriber";
   return (
     <div className={style.container}>
       {/* <StickyBox offsetTop={20} offsetBottom={20}> */}
@@ -109,9 +98,9 @@ const auth: FC = () => {
                 errors={errors}
                 inputRef={register("email", { required: true })}
               />
-              {/* <p className={style.errors}>
+              <p className={style.errors}>
                 {errors.email?.message && <p>{errors.email?.message}</p>}
-              </p> */}
+              </p>
             </span>
             <span>
               <Input
@@ -171,9 +160,7 @@ const auth: FC = () => {
                 inputRef={register("confirmpassword", { required: true })}
               />
               <p className={style.errors}>
-                {errors.confirmpassword?.message && (
-                  <p>"Passwords must match"</p>
-                )}
+                {errors.confirmpassword?.message && <p>Passwords must match</p>}
               </p>
             </span>
             <span>
