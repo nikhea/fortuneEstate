@@ -1,10 +1,9 @@
 import React from "react";
-import TableLsiting from "../component/basic";
-
+import TableLsiting from "../components/Table/table";
 
 const style = {
-  container: `w-[99.5%] m-auto bg-gree-500 h-full bg-white`
-}
+  container: `w-[99.5%] m-auto bg-gree-500 h-full bg-white`,
+};
 const trackLisiting = () => {
   return (
     <div className={style.container}>
