@@ -29,7 +29,7 @@ const TrackLisiting = lazy(
 const App: FC = () => {
   return (
     <>
-      <Suspense fallback={<div><p>Loading...</p></div>}>
+      {/* <Suspense fallback={<div><p>Loading...</p></div>}> */}
         <Routes>
           <Route path="" element={<HomePageLayout />}>
             <Route path={routes.home} element={<Home />} />
@@ -65,7 +65,7 @@ const App: FC = () => {
             />
           </Route>
         </Routes>
-      </Suspense>
+      {/* </Suspense> */}
     </>
   );
 };

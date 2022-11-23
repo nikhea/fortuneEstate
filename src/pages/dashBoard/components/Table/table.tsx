@@ -1,6 +1,6 @@
 // @ts-ignore
 import { useMemo } from "react";
-import "./table.css";
+import "./table.css"
 import {
   Column,
   useTable,
@@ -17,6 +17,7 @@ import { FaSortDown, FaSortUp } from "react-icons/fa";
 import GlobalFilterInput from "./GlobalFilters";
 import { StickyStyles } from "./StyledTable";
 import Button from "../../../../components/UI/FormElement/Button";
+import TableControl from "./tableControl";
 interface DataInterface {
   id: number;
   first_name: string;
@@ -41,13 +42,17 @@ const basic = () => {
     canNextPage,
     canPreviousPage,
     pageOptions,
+    gotoPage,
+    pageCount,
+    setPageSize,
     prepareRow,
-    state: { globalFilter, pageIndex },
+    state: { globalFilter, pageIndex, pageSize },
     setGlobalFilter,
   } = useTable(
     {
       columns,
       data,
+      initialState: { pageSize: 5 },
     },
     useGlobalFilter,
     useSortBy,
@@ -109,34 +114,19 @@ const basic = () => {
           })}
         </tbody>
       </table>
-      <div>
-        <span>
-          page{" "}
-          <strong>
-            {pageIndex + 1} of {pageOptions.length}
-          </strong>
-        </span>
-        <Button
-          primary
-          uppercase
-          border
-          isCurve
-          onClick={() => previousPage()}
-          disabled={!canPreviousPage}
-        >
-          Previous
-        </Button>
-        <Button
-          primary
-          uppercase
-          border
-          isCurve
-          onClick={() => nextPage()}
-          disabled={!canNextPage}
-        >
-          Next
-        </Button>
-      </div>
+      
+      <TableControl
+        pageIndex={pageIndex}
+        pageSize={pageSize}
+        pageOptions={pageOptions}
+        gotoPage={gotoPage}
+        setPageSize={setPageSize}
+        canNextPage={canNextPage}
+        canPreviousPage={canPreviousPage}
+        pageCount={pageCount}
+        previousPage={previousPage}
+        nextPage={nextPage}
+      />
     </>
   );
 };

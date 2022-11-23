@@ -1,0 +1,39 @@
+.controlLayout {
+  background: #fff;
+  /* padding: 69px 50px 54px 50px; */
+  padding: 10px 50px 10px 40px;
+
+  margin: 0 auto;
+  margin-top: 20px;
+  margin-bottom: 0px;
+  box-shadow: 0px 3px 35px 0px rgb(0 0 0 / 15%);
+  /* border-radius: 15px 15px 15px 15px; */
+  transition: background 0.3s, border 0.3s, border-radius 0.3s, box-shadow 0.3s;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.innerLayout {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.innerLayout > * {
+  @apply px-3 my-3;
+}
+input,
+select {
+  /* background: #eee; */
+
+  @apply my-[10p]  bg-[#f1f1f1]  py-2 px-[0px] text-[#9a9a9a] text-[.9375rem]  outline-none rounded-full px-7 w-[102px];
+}
+/* select {
+   @apply w-[102px];
+} */
+.btn {
+  @apply my-[10px]  bg-[#eee]  py-2 px-[0px] text-[#9a9a9a] text-[.9375rem]  outline-none rounded px-7 cursor-pointer;
+}
+.btn:disabled {
+  @apply my-[10px]  bg-[#f1f1f1] opacity-[px]  py-2 px-[0px] text-[#9a9a9a] text-[.9375rem]  outline-none rounded px-7 cursor-not-allowed;
+}
