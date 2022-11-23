@@ -8,7 +8,7 @@ export const column = [
   {
     Header: "date of birth",
     accessor: (d: any) => {
-      return Moment(d.updated_at).local().format("DD-MM-YYYY");
+      return Moment(d.updated_at).local().format("D MMM YYYY");
     },
     // accessor: "date_of_birth",
     // cell: ({ value }: any) => {
@@ -18,7 +18,16 @@ export const column = [
     sticky: "left",
   },
   { Header: "age", accessor: "age", sticky: "left" },
-  // { Header: "email", accessor: "email" },
-  { Header: "countrys", accessor: "countrys", sticky: "left" },
+
+  {
+    Header: "countrys",
+    // accessor: "countrys",
+    accessor: (value: any) => {
+      return value.countrys >= 10
+        ? value
+        : `${value.countrys.substring(0, 10)}`;
+    },
+    sticky: "left",
+  },
   { Header: "phone number", accessor: "phone", sticky: "left" },
 ];

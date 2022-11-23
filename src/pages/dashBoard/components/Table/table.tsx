@@ -6,7 +6,9 @@ import {
   useTable,
   useSortBy,
   useGlobalFilter,
+  usePagination,
   useBlockLayout,
+  Row,
 } from "react-table";
 import { useSticky } from "react-table-sticky";
 import MOCK_DATA from "../../../../data/MOCK_DATA.json";
@@ -14,6 +16,7 @@ import { column } from "./colum";
 import { FaSortDown, FaSortUp } from "react-icons/fa";
 import GlobalFilterInput from "./GlobalFilters";
 import { StickyStyles } from "./StyledTable";
+import Button from "../../../../components/UI/FormElement/Button";
 interface DataInterface {
   id: number;
   first_name: string;
@@ -27,16 +30,19 @@ interface DataInterface {
 const basic = () => {
   const columns = useMemo<Column<DataInterface>[]>(() => column, []);
   const data = useMemo<DataInterface[]>(() => MOCK_DATA, []);
-  console.log(data, "data");
   const {
     getTableProps,
     getTableBodyProps,
     headerGroups,
-    rows,
+    // rows,
+    page,
+    nextPage,
+    previousPage,
+    canNextPage,
+    canPreviousPage,
+    pageOptions,
     prepareRow,
-    // @ts-ignore
-    state: { globalFilter },
-    // @ts-ignore
+    state: { globalFilter, pageIndex },
     setGlobalFilter,
   } = useTable(
     {
@@ -45,6 +51,7 @@ const basic = () => {
     },
     useGlobalFilter,
     useSortBy,
+    usePagination
     // useBlockLayout,
     // useSticky
   );
@@ -88,7 +95,7 @@ const basic = () => {
           ))}
         </thead>
         <tbody {...getTableBodyProps()}>
-          {rows.slice(0, 50).map((row) => {
+          {page.slice().map((row: Row<DataInterface>) => {
             prepareRow(row);
             return (
               <tr {...row.getRowProps()}>
@@ -102,6 +109,34 @@ const basic = () => {
           })}
         </tbody>
       </table>
+      <div>
+        <span>
+          page{" "}
+          <strong>
+            {pageIndex + 1} of {pageOptions.length}
+          </strong>
+        </span>
+        <Button
+          primary
+          uppercase
+          border
+          isCurve
+          onClick={() => previousPage()}
+          disabled={!canPreviousPage}
+        >
+          Previous
+        </Button>
+        <Button
+          primary
+          uppercase
+          border
+          isCurve
+          onClick={() => nextPage()}
+          disabled={!canNextPage}
+        >
+          Next
+        </Button>
+      </div>
     </>
   );
 };

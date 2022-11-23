@@ -16,6 +16,7 @@ interface Button {
   border?: boolean;
   marginTop?: boolean;
   types?: any;
+  onClick?: any;
 }
 
 const Button: FC<Button> = ({
@@ -34,6 +35,7 @@ const Button: FC<Button> = ({
   linearGradient,
   types,
   border,
+  onClick
 }) => {
   const style = {
     btn: `border border-solid bg-transparen min-w-[100px] not-italic font-[400] text-[14px] outline-none cursor-pointer my-[2em] mx-0 py-[1.3em] px-0`,
@@ -69,7 +71,7 @@ const Button: FC<Button> = ({
     [`${style.border}`]: border,
     [`${style.marginTop}`]: marginTop,
   };
-  return <button type={types} className={classnames(btn)}>{children}</button>;
+  return <button onClick={onClick} type={types} className={classnames(btn)}>{children}</button>;
 };
 
 export default Button;

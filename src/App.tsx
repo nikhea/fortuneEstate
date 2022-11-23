@@ -1,4 +1,4 @@
-import { FC, Suspense } from "react";
+import { FC, Suspense, lazy } from "react";
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
 import { routes } from "./routes/routes";
@@ -21,11 +21,15 @@ import ListingManager from "./pages/dashBoard/pages/ListingManager";
 import Profile from "./pages/dashBoard/pages/profile";
 import Settings from "./pages/dashBoard/pages/settings";
 import DashboardProperties from "./pages/dashBoard/pages/Properties";
-import TrackLisiting from "./pages/dashBoard/pages/trackLisiting";
+// import TrackLisiting from "./pages/dashBoard/pages/trackLisiting";
+const TrackLisiting = lazy(
+  () => import("./pages/dashBoard/pages/trackLisiting")
+);
+
 const App: FC = () => {
   return (
     <>
-      <Suspense fallback={<Spinner />}>
+      <Suspense fallback={<div><p>Loading...</p></div>}>
         <Routes>
           <Route path="" element={<HomePageLayout />}>
             <Route path={routes.home} element={<Home />} />

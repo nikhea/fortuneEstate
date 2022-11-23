@@ -4,19 +4,23 @@ table {
 }
 /* Zebra striping */
 tr:nth-of-type(odd) {
-  background: #eee;
+  /* background: #eee; */
 }
 th {
-  background: #333;
-  color: white;
+  /* background: #333; */
+  /* color: white; */
   font-weight: bold;
+
+  @apply mt-4 text-[#ccc] font-black;
 }
 td,
 th {
-  padding: 6px;
-  border: 1px solid #ccc;
+  /* padding: 9px; */
+    border-bottom: 2px solid #ccc;
+  /* border: 1px solid #ccc; */
   /* text-align: left; */
   text-align: center;
+  @apply py-5
 }
 
 /* 
@@ -40,6 +44,7 @@ and also iPads specifically.
   }
   tbody {
     text-align: right;
+   
   }
 
   /* Hide table headers (but not display: none;, for accessibility) */
@@ -51,6 +56,7 @@ and also iPads specifically.
 
   tr {
     border: 1px solid #ccc;
+    @apply my-5;
   }
 
   td {
@@ -60,7 +66,8 @@ and also iPads specifically.
     position: relative;
     padding-left: 50%;
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
+    
     width: 97%;
     margin: 0 auto;
   }
@@ -80,7 +87,7 @@ and also iPads specifically.
 	Label the data
 	*/
   td:nth-of-type(1):before {
-    content: "First Name";
+    content: "id";
   }
   td:nth-of-type(2):before {
     content: "First Name";
