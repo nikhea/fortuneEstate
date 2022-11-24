@@ -1,6 +1,6 @@
 // @ts-ignore
-import { useMemo } from "react";
-import "./table.css"
+import { useMemo, forwardRef, useRef, useEffect } from "react";
+import "./table.css";
 import {
   Column,
   useTable,
@@ -10,14 +10,18 @@ import {
   useBlockLayout,
   Row,
 } from "react-table";
+import Switch from "react-switch";
 import { useSticky } from "react-table-sticky";
 import MOCK_DATA from "../../../../data/MOCK_DATA.json";
 import { column } from "./colum";
-import { FaSortDown, FaSortUp } from "react-icons/fa";
+import { BiSortAlt2 } from "react-icons/bi";
+import { BsSortUp, BsSortDown } from "react-icons/bs";
+
 import GlobalFilterInput from "./GlobalFilters";
 import { StickyStyles } from "./StyledTable";
-import Button from "../../../../components/UI/FormElement/Button";
+import ToggleTable from "./toggleTable";
 import TableControl from "./tableControl";
+// import IndeterminateCheckbox from "./ IndeterminateCheckbox";
 interface DataInterface {
   id: number;
   first_name: string;
@@ -28,6 +32,23 @@ interface DataInterface {
   countrys: string;
   phone: string;
 }
+const IndeterminateCheckbox = forwardRef(({ indeterminate, ...rest }, ref) => {
+  const defaultRef = useRef();
+  const resolvedRef = ref || defaultRef;
+
+  useEffect(() => {
+    resolvedRef.current.indeterminate = indeterminate;
+  }, [resolvedRef, indeterminate]);
+
+  return (
+    <div class="cb action">
+      <label>
+        <input type="checkbox" ref={resolvedRef} {...rest} />
+        <span>All</span>
+      </label>
+    </div>
+  );
+});
 const basic = () => {
   const columns = useMemo<Column<DataInterface>[]>(() => column, []);
   const data = useMemo<DataInterface[]>(() => MOCK_DATA, []);
@@ -46,6 +67,8 @@ const basic = () => {
     pageCount,
     setPageSize,
     prepareRow,
+    allColumns,
+    getToggleHideAllColumnsProps,
     state: { globalFilter, pageIndex, pageSize },
     setGlobalFilter,
   } = useTable(
@@ -62,38 +85,57 @@ const basic = () => {
   );
   return (
     <>
-      <GlobalFilterInput filter={globalFilter} setfilter={setGlobalFilter} />
+      <div>
+        <div>
+          <IndeterminateCheckbox {...getToggleHideAllColumnsProps()} />
+        </div>
+        {/* Loop through columns data to create checkbox */}
+        {allColumns.map((column) => (
+          <div className="cb action" key={column.id}>
+            <label>
+              <input type="checkbox" {...column.getToggleHiddenProps()} />{" "}
+              <span>{column.Header}</span>
+            </label>
+          </div>
+        ))}
+        <br />
+      </div>
+      {/* <ToggleTable allColumns={allColumns} /> */}
+      {/* <GlobalFilterInput filter={globalFilter} setfilter={setGlobalFilter} /> */}
       <table {...getTableProps()}>
         <thead>
           {headerGroups.map((headerGroup) => (
             <tr {...headerGroup.getHeaderGroupProps()}>
               {/* {JSON.stringify(headerGroup.headers)} */}
+
               {headerGroup.headers.map((column: any) => (
                 <th {...column.getHeaderProps(column.getSortByToggleProps())}>
-                  {column.render("Header")}
-                  <span>
-                    {column.isSorted ? (
-                      column.isSortedDesc ? (
-                        <FaSortDown
-                          color="#fff"
-                          size={20}
-                          style={{ marginRight: "11px" }}
-                        />
+                  <div className="con">
+                    {column.render("Header")}
+                    <span>
+                      {column.isSorted ? (
+                        column.isSortedDesc ? (
+                          <BsSortDown
+                            // color="#fff"
+                            size={20}
+                            style={{ marginRight: "11px" }}
+                          />
+                        ) : (
+                          <BsSortUp
+                            // color="#fff"
+                            size={20}
+                            style={{ marginRight: "11px" }}
+                          />
+                        )
                       ) : (
-                        <FaSortUp
-                          color="#fff"
+                        <BiSortAlt2
+                          // color="#fff"
                           size={20}
                           style={{ marginRight: "11px" }}
                         />
-                      )
-                    ) : (
-                      <FaSortDown
-                        color="#fff"
-                        size={20}
-                        style={{ marginRight: "11px" }}
-                      />
-                    )}
-                  </span>
+                      )}
+                    </span>
+                  </div>
                 </th>
               ))}
             </tr>
@@ -114,7 +156,7 @@ const basic = () => {
           })}
         </tbody>
       </table>
-      
+
       <TableControl
         pageIndex={pageIndex}
         pageSize={pageSize}

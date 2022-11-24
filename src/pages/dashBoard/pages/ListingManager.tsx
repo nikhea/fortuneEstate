@@ -1,9 +1,16 @@
-import React from 'react'
+import { FC } from "react";
 
-const ListingManager = () => {
+interface ListingManagerProps {}
+const style = {
+  bg: `bg-white h-screen`,
+  container: `w-[95%] m-auto my-5 `,
+};
+const ListingManager: FC<ListingManagerProps> = () => {
   return (
-    <div>ListingManager</div>
-  )
-}
+    <div className={style.container}>
+      <div className={style.bg}>listing manage</div>
+    </div>
+  );
+};
 
-export default ListingManager
+export default ListingManager;
