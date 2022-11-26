@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import {routes} from "../../routes/routes"
 import Button from "../../components/UI/FormElement/Button";
 interface CountrieProps {
-  CountrieName: string;
+  CountrieName: string | any;
   CountrieBanner: string;
 }
 

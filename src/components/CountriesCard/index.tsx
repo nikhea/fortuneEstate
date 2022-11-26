@@ -31,7 +31,7 @@ const CountriesCard: FC = () => {
 
   return (
     <div className={style.container}>
-      <div className={style.textContainer}>
+      {/* <div className={style.textContainer}>
         <h1 className={style.title}>Exceptional properties around the world</h1>
         <p className={style.description}>
           Great cities or exclusive localities. Choose the luxury that suits
@@ -44,21 +44,21 @@ const CountriesCard: FC = () => {
             to={`${routes.properties}/${countries.attributes.name}/${countries.id}`}
             key={countries.id}
             className="gridItem"
-          >
+          > */}
             {/* <div className="gridItem"> */}
-            <img
+            {/* <img
               src={countries.attributes.image}
               alt={countries.attributes.name}
               className={style.image}
             />
             <p className={style.text}>
               <div className={style.hr}>{countries.attributes.name}</div>
-            </p>
+            </p> */}
             {/* </div> */}
-          </Link>
-        ))}
+          {/* </Link> */}
+        {/* ))} */}
       </div>
-    </div>
+    // </div>
   );
 };
 

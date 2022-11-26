@@ -24,7 +24,7 @@ const style = {
   // btn: `bg-[#06c4e5] w-full  text-center text-[0.9rem] tracking-[3px] text-white py-2  capitalize  rounded cursor-not-allowed`,
 };
 interface Props {
-  id: number;
+  _id: number;
   attributes: any;
   name: string;
   image: string;
@@ -34,26 +34,25 @@ const Continents: FC = () => {
     ["continents"],
     getAllCONTINENTS
   );
+
   return (
     <div>
       <ContinentBanner />
       <div className={style.container}>
         {continents?.data.map((continent: Props, index: Key) => (
-          <div className={style.items} key={continent.id}>
+          <div className={style.items} key={continent._id}>
             <div className={style.imgContainer}>
-            <Tilt scale={1}>
-              <img
-                alt={continent.attributes.name}
-                // effect="blur"
-                src={continent.attributes.Image}
-                className={style.image}
-              />
+              <Tilt scale={1}>
+                <img
+                  alt={continent.name}
+                  // effect="blur"
+                  src={continent.image}
+                  className={style.image}
+                />
               </Tilt>
             </div>
-            <h1 className={style.title}>{continent.attributes.name}</h1>
-            <Link
-              to={`${routes.countries}/${continent.attributes.name}/${continent.id}`}
-            >
+            <h1 className={style.title}>{continent.name}</h1>
+            <Link to={`${routes.countries}/${continent.name}`}>
               <Button uppercase primary isCurve full>
                 <div className={style.link}>
                   <MdLocationPin

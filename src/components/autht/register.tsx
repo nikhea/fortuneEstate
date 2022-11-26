@@ -58,7 +58,6 @@ const auth: FC = () => {
     { value: "agency", label: "agency" },
   ];
   const submitForm = (data: any) => {
-    console.log(data, "data");
     reset();
     setTimeout(() => {
       closeRegisterModal();

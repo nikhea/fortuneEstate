@@ -30,17 +30,20 @@ const bg3 =
   "https://www.thehouse48.com/wp-content/uploads/elementor/thumbs/architecture-building-canal-804954-pjkp3dtzc7d35m1dy3y1708yg1xkn4k4k5w2xn6uys.jpg";
 
 interface Props {
-  id?: number;
+  _id?: number;
   attributes?: any;
   name?: string;
   image?: string;
+  bgImage?: string;
 }
 const Countrie: FC = () => {
-  const { id, CountinentName } = useParams();
-  const { data: continent, error } = useQuery(["continent", id], () =>
-    getCONTINENT(id)
+  const { name, CountinentName } = useParams();
+  const { data: continent, error } = useQuery(["continent", name], () =>
+    getCONTINENT(name)
   );
-  const { name, bgImage, countries } = continent?.data.attributes || {};
+  console.log(continent, "osid");
+
+  const { bgImage, countries } = continent?.data || {};
   return (
     <div>
       <CountrieBanner
@@ -48,23 +51,21 @@ const Countrie: FC = () => {
         CountrieBanner={`${bgImage ? bgImage : bg}`}
       />
       <div className={style.container}>
-        {countries?.data.map((countrie: Props, index: Key) => (
-          <div className={style.items} key={countrie.id}>
+        {countries?.map((countrie: Props, index: Key) => (
+          <div className={style.items} key={countrie._id}>
             <div className={style.imgContainer}>
               <Tilt scale={1}>
                 <img
-                  alt={countrie.attributes.name}
+                  alt={countrie.name}
                   // effect="blur"
-                  src={countrie.attributes.image}
+                  src={countrie.image}
                   className={style.image}
                 />
               </Tilt>
             </div>
 
-            <h1 className={style.title}>{countrie.attributes.name}</h1>
-            <Link
-              to={`${routes.properties}/${countrie.attributes.name}/${countrie.id}`}
-            >
+            <h1 className={style.title}>{countrie.name}</h1>
+            <Link to={`${routes.properties}/${countrie.name}/${countrie._id}`}>
               <Button uppercase primary isCurve full>
                 <div className={style.link}>view properties</div>
               </Button>

@@ -6,8 +6,8 @@ export const HTTP_VERBS = {
   DELETE: "delete",
 };
 
-
-export const baseURL = `http://localhost:1337`
+// http://localhost:4000/api/continents
+export const baseURL = `http://localhost:4000`
 // Contenet
 export const GET_CONTINENTS = `/api/continents`;
 export const GET_CONTINENT = `/api/continents/:id`

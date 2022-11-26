@@ -40,7 +40,7 @@ const App: FC = () => {
             {/* <Route path={routes.dashboard} element={<DashBoard />} /> */}
             <Route path={routes.continents} element={<Continents />} />
             <Route
-              path={`${routes.countries}/:CountinentName/:id`}
+              path={`${routes.countries}/:name`}
               element={<Countries />}
             />
             <Route
