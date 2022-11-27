@@ -14,6 +14,7 @@ import { FaBed, FaBath, FaUserCircle } from "react-icons/fa";
 import { GrFavorite } from "react-icons/gr";
 import Spinner from "../../components/UI/spinner/spinner";
 interface propertiesList {
+  ID?: any;
   image?: string;
   images?: any[];
   tage?: string;
@@ -50,6 +51,7 @@ const style = {
   tag: `rounded text-[0.7rem] py-1 px-3   block capitalize  flex bg-[#736EFE] outline-none text-white `,
 };
 const propertiesList: FC<propertiesList> = ({
+  ID,
   image,
   images,
   tage,
@@ -63,10 +65,10 @@ const propertiesList: FC<propertiesList> = ({
   agentImage,
 }) => {
   const [likes, setLike] = useState(false);
+  console.log(bed, "bed", bath, "bath");
 
   const handleClick = () => {
     like = !like;
-
     console.log(like);
     setLike(like);
   };
@@ -74,7 +76,7 @@ const propertiesList: FC<propertiesList> = ({
     <div className={style.container}>
       <div className={style.cardContainer}>
         <div className={style.card}>
-          <Link to={routes.property}>
+          <Link to={`${routes.property}/${ID}`}>
             <div className={style.imgContainer}>
               <Tilt scale={1}>
                 <img
@@ -88,10 +90,10 @@ const propertiesList: FC<propertiesList> = ({
           </Link>
           <div className={style.textContainer}>
             <div className={style.sub}>
-              <p className={style.tag}>{tage}</p>
+              {/* <p className={style.tag}>{tage}</p> */}
               <p className={style.price}>$ {price}</p>
             </div>
-            <Link to={routes.property}>
+            <Link to={`${routes.property}/${ID}`}>
               <h1 className={style.title}>{title}</h1>
             </Link>
             <div className={style.location}>
@@ -128,7 +130,7 @@ const propertiesList: FC<propertiesList> = ({
                     <FaUserCircle color="#8392A5" size={15} />
                   )}
                 </div>
-                <p className={style.agent}> {agent}</p>
+                {/* <p className={style.agent}> {agent}</p> */}
               </div>
               <div
                 style={{

@@ -41,8 +41,6 @@ const Countrie: FC = () => {
   const { data: continent, error } = useQuery(["continent", name], () =>
     getCONTINENT(name)
   );
-  console.log(continent, "osid");
-
   const { bgImage, countries } = continent?.data || {};
   return (
     <div>
@@ -65,7 +63,7 @@ const Countrie: FC = () => {
             </div>
 
             <h1 className={style.title}>{countrie.name}</h1>
-            <Link to={`${routes.properties}/${countrie.name}/${countrie._id}`}>
+            <Link to={`${routes.properties}/${countrie.name}`}>
               <Button uppercase primary isCurve full>
                 <div className={style.link}>view properties</div>
               </Button>

@@ -29,25 +29,23 @@ const TrackLisiting = lazy(
 const App: FC = () => {
   return (
     <>
-      {/* <Suspense fallback={<div><p>Loading...</p></div>}> */}
+      <Suspense fallback={<div><p>Loading...</p></div>}>
         <Routes>
           <Route path="" element={<HomePageLayout />}>
             <Route path={routes.home} element={<Home />} />
           </Route>
           <Route path="" element={<Layout />}>
             <Route path={routes.contact} element={<Contact />} />
-            <Route path={routes.advertServices} element={<AdvertService />} />
-            {/* <Route path={routes.dashboard} element={<DashBoard />} /> */}
-            <Route path={routes.continents} element={<Continents />} />
+            <Route path={routes.advertServices} element={<AdvertService />} />            <Route path={routes.continents} element={<Continents />} />
             <Route
               path={`${routes.countries}/:name`}
               element={<Countries />}
             />
             <Route
-              path={`${routes.properties}/:countryName/:id`}
+              path={`${routes.properties}/:countryName`}
               element={<Properties />}
             />
-            <Route path={routes.property} element={<Property />} />
+            <Route path={`${routes.property}/:id`} element={<Property />} />
 
             {/* <Route path="/Continents/:id/Countries/:id/properties/id/property" element={<Property />} /> */}
           </Route>
@@ -65,7 +63,7 @@ const App: FC = () => {
             />
           </Route>
         </Routes>
-      {/* </Suspense> */}
+      </Suspense>
     </>
   );
 };
