@@ -9,7 +9,7 @@ import StickyBox from "react-sticky-box";
 import NiceModal from "@ebay/nice-modal-react";
 import { useForm, useController } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import * as yup from "yup";
+// import * as yup from "yup";
 import { registerSchema } from "./SCHEMA";
 
 const style = {
@@ -53,14 +53,17 @@ const auth: FC = () => {
   };
   const options = [
     // { value: "user agent", label: "user agent" },
-    { value: "subscriber", label: "subscriber" },
-    { value: "agent", label: "agent" },
-    { value: "agency", label: "agency" },
+    { value: " SUBSCRIBE", label: "subscriber" },
+    { value: "AGENT", label: "agent" },
+    // { value: "AGENCY", label: "agency" },
   ];
+  console.log(watch());
   const submitForm = (data: any) => {
-    reset();
+    console.log(data, "data");
+
+    // reset();
     setTimeout(() => {
-      closeRegisterModal();
+      // closeRegisterModal();
     }, 1000);
   };
   const handleSelectChange = (option: any) => {

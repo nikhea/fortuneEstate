@@ -1,6 +1,6 @@
 // import { baseURL, GET_CONTINENTS, GET_CONTINENT } from "../../utils/constant";
 import { request, Axiosclient } from "../../utils/axios";
-import axios from "axios";
+
 interface getAllCONTINENTS {
   url: string;
   type: string;

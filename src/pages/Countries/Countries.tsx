@@ -41,6 +41,7 @@ const Countrie: FC = () => {
   const { data: continent, error } = useQuery(["continent", name], () =>
     getCONTINENT(name)
   );
+
   const { bgImage, countries } = continent?.data || {};
   return (
     <div>

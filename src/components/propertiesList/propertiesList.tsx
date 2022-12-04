@@ -65,7 +65,6 @@ const propertiesList: FC<propertiesList> = ({
   agentImage,
 }) => {
   const [likes, setLike] = useState(false);
-  console.log(bed, "bed", bath, "bath");
 
   const handleClick = () => {
     like = !like;

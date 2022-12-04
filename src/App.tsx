@@ -15,7 +15,7 @@ import Countries from "./pages/Countries/Countries";
 import Properties from "./pages/properties/properties";
 import Property from "./pages/property/property";
 import DashBoard from "./pages/dashBoard/dashBoard";
-import Upload from "./pages/dashBoard/pages/upload";
+import Upload from "./pages/dashBoard/pages/uploads/upload";
 import ListingStats from "./pages/dashBoard/pages/ListingStats";
 import ListingManager from "./pages/dashBoard/pages/ListingManager";
 import Profile from "./pages/dashBoard/pages/profile";
@@ -43,7 +43,7 @@ const App: FC = () => {
             />
             <Route
               path={`${routes.properties}/:countryName`}
-              element={<Properties />}
+              element={<Properties displayproperties={undefined} pageChange={undefined} propertiesPerPage={0} propertiesCount={0} />}
             />
             <Route path={`${routes.property}/:id`} element={<Property />} />
 

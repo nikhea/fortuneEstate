@@ -66,13 +66,12 @@ const paginatedProperties: FC<paginatedPropertiesProps> = ({ properties }) => {
           tage={property.listingType}
           price={property.price}
           title={property.title}
-          location={property.address.street          }
+          location={property.address.street}
           bed={property.bedrooms}
           bath={property.bathrooms}
           like={property.like} // agent={property.agent}
           // agentImage={property.agentImage}
         />
-        {JSON.stringify(property.title)}
       </div>
     ));
   const pageChange = ({ selected }: pageChange) => {

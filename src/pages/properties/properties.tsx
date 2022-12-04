@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { useParams } from "react-router-dom";
 import "./properties.css";
@@ -42,15 +42,17 @@ const properties: FC<propertiesProps> = ({
   propertiesPerPage,
 }) => {
   const { countryName } = useParams();
-  const { data: propertiesdata, error, isLoading} = useQuery(
-    ["properties", countryName],
-    () => getPropertiesByCountry(countryName)
+  const {
+    data: propertiesdata,
+    error,
+    isLoading,
+  } = useQuery(["properties", countryName], () =>
+    getPropertiesByCountry(countryName)
   );
   const properties = propertiesdata?.data;
-  console.log(properties);
-  
+  // const [properties, setproperties] = useState(propertiesdata?.data || [])
   if (isLoading) {
-    return <h1>....Loading properties </h1>
+    return <h1>....Loading properties </h1>;
   }
   return (
     <div className={style.bgContainer}>
