@@ -22,7 +22,7 @@ interface inputProps {
 const style = {
   input: `my-[10px]  py-[15px] px-[23px]  text-[.9375rem]   pr-[23px] outline-none`,
   mainInputStyle: ` bg-[#f1f1f1] outline-none text-[#9a9a9a]`,
-  inputHalf: `w-[47%]`,
+  inputHalf: `w-[80%]`,
   inputFull: ` w-full`,
   curve: `rounded-[10px]`,
   rounded: `rounded-[25px]`,

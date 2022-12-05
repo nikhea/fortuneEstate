@@ -1,5 +1,5 @@
 import { FC, useState } from "react";
-import "./select.css";
+import "./selectHalf.css";
 import Select from "react-select";
 import classnames from "classnames";
 import { Controller, useForm } from "react-hook-form";

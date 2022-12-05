@@ -38,7 +38,6 @@ const ComponentSwitch: FC = () => {
     storage: window.localStorage, // default window.sessionStorage
     exclude: ["baz"],
   });
-  const { field: category } = useController({ name: "category", control });
   // const { field } = useController({ name: "category", control });
 
   console.log("watch input fields =>", watch());
@@ -59,9 +58,10 @@ const ComponentSwitch: FC = () => {
     // conver2Base64();
   })();
   const submitForm = (formData: any) => {
-    console.log(errors, "errors errors");
-
-    if (formData) {
+    if (errors) {
+      console.log(errors, "errors errors");
+      return;
+    } else if (formData) {
       console.log("submitForm DATA main => ", formData);
     } else {
       console.log("could not submitForm DATA main => ", formData);
@@ -69,11 +69,7 @@ const ComponentSwitch: FC = () => {
     // if (formData.images.length > 0) {
     //   conver2Base64(formData.images[0]);
     // }
-    // reset();
-  };
-  const handleCategoryChange = (option: any) => {
-    category.onChange(option.value);
-    return category.onChange(option.value);
+    reset();
   };
   return (
     <FormProvider {...methods}>
@@ -87,7 +83,6 @@ const ComponentSwitch: FC = () => {
                   // register={register}
                   nextStep={nextStep}
                   prevStep={prevStep}
-                  handleCategoryChange={handleCategoryChange}
                   SubmitForm={submitForm}
                   step={step}
                   setStep={setStep}
@@ -100,7 +95,6 @@ const ComponentSwitch: FC = () => {
                   register={register}
                   nextStep={nextStep}
                   prevStep={prevStep}
-                  handleCategoryChange={handleCategoryChange}
                   SubmitForm={submitForm}
                   step={step}
                   setStep={setStep}
@@ -113,7 +107,6 @@ const ComponentSwitch: FC = () => {
                   register={register}
                   nextStep={nextStep}
                   prevStep={prevStep}
-                  handleCategoryChange={handleCategoryChange}
                   SubmitForm={submitForm}
                   step={step}
                   setStep={setStep}
@@ -127,7 +120,6 @@ const ComponentSwitch: FC = () => {
                   register={register}
                   nextStep={nextStep}
                   prevStep={prevStep}
-                  handleCategoryChange={handleCategoryChange}
                   SubmitForm={submitForm}
                   step={step}
                   setStep={setStep}
@@ -140,7 +132,6 @@ const ComponentSwitch: FC = () => {
                   register={register}
                   nextStep={nextStep}
                   prevStep={prevStep}
-                  handleCategoryChange={handleCategoryChange}
                   SubmitForm={submitForm}
                   step={step}
                   setStep={setStep}
@@ -154,7 +145,6 @@ const ComponentSwitch: FC = () => {
                   // register={register}
                   nextStep={nextStep}
                   prevStep={prevStep}
-                  handleCategoryChange={handleCategoryChange}
                   SubmitForm={submitForm}
                   step={step}
                   setStep={setStep}

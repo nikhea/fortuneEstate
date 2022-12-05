@@ -13,11 +13,11 @@ export const uploadSchema = yup.object().shape({
   pageTitle: yup.string().required(),
   description: yup.string().required(),
   category: yup.string().required(),
-  // propertyType: yup.string().required(),
-  // listingType: yup.string().required(),
-  // view: yup.string().required(),
+  propertyType: yup.string().required(),
+  listingType: yup.string().required(),
+  view: yup.string().required(),
   // squareSymbol: yup.string().required(),
-  // priceSymbol: yup.string().required(),
+  priceSymbol: yup.string().required(),
   // country: yup.string().required(),
   street: yup.string().required(),
   city: yup.string().required(),
@@ -25,7 +25,15 @@ export const uploadSchema = yup.object().shape({
   webSiteURL: yup.string().required(),
   webSiteName: yup.string().required(),
 
-  // price: yup.number().required(),
+  price: yup.number().required(),
+  // .maxValue()
+  // .test(
+  //   "greaterThanZero",
+  //   "Value must be greater than zero",
+  //   (value: number) => {
+  //     return value ? value > 0 : " ";
+  //   }
+  // )
   // bedrooms: yup.number().required(),
   // bathrooms: yup.number().required(),
   // halfBathrooms: yup.number().required(),
@@ -50,7 +58,7 @@ export const uploadSchema = yup.object().shape({
     .test(
       "format",
       "we dont accept format",
-      (value) => (value && SUPPORTED_FORMATS.includes(value[0].type))
+      (value) => value && SUPPORTED_FORMATS.includes(value[0].type)
     ),
   // images: yup.string().required(),
 });

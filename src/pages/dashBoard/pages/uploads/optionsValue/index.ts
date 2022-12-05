@@ -5,35 +5,34 @@ export const roles = {
 };
 
 export const categoryOPtions = [
-  { value: "residential", label: "residential" },
-  { value: "commercial", label: "commercial" },
-  { value: "land", label: "land" },
+  { value: "residential", label: "Residential" },
+  { value: "commercial", label: "Commercial" },
+  { value: "land", label: "Land" },
 ];
 export const propertyTypeOPtions = [
-  { value: "office", label: "office" },
-  { value: "apartment", label: "apartment" },
-  { value: "land", label: "land" },
-  { value: "villa", label: "villa" },
+  { value: "office", label: "Office" },
+  { value: "apartment", label: "Apartment" },
+  { value: "land", label: "Land" },
+  { value: "villa", label: "Villa" },
 ];
 
 export const ListingTypeOPtions = [
-  { value: "sale", label: "forSale" },
-  { value: "rent", label: "forRent" },
+  { value: "sale", label: "for Sale" },
+  { value: "rent", label: "for Rent" },
 ];
 export const ViewOPtions = [
-  { value: "garden", label: "garden" },
-  { value: "street", label: "street" },
-  { value: "sea", label: "sea" },
+  { value: "garden", label: "Garden" },
+  { value: "street", label: "Street" },
+  { value: "sea", label: "Sea" },
 ];
 export const measurementOPtions = [
-  { value: "sqft", label: "sqft" },
-  { value: "M2", label: "m2" },
-  { value: "acre", label: "acre" },
-  { value: "hectare", label: "hectare" },
+  { value: "sqft", label: "Sqft" },
+  { value: "M2", label: "M2" },
+  { value: "acre", label: "Acre" },
+  { value: "hectare", label: "Hectare" },
 ];
 export const currencySymbolOPtions = [
   { value: "USD", label: "USD" },
   { value: "EUR", label: "EUR" },
   { value: "NGN", label: "NGN" },
-  { value: "hectare", label: "hectare" },
 ];

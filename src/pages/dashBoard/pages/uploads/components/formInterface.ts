@@ -3,11 +3,11 @@ export interface FormData {
   pageTitle: string;
   description: string;
   category: string;
-  // propertyType: string;
-  // listingType: string;
-  // view: string;
+  propertyType: string;
+  listingType: string;
+  view: string;
   // squareSymbol: string;
-  // priceSymbol: string;
+  priceSymbol: string;
 
   // country: string;
   street: string;
@@ -15,7 +15,7 @@ export interface FormData {
 
   webSiteURL: string;
   webSiteName: string;
-  // price: number;
+  price: number;
 
   // bedrooms: number;
   // bathrooms: number;
