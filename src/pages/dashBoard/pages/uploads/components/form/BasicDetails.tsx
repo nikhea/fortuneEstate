@@ -410,7 +410,7 @@ const BasicDetails: FC<BasicDetailsProps> = ({
           </p>
         </div>
       </span>
-      <Button onClick={continues}>Continue</Button>
+      <Button rounded primary Color="#8392A5" onClick={continues}>Continue</Button>
     </div>
   );
 };

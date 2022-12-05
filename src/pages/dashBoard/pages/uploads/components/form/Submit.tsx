@@ -15,6 +15,7 @@ interface SubmiteProps {
 }
 const style = {
   errors: `block `,
+  buttonContainer: `flex justify-between items-center`,
 };
 const Submit: FC<SubmiteProps> = ({
   register,
@@ -39,10 +40,21 @@ const Submit: FC<SubmiteProps> = ({
   return (
     <div>
       <h1>Submit Step</h1>
-      <Button types="submit" onClick={handleSubmitButton}>
-        Submit properties
-      </Button>
-      <Button onClick={previous}>Pre</Button>
+
+      <div className={style.buttonContainer}>
+        <Button rounded primary Color="#8392A5" onClick={previous}>
+          Pre
+        </Button>
+        <Button
+          rounded
+          primary
+          Color="#8392A5"
+          types="submit"
+          onClick={handleSubmitButton}
+        >
+          Submit 
+        </Button>
+      </div>
     </div>
   );
 };

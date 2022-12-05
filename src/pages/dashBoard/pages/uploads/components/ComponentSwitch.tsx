@@ -38,7 +38,7 @@ const ComponentSwitch: FC = () => {
     exclude: ["baz"],
   });
 
-  console.log("watch input fields =>", watch());
+  // console.log("watch input fields =>", watch());
   const conver2Base64 = () => {
     const formDataImages = watch();
     if (formDataImages.images.length > 0) {
@@ -56,7 +56,9 @@ const ComponentSwitch: FC = () => {
     // conver2Base64();
   })();
   const submitForm = (formData: any) => {
-    console.log("submitForm DATA main => ", formData);
+    if (formData !== undefined) {
+      console.log("submitForm DATA main => ", formData.title);
+    }
     // reset();
     // if (errors) {
     //   console.log(errors, "errors errors");
@@ -69,7 +71,6 @@ const ComponentSwitch: FC = () => {
     // if (formData.images.length > 0) {
     //   conver2Base64(formData.images[0]);
     // }
-   
   };
   return (
     <FormProvider {...methods}>

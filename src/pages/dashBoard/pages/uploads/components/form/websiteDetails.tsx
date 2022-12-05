@@ -13,6 +13,7 @@ interface WebsiteDetailsProps {
 }
 const style = {
   errors: `block `,
+  buttonContainer: `flex justify-between items-center`,
   inputTitle: `capitalize leading-4 tracking-wide my-4 ml-4`,
 };
 const WebsiteDetails: FC<WebsiteDetailsProps> = ({
@@ -72,9 +73,14 @@ const WebsiteDetails: FC<WebsiteDetailsProps> = ({
         </p>
       </span>
 
-      <div>
-        <Button onClick={continues}>Continue</Button>
-        <Button onClick={previous}>Pre</Button>
+   
+      <div className={style.buttonContainer}>
+        <Button rounded primary Color="#8392A5" onClick={previous}>
+          Pre
+        </Button>
+        <Button rounded primary Color="#8392A5" onClick={continues}>
+          Continue
+        </Button>
       </div>
     </div>
   );

@@ -14,6 +14,7 @@ interface ImageProps {
 }
 const style = {
   errors: `block `,
+  buttonContainer: `flex justify-between items-center`,
 };
 const Image: FC<ImageProps> = ({
   register,
@@ -59,8 +60,14 @@ const Image: FC<ImageProps> = ({
         </p>
       </span>
 
-      <Button onClick={continues}>Continue</Button>
-      <Button onClick={previous}>Pre</Button>
+      <div className={style.buttonContainer}>
+        <Button rounded primary Color="#8392A5" onClick={previous}>
+          Pre
+        </Button>
+        <Button rounded primary Color="#8392A5" onClick={continues}>
+          Continue
+        </Button>
+      </div>
     </div>
   );
 };

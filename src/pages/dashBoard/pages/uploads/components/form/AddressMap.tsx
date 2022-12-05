@@ -14,6 +14,7 @@ interface AddressMap {
 const style = {
   errors: `block `,
   inputTitle: `capitalize leading-4 tracking-wide my-4 ml-4`,
+  buttonContainer: `flex justify-between items-center`,
 };
 const AddressMap: FC<AddressMap> = ({
   register,
@@ -72,7 +73,7 @@ const AddressMap: FC<AddressMap> = ({
         </p>
       </span>
       <span>
-      <h1 className={style.inputTitle}>city</h1>
+        <h1 className={style.inputTitle}>city</h1>
 
         <Input
           type="text"
@@ -89,9 +90,13 @@ const AddressMap: FC<AddressMap> = ({
           {errors.city?.message && <p>{errors.city?.message}</p>}
         </p>
       </span>
-      <div>
-        <Button onClick={continues}>Continue</Button>
-        <Button onClick={previous}>Pre</Button>
+      <div className={style.buttonContainer}>
+        <Button rounded primary Color="#8392A5" onClick={previous}>
+          Pre
+        </Button>
+        <Button rounded primary Color="#8392A5" onClick={continues}>
+          Continue
+        </Button>
       </div>
     </div>
   );

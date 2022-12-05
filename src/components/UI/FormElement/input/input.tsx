@@ -50,6 +50,7 @@ const input: FC<inputProps> = (props) => {
     onChange,
     multipleFile,
     isWhiteBg,
+  
     ...rest
   } = props;
   let Input = {
@@ -63,7 +64,7 @@ const input: FC<inputProps> = (props) => {
   };
   return (
     <>
-      {multipleFile}
+      {/* {multipleFile} */}
       <input
         className={classnames(Input)}
         type={type}
