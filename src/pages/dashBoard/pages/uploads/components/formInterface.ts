@@ -6,10 +6,10 @@ export interface FormData {
   propertyType: string;
   listingType: string;
   view: string;
-  // squareSymbol: string;
+  squareSymbol: string;
   priceSymbol: string;
 
-  // country: string;
+  country: string;
   street: string;
   city: string;
 
@@ -17,12 +17,12 @@ export interface FormData {
   webSiteName: string;
   price: number;
 
-  // bedrooms: number;
-  // bathrooms: number;
-  // halfBathrooms: number;
-  // squareFootage: number;
-  // lotAreaSymbol?: string;
-  // yearBuilt?: string;
-  // lotArea?: number;
+  bedrooms: number;
+  bathrooms: number;
+  halfBathrooms: number;
+  squareFootage: number;
+  lotAreaSymbol?: string;
+  yearBuilt?: number;
+  lotArea?: number;
   images: any;
 }

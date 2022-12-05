@@ -16,9 +16,10 @@ export const uploadSchema = yup.object().shape({
   propertyType: yup.string().required(),
   listingType: yup.string().required(),
   view: yup.string().required(),
-  // squareSymbol: yup.string().required(),
+  squareSymbol: yup.string().required(),
+  lotAreaSymbol: yup.string(),
   priceSymbol: yup.string().required(),
-  // country: yup.string().required(),
+  country: yup.string().required(),
   street: yup.string().required(),
   city: yup.string().required(),
 
@@ -34,33 +35,25 @@ export const uploadSchema = yup.object().shape({
   //     return value ? value > 0 : " ";
   //   }
   // )
-  // bedrooms: yup.number().required(),
-  // bathrooms: yup.number().required(),
-  // halfBathrooms: yup.number().required(),
-  // squareFootage: yup.number().required(),
-
-  // lotAreaSymbol: yup.string(),
-  // yearBuilt: yup.string(),
-  // lotArea: yup.number(),
+  bedrooms: yup.number().required(),
+  bathrooms: yup.number().required(),
+  halfBathrooms: yup.number(),
+  squareFootage: yup.number().required(),
+  yearBuilt: yup.number(),
+  lotArea: yup.number(),
 
   images: yup
     .mixed()
     .required("A file is required")
-    .test(
-      "FileSize",
-      "The File is too large",
-      // (value) => !value || (value && value.size <= 1024 * 1024)
-      (value) => {
-        return value && value[0].size <= 1024 * 1024;
-      }
-    )
+    .test("FileSize", "The File is too large", (value) => {
+      return value && value[0].size <= 1024 * 1024;
+    })
 
     .test(
       "format",
       "we dont accept format",
       (value) => value && SUPPORTED_FORMATS.includes(value[0].type)
     ),
-  // images: yup.string().required(),
 });
 
 // images: yup

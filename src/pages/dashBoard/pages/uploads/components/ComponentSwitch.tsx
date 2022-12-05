@@ -25,7 +25,6 @@ const ComponentSwitch: FC = () => {
 
   const {
     register,
-    control,
     handleSubmit,
     watch,
     reset,
@@ -38,7 +37,6 @@ const ComponentSwitch: FC = () => {
     storage: window.localStorage, // default window.sessionStorage
     exclude: ["baz"],
   });
-  // const { field } = useController({ name: "category", control });
 
   console.log("watch input fields =>", watch());
   const conver2Base64 = () => {
@@ -58,18 +56,20 @@ const ComponentSwitch: FC = () => {
     // conver2Base64();
   })();
   const submitForm = (formData: any) => {
-    if (errors) {
-      console.log(errors, "errors errors");
-      return;
-    } else if (formData) {
-      console.log("submitForm DATA main => ", formData);
-    } else {
-      console.log("could not submitForm DATA main => ", formData);
-    }
+    console.log("submitForm DATA main => ", formData);
+    // reset();
+    // if (errors) {
+    //   console.log(errors, "errors errors");
+    //   return;
+    // } else if (formData) {
+    //   console.log("submitForm DATA main => ", formData);
+    // } else {
+    //   console.log("could not submitForm DATA main => ", formData);
+    // }
     // if (formData.images.length > 0) {
     //   conver2Base64(formData.images[0]);
     // }
-    reset();
+   
   };
   return (
     <FormProvider {...methods}>

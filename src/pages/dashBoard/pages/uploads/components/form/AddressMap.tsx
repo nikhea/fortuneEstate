@@ -6,7 +6,6 @@ interface AddressMap {
   register: any;
   nextStep: any;
   prevStep: any;
-  handleCategoryChange: any;
   SubmitForm: any;
   step: any;
   setStep: any;
@@ -14,12 +13,12 @@ interface AddressMap {
 }
 const style = {
   errors: `block `,
+  inputTitle: `capitalize leading-4 tracking-wide my-4 ml-4`,
 };
 const AddressMap: FC<AddressMap> = ({
   register,
   nextStep,
   prevStep,
-  handleCategoryChange,
   SubmitForm,
   step,
   setStep,
@@ -37,12 +36,15 @@ const AddressMap: FC<AddressMap> = ({
     <div>
       <h1>AddressMap</h1>
       <span>
+        <h1 className={style.inputTitle}>country</h1>
+
         <Input
           type="text"
           name=" country"
           placeholder="country*"
           inputFull
           required
+          isWhiteBg
           rounded
           errors={errors}
           inputRef={register("country", { required: true })}
@@ -52,12 +54,15 @@ const AddressMap: FC<AddressMap> = ({
         </p>
       </span>
       <span>
+        <h1 className={style.inputTitle}>street</h1>
+
         <Input
           type="text"
           name="street"
           placeholder="street*"
           inputFull
           required
+          isWhiteBg
           rounded
           errors={errors}
           inputRef={register("street", { required: true })}
@@ -67,12 +72,15 @@ const AddressMap: FC<AddressMap> = ({
         </p>
       </span>
       <span>
+      <h1 className={style.inputTitle}>city</h1>
+
         <Input
           type="text"
           name="city"
           placeholder="city*"
           inputFull
           required
+          isWhiteBg
           rounded
           errors={errors}
           inputRef={register("city", { required: true })}

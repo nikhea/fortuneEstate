@@ -27,10 +27,10 @@ const style = {
   curve: `rounded-[10px]`,
   rounded: `rounded-[25px]`,
   bold: `font-bold`,
-  isWhiteBg: `border border-[#C4C4C4] border-solid bg-white text-black`,
+  isWhiteBg: `border border-[#C4C4C4] border-solid bg-white text-black  focus:outline-none focus:border-sky-500 `,
   errors: ``,
 };
-
+// focus:ring-1 focus:ring-sky-500
 const input: FC<inputProps> = (props) => {
   const { register } = useForm();
   const {
@@ -75,6 +75,7 @@ const input: FC<inputProps> = (props) => {
         // multiple
         // multiple="multiple"
         multiple="multiple"
+        autoComplete="off"
       />
       {/* <p className={style.errors}>
         {errors.name?.message && <p>{errors.name?.message}</p>}

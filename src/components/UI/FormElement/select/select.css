@@ -5,7 +5,7 @@ input {
   @apply outline-none border-0 rounded-full;
 }
 .react-select__value-container {
-  @apply bg-[#f1f1f1]  text-[#9a9a9a] text-[.9375rem]  outline-none pr-[px]   py-[10px] px-[23px] border-0;
+  @apply bg-[#f1f1f1]  text-[#9a9a9a] text-[.9375rem]  outline-none pr-[px]   py-[10px] px-[23px] border-0  focus:outline-none focus:border-sky-500;
 }
 .react-select__value-container:focus {
   @apply border-0;

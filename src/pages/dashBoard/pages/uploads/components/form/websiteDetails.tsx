@@ -6,7 +6,6 @@ interface WebsiteDetailsProps {
   register: any;
   nextStep: any;
   prevStep: any;
-  handleCategoryChange: any;
   SubmitForm: any;
   step: any;
   setStep: any;
@@ -14,12 +13,12 @@ interface WebsiteDetailsProps {
 }
 const style = {
   errors: `block `,
+  inputTitle: `capitalize leading-4 tracking-wide my-4 ml-4`,
 };
 const WebsiteDetails: FC<WebsiteDetailsProps> = ({
   register,
   nextStep,
   prevStep,
-  handleCategoryChange,
   SubmitForm,
   step,
   setStep,
@@ -37,13 +36,16 @@ const WebsiteDetails: FC<WebsiteDetailsProps> = ({
     <div>
       <h1>Website Details</h1>
       <span>
+        <h1 className={style.inputTitle}>website name</h1>
+
         <Input
           type="text"
           name=" webSiteName"
-          placeholder=" webSiteName*"
+          placeholder=" website name*"
           inputFull
           required
           rounded
+          isWhiteBg
           errors={errors}
           inputRef={register("webSiteName", { required: true })}
         />
@@ -52,6 +54,8 @@ const WebsiteDetails: FC<WebsiteDetailsProps> = ({
         </p>
       </span>
       <span>
+        <h1 className={style.inputTitle}>website url</h1>
+
         <Input
           type="text"
           name="webSiteURL"
@@ -59,6 +63,7 @@ const WebsiteDetails: FC<WebsiteDetailsProps> = ({
           inputFull
           required
           rounded
+          isWhiteBg
           errors={errors}
           inputRef={register("webSiteURL", { required: true })}
         />

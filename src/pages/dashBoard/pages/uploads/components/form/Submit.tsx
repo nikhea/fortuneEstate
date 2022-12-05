@@ -1,4 +1,6 @@
 import { FC } from "react";
+import { useNavigate } from "react-router-dom";
+
 import Input from "../../../../../../components/UI/FormElement/input/input";
 import Select from "../../../../../../components/UI/FormElement/select/select";
 import Button from "../../../../../../components/UI/FormElement/Button";
@@ -6,7 +8,6 @@ interface SubmiteProps {
   register: any;
   nextStep: any;
   prevStep: any;
-  handleCategoryChange: any;
   SubmitForm: any;
   step: any;
   setStep: any;
@@ -19,18 +20,21 @@ const Submit: FC<SubmiteProps> = ({
   register,
   nextStep,
   prevStep,
-  handleCategoryChange,
   SubmitForm,
   step,
   setStep,
   errors,
 }) => {
+  let navigate = useNavigate();
+
   const previous = (e: any) => {
     e.preventDefault();
     prevStep();
   };
   const handleSubmitButton = () => {
     SubmitForm();
+    // return navigate("/upload");
+    // setStep(1);
   };
   return (
     <div>

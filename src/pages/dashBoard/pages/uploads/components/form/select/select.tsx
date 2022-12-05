@@ -77,7 +77,7 @@ const InputSelect: FC<inputProps> = ({
     }),
   };
   return (
-    <div className={classnames(inputSelectContainer)}>
+    <div >
       <Select
         value={field}
         placeholder={placeholder}
@@ -94,3 +94,4 @@ const InputSelect: FC<inputProps> = ({
   );
 };
 export default InputSelect;
+// className={classnames(inputSelectContainer)}

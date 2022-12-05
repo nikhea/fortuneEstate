@@ -11,6 +11,7 @@ import {
   ListingTypeOPtions,
   currencySymbolOPtions,
   ViewOPtions,
+  measurementOPtions,
 } from "../../optionsValue";
 interface BasicDetailsProps {
   // register: any;
@@ -24,10 +25,10 @@ interface BasicDetailsProps {
 }
 const style = {
   inputTitle: `capitalize leading-4 tracking-wide my-4 ml-4`,
-  selectTitle: `capitalize leading-4 tracking-wide mt-4 -mb-5 ml-4`,
+  inputTitleC: `capitalize leading-4 tracking-wide  ml-4 md:mt-3`,
   hr: ` my-5 w-[100%] text-[3em] font-black `,
   inputDivider: `md:flex  items-center justify-between my-3`,
-  selectWidth: `md:w-[48%]`,
+  selectWidth: `md:w-[48%] `,
   inputWidth: `md:w-[48%]`,
 
   errors: `block `,
@@ -53,7 +54,7 @@ const BasicDetails: FC<BasicDetailsProps> = ({
     control,
   });
   const { field: ListingTypeField } = useController({
-    name: "ListingType",
+    name: "listingType",
     control,
   });
   const { field: currencySymbolField } = useController({
@@ -62,6 +63,14 @@ const BasicDetails: FC<BasicDetailsProps> = ({
   });
   const { field: viewField } = useController({
     name: "view",
+    control,
+  });
+  const { field: squareSymbolField } = useController({
+    name: "squareSymbol",
+    control,
+  });
+  const { field: lotAreaSymbolField } = useController({
+    name: "lotAreaSymbol",
     control,
   });
   const handleCategoryChange = (option: any) => {
@@ -88,6 +97,16 @@ const BasicDetails: FC<BasicDetailsProps> = ({
     viewField.onChange(option.value);
 
     return viewField.onChange(option.value);
+  };
+  const handlesquareSymbolChange = (option: any) => {
+    squareSymbolField.onChange(option.value);
+
+    return squareSymbolField.onChange(option.value);
+  };
+  const handleslotAreaSymbolChange = (option: any) => {
+    lotAreaSymbolField.onChange(option.value);
+
+    return lotAreaSymbolField.onChange(option.value);
   };
 
   return (
@@ -179,7 +198,7 @@ const BasicDetails: FC<BasicDetailsProps> = ({
           <h1 className={style.inputTitle}> listing type*</h1>
           <Select
             inputFull
-            placeholder=" Listing Type*"
+            placeholder="Listing Type*"
             options={ListingTypeOPtions}
             field={ListingTypeOPtions.find(
               ({ value }) => value === ListingTypeField.value
@@ -222,7 +241,7 @@ const BasicDetails: FC<BasicDetailsProps> = ({
         </div>
 
         <div className={style.selectWidth}>
-          <h1 className={style.inputTitle}>Currency*</h1>
+          <h1 className={style.inputTitleC}>Currency*</h1>
           <Select
             // inputHalf
             placeholder="currency*"
@@ -233,13 +252,164 @@ const BasicDetails: FC<BasicDetailsProps> = ({
             handleSelectChange={handlecurrencySymbolFieldChange}
           />
           <p className={style.errors}>
-            {errors.currencySymbol?.message && (
-              <p>{errors.currencySymbol.message}</p>
+            {errors.priceSymbol?.message && <p>{errors.priceSymbol.message}</p>}
+          </p>
+        </div>
+      </span>
+      <span className={style.inputDivider}>
+        <div className={style.inputWidth}>
+          <h1 className={style.inputTitle}> bedrooms*</h1>
+          <Input
+            type="number"
+            name="bedrooms"
+            placeholder=" bedrooms*"
+            inputFull
+            isWhiteBg
+            required
+            rounded
+            errors={errors}
+            inputRef={register("bedrooms", { required: true })}
+          />
+          <p className={style.errors}>
+            {errors.bedrooms?.message && <p>{errors.bedrooms?.message}</p>}
+          </p>
+        </div>
+
+        <div className={style.inputWidth}>
+          <h1 className={style.inputTitle}> bathrooms*</h1>
+          <Input
+            type="number"
+            name="bathrooms"
+            placeholder="bathrooms*"
+            inputFull
+            isWhiteBg
+            required
+            rounded
+            errors={errors}
+            inputRef={register("bathrooms", { required: true })}
+          />
+          <p className={style.errors}>
+            {errors.bathrooms?.message && <p>{errors.bathrooms.message}</p>}
+          </p>
+        </div>
+      </span>
+      <span className={style.inputDivider}>
+        <div className={style.inputWidth}>
+          <h1 className={style.inputTitle}>square footage*</h1>
+          <Input
+            type="number"
+            name="squareFootage"
+            placeholder="squareFootage*"
+            // inputHalf
+            inputFull
+            isWhiteBg
+            required
+            rounded
+            errors={errors}
+            inputRef={register("squareFootage", { required: true })}
+          />
+          <p className={style.errors}>
+            {errors.squareFootage?.message && (
+              <p>{errors.squareFootage?.message}</p>
+            )}
+          </p>
+        </div>
+
+        <div className={style.selectWidth}>
+          <h1 className={style.inputTitleC}>unit*</h1>
+          <Select
+            // inputHalf
+            placeholder="unit*"
+            options={measurementOPtions}
+            field={measurementOPtions.find(
+              ({ value }) => value === squareSymbolField.value
+            )}
+            handleSelectChange={handlesquareSymbolChange}
+          />
+          <p className={style.errors}>
+            {errors.squareSymbol?.message && (
+              <p>{errors.squareSymbol.message}</p>
             )}
           </p>
         </div>
       </span>
+      <span className={style.inputDivider}>
+        <div className={style.inputWidth}>
+          <h1 className={style.inputTitle}> half bathrooms*</h1>
+          <Input
+            type="number"
+            name="halfBathrooms"
+            placeholder="half bathrooms*"
+            inputFull
+            isWhiteBg
+            required
+            rounded
+            errors={errors}
+            inputRef={register("halfBathrooms", { required: true })}
+          />
+          <p className={style.errors}>
+            {errors.halfBathrooms?.message && (
+              <p>{errors.halfBathrooms?.message}</p>
+            )}
+          </p>
+        </div>
 
+        <div className={style.inputWidth}>
+          <h1 className={style.inputTitle}> year built*</h1>
+          <Input
+            type="number"
+            name="yearBuilt"
+            placeholder=" year built*"
+            inputFull
+            isWhiteBg
+            required
+            rounded
+            errors={errors}
+            inputRef={register("yearBuilt", { required: true })}
+          />
+          <p className={style.errors}>
+            {errors.yearBuilt?.message && <p>{errors.yearBuilt.message}</p>}
+          </p>
+        </div>
+      </span>
+      <span className={style.inputDivider}>
+        <div className={style.inputWidth}>
+          <h1 className={style.inputTitle}> lot area*</h1>
+          <Input
+            type="number"
+            name=" lotArea"
+            placeholder=" lot area*"
+            // inputHalf
+            inputFull
+            isWhiteBg
+            required
+            rounded
+            errors={errors}
+            inputRef={register("lotArea", { required: true })}
+          />
+          <p className={style.errors}>
+            {errors.lotArea?.message && <p>{errors.lotArea?.message}</p>}
+          </p>
+        </div>
+
+        <div className={style.selectWidth}>
+          <h1 className={style.inputTitleC}>unit*</h1>
+          <Select
+            // inputHalf
+            placeholder="unit*"
+            options={measurementOPtions}
+            field={measurementOPtions.find(
+              ({ value }) => value === lotAreaSymbolField.value
+            )}
+            handleSelectChange={handleslotAreaSymbolChange}
+          />
+          <p className={style.errors}>
+            {errors.lotAreaSymbol?.message && (
+              <p>{errors.lotAreaSymbol.message}</p>
+            )}
+          </p>
+        </div>
+      </span>
       <Button onClick={continues}>Continue</Button>
     </div>
   );

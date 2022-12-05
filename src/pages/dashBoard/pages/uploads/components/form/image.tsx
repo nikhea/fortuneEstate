@@ -6,7 +6,6 @@ interface ImageProps {
   register: any;
   nextStep: any;
   prevStep: any;
-  handleCategoryChange: any;
   SubmitForm: any;
   step: any;
   setStep: any;
@@ -20,7 +19,6 @@ const Image: FC<ImageProps> = ({
   register,
   nextStep,
   prevStep,
-  handleCategoryChange,
   SubmitForm,
   step,
   setStep,
