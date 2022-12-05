@@ -17,14 +17,17 @@ interface inputProps {
   value?: string;
   onChange?: any;
   multipleFile?: any;
+  isWhiteBg?: boolean;
 }
 const style = {
-  input: `my-[10px]  bg-[#f1f1f1]  py-[15px] px-[23px] text-[#9a9a9a] text-[.9375rem]  outline-none pr-[23px]`,
+  input: `my-[10px]  py-[15px] px-[23px]  text-[.9375rem]   pr-[23px] outline-none`,
+  mainInputStyle: ` bg-[#f1f1f1] outline-none text-[#9a9a9a]`,
   inputHalf: `w-[47%]`,
   inputFull: ` w-full`,
   curve: `rounded-[10px]`,
   rounded: `rounded-[25px]`,
   bold: `font-bold`,
+  isWhiteBg: `border border-[#C4C4C4] border-solid bg-white text-black`,
   errors: ``,
 };
 
@@ -46,6 +49,7 @@ const input: FC<inputProps> = (props) => {
     value,
     onChange,
     multipleFile,
+    isWhiteBg,
     ...rest
   } = props;
   let Input = {
@@ -55,6 +59,7 @@ const input: FC<inputProps> = (props) => {
     [`${style.curve}`]: isCurve,
     [`${style.rounded}`]: rounded,
     [`${style.bold}`]: bold,
+    [`${style.isWhiteBg}`]: isWhiteBg,
   };
   return (
     <>
@@ -69,7 +74,7 @@ const input: FC<inputProps> = (props) => {
         onChange={onChange}
         // multiple
         // multiple="multiple"
-        multiple = "multiple"
+        multiple="multiple"
       />
       {/* <p className={style.errors}>
         {errors.name?.message && <p>{errors.name?.message}</p>}

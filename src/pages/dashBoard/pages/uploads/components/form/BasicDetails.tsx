@@ -17,6 +17,7 @@ interface BasicDetailsProps {
   errors: any;
 }
 const style = {
+  inputTitle: `capitalize leading-4 tracking-wide my-4 ml-4`,
   errors: `block `,
 };
 const BasicDetails: FC<BasicDetailsProps> = ({
@@ -38,7 +39,6 @@ const BasicDetails: FC<BasicDetailsProps> = ({
     e.preventDefault();
     nextStep();
   };
- 
 
   const submitForm = (data: any) => {
     console.log(handleSubmit);
@@ -53,13 +53,16 @@ const BasicDetails: FC<BasicDetailsProps> = ({
   return (
     <div>
       <h1>BasicDetails</h1>
+
       <span>
+        <h1 className={style.inputTitle}>property title</h1>
         <Input
           type="text"
           name="title"
           placeholder="property title*"
           inputFull
-          // required
+          required
+          isWhiteBg
           rounded
           errors={errors}
           inputRef={register("title", { required: true })}
@@ -69,12 +72,15 @@ const BasicDetails: FC<BasicDetailsProps> = ({
         </p>
       </span>
       <span>
+        <h1 className={style.inputTitle}>property pageTitle</h1>
+
         <Input
           type="text"
           name="pageTitle"
           placeholder="property pageTitle*"
           inputFull
-          // required
+          required
+          isWhiteBg
           rounded
           errors={errors}
           inputRef={register("pageTitle", { required: true })}
@@ -84,12 +90,14 @@ const BasicDetails: FC<BasicDetailsProps> = ({
         </p>
       </span>
       <span>
+        <h1 className={style.inputTitle}>property description</h1>
         <Input
           type="text"
           name="description"
           placeholder="property description*"
           inputFull
-          // required
+          isWhiteBg
+          required
           rounded
           errors={errors}
           inputRef={register("description", { required: true })}

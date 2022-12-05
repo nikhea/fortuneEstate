@@ -38,7 +38,7 @@ const ComponentSwitch: FC = () => {
     storage: window.localStorage, // default window.sessionStorage
     exclude: ["baz"],
   });
-  // const { field: category } = useController({ name: "category", control });
+  const { field: category } = useController({ name: "category", control });
   // const { field } = useController({ name: "category", control });
 
   // console.log("watch input fields =>", watch());
@@ -72,8 +72,8 @@ const ComponentSwitch: FC = () => {
     // reset();
   };
   const handleCategoryChange = (option: any) => {
-    // category.onChange(option.value);
-    // return category.onChange(option.value);
+    category.onChange(option.value);
+    return category.onChange(option.value);
   };
   return (
     <FormProvider {...methods}>
