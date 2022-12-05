@@ -57,7 +57,7 @@ const auth: FC = () => {
     { value: "AGENT", label: "agent" },
     // { value: "AGENCY", label: "agency" },
   ];
-  console.log(watch());
+  // console.log(watch());
   const submitForm = (data: any) => {
     console.log(data, "data");
 

@@ -12,7 +12,7 @@ export const uploadSchema = yup.object().shape({
   title: yup.string().required(),
   pageTitle: yup.string().required(),
   description: yup.string().required(),
-  // category: yup.string().required(),
+  category: yup.string().required(),
   // propertyType: yup.string().required(),
   // listingType: yup.string().required(),
   // view: yup.string().required(),

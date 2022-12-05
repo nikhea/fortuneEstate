@@ -2,7 +2,7 @@ export interface FormData {
   title: string;
   pageTitle: string;
   description: string;
-  // category: string;
+  category: string;
   // propertyType: string;
   // listingType: string;
   // view: string;

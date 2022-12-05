@@ -18,6 +18,7 @@ interface inputProps {
   isCurve?: boolean;
   bold?: boolean;
   rounded?: boolean;
+  isWhiteBg?:boolean;
   options: optionsProps[];
   field: any;
   handleSelectChange: any;
@@ -35,10 +36,12 @@ const style = {
   curve: `rounded-[10px]`,
   rounded: `rounded-[25px]`,
   bold: `font-bold`,
+  isWhiteBg: `border border-[#C4C4C4] border-solid bg-white text-black`,
 };
 const InputSelect: FC<inputProps> = ({
   inputFull,
   inputHalf,
+  isWhiteBg,
   isCurve,
   rounded,
   bold,
@@ -56,6 +59,8 @@ const InputSelect: FC<inputProps> = ({
     // [`${style.input}`]: true,
     [`${style.inputFull}`]: inputFull,
     [`${style.inputHalf}`]: inputHalf,
+    [`${style.isWhiteBg}`]: isWhiteBg,
+
     // [`${style.curve}`]: isCurve,
     // [`${style.rounded}`]: rounded,
     // [`${style.bold}`]: bold,

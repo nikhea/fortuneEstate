@@ -41,7 +41,7 @@ const ComponentSwitch: FC = () => {
   const { field: category } = useController({ name: "category", control });
   // const { field } = useController({ name: "category", control });
 
-  // console.log("watch input fields =>", watch());
+  console.log("watch input fields =>", watch());
   const conver2Base64 = () => {
     const formDataImages = watch();
     if (formDataImages.images.length > 0) {
