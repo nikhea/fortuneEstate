@@ -1,6 +1,6 @@
 import { FC } from "react";
 import Input from "../../../../../../components/UI/FormElement/input/input";
-import Select from "../../../../../../components/UI/FormElement/select/select";
+import Select from "./select/select";
 import Button from "../../../../../../components/UI/FormElement/Button";
 import { useFormContext, useController } from "react-hook-form";
 import { categoryOPtions } from "../../optionsValue";
@@ -16,6 +16,8 @@ interface BasicDetailsProps {
 }
 const style = {
   inputTitle: `capitalize leading-4 tracking-wide my-4 ml-4`,
+  selectTitle: `capitalize leading-4 tracking-wide mt-4 -mb-5 ml-4`,
+
   errors: `block `,
 };
 const BasicDetails: FC<BasicDetailsProps> = ({
@@ -97,7 +99,7 @@ const BasicDetails: FC<BasicDetailsProps> = ({
         </p>
       </span>
       <span>
-        <h1 className={style.inputTitle}>Category</h1>
+        <h1 className={style.selectTitle}>Category</h1>
         <Select
           inputFull
           placeholder="Category"
