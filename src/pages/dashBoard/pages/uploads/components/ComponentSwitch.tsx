@@ -11,6 +11,7 @@ import Image from "./form/image";
 import WebsiteDetails from "./form/websiteDetails";
 import Submit from "./form/Submit";
 const ComponentSwitch: FC = () => {
+  const [image, setImage] = useState("");
   const [step, setStep] = useState(1);
   const nextStep = () => {
     setStep(step + 1);
@@ -39,16 +40,35 @@ const ComponentSwitch: FC = () => {
   });
   // const { field: category } = useController({ name: "category", control });
   // const { field } = useController({ name: "category", control });
-  
+
   // console.log("watch input fields =>", watch());
+  const conver2Base64 = () => {
+    const formDataImages = watch();
+    if (formDataImages.images.length > 0) {
+      console.log(formDataImages.images);
+
+      const files = formDataImages.images[0];
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setImage(reader.result?.toString());
+      };
+      reader.readAsDataURL(files);
+    }
+  };
+  (function () {
+    // conver2Base64();
+  })();
   const submitForm = (formData: any) => {
     console.log(errors, "errors errors");
-   
+
     if (formData) {
       console.log("submitForm DATA main => ", formData);
     } else {
       console.log("could not submitForm DATA main => ", formData);
     }
+    // if (formData.images.length > 0) {
+    //   conver2Base64(formData.images[0]);
+    // }
     // reset();
   };
   const handleCategoryChange = (option: any) => {
@@ -57,6 +77,7 @@ const ComponentSwitch: FC = () => {
   };
   return (
     <FormProvider {...methods}>
+      <p>{step}/ 5</p>
       <form onSubmit={handleSubmit(submitForm)}>
         {(() => {
           switch (step) {
@@ -97,6 +118,7 @@ const ComponentSwitch: FC = () => {
                   step={step}
                   setStep={setStep}
                   errors={errors}
+                  imageOutput={image}
                 />
               );
             case 4:
@@ -124,7 +146,6 @@ const ComponentSwitch: FC = () => {
                   setStep={setStep}
                   errors={errors}
                 />
-             
               );
 
             default:
@@ -151,3 +172,10 @@ const ComponentSwitch: FC = () => {
 export default ComponentSwitch;
 
 // onSubmit={handleSubmit((fm) => console.log("FM => ", fm))}
+// const conver2Base64 = (files: any) => {
+//   const reader = new FileReader();
+//   reader.onloadend = () => {
+//     setImage(reader.result?.toString());
+//   };
+//   reader.readAsDataURL(files);
+// };

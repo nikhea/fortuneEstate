@@ -11,6 +11,7 @@ interface ImageProps {
   step: any;
   setStep: any;
   errors: any;
+  imageOutput: string;
 }
 const style = {
   errors: `block `,
@@ -23,6 +24,7 @@ const Image: FC<ImageProps> = ({
   SubmitForm,
   step,
   setStep,
+  imageOutput,
   errors,
 }) => {
   const continues = (e: any) => {
@@ -33,19 +35,26 @@ const Image: FC<ImageProps> = ({
     e.preventDefault();
     prevStep();
   };
+  const onChange = (e: any) => {
+    const file = e.target.files[0];
+    return file.name;
+  };
   return (
     <div>
       <h1>Image</h1>
+      {/* {imageOutput ? <img src={imageOutput} width="450" /> : null} */}
       <span>
         <Input
           type="file"
           name="images"
           placeholder="images*"
           inputFull
-          // required
+          required
+          onChange={onChange}
           rounded
           errors={errors}
           inputRef={register("images", { required: true })}
+          multipleFile="multiple"
         />
         <p className={style.errors}>
           {errors.images?.message && <p>{errors.images?.message}</p>}

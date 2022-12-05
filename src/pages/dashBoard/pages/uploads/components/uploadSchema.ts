@@ -45,13 +45,13 @@ export const uploadSchema = yup.object().shape({
       (value) => {
         return value && value[0].size <= 1024 * 1024;
       }
-    ),
+    )
 
-  // .test(
-  //   "format",
-  //   "upload file",
-  //   (value) => !value || (value && SUPPORTED_FORMATS.includes(value.type))
-  // ),
+    .test(
+      "format",
+      "we dont accept format",
+      (value) => (value && SUPPORTED_FORMATS.includes(value[0].type))
+    ),
   // images: yup.string().required(),
 });
 

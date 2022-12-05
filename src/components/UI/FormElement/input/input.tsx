@@ -16,6 +16,7 @@ interface inputProps {
   inputRef?: any;
   value?: string;
   onChange?: any;
+  multipleFile?: any;
 }
 const style = {
   input: `my-[10px]  bg-[#f1f1f1]  py-[15px] px-[23px] text-[#9a9a9a] text-[.9375rem]  outline-none pr-[23px]`,
@@ -44,6 +45,7 @@ const input: FC<inputProps> = (props) => {
     errors,
     value,
     onChange,
+    multipleFile,
     ...rest
   } = props;
   let Input = {
@@ -56,6 +58,7 @@ const input: FC<inputProps> = (props) => {
   };
   return (
     <>
+      {multipleFile}
       <input
         className={classnames(Input)}
         type={type}
@@ -64,6 +67,9 @@ const input: FC<inputProps> = (props) => {
         {...inputRef}
         value={value}
         onChange={onChange}
+        // multiple
+        // multiple="multiple"
+        multiple = "multiple"
       />
       {/* <p className={style.errors}>
         {errors.name?.message && <p>{errors.name?.message}</p>}
