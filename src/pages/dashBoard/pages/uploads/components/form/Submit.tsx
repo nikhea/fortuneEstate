@@ -39,7 +39,7 @@ const Submit: FC<SubmiteProps> = ({
   };
   return (
     <div>
-      <h1>Submit Step</h1>
+      {/* <h1>Submit Step</h1> */}
 
       <div className={style.buttonContainer}>
         <Button rounded primary Color="#8392A5" onClick={previous}>
@@ -52,7 +52,7 @@ const Submit: FC<SubmiteProps> = ({
           types="submit"
           onClick={handleSubmitButton}
         >
-          Submit 
+          Save
         </Button>
       </div>
     </div>

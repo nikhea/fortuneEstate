@@ -111,7 +111,7 @@ const BasicDetails: FC<BasicDetailsProps> = ({
 
   return (
     <div>
-      <h1>BasicDetails</h1>
+      {/* <h1>BasicDetails</h1> */}
 
       <span>
         <h1 className={style.inputTitle}>property title</h1>

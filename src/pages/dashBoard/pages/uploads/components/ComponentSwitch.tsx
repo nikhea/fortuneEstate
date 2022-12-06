@@ -1,7 +1,6 @@
 import { useState, useEffect, FC } from "react";
 import { FormData } from "./formInterface";
 import { useForm, useController, FormProvider } from "react-hook-form";
-
 import { yupResolver } from "@hookform/resolvers/yup";
 import useFormPersist from "react-hook-form-persist";
 import { uploadSchema } from "./uploadSchema";
@@ -10,9 +9,17 @@ import AddressMap from "./form/AddressMap";
 import Image from "./form/image";
 import WebsiteDetails from "./form/websiteDetails";
 import Submit from "./form/Submit";
+import FormHeader from "./form/FormHeader";
 const ComponentSwitch: FC = () => {
   const [image, setImage] = useState("");
   const [step, setStep] = useState(1);
+  const [title, setTitle] = useState([
+    "basic details",
+    "address map",
+    "images upload",
+    "website details",
+    "submit",
+  ]);
   const nextStep = () => {
     setStep(step + 1);
   };
@@ -74,11 +81,17 @@ const ComponentSwitch: FC = () => {
   };
   return (
     <FormProvider {...methods}>
-      <p>{step}/ 5</p>
+      <FormHeader
+        step={step}
+        setStep={setStep}
+        stepTitle={title}
+        setStepTitle={setTitle}
+      />
+
       <form onSubmit={handleSubmit(submitForm)}>
         {(() => {
           switch (step) {
-            case 1:
+            case 0:
               return (
                 <BasicDetails
                   // register={register}
@@ -90,7 +103,7 @@ const ComponentSwitch: FC = () => {
                   errors={errors}
                 />
               );
-            case 2:
+            case 1:
               return (
                 <AddressMap
                   register={register}
@@ -102,7 +115,7 @@ const ComponentSwitch: FC = () => {
                   errors={errors}
                 />
               );
-            case 3:
+            case 2:
               return (
                 <Image
                   register={register}
@@ -115,7 +128,7 @@ const ComponentSwitch: FC = () => {
                   imageOutput={image}
                 />
               );
-            case 4:
+            case 3:
               return (
                 <WebsiteDetails
                   register={register}
@@ -127,7 +140,7 @@ const ComponentSwitch: FC = () => {
                   errors={errors}
                 />
               );
-            case 5:
+            case 4:
               return (
                 <Submit
                   register={register}

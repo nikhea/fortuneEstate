@@ -35,7 +35,7 @@ const AddressMap: FC<AddressMap> = ({
   };
   return (
     <div>
-      <h1>AddressMap</h1>
+      {/* <h1>AddressMap</h1> */}
       <span>
         <h1 className={style.inputTitle}>country</h1>
 
