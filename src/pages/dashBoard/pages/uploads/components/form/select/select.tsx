@@ -1,8 +1,9 @@
 import { FC, useState } from "react";
 import "./select.css";
 import Select from "react-select";
+import makeAnimated from 'react-select/animated';
 import classnames from "classnames";
-import { Controller, useForm } from "react-hook-form";
+
 export interface optionsProps {
   value: string;
   label: string;
@@ -18,7 +19,7 @@ interface inputProps {
   isCurve?: boolean;
   bold?: boolean;
   rounded?: boolean;
-  isWhiteBg?:boolean;
+  isWhiteBg?: boolean;
   options: optionsProps[];
   field: any;
   handleSelectChange: any;
@@ -38,6 +39,8 @@ const style = {
   bold: `font-bold`,
   isWhiteBg: `border border-[#C4C4C4] border-solid bg-white text-black`,
 };
+const animatedComponents = makeAnimated();
+
 const InputSelect: FC<inputProps> = ({
   inputFull,
   inputHalf,
@@ -66,7 +69,7 @@ const InputSelect: FC<inputProps> = ({
     // [`${style.bold}`]: bold,
   };
   const customStyles = {
-    option: (provided: any, state: { isSelected: any }) => ({
+    option: (provided: any, state: { isSelected: any; isFocused: any }) => ({
       ...provided,
       // color: state.isSelected ? "yellow" : "black",
       // backgroundColor: state.isSelected ? "green" : "white",
@@ -76,8 +79,16 @@ const InputSelect: FC<inputProps> = ({
       marginTop: "5%",
     }),
   };
+  const themeOptions = (theme: any) => ({
+    ...theme,
+    colors: {
+      ...theme.colors,
+      primary25: "#E5E5E5",
+      primary: "#8392A5",
+    },
+  });
   return (
-    <div >
+    <div>
       <Select
         value={field}
         placeholder={placeholder}
@@ -89,8 +100,10 @@ const InputSelect: FC<inputProps> = ({
         onChange={handleSelectChange}
         options={options}
         required={required}
+        theme={themeOptions}
+        components={animatedComponents}
       />
-     </div>
+    </div>
   );
 };
 export default InputSelect;

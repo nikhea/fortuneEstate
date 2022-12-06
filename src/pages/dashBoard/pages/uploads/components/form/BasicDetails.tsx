@@ -112,7 +112,6 @@ const BasicDetails: FC<BasicDetailsProps> = ({
   return (
     <div>
       {/* <h1>BasicDetails</h1> */}
-
       <span>
         <h1 className={style.inputTitle}>property title</h1>
         <Input
@@ -410,7 +409,12 @@ const BasicDetails: FC<BasicDetailsProps> = ({
           </p>
         </div>
       </span>
-      <Button rounded primary Color="#8392A5" onClick={continues}>Continue</Button>
+      <span className="flex flex-row-reverse">
+      
+        <Button rounded primary Color="#8392A5" onClick={continues}>
+          Continue
+        </Button>
+      </span>{" "}
     </div>
   );
 };

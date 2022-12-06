@@ -18,6 +18,7 @@ const ComponentSwitch: FC = () => {
     "address map",
     "images upload",
     "website details",
+    // "features",
     "submit",
   ]);
   const nextStep = () => {
