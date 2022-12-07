@@ -12,7 +12,7 @@ import Submit from "./form/Submit";
 import FormHeader from "./form/FormHeader";
 const ComponentSwitch: FC = () => {
   const [image, setImage] = useState("");
-  const [step, setStep] = useState(1);
+  const [step, setStep] = useState(0);
   const [title, setTitle] = useState([
     "basic details",
     "address map",
@@ -65,7 +65,7 @@ const ComponentSwitch: FC = () => {
   })();
   const submitForm = (formData: any) => {
     if (formData !== undefined) {
-      console.log("submitForm DATA main => ", formData.title);
+      console.log("submitForm DATA main => ", formData.description);
     }
     // reset();
     // if (errors) {

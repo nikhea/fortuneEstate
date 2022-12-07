@@ -1,10 +1,14 @@
-import { FC } from "react";
+import { FC, useState } from "react";
 import Input from "../../../../../../components/UI/FormElement/input/input";
 import Select from "./select/select";
 import SelectHalf from "./select/selectHalf";
 import Button from "../../../../../../components/UI/FormElement/Button";
-import { useFormContext, useController } from "react-hook-form";
-
+import { useFormContext, useController, Controller } from "react-hook-form";
+import WYSIWYGEditor from "./WYSIWYGEditor/WYSIWYGEditor";
+import { stripHtml } from "string-strip-html";
+import RichTextEditor from "react-rte";
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css';
 import {
   categoryOPtions,
   propertyTypeOPtions,
@@ -43,7 +47,8 @@ const BasicDetails: FC<BasicDetailsProps> = ({
   setStep,
   errors,
 }) => {
-  const { register, control } = useFormContext();
+  const { register, control, setValue, watch } = useFormContext();
+
   const continues = (e: any) => {
     e.preventDefault();
     nextStep();
@@ -109,11 +114,15 @@ const BasicDetails: FC<BasicDetailsProps> = ({
     return lotAreaSymbolField.onChange(option.value);
   };
 
+  const onDescriptionChange = (editorState: any) => {
+    setValue("description", editorState);
+  };
+  const descriptionContent = watch("description");
   return (
     <div>
       {/* <h1>BasicDetails</h1> */}
       <span>
-        <h1 className={style.inputTitle}>property title</h1>
+        <h1 className={style.inputTitle}>property title*</h1>
         <Input
           type="text"
           name="title"
@@ -130,7 +139,7 @@ const BasicDetails: FC<BasicDetailsProps> = ({
         </p>
       </span>
       <span>
-        <h1 className={style.inputTitle}>property pageTitle</h1>
+        <h1 className={style.inputTitle}>property pageTitle*</h1>
         <Input
           type="text"
           name="pageTitle"
@@ -148,16 +157,10 @@ const BasicDetails: FC<BasicDetailsProps> = ({
       </span>
       <span>
         <h1 className={style.inputTitle}>property description</h1>
-        <Input
-          type="text"
-          name="description"
-          placeholder="property description*"
-          inputFull
-          isWhiteBg
-          required
-          rounded
-          errors={errors}
-          inputRef={register("description", { required: true })}
+        <ReactQuill
+          theme="snow"
+          value={descriptionContent}
+          onChange={onDescriptionChange}
         />
         <p className={style.errors}>
           {errors.description?.message && <p>{errors.description?.message}</p>}
@@ -410,7 +413,6 @@ const BasicDetails: FC<BasicDetailsProps> = ({
         </div>
       </span>
       <span className="flex flex-row-reverse">
-      
         <Button rounded primary Color="#8392A5" onClick={continues}>
           Continue
         </Button>
@@ -431,3 +433,34 @@ export default BasicDetails;
 
 //   reset();
 // };
+{
+  /* <Input
+type="text"
+name="description"
+placeholder="property description*"
+inputFull
+isWhiteBg
+required
+rounded
+errors={errors}
+inputRef={register("description", { required: true })}
+/> */
+}
+{
+  /* <Controller
+render={({ field }) => <WYSIWYGEditor {...field} />}
+name="description"
+control={control}
+defaultValue=""
+rules={{
+  validate: {
+    required: (v) =>
+      (v && stripHtml(v).result.length > 0) ||
+      "Description is required",
+    maxLength: (v) =>
+      (v && stripHtml(v).result.length <= 2000) ||
+      "Maximum character limit is 2000",
+  },
+}}
+/> */
+}

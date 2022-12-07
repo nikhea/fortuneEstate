@@ -18,21 +18,23 @@ const Header: FC<HeaderProps> = ({
   };
   const ys = [0];
   const zs = stepTitle.filter((_: any, i: any) => !ys.includes(i));
-  console.log(zs);
-
+  // console.log(zs);
+  const handleSubmitButton = (index: any) => {
+    setStep(index);
+  };
   return (
     <div>
-      {/* <p>{step}/ 5</p>  */}
-
       <div className={style.headerTitleContainer}>
         {stepTitle.map((title: string, index: number) => (
           <h1
-            style={{ width: "55%", textAlign: "center" }}
+            key={index}
+            style={{ width: "55%", textAlign: "center", cursor: "pointer" }}
             className={
               step === index
                 ? `bg-transparent border-b   border-[#b9b9b9] border-solid	 text-[#000] `
                 : ""
             }
+            onClick={() => handleSubmitButton(index)}
           >
             {title}
           </h1>
@@ -41,12 +43,5 @@ const Header: FC<HeaderProps> = ({
     </div>
   );
 };
-// style={{
-//   borderBottom: step === index ? `1px solid red` : "",
 
-// }}
 export default Header;
-{
-  /* <p>{step}/ 5</p> */
-}
-// borderBottom: ${step === index ? '`1px solid red`': null}
