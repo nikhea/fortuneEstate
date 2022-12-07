@@ -42,14 +42,12 @@ const ComponentSwitch: FC = () => {
     setValue,
     formState: { errors },
   } = methods;
-  // useFormPersist("storageKey", {
-  //   watch,
-  //   setValue,
-  //   storage: window.localStorage, // default window.sessionStorage
-  //   exclude: ["baz"],
-  // });
+  useFormPersist("storageKey", {
+    watch,
+    setValue,
+    storage: window.localStorage,
+  });
   let WatchErrors = watch();
-  console.log(WatchErrors.description);
 
   // console.log("watch input fields =>", watch());
   const conver2Base64 = () => {
@@ -70,14 +68,14 @@ const ComponentSwitch: FC = () => {
   })();
 
   const submitForm = (formData: any) => {
-    // if (formData) {
-    //   console.log("submitForm DATA main => ", formData);
-    // }
+    if (formData) {
+      console.log("submitForm DATA main => ", formData);
+      reset();
+      setStep(0);
+    }
 
- 
-       notify(WatchErrors);
- 
-    // reset();
+    notify(WatchErrors);
+
     // if (formData.images.length > 0) {
     //   conver2Base64(formData.images[0]);
     // }

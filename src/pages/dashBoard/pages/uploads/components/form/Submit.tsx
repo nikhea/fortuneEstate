@@ -41,7 +41,7 @@ const Submit: FC<SubmiteProps> = ({
     SubmitForm();
 
     // return navigate("/upload");
-    // setStep(1);
+    
   };
   return (
     <div>
