@@ -35,7 +35,7 @@ const WebsiteDetails: FC<WebsiteDetailsProps> = ({
   };
   return (
     <div>
-      <h1>Website Details</h1>
+      {/* <h1>Website Details</h1> */}
       <span>
         <h1 className={style.inputTitle}>website name</h1>
 

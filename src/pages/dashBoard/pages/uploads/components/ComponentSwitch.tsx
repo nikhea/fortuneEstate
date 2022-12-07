@@ -10,6 +10,9 @@ import Image from "./form/image";
 import WebsiteDetails from "./form/websiteDetails";
 import Submit from "./form/Submit";
 import FormHeader from "./form/FormHeader";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { notify } from "./notify";
 const ComponentSwitch: FC = () => {
   const [image, setImage] = useState("");
   const [step, setStep] = useState(0);
@@ -39,12 +42,14 @@ const ComponentSwitch: FC = () => {
     setValue,
     formState: { errors },
   } = methods;
-  useFormPersist("storageKey", {
-    watch,
-    setValue,
-    storage: window.localStorage, // default window.sessionStorage
-    exclude: ["baz"],
-  });
+  // useFormPersist("storageKey", {
+  //   watch,
+  //   setValue,
+  //   storage: window.localStorage, // default window.sessionStorage
+  //   exclude: ["baz"],
+  // });
+  let WatchErrors = watch();
+  console.log(WatchErrors.description);
 
   // console.log("watch input fields =>", watch());
   const conver2Base64 = () => {
@@ -63,23 +68,21 @@ const ComponentSwitch: FC = () => {
   (function () {
     // conver2Base64();
   })();
+
   const submitForm = (formData: any) => {
-    if (formData !== undefined) {
-      console.log("submitForm DATA main => ", formData.description);
-    }
-    // reset();
-    // if (errors) {
-    //   console.log(errors, "errors errors");
-    //   return;
-    // } else if (formData) {
+    // if (formData) {
     //   console.log("submitForm DATA main => ", formData);
-    // } else {
-    //   console.log("could not submitForm DATA main => ", formData);
     // }
+
+ 
+       notify(WatchErrors);
+ 
+    // reset();
     // if (formData.images.length > 0) {
     //   conver2Base64(formData.images[0]);
     // }
   };
+
   return (
     <FormProvider {...methods}>
       <FormHeader
@@ -170,6 +173,7 @@ const ComponentSwitch: FC = () => {
         })()}
         {/* <button type="submit">submit</button> */}
       </form>
+      <ToastContainer />
     </FormProvider>
   );
 };

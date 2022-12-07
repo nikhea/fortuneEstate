@@ -1,4 +1,5 @@
 import { FC, useState } from "react";
+import "./textEditor.css";
 import Input from "../../../../../../components/UI/FormElement/input/input";
 import Select from "./select/select";
 import SelectHalf from "./select/selectHalf";
@@ -7,8 +8,9 @@ import { useFormContext, useController, Controller } from "react-hook-form";
 import WYSIWYGEditor from "./WYSIWYGEditor/WYSIWYGEditor";
 import { stripHtml } from "string-strip-html";
 import RichTextEditor from "react-rte";
-import ReactQuill from 'react-quill';
-import 'react-quill/dist/quill.snow.css';
+import ReactQuill from "react-quill";
+import "react-quill/dist/quill.snow.css";
+
 import {
   categoryOPtions,
   propertyTypeOPtions,
@@ -35,7 +37,7 @@ const style = {
   selectWidth: `md:w-[48%] `,
   inputWidth: `md:w-[48%]`,
 
-  errors: `block `,
+  errors: `block text-red-500 capitalize  leading-4 tracking-wide my-4 ml-4`,
 };
 const BasicDetails: FC<BasicDetailsProps> = ({
   // register,
@@ -47,7 +49,16 @@ const BasicDetails: FC<BasicDetailsProps> = ({
   setStep,
   errors,
 }) => {
-  const { register, control, setValue, watch } = useFormContext();
+  const [message, setMessage] = useState("");
+  const getmessage = (e: any) => {};
+
+  const {
+    register,
+    control,
+    setValue,
+    watch,
+    // formState: { errors },
+  } = useFormContext();
 
   const continues = (e: any) => {
     e.preventDefault();
@@ -136,6 +147,7 @@ const BasicDetails: FC<BasicDetailsProps> = ({
         />
         <p className={style.errors}>
           {errors.title?.message && <p>{errors.title?.message}</p>}
+          {() => getmessage("skkks")}
         </p>
       </span>
       <span>
@@ -161,6 +173,7 @@ const BasicDetails: FC<BasicDetailsProps> = ({
           theme="snow"
           value={descriptionContent}
           onChange={onDescriptionChange}
+          className="text-editor"
         />
         <p className={style.errors}>
           {errors.description?.message && <p>{errors.description?.message}</p>}
@@ -337,7 +350,7 @@ const BasicDetails: FC<BasicDetailsProps> = ({
       </span>
       <span className={style.inputDivider}>
         <div className={style.inputWidth}>
-          <h1 className={style.inputTitle}> half bathrooms*</h1>
+          <h1 className={style.inputTitle}> half bathrooms</h1>
           <Input
             type="number"
             name="halfBathrooms"
@@ -349,15 +362,15 @@ const BasicDetails: FC<BasicDetailsProps> = ({
             errors={errors}
             inputRef={register("halfBathrooms", { required: true })}
           />
-          <p className={style.errors}>
+          {/* <p className={style.errors}>
             {errors.halfBathrooms?.message && (
               <p>{errors.halfBathrooms?.message}</p>
             )}
-          </p>
+          </p> */}
         </div>
 
         <div className={style.inputWidth}>
-          <h1 className={style.inputTitle}> year built*</h1>
+          <h1 className={style.inputTitle}> year built</h1>
           <Input
             type="number"
             name="yearBuilt"
@@ -369,14 +382,14 @@ const BasicDetails: FC<BasicDetailsProps> = ({
             errors={errors}
             inputRef={register("yearBuilt", { required: true })}
           />
-          <p className={style.errors}>
+          {/* <p className={style.errors}>
             {errors.yearBuilt?.message && <p>{errors.yearBuilt.message}</p>}
-          </p>
+          </p> */}
         </div>
       </span>
       <span className={style.inputDivider}>
         <div className={style.inputWidth}>
-          <h1 className={style.inputTitle}> lot area*</h1>
+          <h1 className={style.inputTitle}> lot area</h1>
           <Input
             type="number"
             name=" lotArea"
@@ -389,9 +402,9 @@ const BasicDetails: FC<BasicDetailsProps> = ({
             errors={errors}
             inputRef={register("lotArea", { required: true })}
           />
-          <p className={style.errors}>
+          {/* <p className={style.errors}>
             {errors.lotArea?.message && <p>{errors.lotArea?.message}</p>}
-          </p>
+          </p> */}
         </div>
 
         <div className={style.selectWidth}>

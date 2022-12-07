@@ -19,7 +19,7 @@ export interface FormData {
 
   bedrooms: number;
   bathrooms: number;
-  halfBathrooms: number;
+  halfBathrooms?: number;
   squareFootage: number;
   lotAreaSymbol?: string;
   yearBuilt?: number;
