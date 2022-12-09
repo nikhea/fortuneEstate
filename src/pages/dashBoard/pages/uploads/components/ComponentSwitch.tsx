@@ -49,7 +49,7 @@ const ComponentSwitch: FC = () => {
   });
   let WatchErrors = watch();
 
-  // console.log("watch input fields =>", watch());
+  console.log("watch input fields =>", watch());
   const conver2Base64 = () => {
     const formDataImages = watch();
     if (formDataImages.images.length > 0) {
@@ -70,7 +70,7 @@ const ComponentSwitch: FC = () => {
   const submitForm = (formData: any) => {
     if (formData) {
       console.log("submitForm DATA main => ", formData);
-      reset();
+      // reset();
       setStep(0);
     }
 

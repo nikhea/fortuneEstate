@@ -5,6 +5,8 @@ import "react-lazy-load-image-component/src/effects/blur.css";
 import { useQuery } from "@tanstack/react-query";
 import { Link } from "react-router-dom";
 import { getAllCountry } from "../../services/api/shared";
+import { queryKeys } from "../../utils/queryKey";
+
 import { routes } from "../../routes/routes";
 const style = {
   container: `w-[80%] m-auto my-10`,
@@ -26,9 +28,10 @@ const style = {
   overlay: `h-full w-full top-0 left-0 absolute bg-gradient-to-tl from-black bg-fixed`,
 };
 const CountriesCard: FC = () => {
-  const { data: countries, error } = useQuery(["countries"], getAllCountry);
-  const slicedCountry = () => {};
-
+  const { data: countries, error } = useQuery(
+    [queryKeys.countries],
+    getAllCountry
+  );
   return (
     <div className={style.container}>
       <div className={style.textContainer}>

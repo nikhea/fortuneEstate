@@ -2,6 +2,9 @@ import { FC } from "react";
 import Input from "../../../../../../components/UI/FormElement/input/input";
 import Select from "../../../../../../components/UI/FormElement/select/select";
 import Button from "../../../../../../components/UI/FormElement/Button";
+import { Link } from "react-router-dom";
+
+
 interface WebsiteDetailsProps {
   register: any;
   nextStep: any;
@@ -16,6 +19,12 @@ const style = {
   buttonContainer: `flex justify-between items-center`,
   inputTitle: `capitalize leading-4 tracking-wide my-4 ml-4`,
 };
+// const selectableCountries = [
+//   { value: "USA", label: "United States of America" },
+//   { value: "JPN", label: "Japan" },
+//   { value: "ZAF", label: "South Africa" },
+//   { value: "CHN", label: "China" },
+// ];
 const WebsiteDetails: FC<WebsiteDetailsProps> = ({
   register,
   nextStep,
@@ -38,7 +47,6 @@ const WebsiteDetails: FC<WebsiteDetailsProps> = ({
       {/* <h1>Website Details</h1> */}
       <span>
         <h1 className={style.inputTitle}>website name</h1>
-
         <Input
           type="text"
           name=" webSiteName"
@@ -50,6 +58,7 @@ const WebsiteDetails: FC<WebsiteDetailsProps> = ({
           errors={errors}
           inputRef={register("webSiteName", { required: true })}
         />
+
         <p className={style.errors}>
           {errors.webSiteName?.message && <p>{errors.webSiteName?.message}</p>}
         </p>
@@ -73,7 +82,6 @@ const WebsiteDetails: FC<WebsiteDetailsProps> = ({
         </p>
       </span>
 
-   
       <div className={style.buttonContainer}>
         <Button rounded primary Color="#8392A5" onClick={previous}>
           Pre

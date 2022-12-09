@@ -1,7 +1,14 @@
-import { FC } from "react";
+import { FC, useState, useEffect } from "react";
 import Input from "../../../../../../components/UI/FormElement/input/input";
 import Select from "../../../../../../components/UI/FormElement/select/select";
 import Button from "../../../../../../components/UI/FormElement/Button";
+import { useQuery } from "@tanstack/react-query";
+import { useFormContext, useController } from "react-hook-form";
+import { getAllCountry } from "../../../../../../services/api/shared";
+import { queryKeys } from "../../../../../../utils/queryKey";
+import AsyncSelect from "react-select/async";
+import Creatable from "react-select/creatable";
+// import Select from "react-select";
 interface AddressMap {
   register: any;
   nextStep: any;
@@ -17,7 +24,7 @@ const style = {
   buttonContainer: `flex justify-between items-center`,
 };
 const AddressMap: FC<AddressMap> = ({
-  register,
+  // register,
   nextStep,
   prevStep,
   SubmitForm,
@@ -25,6 +32,49 @@ const AddressMap: FC<AddressMap> = ({
   setStep,
   errors,
 }) => {
+  const [countriesOptions, setCountriesOptions] = useState([""]);
+  const {
+    data: countries,
+    error,
+    isLoading,
+  } = useQuery([queryKeys.countries], getAllCountry);
+
+  // console.log(countries?.data[0].name);
+
+  useEffect(() => {
+    const getData = async () => {
+      const arr: any = [];
+      let result = countries?.data;
+      result.map((countries: any) => {
+        return arr.push({ value: countries.name, label: countries.name });
+      });
+      setCountriesOptions(arr);
+    };
+    getData();
+  }, []);
+  const {
+    register,
+    control,
+    setValue,
+    watch,
+    // formState: { errors },
+  } = useFormContext();
+  const { field: propertycountryField } = useController({
+    name: "country",
+    control,
+  });
+  const handleCountryChange = (option: any) => {
+    propertycountryField.onChange(option.value);
+
+    return propertycountryField.onChange(option.value);
+  };
+  // country
+  console.log(countriesOptions, "optopmjka;sdjjlsk");
+  // if (!countriesOptions) {
+  //   return <h1>....Loading properties </h1>;
+  // } else {
+  //   return <h1>.{JSON.stringify(countriesOptions)}</h1>;
+  // }
   const continues = (e: any) => {
     e.preventDefault();
     nextStep();
@@ -39,16 +89,15 @@ const AddressMap: FC<AddressMap> = ({
       <span>
         <h1 className={style.inputTitle}>country</h1>
 
-        <Input
-          type="text"
-          name=" country"
-          placeholder="country*"
+        <Select
           inputFull
-          required
-          isWhiteBg
-          rounded
-          errors={errors}
-          inputRef={register("country", { required: true })}
+          placeholder="Countries*"
+          options={countriesOptions}
+          field={countriesOptions.find(
+            ({ value }: any) => value === propertycountryField.value
+          )}
+          handleSelectChange={handleCountryChange}
+          // onChange={handleCountryChange}
         />
         <p className={style.errors}>
           {errors.country?.message && <p>{errors.country?.message}</p>}
@@ -102,4 +151,17 @@ const AddressMap: FC<AddressMap> = ({
   );
 };
 
+{
+  /* <Input
+type="text"
+name=" country"
+placeholder="country*"
+inputFull
+required
+isWhiteBg
+rounded
+errors={errors}
+inputRef={register("country", { required: true })}
+/> */
+}
 export default AddressMap;
