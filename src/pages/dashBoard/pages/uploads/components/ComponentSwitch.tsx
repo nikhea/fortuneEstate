@@ -1,6 +1,7 @@
 import { useState, useEffect, FC } from "react";
 import { FormData } from "./formInterface";
-import { useForm, useController, FormProvider } from "react-hook-form";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { useForm, FormProvider } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import useFormPersist from "react-hook-form-persist";
 import { uploadSchema } from "./uploadSchema";
@@ -10,10 +11,21 @@ import Image from "./form/image";
 import WebsiteDetails from "./form/websiteDetails";
 import Submit from "./form/Submit";
 import FormHeader from "./form/FormHeader";
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { notify } from "./notify";
+import { createProperties } from "../../../../../services/api/agent";
+import { queryKeys } from "../../../../../utils/queryKey";
+
 const ComponentSwitch: FC = () => {
+  const queryClient = useQueryClient();
+  const { mutateAsync, isLoading } = useMutation(createProperties, {
+    onSuccess: () => {
+      //invalidate cached properties query and refresh
+      // @ts-ignore
+      queryClient.invalidateQueries(queryKeys.properties);
+    },
+  });
   const [image, setImage] = useState("");
   const [step, setStep] = useState(0);
   const [title, setTitle] = useState([
@@ -48,37 +60,18 @@ const ComponentSwitch: FC = () => {
     storage: window.localStorage,
   });
   let WatchErrors = watch();
-
-  console.log("watch input fields =>", watch());
-  const conver2Base64 = () => {
-    const formDataImages = watch();
-    if (formDataImages.images.length > 0) {
-      console.log(formDataImages.images);
-
-      const files = formDataImages.images[0];
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        setImage(reader.result?.toString());
-      };
-      reader.readAsDataURL(files);
-    }
+  const addProperties = async (formData: any) => {
+    await mutateAsync(formData);
   };
-  (function () {
-    // conver2Base64();
-  })();
 
   const submitForm = (formData: any) => {
     if (formData) {
-      console.log("submitForm DATA main => ", formData);
+      // console.log("submitForm DATA main => ", formData);
+      addProperties(formData);
       // reset();
       setStep(0);
     }
-
     notify(WatchErrors);
-
-    // if (formData.images.length > 0) {
-    //   conver2Base64(formData.images[0]);
-    // }
   };
 
   return (

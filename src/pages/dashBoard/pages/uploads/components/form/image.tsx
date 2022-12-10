@@ -44,7 +44,7 @@ const Image: FC<ImageProps> = ({
       {/* {imageOutput ? <img src={imageOutput} width="450" /> : null} */}
       <span>
         <Input
-          type="file"
+          type="text"
           name="images"
           placeholder="images*"
           inputFull
@@ -52,8 +52,9 @@ const Image: FC<ImageProps> = ({
           onChange={onChange}
           rounded
           errors={errors}
+          isWhiteBg
           inputRef={register("images", { required: true })}
-          multipleFile="multiple"
+          // multipleFile="multiple"
         />
         <p className={style.errors}>
           {errors.images?.message && <p>{errors.images?.message}</p>}

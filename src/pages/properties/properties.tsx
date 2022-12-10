@@ -8,7 +8,7 @@ import NewListing from "../../components/propertiesList/newListing";
 import FeaturedListing from "../../components/propertiesList/featuredListing";
 import paginatedProperties from "./paginatedProperties";
 // import { propertiesData } from "../../data/property";
-
+import { queryKeys } from "../../utils/queryKey";
 import { getPropertiesByCountry } from "../../services/api/shared";
 import PaginatedProperties from "./paginatedProperties";
 const style = {
@@ -46,7 +46,7 @@ const properties: FC<propertiesProps> = ({
     data: propertiesdata,
     error,
     isLoading,
-  } = useQuery(["properties", countryName], () =>
+  } = useQuery([queryKeys.propertiesCountries, countryName], () =>
     getPropertiesByCountry(countryName)
   );
   const properties = propertiesdata?.data;

@@ -13,7 +13,7 @@ const Header: FC<HeaderProps> = ({
   setStepTitle,
 }) => {
   const style = {
-    headerTitleContainer: ` hidden md:flex justify-between border-b mb-16 capitalize md:text-1xl`,
+    headerTitleContainer: ` hidden md:flex justify-between borde mb-16 capitalize md:text-1xl`,
     headerTitle: ``,
   };
   const ys = [0];

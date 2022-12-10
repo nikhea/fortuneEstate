@@ -29,28 +29,13 @@ export const getAllCountry = async () => {
   };
 };
 export const getPropertiesByCountry = async (countryName: any) => {
-    const res = await Axiosclient.get(`${countryName}/properties`);
+  const res = await Axiosclient.get(`${countryName}/properties`);
   return {
     status: res.status,
     data: res.data.data,
   };
 };
-export const getProperties = async (id: number, countryName: string) => {
-  const res = await Axiosclient.get(`/properties?populate=*`);
-  return {
-    status: res.status,
-    data: res.data.data,
-  };
-};
-// http://localhost:4000/api/nigeria/properties
-// export const getCountryProperties = async (id: number, countryName: string) => {
-//   const res = await Axiosclient.get(`${countryName}/properties`);
-//   //   return await res
-//   return {
-//     status: res.status,
-//     data: res.data.data,
-//   };
-// };
+
 export const getSingelProperties = async (id: number, countryName: string) => {
   const res = await Axiosclient.get(`/properties/${id}`);
   return {
@@ -58,7 +43,11 @@ export const getSingelProperties = async (id: number, countryName: string) => {
     data: res.data.data,
   };
 };
-// http://localhost:4000/api/properties/63829165b573eebaeae15890
-// http://localhost:1337/api/properties/1?populate=*
-// http://localhost:1337/api/countries?populate=properties
-// http://localhost:1337/api/countries/1?populate=properties
+
+// export const getProperties = async (id: number, countryName: string) => {
+//   const res = await Axiosclient.get(`/properties?populate=*`);
+//   return {
+//     status: res.status,
+//     data: res.data.data,
+//   };
+// };

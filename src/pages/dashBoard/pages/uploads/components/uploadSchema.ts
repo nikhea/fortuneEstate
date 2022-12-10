@@ -42,18 +42,19 @@ export const uploadSchema = yup.object().shape({
   yearBuilt: yup.number(),
   lotArea: yup.number(),
 
-  images: yup
-    .mixed()
-    .required("A file is required")
-    .test("FileSize", "The File is too large", (value) => {
-      return value && value[0].size <= 1024 * 1024;
-    })
+  // images: yup
+  //   .mixed()
+  //   .required("A file is required")
+  //   .test("FileSize", "The File is too large", (value) => {
+  //     return value && value[0].size <= 1024 * 1024;
+  //   })
 
-    .test(
-      "format",
-      "we dont accept format",
-      (value) => value && SUPPORTED_FORMATS.includes(value[0].type)
-    ),
+  //   .test(
+  //     "format",
+  //     "we dont accept format",
+  //     (value) => value && SUPPORTED_FORMATS.includes(value[0].type)
+  //   ),
+  images: yup.string().required(),
 });
 
 // images: yup
