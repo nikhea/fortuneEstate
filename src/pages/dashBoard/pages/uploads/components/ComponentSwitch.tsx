@@ -11,7 +11,7 @@ import Image from "./form/image";
 import WebsiteDetails from "./form/websiteDetails";
 import Submit from "./form/Submit";
 import FormHeader from "./form/FormHeader";
-import { ToastContainer } from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { notify } from "./notify";
 import { createProperties } from "../../../../../services/api/agent";
@@ -19,13 +19,14 @@ import { queryKeys } from "../../../../../utils/queryKey";
 
 const ComponentSwitch: FC = () => {
   const queryClient = useQueryClient();
-  const { mutateAsync, isLoading } = useMutation(createProperties, {
+  const { mutateAsync, status } = useMutation(createProperties, {
     onSuccess: () => {
       //invalidate cached properties query and refresh
       // @ts-ignore
       queryClient.invalidateQueries(queryKeys.properties);
     },
   });
+  console.log("status", status);
   const [image, setImage] = useState("");
   const [step, setStep] = useState(0);
   const [title, setTitle] = useState([
@@ -67,12 +68,18 @@ const ComponentSwitch: FC = () => {
   const submitForm = (formData: any) => {
     if (formData) {
       // console.log("submitForm DATA main => ", formData);
-      addProperties(formData);
+      // addProperties(formData);
       // reset();
-      setStep(0);
+      // setStep(0);
     }
     notify(WatchErrors);
   };
+  if (status === "success") {
+    toast.success("Property Created Successfully");
+  }
+  if (status === "loading") {
+    toast.warning("submmiting");
+  }
 
   return (
     <FormProvider {...methods}>

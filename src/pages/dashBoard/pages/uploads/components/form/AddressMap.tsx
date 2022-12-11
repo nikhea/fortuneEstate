@@ -35,8 +35,6 @@ const AddressMap: FC<AddressMap> = ({
   const [countriesOptions, setCountriesOptions] = useState([""]);
   const {
     data: countries,
-    error,
-    isLoading,
   } = useQuery([queryKeys.countries], getAllCountry);
 
   // console.log(countries?.data[0].name);

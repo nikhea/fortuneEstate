@@ -28,6 +28,13 @@ export const getAllCountry = async () => {
     data: res.data.data,
   };
 };
+export const getAllProperties = async () => {
+  const res = await Axiosclient.get(`/properties`);
+  return {
+    status: res.status,
+    data: res.data.data,
+  };
+};
 export const getPropertiesByCountry = async (countryName: any) => {
   const res = await Axiosclient.get(`${countryName}/properties`);
   return {

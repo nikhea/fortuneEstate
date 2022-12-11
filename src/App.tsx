@@ -17,7 +17,7 @@ import Property from "./pages/property/property";
 import DashBoard from "./pages/dashBoard/dashBoard";
 import Upload from "./pages/dashBoard/pages/uploads/upload";
 import ListingStats from "./pages/dashBoard/pages/ListingStats";
-import ListingManager from "./pages/dashBoard/pages/ListingManager";
+import ListingManager from "./pages/dashBoard/pages/ListingManaga/ListingManager";
 import Profile from "./pages/dashBoard/pages/profile";
 import Settings from "./pages/dashBoard/pages/settings";
 import DashboardProperties from "./pages/dashBoard/pages/Properties";

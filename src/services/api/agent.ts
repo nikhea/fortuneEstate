@@ -3,12 +3,12 @@ import { request, Axiosclient } from "../../utils/axios";
 
 export const createProperties = async (properties: any) => {
   // http://localhost:4000/api/properties
-// const p= JSON.stringify(properties);
+
   
   const res = await Axiosclient.post(`properties`, properties);
-  console.log(res,"propertiesDate  services");
-  // return {
-  //   status: res.status,
-  //   data: res.data.data,
-  // };
+  // console.log(res,"propertiesDate  services");
+  return {
+    status: res.status,
+    data: res.data.data,
+  };
 };
