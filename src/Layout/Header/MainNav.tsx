@@ -7,8 +7,8 @@ import { routes } from "../../routes/routes";
 import Button from "../../components/UI/FormElement/Button";
 const style = {
   container: ` flex justify-between w-[95%]  m-auto m-0 text-cente items-center  `,
-  lists: `capitalize hidden md:flex justify-between mr-[100px]`,
-  list: ` mx-[35px] text-center items  text-white`,
+  lists: `capitalize hidden md:flex justify-between mr-[100px] `,
+  list: ` mx-[35px] text-center items  text-white `,
   logo: `w-[200px]`,
   active: `bg-gradient-to-r from-cyan-500 to-blue-500 text-black py-2 px-5 rounded-full`,
   btn: `uppercase  rounded-full `,
@@ -90,7 +90,7 @@ const MainNav: FC = () => {
             onClose={toggleDrawer}
             direction="right"
             duration={1000}
-            className="md:hidden"
+            className="md:hidden text-[#0D304A]"
             style={{ width: "80vw", zIndex: "999" }}
           >
             <button className={style.drawerInsidetoggle} onClick={toggleDrawer}>

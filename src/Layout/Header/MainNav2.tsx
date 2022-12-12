@@ -8,7 +8,7 @@ import Button from "../../components/UI/FormElement/Button";
 const style = {
   container: ` flex justify-between w-[95%]  m-auto m-0 text-cente items-center  `,
   lists: `capitalize hidden md:flex justify-between mr-[100px]`,
-  list: ` mx-[30px] text-center items `,
+  list: ` mx-[30px] text-center items text-[#0D304A]`,
   logo: `w-[200px]`,
   active: `bg-gradient-to-r from-cyan-500 to-blue-500 text-white py-2 px-5 rounded-full`,
   activeSM: `text-blue-500 [&+*]:bg-blue-500`,
@@ -90,7 +90,7 @@ const MainNav: FC = () => {
             onClose={toggleDrawer}
             direction="right"
             duration={1000}
-            className="md:hidden"
+            className="md:hidden text-[#0D304A]"
             style={{ width: "80vw", zIndex: "999" }}
           >
             <button className={style.drawerInsidetoggle} onClick={toggleDrawer}>

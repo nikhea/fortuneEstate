@@ -8,7 +8,7 @@ import PropertiesList from "./components/propertiesList";
 interface ListingManagerProps {}
 
 const style = {
-  bg: `font-Montserrat`,
+  bg: `font-Montserrat text-[#0D304A]`,
   container: `w-[95%] m-auto my-5 `,
 };
 const ListingManager: FC<ListingManagerProps> = () => {
