@@ -8,7 +8,7 @@ import PropertiesList from "./components/propertiesList";
 interface ListingManagerProps {}
 
 const style = {
-  bg: ``,
+  bg: `font-Montserrat`,
   container: `w-[95%] m-auto my-5 `,
 };
 const ListingManager: FC<ListingManagerProps> = () => {
@@ -33,7 +33,7 @@ const ListingManager: FC<ListingManagerProps> = () => {
   });
   const DeleteProperty = async (id: string) => {
     await mutateAsync(id);
-    console.log(data?.message);
+    // console.log(data?.message);
   };
 
   const OnEditProperty = (id: string) => {

@@ -59,8 +59,9 @@ const style = {
   lastname: ``,
   DetailFooter: `flex justify-between `,
   footerRight: `flex gap-5`,
-  footerLeft: `flex justify-between  gap-6 `,
-  footerHover: `cursor-pointer`,
+  footerLeft: `flex justify-between  gap-3 text-[#8392A5]`,
+  footerDelete: `cursor-pointer hover:text-red-500 `,
+  footerEdit: `cursor-pointer hover:text-green-500 `,
 };
 const ListingCard: FC<ListingCardProps> = ({
   ID,
@@ -116,7 +117,7 @@ const ListingCard: FC<ListingCardProps> = ({
               <span className={style.span}>
                 <FaBath size={19} style={{ marginRight: "5px" }} />
               </span>
-              {bathrooms} bath {ID}
+              {bathrooms} bath
             </p>
             <p className={style.bedrooms}>
               <span className={style.span}>
@@ -128,7 +129,7 @@ const ListingCard: FC<ListingCardProps> = ({
           <div className={style.footerLeft}>
             <Tippy content="Edit this Properties">
               <p
-                className={style.footerHover}
+                className={style. footerEdit}
                 onClick={() => OnEditProperty(ID)}
               >
                 <FaEdit size={19} style={{ marginRight: "5px" }} />
@@ -136,7 +137,7 @@ const ListingCard: FC<ListingCardProps> = ({
             </Tippy>
             <Tippy content="Delete this Properties">
               <p
-                className={style.footerHover}
+                className={style.footerDelete}
                 onClick={() => OnDeleteProperty(ID)}
               >
                 <MdDelete size={19} style={{ marginRight: "5px" }} />
