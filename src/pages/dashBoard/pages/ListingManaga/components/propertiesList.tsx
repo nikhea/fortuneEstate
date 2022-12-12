@@ -17,13 +17,15 @@ interface propertiesListProps {
   like?: boolean;
   agent?: string;
   agentImage?: string;
+  OnEditProperty: (id: string) => string;
+  OnDeleteProperty: (id: string) => string;
 }
 const style = {
   // bg: `bg-white h-screen`,
   container: `w-[95%] m-auto mt-`,
 };
 const propertiesList: FC<propertiesListProps> = ({
-  ID,
+  _id,
   title,
   price,
   priceSymbol,
@@ -38,13 +40,15 @@ const propertiesList: FC<propertiesListProps> = ({
   address: { street },
   // user
   user: { firstname, lastname },
+  OnEditProperty,
+  OnDeleteProperty,
 }) => {
   // console.log(user.firstname, user.lastname);
 
   return (
     <div className={style.container}>
       <ListingCard
-        ID={ID}
+        ID={_id}
         title={title}
         street={street}
         price={price}
@@ -59,6 +63,8 @@ const propertiesList: FC<propertiesListProps> = ({
         bedrooms={bedrooms}
         firstname={firstname}
         lastname={lastname}
+        OnEditProperty={OnEditProperty}
+        OnDeleteProperty={OnDeleteProperty}
       />
     </div>
   );

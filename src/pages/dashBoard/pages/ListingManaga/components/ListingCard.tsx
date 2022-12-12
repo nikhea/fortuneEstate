@@ -30,6 +30,8 @@ interface ListingCardProps {
   bedrooms: number;
   firstname: string;
   lastname: string;
+  OnEditProperty: (id: string) => string;
+  OnDeleteProperty: (id: string) => string;
 }
 const style = {
   container: `lg:flex  bg-white my-9 shadow-2xl hover:cursor-pointe`,
@@ -76,10 +78,9 @@ const ListingCard: FC<ListingCardProps> = ({
   bedrooms,
   firstname,
   lastname,
+  OnEditProperty,
+  OnDeleteProperty,
 }) => {
-  const OnEditProperty = (ID:string) => {};
-
-  const OnDeleteProperty = (ID: string) => {};
   return (
     <div className={style.container}>
       <div className={style.imageContainer}>
@@ -115,7 +116,7 @@ const ListingCard: FC<ListingCardProps> = ({
               <span className={style.span}>
                 <FaBath size={19} style={{ marginRight: "5px" }} />
               </span>
-              {bathrooms} bath
+              {bathrooms} bath {ID}
             </p>
             <p className={style.bedrooms}>
               <span className={style.span}>
@@ -126,12 +127,18 @@ const ListingCard: FC<ListingCardProps> = ({
           </div>
           <div className={style.footerLeft}>
             <Tippy content="Edit this Properties">
-              <p className={style.footerHover} onClick={() => OnEditProperty(ID)}>
+              <p
+                className={style.footerHover}
+                onClick={() => OnEditProperty(ID)}
+              >
                 <FaEdit size={19} style={{ marginRight: "5px" }} />
               </p>
             </Tippy>
             <Tippy content="Delete this Properties">
-              <p className={style.footerHover} onClick={() => OnDeleteProperty(ID)}>
+              <p
+                className={style.footerHover}
+                onClick={() => OnDeleteProperty(ID)}
+              >
                 <MdDelete size={19} style={{ marginRight: "5px" }} />
               </p>
             </Tippy>
