@@ -7,9 +7,8 @@ interface modals {
   modalIsOpen?: any;
   setIsOpen?: any;
 }
-
+ReactModal.setAppElement('*'); 
 const ModalComponent: FC = NiceModal.create<any>(({ name }) => {
-  console.log(name);
 
   const modal = useModal();
 
@@ -48,6 +47,10 @@ const ModalComponent: FC = NiceModal.create<any>(({ name }) => {
           },
         }}
         contentLabel="Example Modal"
+        //@ts-ignore  //@ts-ignore
+        //  ariaHideApp = { false: bool },
+        //@ts-ignore  //@ts-ignore
+        appElement={document.getElementById("app")}
       >
         <SignUp />
       </ReactModal>

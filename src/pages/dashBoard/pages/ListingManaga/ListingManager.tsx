@@ -1,5 +1,7 @@
 import { FC } from "react";
-import { useQuery, useQueryClient, useMutation } from "@tanstack/react-query";
+// import { useQuery, useQueryClient, useMutation } from "@tanstack/react-query";
+import { useQuery, useQueryClient, useMutation } from "react-query";
+
 import { getAllProperties } from "../../../../services/api/shared";
 import { deleteProperties } from "../../../../services/api/agent";
 import { queryKeys } from "../../../../utils/queryKey";

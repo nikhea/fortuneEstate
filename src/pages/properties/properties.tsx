@@ -1,5 +1,7 @@
 import { FC, useState } from "react";
-import { useQuery } from "@tanstack/react-query";
+// import { useQuery } from "@tanstack/react-query";
+import { useQuery } from "react-query";
+
 import { useParams } from "react-router-dom";
 import "./properties.css";
 import PropertiesList from "../../components/propertiesList/propertiesList";

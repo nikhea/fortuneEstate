@@ -29,24 +29,31 @@ const TrackLisiting = lazy(
 const App: FC = () => {
   return (
     <>
-      <Suspense fallback={<div><p>Loading...</p></div>}>
+      <Suspense fallback={<p>Loading...</p>}>
         <Routes>
           <Route path="" element={<HomePageLayout />}>
             <Route path={routes.home} element={<Home />} />
           </Route>
           <Route path="" element={<Layout />}>
             <Route path={routes.contact} element={<Contact />} />
-            <Route path={routes.advertServices} element={<AdvertService />} />            <Route path={routes.continents} element={<Continents />} />
             <Route
-              path={`${routes.countries}/:name`}
-              element={<Countries />}
-            />
+              path={routes.advertServices}
+              element={<AdvertService />}
+            />{" "}
+            <Route path={routes.continents} element={<Continents />} />
+            <Route path={`${routes.countries}/:name`} element={<Countries />} />
             <Route
               path={`${routes.properties}/:countryName`}
-              element={<Properties displayproperties={undefined} pageChange={undefined} propertiesPerPage={0} propertiesCount={0} />}
+              element={
+                <Properties
+                  displayproperties={undefined}
+                  pageChange={undefined}
+                  propertiesPerPage={0}
+                  propertiesCount={0}
+                />
+              }
             />
             <Route path={`${routes.property}/:id`} element={<Property />} />
-
             {/* <Route path="/Continents/:id/Countries/:id/properties/id/property" element={<Property />} /> */}
           </Route>
           <Route path="" element={<DashBoardLayout />}>

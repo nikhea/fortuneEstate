@@ -1,6 +1,7 @@
 import { request, Axiosclient } from "../../utils/axios";
-import { storage } from "../../lib/storage"
+import { storage } from "../../lib/storage";
 
+export const API_URL = `http://localhost:4000/api`;
 interface AuthResponse {
   user: User;
   jwt: string;
@@ -9,10 +10,13 @@ interface AuthResponse {
 export interface User {
   id: string;
   email: string;
-  name?: string;
+  firstname?: string;
+  lastname?: string;
+  username?: string;
+  password?: string;
+  role?: string;
+  profile?: any;
 }
-
-
 
 export async function handleApiResponse(response: any) {
   const data = await response.json();
@@ -25,7 +29,13 @@ export async function handleApiResponse(response: any) {
 }
 
 export async function getUserProfile() {
-  return await fetch(`${API_URL}/auth/me`, {
+  // return await fetch(`${API_URL}/auth/me`, {
+  //   headers: {
+  //     Authorization: storage.getToken(),
+  //   },
+  // }).then(handleApiResponse);
+
+  return await Axiosclient.get(`/user/me`, {
     headers: {
       Authorization: storage.getToken(),
     },
@@ -47,9 +57,11 @@ export async function registerWithEmailAndPassword(
   data: any
 ): Promise<AuthResponse> {
   return window
-    .fetch(`${API_URL}/auth/register`, {
+    .fetch(`${API_URL}/auth/signup`, {
       method: "POST",
       body: JSON.stringify(data),
     })
     .then(handleApiResponse);
 }
+
+// http://localhost:4000/api/auth/signup

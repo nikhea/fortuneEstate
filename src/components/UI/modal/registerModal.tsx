@@ -34,7 +34,6 @@ const ModalComponent: FC = NiceModal.create<any>(({ name }) => {
             backgroundColor: "rgba(0, 0, 0, 0.6)",
             zIndex: 999999999999,
           },
-
           content: {
             // color: "lightsteelblue",
             top: "30px",
@@ -50,6 +49,9 @@ const ModalComponent: FC = NiceModal.create<any>(({ name }) => {
             padding: "0px",
           },
         }}
+        // ariaHideApp = { false: bool },
+        //@ts-ignore  //@ts-ignore
+        appElement={document.getElementById("app")}
       >
         <Register />
       </ReactModal>

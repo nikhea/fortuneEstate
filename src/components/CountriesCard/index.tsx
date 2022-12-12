@@ -2,7 +2,9 @@ import { FC } from "react";
 import "./countriesContainer.css";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
-import { useQuery } from "@tanstack/react-query";
+// import { useQuery } from "@tanstack/react-query";
+import { useQuery } from "react-query";
+
 import { Link } from "react-router-dom";
 import { getAllCountry } from "../../services/api/shared";
 import { queryKeys } from "../../utils/queryKey";
@@ -55,7 +57,7 @@ const CountriesCard: FC = () => {
               className={style.image}
             />
             <p className={style.text}>
-              <div className={style.hr}>{countries.name}</div>
+              <span className={style.hr}>{countries.name}</span>
             </p>
             {/* </div> */}
           </Link>

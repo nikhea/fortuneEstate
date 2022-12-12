@@ -2,7 +2,9 @@ import { FC, Key } from "react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
 import Tilt from "react-parallax-tilt";
-import { useQuery } from "@tanstack/react-query";
+// import { useQuery } from "@tanstack/react-query";
+import { useQuery } from "react-query";
+
 import { Link, useParams } from "react-router-dom";
 import { routes } from "../../routes/routes";
 // import { countries } from "../../data/countries";

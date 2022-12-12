@@ -2,7 +2,9 @@ import { FC, useState, useEffect } from "react";
 import Input from "../../../../../../components/UI/FormElement/input/input";
 import Select from "./select/select";
 import Button from "../../../../../../components/UI/FormElement/Button";
-import { useQuery } from "@tanstack/react-query";
+// import { useQuery } from "@tanstack/react-query";
+import { useQuery } from "react-query";
+
 import { useFormContext, useController } from "react-hook-form";
 import { getAllCountry } from "../../../../../../services/api/shared";
 import { queryKeys } from "../../../../../../utils/queryKey";
