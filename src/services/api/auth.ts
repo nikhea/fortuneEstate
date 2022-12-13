@@ -1,7 +1,7 @@
 import { request, Axiosclient } from "../../utils/axios";
 import { storage } from "../../lib/storage";
 
-export const API_URL = `http://localhost:4000/api`;
+// export const API_URL = `http://localhost:4000/api`;
 interface AuthResponse {
   user: User;
   jwt: string;
@@ -19,9 +19,9 @@ export interface User {
 }
 
 export async function handleApiResponse(response: any) {
-  const data = await response.json();
+  const { data, status } = response;
 
-  if (response.ok) {
+  if (status === 200) {
     return data;
   } else {
     return Promise.reject(data);
@@ -29,39 +29,26 @@ export async function handleApiResponse(response: any) {
 }
 
 export async function getUserProfile() {
-  // return await fetch(`${API_URL}/auth/me`, {
-  //   headers: {
-  //     Authorization: storage.getToken(),
-  //   },
-  // }).then(handleApiResponse);
-
-  return await Axiosclient.get(`/user/me`, {
-    headers: {
-      Authorization: storage.getToken(),
-    },
-  }).then(handleApiResponse);
+  const res = await Axiosclient.get(`/user/me`);
+  return handleApiResponse(res);
 }
+// headers: {
+//   Authorization: `Bearer ${storage.getToken()}`,
+// },
+// `Bearer ${storage.getToken()}`
+export async function loginUser(data: any): Promise<AuthResponse> {
+  const res = await Axiosclient.post(`/auth/login`, data);
 
-export async function loginWithEmailAndPassword(
-  data: any
-): Promise<AuthResponse> {
-  return window
-    .fetch(`${API_URL}/auth/login`, {
-      method: "POST",
-      body: JSON.stringify(data),
-    })
-    .then(handleApiResponse);
+  return handleApiResponse(res);
 }
 
 export async function registerWithEmailAndPassword(
   data: any
 ): Promise<AuthResponse> {
-  return window
-    .fetch(`${API_URL}/auth/signup`, {
-      method: "POST",
-      body: JSON.stringify(data),
-    })
-    .then(handleApiResponse);
+  console.log(data, "register service");
+  const res = await Axiosclient.post(`/auth/signup`, data);
+
+  return handleApiResponse(res);
 }
 
 // http://localhost:4000/api/auth/signup

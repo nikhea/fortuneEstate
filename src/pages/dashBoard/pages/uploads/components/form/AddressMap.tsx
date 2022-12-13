@@ -92,6 +92,7 @@ const AddressMap: FC<AddressMap> = ({
         <Select
           inputFull
           placeholder="Countries*"
+         // @ts-ignore
           options={countriesOptions}
           field={countriesOptions.find(
             ({ value }: any) => value === propertycountryField.value

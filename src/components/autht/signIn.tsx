@@ -8,6 +8,7 @@ import { useForm, useController } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { SignInSchema } from "./SCHEMA";
+import { useAuth } from "../../lib/auth";
 interface FormData {
   email: string;
   password: string;
@@ -28,6 +29,14 @@ const style = {
   errors: ``,
 };
 const auth: FC = () => {
+  const { login, user, isLoggingIn } = useAuth();
+
+  if (isLoggingIn === true) {
+    console.log("Logining...");
+  }
+  if (user) {
+    console.log(user, "Sucessful");
+  }
   const {
     register,
     handleSubmit,
@@ -39,12 +48,16 @@ const auth: FC = () => {
   const closeSignInModal = () => {
     NiceModal.remove("signUpModal");
   };
-  const submitForm = (data: any) => {
-    console.log(data, "data");
+  const submitForm = async (data: any) => {
+    try {
+      await login(data);
+    } catch (err) {
+      console.log(err, "err");
+    }
     reset();
-    setTimeout(() => {
-      closeSignInModal();
-    }, 1000);
+    // setTimeout(() => {
+    //   closeSignInModal();
+    // }, 1000);
   };
   return (
     <div className={style.container}>

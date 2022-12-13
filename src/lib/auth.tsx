@@ -2,29 +2,57 @@ import { initReactQueryAuth } from "react-query-auth";
 import {
   getUserProfile,
   registerWithEmailAndPassword,
-  loginWithEmailAndPassword,
+  loginUser,
   User,
 } from "../services/api/auth";
 import { storage } from "./storage";
 
 export async function handleUserResponse(data: any) {
-  const { jwt, user } = data;
+  const {
+    _id,
+    token: jwt,
+    email,
+    firstname,
+    lastname,
+    username,
+    role,
+  } = data.data;
+
   storage.setToken(jwt);
+  const user = {
+    _id,
+    jwt,
+    email,
+    firstname,
+    lastname,
+    username,
+    role,
+  };
   return user;
 }
 
 async function loadUser() {
   let user = null;
-
   if (storage.getToken()) {
     const data = await getUserProfile();
-    user = data;
+    if (data) {
+      const { _id, email, firstname, lastname, username, role } = data.data;
+      user = {
+        _id,
+        // jwt:storage.getToken(),
+        email,
+        firstname,
+        lastname,
+        username,
+        role,
+      };
+    }
   }
   return user;
 }
 
 async function loginFn(data: any) {
-  const response = await loginWithEmailAndPassword(data);
+  const response = await loginUser(data);
   const user = await handleUserResponse(response);
   return user;
 }

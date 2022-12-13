@@ -9,6 +9,7 @@ import { Link } from "react-router-dom";
 import SignupModal from "../../components/UI/modal/signUpModal";
 import RegisterModal from "../../components/UI/modal/registerModal";
 import NiceModal from "@ebay/nice-modal-react";
+import { useAuth } from "../../lib/auth";
 
 NiceModal.register("signUpModal", SignupModal);
 NiceModal.register("registerModal", RegisterModal);
@@ -25,11 +26,16 @@ const style = {
 
 // linear-gradient(271deg, #0D304A, #0D304A);
 const SubNav: FC = () => {
+  const { user, logout } = useAuth();
+
   const showSignUpModal = () => {
     NiceModal.show("signUpModal");
   };
   const showregisterModal = () => {
     NiceModal.show("registerModal");
+  };
+  const logOutUser = () => {
+    logout();
   };
   return (
     <div className={style.background}>
@@ -65,18 +71,31 @@ const SubNav: FC = () => {
               />
             </div>
             <div className={style.LinkAuth}>
-              {/* <Modal /> */}
-              <p
-                onClick={showSignUpModal}
-                className={style.Link}
-                style={{ marginRight: "11px" }}
-              >
-                Sign up
-              </p>
-              /
-              <p onClick={showregisterModal} className={style.Link}>
-                register
-              </p>
+              {user ? (
+                <>
+                  <p className={style.Link} style={{ marginRight: "11px" }}>
+                    {user?.firstname} {user?.lastname}
+                  </p>
+                  /
+                  <p onClick={logOutUser} className={style.Link}>
+                    logout
+                  </p>
+                </>
+              ) : (
+                <>
+                  <p
+                    onClick={showSignUpModal}
+                    className={style.Link}
+                    style={{ marginRight: "11px" }}
+                  >
+                    Sign up
+                  </p>
+                  /
+                  <p onClick={showregisterModal} className={style.Link}>
+                    register
+                  </p>
+                </>
+              )}
             </div>
           </div>
         </div>

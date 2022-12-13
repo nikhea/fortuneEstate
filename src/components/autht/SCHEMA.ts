@@ -18,14 +18,14 @@ export const SignInSchema = yup.object().shape({
   // password: yup.string().min(6).max(15).required(),
   password: yup
     .string()
-    .min(
-      8,
-      "password must contain 8 or more characters with at least one of each: uppercase, lowercase, number and special"
-    )
-    .lowercase()
-    .uppercase()
-    .max(15)
-    .required(),
+    // .min(
+    //   8,
+    //   "password must contain 8 or more characters with at least one of each: uppercase, lowercase, number and special"
+    // )
+    // .lowercase()
+    // .uppercase()
+    // .max(15)
+    // .required(),
   // .symbols()
 });
 const schema = yup.object().shape({

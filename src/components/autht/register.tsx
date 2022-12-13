@@ -11,6 +11,7 @@ import { useForm, useController } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 // import * as yup from "yup";
 import { registerSchema } from "./SCHEMA";
+import { useAuth } from "../../lib/auth";
 
 const style = {
   container: `flex  `,
@@ -37,6 +38,13 @@ interface FormData {
 }
 
 const auth: FC = () => {
+  const { register: userRegistration, user, isLoggingIn } = useAuth();
+  if (isLoggingIn === true) {
+    console.log("Logining...");
+  }
+  if (user) {
+    console.log(user, "Sucessful");
+  }
   const {
     register,
     control,
@@ -58,9 +66,12 @@ const auth: FC = () => {
     // { value: "AGENCY", label: "agency" },
   ];
   // console.log(watch());
-  const submitForm = (data: any) => {
-    console.log(data, "data");
-
+  const submitForm = async (data: any) => {
+    try {
+      await userRegistration(data);
+    } catch (err) {
+      console.log(err, "err");
+    }
     // reset();
     setTimeout(() => {
       // closeRegisterModal();
