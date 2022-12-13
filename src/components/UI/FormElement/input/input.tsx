@@ -50,7 +50,7 @@ const input: FC<inputProps> = (props) => {
     onChange,
     multipleFile,
     isWhiteBg,
-  
+
     ...rest
   } = props;
   let Input = {
@@ -73,10 +73,8 @@ const input: FC<inputProps> = (props) => {
         {...inputRef}
         value={value}
         onChange={onChange}
-        // multiple
-        // multiple="multiple"
-        multiple="multiple"
-        autoComplete="off"
+        // autoComplete="off"
+        autoComplete="new-password"
       />
       {/* <p className={style.errors}>
         {errors.name?.message && <p>{errors.name?.message}</p>}

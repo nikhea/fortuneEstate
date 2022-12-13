@@ -73,7 +73,7 @@ const authConfig = {
   registerFn,
   logoutFn,
 };
-
+                                                          // ts-ignore
 const { AuthProvider, useAuth } = initReactQueryAuth<User>(authConfig);
 
 export { AuthProvider, useAuth };

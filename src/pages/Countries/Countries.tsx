@@ -15,7 +15,7 @@ const style = {
   container: `w-[90%] m-auto items-center justify-center grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3  my-[4rem] overflow-hidden`,
   items: `mx-6 mb-9 leading-[2] fl items-center flex-col `,
   title: ` uppercase text-[1.5rem] text-[#7f7f7f] font-normal tracking-[1.1px] text-center`,
-  imgContainer: ``,
+  imgContainer: ` flex`,
   image: ` w-[100vw] bg-black rounded-[15px] cursor-pointer `,
   link: `flex items-center text-center justify-center `,
   discoverContainer: `w-[92%] m-auto bg-[#e6e9efa3] h-[60vh] mb-[7%]`,
@@ -55,14 +55,12 @@ const Countrie: FC = () => {
         {countries?.map((countrie: Props, index: Key) => (
           <div className={style.items} key={countrie._id}>
             <div className={style.imgContainer}>
-              <Tilt scale={1}>
-                <img
-                  alt={countrie.name}
-                  // effect="blur"
-                  src={countrie.image}
-                  className={style.image}
-                />
-              </Tilt>
+              <LazyLoadImage
+                alt={countrie.name}
+                effect="blur"
+                src={countrie.image}
+                className={style.image}
+              />
             </div>
 
             <h1 className={style.title}>{countrie.name}</h1>

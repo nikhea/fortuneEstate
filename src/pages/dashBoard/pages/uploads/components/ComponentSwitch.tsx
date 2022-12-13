@@ -13,8 +13,7 @@ import Image from "./form/image";
 import WebsiteDetails from "./form/websiteDetails";
 import Submit from "./form/Submit";
 import FormHeader from "./form/FormHeader";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { toast } from "react-toastify";
 import { notify } from "./notify";
 import { createProperties } from "../../../../../services/api/agent";
 import { queryKeys } from "../../../../../utils/queryKey";
@@ -173,7 +172,6 @@ const ComponentSwitch: FC = () => {
         })()}
         {/* <button type="submit">submit</button> */}
       </form>
-      <ToastContainer />
     </FormProvider>
   );
 };

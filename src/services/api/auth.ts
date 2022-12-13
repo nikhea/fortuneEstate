@@ -19,9 +19,9 @@ export interface User {
 }
 
 export async function handleApiResponse(response: any) {
-  const { data, status } = response;
-
-  if (status === 200) {
+  const { data, message } = response;
+  const { statuscode } = data;
+  if (statuscode === 200 || statuscode === 201) {
     return data;
   } else {
     return Promise.reject(data);
@@ -29,7 +29,11 @@ export async function handleApiResponse(response: any) {
 }
 
 export async function getUserProfile() {
-  const res = await Axiosclient.get(`/user/me`);
+  const res = await Axiosclient.get(`/user/me`, {
+    headers: {
+      Authorization: `Bearer ${storage.getToken()}`,
+    },
+  });
   return handleApiResponse(res);
 }
 // headers: {
@@ -45,7 +49,6 @@ export async function loginUser(data: any): Promise<AuthResponse> {
 export async function registerWithEmailAndPassword(
   data: any
 ): Promise<AuthResponse> {
-  console.log(data, "register service");
   const res = await Axiosclient.post(`/auth/signup`, data);
 
   return handleApiResponse(res);

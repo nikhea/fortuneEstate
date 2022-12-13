@@ -38,9 +38,9 @@ interface FormData {
 }
 
 const auth: FC = () => {
-  const { register: userRegistration, user, isLoggingIn } = useAuth();
-  if (isLoggingIn === true) {
-    console.log("Logining...");
+  const { register: userRegistration, user, isRegistering } = useAuth();
+  if (isRegistering === true) {
+    console.log("registing...");
   }
   if (user) {
     console.log(user, "Sucessful");
@@ -61,7 +61,7 @@ const auth: FC = () => {
   };
   const options = [
     // { value: "user agent", label: "user agent" },
-    { value: " SUBSCRIBE", label: "subscriber" },
+    { value: "SUBSCRIBER", label: "subscriber" },
     { value: "AGENT", label: "agent" },
     // { value: "AGENCY", label: "agency" },
   ];
@@ -72,11 +72,11 @@ const auth: FC = () => {
     } catch (err) {
       console.log(err, "err");
     }
-    // reset();
-    setTimeout(() => {
-      // closeRegisterModal();
-    }, 1000);
   };
+  if (user !== null) {
+    reset();
+    closeRegisterModal();
+  }
   const handleSelectChange = (option: any) => {
     field.onChange(option.value);
 
@@ -98,7 +98,12 @@ const auth: FC = () => {
             //   style={{ marginRight: "11px" }}
           />
         </div>
-        <form className={style.form} onSubmit={handleSubmit(submitForm)}>
+        <form
+          autoComplete="off"
+          //  autoComplete="nope"
+          className={style.form}
+          onSubmit={handleSubmit(submitForm)}
+        >
           <div>
             <span>
               <Input
@@ -109,6 +114,7 @@ const auth: FC = () => {
                 required
                 rounded
                 errors={errors}
+                isWhiteBg
                 inputRef={register("email", { required: true })}
               />
               <p className={style.errors}>
@@ -123,6 +129,7 @@ const auth: FC = () => {
                 inputFull
                 required
                 rounded
+                isWhiteBg
                 inputRef={register("username", { required: true })}
               />
               <p className={style.errors}>
@@ -137,6 +144,7 @@ const auth: FC = () => {
                 inputHalf
                 required
                 rounded
+                isWhiteBg
                 inputRef={register("firstname", { required: true })}
               />
               <p className={style.errors}>{errors?.firstname?.message}</p>
@@ -148,6 +156,7 @@ const auth: FC = () => {
                 inputHalf
                 required
                 rounded
+                isWhiteBg
                 inputRef={register("lastname", { required: true })}
               />
               <p className={style.errors}>{errors?.lastname?.message}</p>
@@ -160,6 +169,7 @@ const auth: FC = () => {
                 inputHalf
                 required
                 rounded
+                isWhiteBg
                 inputRef={register("password", { required: true })}
               />
               <p className={style.errors}>{errors?.password?.message}</p>
@@ -170,6 +180,7 @@ const auth: FC = () => {
                 inputHalf
                 required
                 rounded
+                isWhiteBg
                 inputRef={register("confirmpassword", { required: true })}
               />
               <p className={style.errors}>

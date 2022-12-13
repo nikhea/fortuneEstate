@@ -9,6 +9,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { SignInSchema } from "./SCHEMA";
 import { useAuth } from "../../lib/auth";
+import { toast } from "react-toastify";
 interface FormData {
   email: string;
   password: string;
@@ -31,12 +32,10 @@ const style = {
 const auth: FC = () => {
   const { login, user, isLoggingIn } = useAuth();
 
-  if (isLoggingIn === true) {
-    console.log("Logining...");
+  if (isLoggingIn) {
+    toast.warn("Logging");
   }
-  if (user) {
-    console.log(user, "Sucessful");
-  }
+
   const {
     register,
     handleSubmit,
@@ -54,11 +53,11 @@ const auth: FC = () => {
     } catch (err) {
       console.log(err, "err");
     }
-    reset();
-    // setTimeout(() => {
-    //   closeSignInModal();
-    // }, 1000);
   };
+  if (user !== null) {
+    reset();
+    closeSignInModal();
+  }
   return (
     <div className={style.container}>
       <img src={AuthBG} alt={AuthBG} className={style.img} />
@@ -73,7 +72,12 @@ const auth: FC = () => {
             style={{ cursor: "pointer" }}
           />
         </div>
-        <form className={style.formSignIn} onSubmit={handleSubmit(submitForm)}>
+        <form
+          // autoComplete="off"
+          autoComplete="nope"
+          className={style.formSignIn}
+          onSubmit={handleSubmit(submitForm)}
+        >
           <div>
             <Input
               type="email"
@@ -82,11 +86,12 @@ const auth: FC = () => {
               inputFull
               required
               rounded
+              isWhiteBg
               inputRef={register("email", { required: true })}
             />
-            <p className={style.errors}>
+            {/* <p className={style.errors}>
               {errors.email?.message && <p>{errors.email?.message}</p>}
-            </p>
+            </p> */}
             <Input
               name="password"
               type="password"
@@ -94,19 +99,20 @@ const auth: FC = () => {
               inputFull
               rounded
               required
+              isWhiteBg
               inputRef={register("password", { required: true })}
             />
-            <p className={style.errors}>
+            {/* <p className={style.errors}>
               {errors.password?.message && <p>{errors?.password?.message}</p>}
-            </p>
+            </p> */}
             <div className={style.forgot}>
               <div className={style.checkbox}>
                 <input type="checkbox" />
                 <span>Remeber Me</span>
               </div>
-              <p className={style.forgotpassword}>
+              {/* <p className={style.forgotpassword}>
                 <Link to="#">Forgot your password?</Link>
-              </p>
+              </p> */}
             </div>
           </div>
           <button className={style.btn} type="submit">

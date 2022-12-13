@@ -2,6 +2,8 @@ import { FC, Suspense, lazy } from "react";
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
 import { routes } from "./routes/routes";
+import {ToastContainer} from "react-toastify"
+
 import Spinner from "./components/UI/spinner/spinner";
 import Layout from "./Layout/Layout";
 import HomePageLayout from "./Layout/HomePageLayout";
@@ -71,6 +73,7 @@ const App: FC = () => {
           </Route>
         </Routes>
       </Suspense>
+      {/* <ToastContainer/> */}
     </>
   );
 };
