@@ -2,7 +2,7 @@ import { FC } from "react";
 // import { useQuery, useQueryClient, useMutation } from "@tanstack/react-query";
 import { useQuery, useQueryClient, useMutation } from "react-query";
 
-import { getAllProperties } from "../../../../services/api/shared";
+import { getAgentProperties } from "../../../../services/api/agent";
 import { deleteProperties } from "../../../../services/api/agent";
 import { queryKeys } from "../../../../utils/queryKey";
 import PropertiesList from "./components/propertiesList";
@@ -17,7 +17,7 @@ const ListingManager: FC<ListingManagerProps> = () => {
   const queryClient = useQueryClient();
   const { data: propertiesdata, isLoading } = useQuery(
     [queryKeys.properties],
-    () => getAllProperties(),
+    () => getAgentProperties(),
     {
       onSuccess: () => {
         //invalidate cached properties query and refresh
@@ -41,7 +41,6 @@ const ListingManager: FC<ListingManagerProps> = () => {
   const OnEditProperty = (id: string) => {
     console.log("listing propertyID", id);
     console.log(data);
-    
   };
 
   const OnDeleteProperty = (id: string) => {
@@ -49,7 +48,7 @@ const ListingManager: FC<ListingManagerProps> = () => {
   };
 
   const properties = propertiesdata?.data;
-  const loadProperties = properties?.results.map((property: any) => (
+  const loadProperties = properties?.map((property: any) => (
     <div key={property._id}>
       <PropertiesList
         OnEditProperty={OnEditProperty}

@@ -3,9 +3,9 @@ import { storage } from "../lib/storage";
 
 export const Axiosclient = axios.create({
   baseURL: "http://localhost:4000/api",
-  // headers: {
-  //   Authorization: `Bearer ${storage.getToken()}`,
-  // },
+  headers: {
+    Authorization: `Bearer ${storage.getToken()}`,
+  },
 });
 
 export const request = ({ ...options }) => {
