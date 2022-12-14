@@ -6,6 +6,7 @@ import {
   User,
 } from "../services/api/auth";
 import { storage } from "./storage";
+import profile from "../pages/dashBoard/pages/profile";
 
 export async function handleUserResponse(data: any) {
   const {
@@ -16,17 +17,19 @@ export async function handleUserResponse(data: any) {
     lastname,
     username,
     role,
+    profile,
   } = data.data;
 
   storage.setToken(jwt);
   const user = {
     _id,
-    jwt,
+    // jwt,
     email,
     firstname,
     lastname,
     username,
     role,
+    profile,
   };
   return user;
 }
@@ -36,7 +39,8 @@ async function loadUser() {
   if (storage.getToken()) {
     const data = await getUserProfile();
     if (data) {
-      const { _id, email, firstname, lastname, username, role } = data.data;
+      const { _id, email, firstname, lastname, username, role, profile } =
+        data.data;
       user = {
         _id,
         // jwt:storage.getToken(),
@@ -45,6 +49,7 @@ async function loadUser() {
         lastname,
         username,
         role,
+        profile,
       };
     }
   }
@@ -73,7 +78,7 @@ const authConfig = {
   registerFn,
   logoutFn,
 };
-                                                          // ts-ignore
+// ts-ignore
 const { AuthProvider, useAuth } = initReactQueryAuth<User>(authConfig);
 
 export { AuthProvider, useAuth };
