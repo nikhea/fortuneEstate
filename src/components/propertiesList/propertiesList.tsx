@@ -13,6 +13,7 @@ import {
 import { FaBed, FaBath, FaUserCircle } from "react-icons/fa";
 import { GrFavorite } from "react-icons/gr";
 import Spinner from "../../components/UI/spinner/spinner";
+import { SEO } from "../seo/seo";
 interface propertiesList {
   ID?: any;
   image?: string;
@@ -73,6 +74,8 @@ const propertiesList: FC<propertiesList> = ({
   };
   return (
     <div className={style.container}>
+            <SEO title={`continents/${title}`} />
+
       <div className={style.cardContainer}>
         <div className={style.card}>
           <Link to={`${routes.property}/${ID}`}>

@@ -12,6 +12,7 @@ import Button from "../../components/UI/FormElement/Button";
 import Spinner from "../../components/UI/spinner/spinner";
 
 import { getAllCONTINENTS } from "../../services/api/shared";
+import { SEO } from "../../components/seo/seo";
 const style = {
   container: `w-[90%] m-auto items-center justify-center grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 grid-rows- my-[4rem]`,
   items: `mx-6 mb-9 leading-[2] fl items-center flex-col `,
@@ -37,7 +38,10 @@ const Continents: FC = () => {
   );
 
   return (
-    <div>
+    <div>      
+      <SEO title="continents" />
+
+
       <ContinentBanner />
       <div className={style.container}>
         {continents?.data.map((continent: Props, index: Key) => (

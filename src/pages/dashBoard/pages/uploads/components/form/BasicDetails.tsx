@@ -29,6 +29,17 @@ interface BasicDetailsProps {
   setStep: any;
   errors: any;
 }
+const TOOLBAR_OPTIONS = [
+  [{ header: [1, 2, 3, 4, 5, 6, false] }],
+  [{ font: [] }],
+  [{ list: "ordered" }, { list: "bullet" }],
+  ["bold", "italic", "underline"],
+  [{ color: [] }, { background: [] }],
+  [{ script: "sub" }, { script: "super" }],
+  [{ align: [] }],
+  ["image", "blockquote", "code-block"],
+  ["clean"],
+];
 const style = {
   inputTitle: `capitalize leading-4 tracking-wide my-4 ml-4`,
   inputTitleC: `capitalize leading-4 tracking-wide  ml-4 md:mt-3`,

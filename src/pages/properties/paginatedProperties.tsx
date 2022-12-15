@@ -79,6 +79,7 @@ const paginatedProperties: FC<paginatedPropertiesProps> = ({ properties }) => {
   };
   return (
     <MainCard width={70}>
+      
       <div className={style.header}>
         <div className={style.headerLength}>
           <div className={style.icons}>

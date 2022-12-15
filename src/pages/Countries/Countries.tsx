@@ -24,6 +24,7 @@ const style = {
   btn: `bg-[#06c4e5] w-full  text-center text-[0.9rem] tracking-[3px] text-white py-2  capitalize  rounded`,
 };
 import CountrieBanner from "../../components/CountrieBanner/CountrieBanner";
+import { SEO } from "../../components/seo/seo";
 const bg2 =
   "https://www.thehouse48.com/wp-content/uploads/2021/12/chris-barbalis-98731-unsplash.jpg";
 const bg =
@@ -47,6 +48,8 @@ const Countrie: FC = () => {
   const { bgImage, countries } = continent?.data || {};
   return (
     <div>
+      <SEO title={`continents/${name}`} />
+
       <CountrieBanner
         CountrieName={name}
         CountrieBanner={`${bgImage ? bgImage : bg}`}
