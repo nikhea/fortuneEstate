@@ -27,6 +27,10 @@ interface Props {
   like?: boolean;
   agent?: string;
   agentImage?: string;
+  squareFootage?: string;
+  squareSymbol?: string;
+  firstname?: string;
+  lastname?: string;
 }
 interface pageChange {
   selected?: any;
@@ -69,8 +73,14 @@ const paginatedProperties: FC<paginatedPropertiesProps> = ({ properties }) => {
           location={property.address.street}
           bed={property.bedrooms}
           bath={property.bathrooms}
-          like={property.like} // agent={property.agent}
-          // agentImage={property.agentImage}
+          like={property.like}
+          squareFootage={property.squareFootage}
+          squareSymbol={property.squareSymbol}
+          listingType={property.listingType}
+          firstname={property.user.firstname}
+          lastname={property.user.lastname}
+          agent={property.user.username}
+          agentImage={property.user.image}
         />
       </div>
     ));
@@ -79,7 +89,6 @@ const paginatedProperties: FC<paginatedPropertiesProps> = ({ properties }) => {
   };
   return (
     <MainCard width={70}>
-      
       <div className={style.header}>
         <div className={style.headerLength}>
           <div className={style.icons}>

@@ -39,7 +39,7 @@ const Continents: FC = () => {
 
   return (
     <div>      
-      <SEO title="continents" />
+      {/* <SEO title="continents" /> */}
 
 
       <ContinentBanner />

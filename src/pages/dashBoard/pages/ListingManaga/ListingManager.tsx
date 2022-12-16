@@ -13,7 +13,7 @@ const style = {
   bg: `font-Montserrat text-[#0D304A]`,
   container: `w-[95%] m-auto my-5 `,
 };
-const ListingManager: FC<ListingManagerProps> = () => {
+const ListingManager = () => {
   const queryClient = useQueryClient();
   const { data: propertiesdata, isLoading } = useQuery(
     [queryKeys.properties],
@@ -47,7 +47,10 @@ const ListingManager: FC<ListingManagerProps> = () => {
     DeleteProperty(id);
   };
 
-  const properties = propertiesdata?.data;
+  const properties = propertiesdata?.data || [];
+  if (!properties) return;
+  console.log(properties);
+
   const loadProperties = properties?.map((property: any) => (
     <div key={property._id}>
       <PropertiesList

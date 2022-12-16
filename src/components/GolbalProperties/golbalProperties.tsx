@@ -1,0 +1,104 @@
+import { FC } from "react";
+import { Link } from "react-router-dom";
+import PropertiesList from "../../components/propertiesList/propertiesList";
+import { useQuery } from "react-query";
+import { getAllProperties } from "../../services/api/shared";
+import { queryKeys } from "../../utils/queryKey";
+import Button from "../UI/FormElement/Button";
+interface Props {
+  [x: string]: any;
+  ID?: string;
+  attributes?: any;
+  name?: string;
+  image?: string;
+  images?: any;
+  tage?: string;
+  title?: string;
+  price?: number;
+  location?: string;
+  bed?: number;
+  bath?: number;
+  like?: boolean;
+  agent?: string;
+  agentImage?: string;
+  squareFootage?: string;
+  squareSymbol?: string;
+  listingType?: string;
+  firstname?: string;
+  lastname?: string;
+}
+const style = {
+  bgContainer: `bg-[#F6F6F6] py-[1em]  px-[2em]`,
+  container: `w-[80%] m-auto my-10 text-center`,
+  textContainer: `flex items-center text-center flex-col`,
+  gridContainer: `grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 `,
+  image: `w-full h-full object-cover relative rounded`,
+  title: `text-[36px] tracking-wide `,
+  description: `text-[#999] text-[16px] mb-10 mt-5 tracking-widest `,
+  gridItem: `relative rounded  h-[400px] object-cover`,
+  hr: `m-5`,
+
+  text: `text-3xl uppercase 
+    font-[500] mb-3 `,
+  subText: `text-xl uppercase 
+    font-[300] `,
+};
+const golbalProperties: FC<Props> = () => {
+  const { data: properties, error } = useQuery(
+    [queryKeys.properties],
+    getAllProperties
+  );
+  const propertiesResult = properties?.data.results || [];
+  const displayproperties = propertiesResult
+    .slice(0, 6)
+    .map((property: Props, index: any) => (
+      <div key={index}>
+        <PropertiesList
+          ID={property._id}
+          image={property.image}
+          // images={property.images}
+          tage={property.listingType}
+          price={property.price}
+          title={property.title}
+          location={property.address.street}
+          bed={property.bedrooms}
+          bath={property.bathrooms}
+          like={property.like}
+          squareFootage={property.squareFootage}
+          squareSymbol={property.squareSymbol}
+          listingType={property.listingType}
+          firstname={property.user.firstname}
+          lastname={property.user.lastname}
+          agent={property.user.username}
+          agentImage={property.user.image}
+        />
+      </div>
+    ));
+
+  return (
+    <div>
+      <div className={style.bgContainer}>
+        <div className={style.container}>
+          <h1 className={style.text}>Recent Properties</h1>
+          <p className={style.subText}>Check Out My Recent</p>
+        </div>
+        <div className={style.gridContainer}>{displayproperties}</div>
+        <div className={style.container}>
+          <Button rounded linearGradient uppercase primary>
+            <Link to="/">all properties</Link>
+          </Button>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default golbalProperties;
+// text: `text-white uppercase
+// font-[500] absolute z-50 top-0 bottom-0
+// left-0 right-0 hover:bg-gradient-to-tl
+// from-black
+// bg-fixed flex items-end
+//  justify-center transistion
+// ease-out duration-1000 rounded`,
+// };

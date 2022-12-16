@@ -48,7 +48,7 @@ const Countrie: FC = () => {
   const { bgImage, countries } = continent?.data || {};
   return (
     <div>
-      <SEO title={`continents/${name}`} />
+      {/* <SEO title={`continents/${name}`} /> */}
 
       <CountrieBanner
         CountrieName={name}

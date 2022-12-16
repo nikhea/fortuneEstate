@@ -1,7 +1,6 @@
 import { FC, useState } from "react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
-import Tilt from "react-parallax-tilt";
 import { Link } from "react-router-dom";
 import { routes } from "../../routes/routes";
 
@@ -11,7 +10,7 @@ import {
   MdOutlineFavorite,
 } from "react-icons/md";
 import { FaBed, FaBath, FaUserCircle } from "react-icons/fa";
-import { GrFavorite } from "react-icons/gr";
+import { HiSquaresPlus } from "react-icons/hi2";
 import Spinner from "../../components/UI/spinner/spinner";
 import { SEO } from "../seo/seo";
 interface propertiesList {
@@ -27,16 +26,21 @@ interface propertiesList {
   like?: boolean;
   agent?: string;
   agentImage?: string;
+  squareFootage?: string;
+  squareSymbol?: string;
+  listingType?: string;
+  firstname?:string;
+  lastname?:string;
 }
 const style = {
   container: `mx-5`,
-  cardContainer: ` mx-[5px] rounded bg-white hover:shadow-xl  mb-5 transistion ease-out duration-1000 `,
+  cardContainer: ` mx-[5px] rounded-t-xl rounded-b-xl bg-white hover:shadow-xl  mb-5 transistion ease-out duration-1000 border border-t-[0px]  `,
   MainContainer: ``,
-  imgContainer: `w-full flex rounded`,
-  image: ` w-full h-full object-cover flex rounded-t`,
+  imgContainer: `w-full flex rounded-t-xl flex-col relative [&>p]:hover:hidde [&>p]:transistion [&>p]:ease-in [&>p]:duration-3000`,
+  image: ` w-full h-full object-cover flex rounded-t-xl `,
   textContainer: ` flex flex-col justify-between pt-[2em] px-[2em]`,
   sub: `flex justify-between items-center  mb-[20px] leading`,
-  price: `text-[#736efe] font-bold text-[1rem]`,
+  price: `text-[1rem]`,
   title: `font-bold text-xl leading-10`,
   location: `font-[400] text-[#8392A5] leading-10 flex items-center `,
   bed: `text-sm  leading-10 flex items-center`,
@@ -49,6 +53,7 @@ const style = {
   agentDetails: `flex items-center`,
   card: ` w-full rounded sm:fle block `,
   like: `cursor-pointer`,
+  listingType:`rounded-full  bg-purple-500 text-white absolute py-1 px-3 text-center z-[90] top-2 left-3 transistion ease-out duration-1000`,
   tag: `rounded text-[0.7rem] py-1 px-3   block capitalize  flex bg-[#736EFE] outline-none text-white `,
 };
 const propertiesList: FC<propertiesList> = ({
@@ -64,6 +69,11 @@ const propertiesList: FC<propertiesList> = ({
   like,
   agent,
   agentImage,
+  squareFootage,
+  squareSymbol,
+  listingType,
+  firstname,
+  lastname
 }) => {
   const [likes, setLike] = useState(false);
 
@@ -74,30 +84,29 @@ const propertiesList: FC<propertiesList> = ({
   };
   return (
     <div className={style.container}>
-            <SEO title={`continents/${title}`} />
+      {/* <SEO title={`continents/${title}`} /> */}
 
       <div className={style.cardContainer}>
         <div className={style.card}>
           <Link to={`${routes.property}/${ID}`}>
             <div className={style.imgContainer}>
-              <Tilt scale={1}>
-                <img
-                  alt={title}
-                  // effect="blur"
-                  src={image}
-                  className={style.image}
-                />
-              </Tilt>
+              <LazyLoadImage
+                alt={title}
+                effect="blur"
+                src={image}
+                className={style.image}
+              />
+              <p className={style.listingType}>for {listingType}</p>
             </div>
           </Link>
           <div className={style.textContainer}>
-            <div className={style.sub}>
-              {/* <p className={style.tag}>{tage}</p> */}
-              <p className={style.price}>$ {price}</p>
-            </div>
             <Link to={`${routes.property}/${ID}`}>
               <h1 className={style.title}>{title}</h1>
             </Link>
+            <div className={style.sub}>
+              {/* <p className={style.tag}>{tage}</p> */}
+              <p className={style.price}>${price}</p>
+            </div>
             <div className={style.location}>
               <MdLocationPin size={15} style={{ marginRight: "5px" }} />
               <p>{location}</p>
@@ -107,14 +116,19 @@ const propertiesList: FC<propertiesList> = ({
                 <span className={style.span}>
                   <FaBed size={15} style={{ marginRight: "5px" }} />
                 </span>
-                {bed}
+                {bed} Bed
               </p>
               <p className={style.bath}>
                 <span className={style.span}>
-                  {" "}
                   <FaBath size={15} style={{ marginRight: "5px" }} />
-                </span>{" "}
-                {bath}
+                </span>
+                {bath} Bath
+              </p>
+              <p className={style.bath}>
+                <span className={style.span}>
+                  <HiSquaresPlus size={15} style={{ marginRight: "5px" }} />
+                </span>
+                {squareFootage} {squareSymbol}
               </p>
             </div>
             <div className={style.hr}></div>
@@ -132,7 +146,7 @@ const propertiesList: FC<propertiesList> = ({
                     <FaUserCircle color="#8392A5" size={15} />
                   )}
                 </div>
-                {/* <p className={style.agent}> {agent}</p> */}
+                <p className={style.agent}> {`${firstname} ${lastname}`}</p>
               </div>
               <div
                 style={{
