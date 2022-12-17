@@ -61,9 +61,15 @@ const ListingManager = () => {
     </div>
   ));
   return (
-    <div className={style.container}>
-      <div className={style.bg}>{isLoading ? "loading" : loadProperties}</div>
-    </div>
+    <>
+      {loadProperties.length !== 0 ? (
+        <div className={style.container}>
+          <div className={style.bg}>
+            {isLoading ? "loading" : loadProperties}
+          </div>
+        </div>
+      ) : null}
+    </>
   );
 };
 

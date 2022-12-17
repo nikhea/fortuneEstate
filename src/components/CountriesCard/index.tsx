@@ -10,6 +10,7 @@ import { getAllCountry } from "../../services/api/shared";
 import { queryKeys } from "../../utils/queryKey";
 
 import { routes } from "../../routes/routes";
+import { countries } from "../../data/countries";
 const style = {
   container: `w-[80%] m-auto my-10`,
   textContainer: `flex items-center text-center flex-col`,
@@ -34,36 +35,45 @@ const CountriesCard: FC = () => {
     [queryKeys.countries],
     getAllCountry
   );
+  const countriesResult = countries?.data || [];
+  console.log(countriesResult);
+
   return (
-    <div className={style.container}>
-      <div className={style.textContainer}>
-        <h1 className={style.title}>Exceptional properties around the world</h1>
-        <p className={style.description}>
-          Great cities or exclusive localities. Choose the luxury that suits
-          you.
-        </p>
-      </div>
-      <div className="gridContainer">
-        {countries?.data.slice(0, 7).map((countries: any) => (
-          <Link
-            to={`${routes.properties}/${countries.name}`}
-            key={countries._id}
-            className="gridItem"
-          >
-            {/* <div className="gridItem"> */}
-            <img
-              src={countries.image}
-              alt={countries.name}
-              className={style.image}
-            />
-            <p className={style.text}>
-              <span className={style.hr}>{countries.name}</span>
+    <>
+      {countriesResult.length !== 0 ? (
+        <div className={style.container}>
+          <div className={style.textContainer}>
+            <h1 className={style.title}>
+              Exceptional properties around the world
+            </h1>
+            <p className={style.description}>
+              Great cities or exclusive localities. Choose the luxury that suits
+              you.
             </p>
-            {/* </div> */}
-          </Link>
-        ))}
-      </div>
-    </div>
+          </div>
+          <div className="gridContainer">
+            {countriesResult.slice(0, 7).map((countries: any) => (
+              <Link
+                to={`${routes.properties}/${countries.name}`}
+                key={countries._id}
+                className="gridItem"
+              >
+                {/* <div className="gridItem"> */}
+                <img
+                  src={countries.image}
+                  alt={countries.name}
+                  className={style.image}
+                />
+                <p className={style.text}>
+                  <span className={style.hr}>{countries.name}</span>
+                </p>
+                {/* </div> */}
+              </Link>
+            ))}
+          </div>
+        </div>
+      ) : null}
+    </>
   );
 };
 

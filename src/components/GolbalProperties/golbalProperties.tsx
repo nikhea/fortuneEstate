@@ -63,7 +63,7 @@ const golbalProperties: FC<Props> = () => {
           location={property.address.street}
           bed={property.bedrooms}
           bath={property.bathrooms}
-          like={property.like}
+          like={property.isLiked}
           squareFootage={property.squareFootage}
           squareSymbol={property.squareSymbol}
           listingType={property.listingType}
@@ -76,20 +76,24 @@ const golbalProperties: FC<Props> = () => {
     ));
 
   return (
-    <div>
-      <div className={style.bgContainer}>
-        <div className={style.container}>
-          <h1 className={style.text}>Recent Properties</h1>
-          <p className={style.subText}>Check Out My Recent</p>
+    <>
+      {displayproperties.length !== 0 ? (
+        <div>
+          <div className={style.bgContainer}>
+            <div className={style.container}>
+              <h1 className={style.text}>Recent Properties</h1>
+              <p className={style.subText}>Check Out My Recent</p>
+            </div>
+            <div className={style.gridContainer}>{displayproperties}</div>
+            <div className={style.container}>
+              <Button rounded linearGradient uppercase primary>
+                <Link to="/">all properties</Link>
+              </Button>
+            </div>
+          </div>
         </div>
-        <div className={style.gridContainer}>{displayproperties}</div>
-        <div className={style.container}>
-          <Button rounded linearGradient uppercase primary>
-            <Link to="/">all properties</Link>
-          </Button>
-        </div>
-      </div>
-    </div>
+      ) : null}
+    </>
   );
 };
 

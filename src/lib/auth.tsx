@@ -36,6 +36,8 @@ export async function handleUserResponse(data: any) {
 
 async function loadUser() {
   let user = null;
+  console.log(storage.getToken());
+  
   if (storage.getToken()) {
     const data = await getUserProfile();
     if (data) {

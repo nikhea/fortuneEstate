@@ -150,7 +150,7 @@ const propertiesList: FC<propertiesList> = ({
               </div>
               <div
                 style={{
-                  color: likes ? "salmon" : "",
+                  color: like ? "salmon" : "",
                 }}
                 onClick={handleClick}
                 className={style.like}
