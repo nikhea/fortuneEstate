@@ -17,6 +17,7 @@ interface Props {
   title?: string;
   discription?:string;
   price?: number;
+  priceSymbol?:string
   location?: string;
   bed?: number;
   bath?: number;
@@ -30,9 +31,10 @@ interface Props {
   lastname?: string;
 }
 const style = {
-  bgContainer: `bg-[#F6F6F6] py-[5em]  px-[2em] h-screen`,
-  container: `w-[80%] m-auto my-10 text-center`,
+  bgContainer: ` py-[5em]  px-[2em] h-scree`,
+  container: `w-[80%] m-auto my-10 text-center h-full`,
 };
+// bg-[#F6F6F6]
 const propertieSliderHome: FC = () => {
   const { data: properties, error } = useQuery(
     [queryKeys.properties],
@@ -51,6 +53,7 @@ const propertieSliderHome: FC = () => {
           images={property.propertyImages}
           tage={property.listingType}
           price={property.price}
+          priceSymbol={property.priceSymbol}
           title={property.title}
           discription={property.description}
           location={property.address.street}

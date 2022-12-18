@@ -88,7 +88,7 @@ const SubNav: FC = () => {
                     className={style.Link}
                     style={{ marginRight: "11px" }}
                   >
-                    Sign up
+                    Sign in
                   </p>
                   /
                   <p onClick={showregisterModal} className={style.Link}>
