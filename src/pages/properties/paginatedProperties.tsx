@@ -67,6 +67,7 @@ const paginatedProperties: FC<paginatedPropertiesProps> = ({ properties }) => {
           ID={property._id}
           image={property.image}
           // images={property.images}
+          images={property.propertyImages}
           tage={property.listingType}
           price={property.price}
           title={property.title}

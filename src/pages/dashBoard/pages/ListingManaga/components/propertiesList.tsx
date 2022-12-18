@@ -31,6 +31,7 @@ const propertiesList: FC<propertiesListProps> = ({
   priceSymbol,
   category,
   image,
+  propertyImages,
   listingType,
   createdAt,
   squareFootage,
@@ -63,6 +64,7 @@ const propertiesList: FC<propertiesListProps> = ({
         bedrooms={bedrooms}
         firstname={firstname}
         lastname={lastname}
+        images={propertyImages}
         OnEditProperty={OnEditProperty}
         OnDeleteProperty={OnDeleteProperty}
       />

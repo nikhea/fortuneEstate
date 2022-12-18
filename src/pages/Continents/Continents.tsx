@@ -15,8 +15,9 @@ import { getAllCONTINENTS } from "../../services/api/shared";
 import { SEO } from "../../components/seo/seo";
 const style = {
   container: `w-[90%] m-auto items-center justify-center grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 grid-rows- my-[4rem]`,
-  items: `mx-6 mb-9 leading-[2] fl items-center flex-col `,
-  title: ` uppercase text-[1.5rem] text-[#7f7f7f] font-normal tracking-[1.1px] text-center`,
+  items: `fle flex-col  mx-3 my-3`,
+  // items: `mx-6 mb-9 leading-[2] fl items-center flex-col `,
+  title: ` uppercase text-[1.5rem] text-[#7f7f7f] font-normal tracking-[1.1px] text-center mt-2 mb-1`,
   imgContainer: `flex`,
   image: ` w-[100vw] bg-black rounded-[15px] cursor-pointer`,
   link: `flex items-center text-center justify-center `,
@@ -38,9 +39,8 @@ const Continents: FC = () => {
   );
 
   return (
-    <div>      
+    <div>
       {/* <SEO title="continents" /> */}
-
 
       <ContinentBanner />
       <div className={style.container}>
@@ -57,7 +57,7 @@ const Continents: FC = () => {
             </div>
             <h1 className={style.title}>{continent.name}</h1>
             <Link to={`${routes.countries}/${continent.name}`}>
-              <Button uppercase primary isCurve full>
+              <Button uppercase primary isCurve full marginHorizontal>
                 <div className={style.link}>
                   <MdLocationPin
                     size={20}
@@ -90,7 +90,9 @@ export const Discover = () => {
     </div>
   );
 };
-
+{
+  /* <Button uppercase primary isCurve full> */
+}
 export default Continents;
 
 // const { data: continents, error } = useQuery(["contients"],getAllCONTINENTS );

@@ -6,6 +6,7 @@ import FilterCard from "../../components/card/filterCard";
 import Carousel from "../../components/UI/caroules/carousel";
 import CountriesCard from "../../components/CountriesCard";
 import GolbalProperties from "../../components/GolbalProperties/golbalProperties";
+import PropertieSliderHome from "../../components/propertieSliderHome/propertieSliderHome";
 const App: FC = () => {
   return (
     <div className="relative">
@@ -14,8 +15,10 @@ const App: FC = () => {
       <div className="relative top-[70%] -mt-20">
         <FilterCard />
       </div>
-      <Carousel /> <GolbalProperties />
+      <Carousel />
+      <GolbalProperties />
       <CountriesCard />
+      <PropertieSliderHome/>
     </div>
   );
 };

@@ -22,6 +22,7 @@ interface ListingCardProps {
   priceSymbol: string;
   category?: string;
   image?: string;
+  images?: any;
   listingType: string;
   createdAt: string;
   squareFootage: number;
@@ -71,6 +72,7 @@ const ListingCard: FC<ListingCardProps> = ({
   priceSymbol,
   category,
   image,
+  images,
   listingType,
   createdAt,
   squareFootage,
@@ -88,7 +90,7 @@ const ListingCard: FC<ListingCardProps> = ({
         <LazyLoadImage
           alt={title}
           effect="blur"
-          src={image}
+          src={images[0].url}
           className={style.image}
         />
       </div>
@@ -129,7 +131,7 @@ const ListingCard: FC<ListingCardProps> = ({
           <div className={style.footerLeft}>
             <Tippy content="Edit this Properties">
               <p
-                className={style. footerEdit}
+                className={style.footerEdit}
                 onClick={() => OnEditProperty(ID)}
               >
                 <FaEdit size={19} style={{ marginRight: "5px" }} />

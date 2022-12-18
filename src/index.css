@@ -15,6 +15,10 @@
 }
 body {
 }
+a{
+  margin: 0;
+  padding: 0;
+}
 
 select {
   border-right: 16px solid transparent;

@@ -3,7 +3,7 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
 import { Link } from "react-router-dom";
 import { routes } from "../../routes/routes";
-
+import { formatToCurrency } from "../../utils/formateMoney";
 import {
   MdLocationPin,
   MdOutlineFavoriteBorder,
@@ -16,7 +16,7 @@ import { SEO } from "../seo/seo";
 interface propertiesList {
   ID?: any;
   image?: string;
-  images?: any[];
+  images?: any;
   tage?: string;
   price?: number;
   title?: string;
@@ -29,8 +29,8 @@ interface propertiesList {
   squareFootage?: string;
   squareSymbol?: string;
   listingType?: string;
-  firstname?:string;
-  lastname?:string;
+  firstname?: string;
+  lastname?: string;
 }
 const style = {
   container: `mx-5`,
@@ -53,7 +53,7 @@ const style = {
   agentDetails: `flex items-center`,
   card: ` w-full rounded sm:fle block `,
   like: `cursor-pointer`,
-  listingType:`rounded-full  bg-purple-500 text-white absolute py-1 px-3 text-center z-[90] top-2 left-3 transistion ease-out duration-1000`,
+  listingType: `capitalize rounded-full  bg-purple-500 text-white absolute py-1 px-3 text-center z-[90] top-2 left-3 transistion ease-out duration-1000`,
   tag: `rounded text-[0.7rem] py-1 px-3   block capitalize  flex bg-[#736EFE] outline-none text-white `,
 };
 const propertiesList: FC<propertiesList> = ({
@@ -73,7 +73,7 @@ const propertiesList: FC<propertiesList> = ({
   squareSymbol,
   listingType,
   firstname,
-  lastname
+  lastname,
 }) => {
   const [likes, setLike] = useState(false);
 
@@ -93,7 +93,7 @@ const propertiesList: FC<propertiesList> = ({
               <LazyLoadImage
                 alt={title}
                 effect="blur"
-                src={image}
+                src={images[0].url}
                 className={style.image}
               />
               <p className={style.listingType}>for {listingType}</p>
@@ -105,7 +105,7 @@ const propertiesList: FC<propertiesList> = ({
             </Link>
             <div className={style.sub}>
               {/* <p className={style.tag}>{tage}</p> */}
-              <p className={style.price}>${price}</p>
+              <p className={style.price}>$ {formatToCurrency(price!)}</p>
             </div>
             <div className={style.location}>
               <MdLocationPin size={15} style={{ marginRight: "5px" }} />

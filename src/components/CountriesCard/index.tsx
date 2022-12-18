@@ -36,8 +36,6 @@ const CountriesCard: FC = () => {
     getAllCountry
   );
   const countriesResult = countries?.data || [];
-  console.log(countriesResult);
-
   return (
     <>
       {countriesResult.length !== 0 ? (

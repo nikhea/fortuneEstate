@@ -15,6 +15,7 @@ interface Button {
   linearGradient?: boolean;
   border?: boolean;
   marginTop?: boolean;
+  marginHorizontal?: boolean;
   types?: any;
   onClick?: any;
   Color?: string;
@@ -34,13 +35,17 @@ const Button: FC<Button> = ({
   padding,
   marginTop,
   linearGradient,
+  marginHorizontal,
   types,
   border,
   Color,
   onClick,
+
 }) => {
   const style = {
-    btn: `border border-solid bg-transparen min-w-[100px] not-italic font-[400] text-[14px] outline-none cursor-pointer my-[2em] mx-0 py-[1.3em] px-0`,
+    // btn: `border border-solid bg-transparen min-w-[100px] not-italic font-[400] text-[14px] outline-none cursor-pointer my-[2em] mx-0 py-[1.3em] px-0`,
+    btn: `border border-solid bg-transparen min-w-[100px] not-italic font-[400] text-[14px] outline-none cursor-pointer mx-0 py-[1.3em] px-0`,
+
     disabled: `!cursor-not-allowed`,
     primary: `text-white font-bold bg-[#06c4e5] `,
     rounded: `rounded-[40px] `,
@@ -48,6 +53,7 @@ const Button: FC<Button> = ({
     full: `w-full`,
     bold: ``,
     margin: `m-0`,
+    marginHorizontal: `my-2`,
     marginTop: `m-0 mt-0`,
     curve: `rounded-[8px] `,
     uppercase: `uppercase`,
@@ -72,6 +78,7 @@ const Button: FC<Button> = ({
     [`${style.padding}`]: padding,
     [`${style.border}`]: border,
     [`${style.marginTop}`]: marginTop,
+    [`${style.marginHorizontal}`]: marginHorizontal,
   };
   return (
     <button

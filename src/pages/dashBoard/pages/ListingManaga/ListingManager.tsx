@@ -40,18 +40,16 @@ const ListingManager = () => {
 
   const OnEditProperty = (id: string) => {
     console.log("listing propertyID", id);
-    console.log(data);
+    // console.log(data);
   };
 
   const OnDeleteProperty = (id: string) => {
     DeleteProperty(id);
   };
+  // propertiesdata?.data ||
+  const propertiesResult: any[] = propertiesdata?.data || [];
 
-  const properties = propertiesdata?.data || [];
-  if (!properties) return;
-  console.log(properties);
-
-  const loadProperties = properties?.map((property: any) => (
+  const loadProperties = propertiesResult.map((property: any) => (
     <div key={property._id}>
       <PropertiesList
         OnEditProperty={OnEditProperty}
