@@ -46,7 +46,7 @@ const propertieSliderHome: FC = () => {
   const propertiesResult = properties?.data.results.slice(0, 6) || [];
   length = propertiesResult.length;
   const [current, setCurrent] = useState(0);
-  const timeout = useRef(null);
+  const timeout = useRef(current);
   useEffect(() => {
     const nextSlide = () => {
       setCurrent((current) => (current === length - 1 ? 0 : current + 1));

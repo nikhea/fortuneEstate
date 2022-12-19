@@ -37,7 +37,7 @@ interface Props {
 const style = {
   mainContainer: `flex items-center  justify-center absolute top-0 left-0 w-full h-full`,
   imgContainer: `w-full flex rounded-3xl flex-col relative w-[50%]`,
-  textContainer: `mx-10 my-3  w-[50%] flex flex-col justify-between`,
+  textContainer: `mx-10 my  w-[50%] flex flex-col justify-between`,
   image: ` w-full h-full object-cover flex rounded-3xl object-cover`,
   listingType: `capitalize rounded-full  bg-purple-500 text-white absolute py-1 px-3 text-center z-[90] top-2 left-3 transistion ease-out duration-1000`,
   title: `font-bold text-3xl leading-10 capitalize`,
@@ -50,7 +50,7 @@ const style = {
   bath: `leading-10 flex items-center`,
   priceContainer: `absolute bottom-2 left-[15%]  w-[60%] rounded-[10px] bg-[#0D304A] uppercase items-center text-center justify-between shadow-xl text-white py-1 px-5 my-3 `,
   price: `text-[2rem] text-bold text-center`,
-  hr: `bg-[#8392a5] h-[.1px]   text-center flex items-center justify-center mb-5 w-full`,
+  hr: `bg-[#8392a5] h-[.1px]   text-center flex items-center justify-center mb-5 w-full mt-9`,
   hrBig: `bg-[#8392a5] h-[2.9px]   text-center w-[40%] flex items-center justify-center my-5  rounded`,
   top: ``,
   middle: ``,
@@ -106,7 +106,9 @@ const SliderCard: FC<Props> = ({
           <h1 className={style.title}>{title}</h1>
           <div className={style.hrBig}></div>
           <p className={style.discription}>
-            {discription.substring(0, 200)}...
+            {discription.length < 100
+              ? discription
+              : `${discription.substring(0, 200)}...`}
           </p>
           <div className={style.hr}></div>
         </div>

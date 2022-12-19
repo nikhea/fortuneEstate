@@ -109,7 +109,10 @@ const propertiesList: FC<propertiesList> = ({
             </div>
             <div className={style.location}>
               <MdLocationPin size={15} style={{ marginRight: "5px" }} />
-              <p>{location}</p>
+              {location?.length < 19
+              ? location
+              : `${location?.substring(0, 20)}...`}
+              {/* {location?.length} */}
             </div>
             <div className={style.sub}>
               <p className={style.bed}>
