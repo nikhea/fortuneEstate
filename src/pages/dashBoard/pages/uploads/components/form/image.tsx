@@ -2,6 +2,7 @@ import { FC } from "react";
 import Input from "../../../../../../components/UI/FormElement/input/input";
 import Select from "../../../../../../components/UI/FormElement/select/select";
 import Button from "../../../../../../components/UI/FormElement/Button";
+import SlideBottons from "./slideBottons/slideBottons";
 interface ImageProps {
   register: any;
   nextStep: any;
@@ -60,15 +61,7 @@ const Image: FC<ImageProps> = ({
           {errors.images?.message && <p>{errors.images?.message}</p>}
         </p>
       </span>
-
-      <div className={style.buttonContainer}>
-        <Button rounded primary Color="#8392A5" onClick={previous}>
-          Pre
-        </Button>
-        <Button rounded primary Color="#8392A5" onClick={continues}>
-          Continue
-        </Button>
-      </div>
+      <SlideBottons previous={previous} continues={continues} />
     </div>
   );
 };

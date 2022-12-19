@@ -3,6 +3,7 @@ import Input from "../../../../../../components/UI/FormElement/input/input";
 import Select from "../../../../../../components/UI/FormElement/select/select";
 import Button from "../../../../../../components/UI/FormElement/Button";
 import { Link } from "react-router-dom";
+import SlideBottons from "./slideBottons/slideBottons";
 
 
 interface WebsiteDetailsProps {
@@ -81,15 +82,8 @@ const WebsiteDetails: FC<WebsiteDetailsProps> = ({
           {errors.webSiteURL?.message && <p>{errors.webSiteURL?.message}</p>}
         </p>
       </span>
+      <SlideBottons previous={previous} continues={continues} />
 
-      <div className={style.buttonContainer}>
-        <Button rounded primary Color="#8392A5" onClick={previous}>
-          Pre
-        </Button>
-        <Button rounded primary Color="#8392A5" onClick={continues}>
-          Continue
-        </Button>
-      </div>
     </div>
   );
 };

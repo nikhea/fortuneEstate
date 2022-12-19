@@ -2,15 +2,8 @@ import { FC, useState, useEffect } from "react";
 import Input from "../../../../../../components/UI/FormElement/input/input";
 import Select from "./select/select";
 import Button from "../../../../../../components/UI/FormElement/Button";
-// import { useQuery } from "@tanstack/react-query";
-import { useQuery } from "react-query";
-
 import { useFormContext, useController } from "react-hook-form";
-import { getAllCountry } from "../../../../../../services/api/shared";
-import { queryKeys } from "../../../../../../utils/queryKey";
-import AsyncSelect from "react-select/async";
-import Creatable from "react-select/creatable";
-// import Select from "react-select";
+import SlideBottons from "./slideBottons/slideBottons";
 interface AddressMap {
   register: any;
   nextStep: any;
@@ -19,6 +12,7 @@ interface AddressMap {
   step: any;
   setStep: any;
   errors: any;
+  countries: any;
 }
 const style = {
   errors: `block `,
@@ -33,13 +27,9 @@ const AddressMap: FC<AddressMap> = ({
   step,
   setStep,
   errors,
+  countries,
 }) => {
   const [countriesOptions, setCountriesOptions] = useState([""]);
-  const {
-    data: countries,
-  } = useQuery([queryKeys.countries], getAllCountry);
-
-  // console.log(countries?.data[0].name);
 
   useEffect(() => {
     const getData = async () => {
@@ -52,13 +42,7 @@ const AddressMap: FC<AddressMap> = ({
     };
     getData();
   }, []);
-  const {
-    register,
-    control,
-    setValue,
-    watch,
-    // formState: { errors },
-  } = useFormContext();
+  const { register, control } = useFormContext();
   const { field: propertycountryField } = useController({
     name: "country",
     control,
@@ -68,13 +52,7 @@ const AddressMap: FC<AddressMap> = ({
 
     return propertycountryField.onChange(option.value);
   };
-  // country
-  console.log(countriesOptions, "optopmjka;sdjjlsk");
-  // if (!countriesOptions) {
-  //   return <h1>....Loading properties </h1>;
-  // } else {
-  //   return <h1>.{JSON.stringify(countriesOptions)}</h1>;
-  // }
+
   const continues = (e: any) => {
     e.preventDefault();
     nextStep();
@@ -88,11 +66,10 @@ const AddressMap: FC<AddressMap> = ({
       {/* <h1>AddressMap</h1> */}
       <span>
         <h1 className={style.inputTitle}>country</h1>
-
         <Select
           inputFull
           placeholder="Countries*"
-         // @ts-ignore
+          // @ts-ignore
           options={countriesOptions}
           field={countriesOptions.find(
             ({ value }: any) => value === propertycountryField.value
@@ -140,14 +117,7 @@ const AddressMap: FC<AddressMap> = ({
           {errors.city?.message && <p>{errors.city?.message}</p>}
         </p>
       </span>
-      <div className={style.buttonContainer}>
-        <Button rounded primary Color="#8392A5" onClick={previous}>
-          Pre
-        </Button>
-        <Button rounded primary Color="#8392A5" onClick={continues}>
-          Continue
-        </Button>
-      </div>
+      <SlideBottons previous={previous} continues={continues} />
     </div>
   );
 };

@@ -1,7 +1,7 @@
 import { useState, useEffect, FC } from "react";
 import { FormData } from "./formInterface";
 // import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { useMutation, useQueryClient } from "react-query";
+import { useMutation, useQueryClient, useQuery } from "react-query";
 
 import { useForm, FormProvider } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -17,9 +17,12 @@ import { toast } from "react-toastify";
 import { notify } from "./notify";
 import { createProperties } from "../../../../../services/api/agent";
 import { queryKeys } from "../../../../../utils/queryKey";
+import { getAllCountry } from "../../../../../services/api/shared";
 
 const ComponentSwitch: FC = () => {
   const queryClient = useQueryClient();
+  const { data: countries } = useQuery([queryKeys.countries], getAllCountry);
+
   const { mutateAsync, status } = useMutation(createProperties, {
     onSuccess: () => {
       //invalidate cached properties query and refresh
@@ -116,6 +119,7 @@ const ComponentSwitch: FC = () => {
                   step={step}
                   setStep={setStep}
                   errors={errors}
+                  countries={countries}
                 />
               );
             case 2:
