@@ -1,7 +1,8 @@
-import { FC } from "react";
+import { FC, useRef, useState } from "react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
 import { Link } from "react-router-dom";
+import { useCarousel } from "use-carousel-hook";
 import { routes } from "../../routes/routes";
 import { MdLocationPin } from "react-icons/md";
 import { FaBed, FaBath } from "react-icons/fa";
@@ -34,10 +35,10 @@ interface Props {
   lastname?: string;
 }
 const style = {
-  mainContainer: `flex flex-col md:flex-row`,
+  mainContainer: `flex items-center  justify-center absolute top-0 left-0 w-full h-full`,
   imgContainer: `w-full flex rounded-3xl flex-col relative w-[50%]`,
   textContainer: `mx-10 my-3  w-[50%] flex flex-col justify-between`,
-  image: ` w-full h-full object-cover flex rounded-3xl `,
+  image: ` w-full h-full object-cover flex rounded-3xl object-cover`,
   listingType: `capitalize rounded-full  bg-purple-500 text-white absolute py-1 px-3 text-center z-[90] top-2 left-3 transistion ease-out duration-1000`,
   title: `font-bold text-3xl leading-10 capitalize`,
   discription: `font-light text-sm text-[#8392A5] mb-5`,
@@ -58,6 +59,7 @@ const style = {
   previous: `w-[50px] h-[50px] bg-red-500 rounded-[50%]  cursor-pointer  grid items-center text-center`,
   next: `w-[50px] h-[50px] bg-red-500 rounded-[50%] grid items-center text-center cursor-pointer`,
 };
+// mainContainer: `flex flex-col md:flex-row`,
 // previous: `w-[50px] h-[50px] bg-red-500 rounded-[50%] grid items-center text-center  cursor-pointer`,
 
 const SliderCard: FC<Props> = ({
@@ -80,13 +82,15 @@ const SliderCard: FC<Props> = ({
   listingType,
   firstname,
   lastname,
+  nextSlide,
+  previouSlide,
 }) => {
   return (
     <div className={style.mainContainer}>
       <div className={style.imgContainer}>
-        <LazyLoadImage
+        <img
           alt={title}
-          effect="blur"
+          // effect="blur"
           src={images[0].url}
           className={style.image}
         />
@@ -101,7 +105,9 @@ const SliderCard: FC<Props> = ({
         <div className={style.top}>
           <h1 className={style.title}>{title}</h1>
           <div className={style.hrBig}></div>
-          <p className={style.discription}>{discription}</p>
+          <p className={style.discription}>
+            {discription.substring(0, 200)}...
+          </p>
           <div className={style.hr}></div>
         </div>
         <div className={style.middle}>
@@ -136,12 +142,12 @@ const SliderCard: FC<Props> = ({
             </p>
           </div>
           <div className={style.SliderController}>
-            <div className={style.previous}>
+            <div className={style.previous} onClick={() => previouSlide()}>
               {/* <AiOutlineArrowLeft style={{ marginRight: "50px" }} /> */}
 
               {`<<`}
             </div>
-            <div className={style.next}>{`>>`}</div>
+            <div className={style.next} onClick={() => nextSlide()}>{`>>`}</div>
           </div>
         </div>
       </div>

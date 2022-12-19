@@ -29,9 +29,7 @@ export const getAllCountry = async () => {
   };
 };
 export const getAllProperties = async () => {
-  const res = await Axiosclient.get(`/properties?limit=12`);
-  console.log(res, "res Service");
-  
+  const res = await Axiosclient.get(`/properties?limit=12`);  
   return {
     status: res.status,
     data: res.data.data,
