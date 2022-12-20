@@ -4,8 +4,8 @@ import "react-lazy-load-image-component/src/effects/blur.css";
 import PropertiesCard from "../../../components/card/PropertyCard";
 const Image = () => {
   const style = {
-    imgContainer: `bg-red-200 flex h-full w-full  w-[100vw] m-auto`,
-    image: ` h-full w-full object-cover w-[100vw] `,
+    imgContainer: `bg-red-200 flex h-full w-full  w-[100vw] m-auto overflow-hidden`,
+    image: ` h-full w-full object-cover w-[100vw] overflow-hidden`,
   };
   return (
     <div className={style.imgContainer}>

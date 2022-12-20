@@ -39,7 +39,7 @@ const style = {
 // bg-[#F6F6F6]
 const propertieSliderHome: FC = () => {
   let length: number;
-  const { data: properties, error } = useQuery(
+  const { data: properties,} = useQuery(
     [queryKeys.properties],
     getAllProperties
   );

@@ -12,6 +12,7 @@ import NeighborHood from "./components/neigborhood";
 import AboutAuthors from "./components/abountAuthor";
 import { queryKeys } from "../../utils/queryKey";
 import { getSingelProperties } from "../../services/api/shared";
+import SimilarProperties from "../../components/SimilarProperties/SimilarProperties";
 const style = {
   container: ``,
   bgContainer: `bg-[#F6F6F6] py-[6em]  pl-[2em] overflow-hidden md:grid md:grid-cols-10 grid-row-3`,
@@ -53,7 +54,7 @@ const property: FC = () => {
 
   return (
     <>
-      <ImageCard />
+      {/* <ImageCard /> */}
       <div className={style.bgContainer}>
         <div className={style.full}></div>
         <div className={style.full}>
@@ -97,6 +98,9 @@ const property: FC = () => {
         </div>
         <div className={style.bgSmall}>
           <FeaturedListing />
+        </div>
+        <div className={style.full}>
+          <SimilarProperties/>
         </div>
       </div>
     </>
