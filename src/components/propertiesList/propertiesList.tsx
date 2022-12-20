@@ -3,7 +3,7 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
 import { Link } from "react-router-dom";
 import { routes } from "../../routes/routes";
-import { formatToCurrency } from "../../utils/formateMoney";
+import { formatToCurrency } from "../../utils/formateNumbers";
 import {
   MdLocationPin,
   MdOutlineFavoriteBorder,

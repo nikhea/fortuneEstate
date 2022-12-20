@@ -1,6 +1,10 @@
 import { FC } from "react";
 import "./hr.css";
 import PropertiesCard from "../../../components/card/PropertyCard";
+import {
+  formatToCurrency,
+  numberWithCommas,
+} from "../../../utils/formateNumbers";
 interface Props {
   price: number;
   priceSymbol: string;
@@ -57,7 +61,8 @@ const additionalDetails: FC<Props> = ({
             <span className={style.span}>listing ID : </span>1
           </p>
           <p className={style.description}>
-            <span className={style.span}>price : </span> {priceSymbol} {price}
+            <span className={style.span}>price : </span> {priceSymbol}
+            {formatToCurrency(price)}
           </p>
           <p className={style.description}>
             <span className={style.span}>view : </span>
@@ -74,8 +79,8 @@ const additionalDetails: FC<Props> = ({
             {halfBathrooms}
           </p>
           <p className={style.description}>
-            <span className={style.span}>square footage : </span>{" "}
-            {squareFootage} {squareSymbol}
+            <span className={style.span}>square footage : </span>
+            {squareFootage} {numberWithCommas(squareFootage)}
           </p>
           <p className={style.description}>
             <span className={style.span}>year built : </span> {yearBuilt}

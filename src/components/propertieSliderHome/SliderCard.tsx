@@ -8,7 +8,7 @@ import { MdLocationPin } from "react-icons/md";
 import { FaBed, FaBath } from "react-icons/fa";
 import { HiSquaresPlus } from "react-icons/hi2";
 import { AiOutlineArrowLeft } from "react-icons/ai";
-import { formatToCurrency } from "../../utils/formateMoney";
+import { formatToCurrency } from "../../utils/formateNumbers";
 import Button from "../UI/FormElement/Button";
 
 interface Props {
