@@ -1,8 +1,12 @@
 import { FC } from "react";
 import "./hr.css";
 import PropertiesCard from "../../../components/card/PropertyCard";
-
-const additionalDetails: FC = () => {
+interface Props {
+  street: string;
+  country: string;
+  city: string;
+}
+const additionalDetails: FC<Props> = ({ street, country, city }) => {
   const style = {
     header: ` flex items-center  w-full mb-5`,
     title: `ml-5 capitalize font-[600] text-[1.75rem]`,
@@ -19,11 +23,14 @@ const additionalDetails: FC = () => {
         </header>
         <div className={style.details}>
           <p className={style.description}>
-            <span className={style.span}>country : </span> barbados
+            <span className={style.span}>country : </span> {country}
           </p>
           <p className={style.description}>
-            <span className={style.span}>street : </span> Sandy Lane, Saint
-            James
+            <span className={style.span}>street : </span> {street}
+          </p>
+          <p className={style.description}>
+            <span className={style.span}>city : </span>
+            {city}
           </p>
           <p className={style.description}>
             <span className={style.span}>floor number : </span>1

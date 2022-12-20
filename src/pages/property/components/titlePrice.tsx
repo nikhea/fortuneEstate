@@ -2,7 +2,28 @@ import { FC } from "react";
 // import ReactQrCode from "react-qr-code";
 import PropertiesCard from "../../../components/card/PropertyCard";
 
-const TitlePrice: FC = () => {
+interface Props {
+  title?: string;
+  price?: number;
+  priceSymbol?: string;
+  location?: string;
+  bed?: number;
+  bath?: number;
+  squareFootage?: string;
+  squareSymbol?: string;
+  listingType?: string;
+}
+const TitlePrice: FC<Props> = ({
+  title,
+  listingType,
+  price,
+  priceSymbol,
+  squareSymbol,
+  squareFootage,
+  location,
+  bath,
+  bed,
+}) => {
   const style = {
     container: `mx-9 w-[50%] m-auto`,
     Header: ``,
@@ -24,19 +45,23 @@ const TitlePrice: FC = () => {
         <div className={style.container}>
           <header className={style.Header}>
             <div className={style.titleHeader}>
-              <h1 className={style.title}>5 Bedroom Villla</h1>
-              <p className={style.tag}>for sale</p>
+              <h1 className={style.title}>{title}</h1>
+              <p className={style.tag}>for {listingType}</p>
             </div>
           </header>
           <div className={style.priceContainer}>
-            <h2 className={style.price}>US $,400,000</h2>
-            <p className={style.sqft}>1,375/sqft</p>
+            <h2 className={style.price}>
+              {priceSymbol} {price}
+            </h2>
+            <p className={style.sqft}>
+              {squareFootage}/{squareSymbol}
+            </p>
           </div>
-          <p className={style.location}>Sandy Lane, Saint James</p>
+          <p className={style.location}>{location}</p>
           <hr className={style.hr} />
           <div className={style.Bathcontainer}>
-            <p className={style.bed}>5 Bed</p>
-            <p className={style.bath}>4 Bath</p>
+            <p className={style.bed}>{bed} Bed</p>
+            <p className={style.bath}>{bath} Bath</p>
           </div>
         </div>
       </PropertiesCard>

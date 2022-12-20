@@ -29,7 +29,7 @@ export const getAllCountry = async () => {
   };
 };
 export const getAllProperties = async () => {
-  const res = await Axiosclient.get(`/properties?limit=12`);  
+  const res = await Axiosclient.get(`/properties?limit=12`);
   return {
     status: res.status,
     data: res.data.data,
@@ -43,7 +43,7 @@ export const getPropertiesByCountry = async (countryName: any) => {
   };
 };
 
-export const getSingelProperties = async (id: number, countryName: string) => {
+export const getSingelProperties = async (id: any) => {
   const res = await Axiosclient.get(`/properties/${id}`);
   return {
     status: res.status,

@@ -1,4 +1,6 @@
 import { FC } from "react";
+import { useQuery } from "react-query";
+import { useParams } from "react-router-dom";
 import FeaturedListing from "../../components/propertiesList/featuredListing";
 import ImageCard from "./components/image";
 import TitlePrice from "./components/titlePrice";
@@ -8,27 +10,76 @@ import Description from "./components/Description";
 import Details from "./components/Details";
 import NeighborHood from "./components/neigborhood";
 import AboutAuthors from "./components/abountAuthor";
-
+import { queryKeys } from "../../utils/queryKey";
+import { getSingelProperties } from "../../services/api/shared";
+const style = {
+  container: ``,
+  bgContainer: `bg-[#F6F6F6] py-[6em]  pl-[2em] overflow-hidden md:grid md:grid-cols-10 grid-row-3`,
+  full: ` col-start-1 col-end-11`,
+  bgHalf: `col-start-1 col-end-7`,
+  bgSmall: `col-start-8 col-end-11`,
+};
 const property: FC = () => {
-  const style = {
-    container: ``,
-    bgContainer: `bg-[#F6F6F6] py-[6em]  pl-[2em] overflow-hidden md:grid md:grid-cols-10 grid-row-3`,
-    full: ` col-start-1 col-end-11`,
-    bgHalf: `col-start-1 col-end-7`,
-    bgSmall: `col-start-8 col-end-11`,
-  };
+  const { id: propertyID } = useParams();
+  const { data: propertydata, isLoading } = useQuery(
+    [queryKeys.properties, propertyID],
+    () => getSingelProperties(propertyID)
+  );
+
+  console.log(propertydata?.data);
+  if (isLoading) {
+    return <h1>Loading properties</h1>;
+  }
+  const {
+    ID,
+    image,
+    images,
+    tage,
+    price,
+    priceSymbol,
+    title,
+    discription,
+    location,
+    bedrooms,
+    bathrooms,
+    like,
+    agent,
+    agentImage,
+    squareFootage,
+    squareSymbol,
+    listingType,
+    firstname,
+    lastname,
+    address,
+    description,
+  } = propertydata?.data;
+
   return (
     <>
       <ImageCard />
       <div className={style.bgContainer}>
         <div className={style.full}></div>
         <div className={style.full}>
-          <TitlePrice />
+          <TitlePrice
+            title={title}
+            price={price}
+            priceSymbol={priceSymbol}
+            listingType={listingType}
+            squareFootage={squareFootage}
+            squareSymbol={squareSymbol}
+            bath={bathrooms}
+            bed={bedrooms}
+            location={address.street}
+          />
         </div>
         <div className={style.bgHalf}>
           <AdditionalDetails />
-          <LocationAddress />
-          <Description />
+          <LocationAddress
+            street={address.street}
+            country={address.country}
+            city={address.city}
+          />
+          <Description description={description} />
           <Details />
           <NeighborHood />
           <AboutAuthors />

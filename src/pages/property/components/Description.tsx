@@ -2,7 +2,10 @@ import { FC } from "react";
 import "./hr.css";
 import PropertiesCard from "../../../components/card/PropertyCard";
 
-const additionalDetails: FC = () => {
+interface Props {
+  description: string;
+}
+const additionalDetails: FC<Props> = ({ description }) => {
   const style = {
     header: ` flex items-center  w-full mb-5`,
     title: `ml-5 capitalize font-[600] text-[1.75rem]`,
@@ -26,36 +29,36 @@ const additionalDetails: FC = () => {
 
 export default additionalDetails;
 
-const description = `Saramanda is an elegant, five bedroom villa set on the exclusive Sandy lane Estate, with its beautifully landscaped grounds, this property gives you the opportunity to enjoy a taste of Caribbean living with the freedom of a home away from home.
+// const description = `Saramanda is an elegant, five bedroom villa set on the exclusive Sandy lane Estate, with its beautifully landscaped grounds, this property gives you the opportunity to enjoy a taste of Caribbean living with the freedom of a home away from home.
 
-Designed around a central, airy atrium and seamlessly Saramanda blends indoor and outdoor living, with plenty of space to simply relax and unwind; all of the living and dining rooms open out to the pool and garden. The large indoor living room features oversized comfortable sofas and French doors that open out on to a covered terrace with outdoor seating and an informal dining area. The laid-back media room, adjacent to the living room, features wide screen HDTV, cable and DVD and also opens out to the pool deck.
+// Designed around a central, airy atrium and seamlessly Saramanda blends indoor and outdoor living, with plenty of space to simply relax and unwind; all of the living and dining rooms open out to the pool and garden. The large indoor living room features oversized comfortable sofas and French doors that open out on to a covered terrace with outdoor seating and an informal dining area. The laid-back media room, adjacent to the living room, features wide screen HDTV, cable and DVD and also opens out to the pool deck.
 
-Inside, the elegant dining room features a large coral stone table where everyone can gather for meals and enjoy quality time together.
+// Inside, the elegant dining room features a large coral stone table where everyone can gather for meals and enjoy quality time together.
 
-Contact our sales team today at info@realtorslimited.com for more information.
+// Contact our sales team today at info@realtorslimited.com for more information.
 
-3D walkthrough of the villa -
+// 3D walkthrough of the villa -
 
-Amenities:
-5 Minutes To Holetown
-A/C - Bedrooms Only
-Beach Club Access
-Beach within 1KM
-Breezy
-Cable/Satellite Channels
-Ceiling Fan - Select Rooms
-Centrally Located
-Dishwasher
-Full Enclosed Property
-Furnished
-Golf Course On-Site
-Laundry Dryer
-Onsite Parking
-Pool
-Private Development
-Television
-Upgraded Kitchen
-Walking Distance To Ocean
-Washing Machine
-Wi-Fi Internet
-`;
+// Amenities:
+// 5 Minutes To Holetown
+// A/C - Bedrooms Only
+// Beach Club Access
+// Beach within 1KM
+// Breezy
+// Cable/Satellite Channels
+// Ceiling Fan - Select Rooms
+// Centrally Located
+// Dishwasher
+// Full Enclosed Property
+// Furnished
+// Golf Course On-Site
+// Laundry Dryer
+// Onsite Parking
+// Pool
+// Private Development
+// Television
+// Upgraded Kitchen
+// Walking Distance To Ocean
+// Washing Machine
+// Wi-Fi Internet
+// `;
