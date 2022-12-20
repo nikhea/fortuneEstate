@@ -33,7 +33,7 @@ interface propertiesList {
   lastname?: string;
 }
 const style = {
-  container: `mx-5`,
+  container: `w-[80%] m-auto my-10`,
   cardContainer: ` mx-[5px] rounded-t-xl rounded-b-xl bg-white hover:shadow-xl  mb-5 transistion ease-out duration-1000 border border-t-[0px]  `,
   MainContainer: ``,
   imgContainer: `w-full flex rounded-t-xl flex-col relative [&>p]:hover:hidde [&>p]:transistion [&>p]:ease-in [&>p]:duration-3000`,

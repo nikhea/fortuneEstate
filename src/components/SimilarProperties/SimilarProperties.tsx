@@ -18,9 +18,11 @@ import { routes } from "../../routes/routes";
 import { Link } from "react-router-dom";
 
 const style = {
-  mainContainer: `w-full flex rounded-xl flex-col relative`,
-  image: ` w-full h-full object-cover flex rounded-xl `,
-  textContainer: `rounded-b-xl flex flex-col justify-between pt-[1em] px-[1em] absolute bottom-0  left-0 right-0`,
+  container: `w-[80%] m-auto my-10 leading-[100px]`,
+  similar:`font-bold text-xl uppercase`,
+  mainContainer: `w-full flex rounded-xl flex-col relative `,
+  image: ` w-full h-full object-cover flex rounded-xl  `,
+  textContainer: `rounded-b-xl flex flex-col justify-between pt-[1em] px-[1em] absolute bottom-0  left-0 right-0 z-20`,
   bgWhite: `pt-[1em] px-[1em] absolute bottom-0 bg-white left-0 right-0 rounded-b-xl hidden`,
   title: `font-bold text-xl `,
   location: `font-[400] text-[#8392A5]  flex items-center `,
@@ -30,6 +32,10 @@ const style = {
   sub: `flex justify-between items-center my-2`,
   price: `text-[1rem]`,
   textPrice: `text-white`,
+  listingType: `capitalize rounded-full  bg-purple-500 text-white absolute py-1 px-3 text-center z-[90] top-2 left-3 transistion ease-out duration-1000`,
+  imgContainer: `w-full flex rounded-t-xl flex-col relative [&>p]:hover:hidde [&>p]:transistion [&>p]:ease-in [&>p]:duration-3000`,
+
+  overlay: `h-full w-full -z-10 top-0 left-0 absolute bg-gradient-to-tl from-black overflow-hidden z-10 rounded-xl`,
 };
 const SimilarProperties: FC<Props> = () => {
   const { data: properties, isLoading } = useQuery(
@@ -43,12 +49,15 @@ const SimilarProperties: FC<Props> = () => {
   console.log(propertiesResult, "sksldcjjdj");
 
   return (
-    <div className="overflow-hidden">
+    <div className="overflow-hidden ">
+      <div className={style.container}>
+        <h1 className={style.similar}>Similar Properties</h1>
+      </div>
       <Carousel
         responsive={responsive}
         additionalTransfrom={0}
         arrows
-        // autoPlay
+        autoPlay
         // autoPlaySpeed={-11}
         centerMode={false}
         className=""
@@ -78,17 +87,23 @@ const SimilarProperties: FC<Props> = () => {
         {propertiesResult.map((property: Props, index: any) => (
           <div className="mx-4">
             <div className={style.mainContainer}>
-              <LazyLoadImage
-                alt={property.title}
-                effect="blur"
-                src={property.propertyImages[0].url}
-                className={style.image}
-              />
+              <div className={style.imgContainer}>
+                <LazyLoadImage
+                  alt={property.title}
+                  effect="blur"
+                  src={property.propertyImages[0].url}
+                  className={style.image}
+                />
+                <p className={style.listingType}>for {property.listingType}</p>
+              </div>
               <div className={style.textContainer}>
                 <div className={style.textPrice}>
                   <Link to={`${routes.property}/${property._id}`}>
+                    {/* <a href={`${routes.property}/${property._id}`}> */}
                     <h1 className={style.title}>{property.title}</h1>
+                    {/* </a> */}
                   </Link>
+
                   <div className={style.sub}>
                     {/* <p className={style.tag}>{tage}</p> */}
                     <p className={style.price}>
@@ -129,7 +144,9 @@ const SimilarProperties: FC<Props> = () => {
                   </div>
                 </div>
               </div>
+              <div className={style.overlay}></div>
             </div>
+            {/* <div className={style.overlay}></div> */}
           </div>
         ))}
       </Carousel>
