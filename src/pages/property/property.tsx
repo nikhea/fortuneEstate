@@ -31,27 +31,24 @@ const property: FC = () => {
     return <h1>Loading properties</h1>;
   }
   const {
-    ID,
     image,
     images,
-    tage,
     price,
     priceSymbol,
     title,
-    discription,
-    location,
     bedrooms,
     bathrooms,
-    like,
-    agent,
-    agentImage,
     squareFootage,
     squareSymbol,
     listingType,
-    firstname,
-    lastname,
+    propertyType,
     address,
     description,
+    view,
+    halfBathrooms,
+    lotAreaSymbol,
+    lotArea,
+    yearBuilt,
   } = propertydata?.data;
 
   return (
@@ -73,7 +70,21 @@ const property: FC = () => {
           />
         </div>
         <div className={style.bgHalf}>
-          <AdditionalDetails />
+          <AdditionalDetails
+            propertyType={propertyType}
+            price={price}
+            priceSymbol={priceSymbol}
+            listingType={listingType}
+            squareFootage={squareFootage}
+            squareSymbol={squareSymbol}
+            bath={bathrooms}
+            bed={bedrooms}
+            view={view}
+            halfBathrooms={halfBathrooms}
+            lotArea={lotArea}
+            lotAreaSymbol={lotAreaSymbol}
+            yearBuilt={yearBuilt}
+          />
           <LocationAddress
             street={address.street}
             country={address.country}

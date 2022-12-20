@@ -1,8 +1,36 @@
 import { FC } from "react";
 import "./hr.css";
 import PropertiesCard from "../../../components/card/PropertyCard";
-
-const additionalDetails: FC = () => {
+interface Props {
+  price: number;
+  priceSymbol: string;
+  bed: number;
+  bath: number;
+  squareFootage: number;
+  squareSymbol: string;
+  listingType: string;
+  propertyType: string;
+  view: string;
+  halfBathrooms: number;
+  lotAreaSymbol: string;
+  lotArea: number;
+  yearBuilt: number;
+}
+const additionalDetails: FC<Props> = ({
+  price,
+  priceSymbol,
+  bed,
+  bath,
+  squareFootage,
+  squareSymbol,
+  listingType,
+  propertyType,
+  view,
+  halfBathrooms,
+  lotAreaSymbol,
+  lotArea,
+  yearBuilt,
+}) => {
   const style = {
     header: ` flex items-center  w-full mb-5`,
     title: `ml-5 capitalize font-[600] text-[1.75rem]`,
@@ -19,37 +47,42 @@ const additionalDetails: FC = () => {
         </header>
         <div className={style.details}>
           <p className={style.description}>
-            <span className={style.span}>property type : </span> villa
+            <span className={style.span}>property type : </span> {propertyType}
           </p>
           <p className={style.description}>
-            <span className={style.span}>listing type : </span> for sale
+            <span className={style.span}>listing type : </span> for{" "}
+            {listingType}
           </p>
           <p className={style.description}>
             <span className={style.span}>listing ID : </span>1
           </p>
           <p className={style.description}>
-            <span className={style.span}>price : </span> US 4,400,000
+            <span className={style.span}>price : </span> {priceSymbol} {price}
           </p>
           <p className={style.description}>
-            <span className={style.span}>view : </span>garden
+            <span className={style.span}>view : </span>
+            {view}
           </p>
           <p className={style.description}>
-            <span className={style.span}>bedrooms : </span> 9
+            <span className={style.span}>bedrooms : </span> {bed}
           </p>
           <p className={style.description}>
-            <span className={style.span}>bathrooms : </span> 4
+            <span className={style.span}>bathrooms : </span> {bath}
           </p>
           <p className={style.description}>
-            <span className={style.span}>half bathrooms : </span> 0
+            <span className={style.span}>half bathrooms : </span>{" "}
+            {halfBathrooms}
           </p>
           <p className={style.description}>
-            <span className={style.span}>square footage : </span> 3,200 Sqft
+            <span className={style.span}>square footage : </span>{" "}
+            {squareFootage} {squareSymbol}
           </p>
           <p className={style.description}>
-            <span className={style.span}>year built : </span> 2030
+            <span className={style.span}>year built : </span> {yearBuilt}
           </p>
           <p className={style.description}>
-            <span className={style.span}>lot sqft : </span> 0 Sqft
+            <span className={style.span}>lot area : </span> {lotArea}{" "}
+            {lotAreaSymbol}
           </p>
         </div>
       </div>
