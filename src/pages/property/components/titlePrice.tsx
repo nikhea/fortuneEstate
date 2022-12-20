@@ -1,7 +1,10 @@
 import { FC } from "react";
 // import ReactQrCode from "react-qr-code";
 import PropertiesCard from "../../../components/card/PropertyCard";
-
+import {
+  formatToCurrency,
+  numberWithCommas,
+} from "../../../utils/formateNumbers";
 interface Props {
   title?: string;
   price?: number;
@@ -30,7 +33,7 @@ const TitlePrice: FC<Props> = ({
     titleHeader: `flex items-center `,
     title: `font-[500] text-3xl mr-8 drop-shadow-2xl my-5`,
     tag: `rounded text-[0.7rem] py-1 px-3   block capitalize  flex bg-[#736EFE] outline-none text-white `,
-    priceContainer: `w-[60%] rounded-[10px] bg-[#0D304A] flex items-center justify-between shadow-xl text-white py-1 px-5 my-3`,
+    priceContainer: `w-[60] rounded-[10px] bg-[#0D304A] flex items-center justify-between shadow-xl text-white py-1 px-5 my-3`,
     price: `text-[2rem] text-bold`,
     sqft: `text-[1.2rem]`,
     location: `font-[400] text-[#8392A5] leading-10 flex items-center text-xl my-3`,
@@ -51,10 +54,10 @@ const TitlePrice: FC<Props> = ({
           </header>
           <div className={style.priceContainer}>
             <h2 className={style.price}>
-              {priceSymbol} {price}
+              {priceSymbol} {formatToCurrency(price)}
             </h2>
             <p className={style.sqft}>
-              {squareFootage}/{squareSymbol}
+              {numberWithCommas(squareFootage)}/{squareSymbol}
             </p>
           </div>
           <p className={style.location}>{location}</p>

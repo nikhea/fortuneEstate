@@ -80,14 +80,13 @@ const additionalDetails: FC<Props> = ({
           </p>
           <p className={style.description}>
             <span className={style.span}>square footage : </span>
-            {squareFootage} {numberWithCommas(squareFootage)}
-          </p>
+            {numberWithCommas(squareFootage)} {squareSymbol}  </p>
           <p className={style.description}>
             <span className={style.span}>year built : </span> {yearBuilt}
           </p>
           <p className={style.description}>
-            <span className={style.span}>lot area : </span> {lotArea}{" "}
-            {lotAreaSymbol}
+            <span className={style.span}>lot area : </span>
+            {numberWithCommas(lotArea)} {lotAreaSymbol}
           </p>
         </div>
       </div>

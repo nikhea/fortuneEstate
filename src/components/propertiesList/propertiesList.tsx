@@ -3,7 +3,6 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
 import { Link } from "react-router-dom";
 import { routes } from "../../routes/routes";
-import { formatToCurrency } from "../../utils/formateNumbers";
 import {
   MdLocationPin,
   MdOutlineFavoriteBorder,
@@ -13,6 +12,7 @@ import { FaBed, FaBath, FaUserCircle } from "react-icons/fa";
 import { HiSquaresPlus } from "react-icons/hi2";
 import Spinner from "../../components/UI/spinner/spinner";
 import { SEO } from "../seo/seo";
+import { formatToCurrency, numberWithCommas } from "../../utils/formateNumbers";
 interface propertiesList {
   ID?: any;
   image?: string;
@@ -131,7 +131,7 @@ const propertiesList: FC<propertiesList> = ({
                 <span className={style.span}>
                   <HiSquaresPlus size={15} style={{ marginRight: "5px" }} />
                 </span>
-                {squareFootage} {squareSymbol}
+                {numberWithCommas(squareFootage)} {squareSymbol}
               </p>
             </div>
             <div className={style.hr}></div>

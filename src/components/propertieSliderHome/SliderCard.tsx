@@ -8,7 +8,7 @@ import { MdLocationPin } from "react-icons/md";
 import { FaBed, FaBath } from "react-icons/fa";
 import { HiSquaresPlus } from "react-icons/hi2";
 import { AiOutlineArrowLeft } from "react-icons/ai";
-import { formatToCurrency } from "../../utils/formateNumbers";
+import { formatToCurrency, numberWithCommas} from "../../utils/formateNumbers";
 import Button from "../UI/FormElement/Button";
 
 interface Props {
@@ -140,7 +140,7 @@ const SliderCard: FC<Props> = ({
               <span className={style.span}>
                 <HiSquaresPlus size={20} style={{ marginRight: "5px" }} />
               </span>
-              {squareFootage} {squareSymbol}
+              {numberWithCommas(squareFootage)} {squareSymbol}
             </p>
           </div>
           <div className={style.SliderController}>
