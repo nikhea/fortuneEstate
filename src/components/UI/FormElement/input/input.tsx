@@ -18,6 +18,7 @@ interface inputProps {
   onChange?: any;
   multipleFile?: any;
   isWhiteBg?: boolean;
+  Width: string;
 }
 const style = {
   input: `my-[10px]  py-[15px] px-[23px]  text-[.9375rem]   pr-[23px] outline-none`,
@@ -50,7 +51,7 @@ const input: FC<inputProps> = (props) => {
     onChange,
     multipleFile,
     isWhiteBg,
-
+    Width,
     ...rest
   } = props;
   let Input = {
@@ -76,6 +77,9 @@ const input: FC<inputProps> = (props) => {
         // autoComplete="off"
         autoComplete="new-password"
         multiple
+        style={{
+          width: Width,
+        }}
       />
       {/* <p className={style.errors}>
         {errors.name?.message && <p>{errors.name?.message}</p>}

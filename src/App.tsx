@@ -23,10 +23,10 @@ import ListingManager from "./pages/dashBoard/pages/ListingManaga/ListingManager
 import Profile from "./pages/dashBoard/pages/profile";
 import Settings from "./pages/dashBoard/pages/settings";
 import DashboardProperties from "./pages/dashBoard/pages/Properties";
-// import TrackLisiting from "./pages/dashBoard/pages/trackLisiting";
-const TrackLisiting = lazy(
-  () => import("./pages/dashBoard/pages/trackLisiting")
-);
+import TrackLisiting from "./pages/dashBoard/pages/trackLisiting";
+// const TrackLisiting = lazy(
+//   () => import("./pages/dashBoard/pages/trackLisiting")
+// );
 
 const App: FC = () => {
   return (

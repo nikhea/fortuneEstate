@@ -28,11 +28,11 @@ const filterCard: FC = () => {
                 type="text"
                 placeholder="Property Type"
               />
-              <input
+              {/* <input
                 className={`${style.inputSymbol}`}
                 type="text"
                 placeholder="US"
-              />
+              /> */}
               <input
                 className={`${style.inputPrice}`}
                 type="text"

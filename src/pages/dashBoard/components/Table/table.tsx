@@ -1,5 +1,5 @@
 // @ts-ignore
-import { useMemo, forwardRef, useRef, useEffect } from "react";
+import { useMemo } from "react";
 import "./table.css";
 import {
   Column,
@@ -10,15 +10,11 @@ import {
   useBlockLayout,
   Row,
 } from "react-table";
-import Switch from "react-switch";
-import { useSticky } from "react-table-sticky";
 import MOCK_DATA from "../../../../data/MOCK_DATA.json";
 import { column } from "./colum";
 import { BiSortAlt2 } from "react-icons/bi";
 import { BsSortUp, BsSortDown } from "react-icons/bs";
-
 import GlobalFilterInput from "./GlobalFilters";
-import { StickyStyles } from "./StyledTable";
 import ToggleTable from "./toggleTable";
 import TableControl from "./tableControl";
 // import IndeterminateCheckbox from "./ IndeterminateCheckbox";
@@ -32,24 +28,9 @@ interface DataInterface {
   countrys: string;
   phone: string;
 }
-const IndeterminateCheckbox = forwardRef(({ indeterminate, ...rest }, ref) => {
-  const defaultRef = useRef();
-  const resolvedRef = ref || defaultRef;
 
-  useEffect(() => {
-    resolvedRef.current.indeterminate = indeterminate;
-  }, [resolvedRef, indeterminate]);
-
-  return (
-    <div class="cb action">
-      <label>
-        <input type="checkbox" ref={resolvedRef} {...rest} />
-        <span>All</span>
-      </label>
-    </div>
-  );
-});
 const basic = () => {
+  // @ts-ignore
   const columns = useMemo<Column<DataInterface>[]>(() => column, []);
   const data = useMemo<DataInterface[]>(() => MOCK_DATA, []);
   const {
@@ -57,24 +38,28 @@ const basic = () => {
     getTableBodyProps,
     headerGroups,
     // rows,
-    page,
-    nextPage,
-    previousPage,
-    canNextPage,
-    canPreviousPage,
-    pageOptions,
-    gotoPage,
-    pageCount,
-    setPageSize,
+    // @ts-ignore
+    page, // @ts-ignore
+    nextPage, // @ts-ignore
+    previousPage, // @ts-ignore
+    canNextPage, // @ts-ignore
+    canPreviousPage, // @ts-ignore
+    pageOptions, // @ts-ignore
+    gotoPage, // @ts-ignore
+    pageCount, // @ts-ignore
+    setPageSize, // @ts-ignore
     prepareRow,
     allColumns,
     getToggleHideAllColumnsProps,
+    // @ts-ignore
     state: { globalFilter, pageIndex, pageSize },
+    // @ts-ignore
     setGlobalFilter,
   } = useTable(
     {
       columns,
       data,
+      // @ts-ignore
       initialState: { pageSize: 5 },
     },
     useGlobalFilter,
@@ -85,29 +70,17 @@ const basic = () => {
   );
   return (
     <>
-      <div>
-        <div>
-          <IndeterminateCheckbox {...getToggleHideAllColumnsProps()} />
-        </div>
-        {/* Loop through columns data to create checkbox */}
-        {allColumns.map((column) => (
-          <div className="cb action" key={column.id}>
-            <label>
-              <input type="checkbox" {...column.getToggleHiddenProps()} />{" "}
-              <span>{column.Header}</span>
-            </label>
-          </div>
-        ))}
-        <br />
+      <div className="flex flex-col">
+        <GlobalFilterInput filter={globalFilter} setfilter={setGlobalFilter} />
+        <ToggleTable
+          allColumns={allColumns}
+          getToggleHideAllColumnsProps={getToggleHideAllColumnsProps}
+        />
       </div>
-      {/* <ToggleTable allColumns={allColumns} /> */}
-      {/* <GlobalFilterInput filter={globalFilter} setfilter={setGlobalFilter} /> */}
       <table {...getTableProps()}>
         <thead>
           {headerGroups.map((headerGroup) => (
             <tr {...headerGroup.getHeaderGroupProps()}>
-              {/* {JSON.stringify(headerGroup.headers)} */}
-
               {headerGroup.headers.map((column: any) => (
                 <th {...column.getHeaderProps(column.getSortByToggleProps())}>
                   <div className="con">

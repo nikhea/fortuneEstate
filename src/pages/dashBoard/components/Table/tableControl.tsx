@@ -67,7 +67,7 @@ const TableControl: FC<tableControlProps> = ({
         >
           {options?.map((pageSize, index) => (
             <option key={pageSize} value={pageSize}>
-              show {pageSize}
+               {pageSize}
             </option>
           ))}
         </select>

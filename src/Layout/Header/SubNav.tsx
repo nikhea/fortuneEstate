@@ -18,8 +18,8 @@ const style = {
   Link: `block cursor-pointer`,
   emailText: `flex text-center items-center`,
   container: ` flex justify-between w-[95%]  m-auto  text-xs  items-center`,
-  social: `flex mx-[40px] `,
-  rightSide: `flex`,
+  social: ` hidden md:flex mx-[40px] `,
+  rightSide: `flex `,
   background: ` py-[0.1px] h-[3em] flex bg-[#0D304A] `,
   fixed: `  fixed right-0 left-0 top-0 text-white z-[999] bg-[#0D304A] py-[0.1px] h-[3em] flex`,
 };

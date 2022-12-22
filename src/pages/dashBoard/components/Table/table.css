@@ -27,7 +27,7 @@ th {
   border-bottom: 2px solid #ededed;
   /* border: 1px solid #ccc; */
   /* text-align: left; */
-  text-align: center;
+  /* text-align: center; */
   @apply py-5;
 }
 
