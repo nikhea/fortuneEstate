@@ -70,10 +70,17 @@ const ComponentSwitch: FC = () => {
   };
 
   const submitForm = (formData: any) => {
+    console.log("submitForm DATA main => ", formData);
+
     if (formData) {
-      // console.log("submitForm DATA main => ", formData);
-      // addProperties(formData);
+      console.log("submitForm DATA main => ", formData);
+      let p = formData.propertyImages[0]
+      let subb= {...formData, p}
+      console.log(subb);
+      
+      addProperties(p);
       // reset();
+      // propertyImages
       // setStep(0);
     }
     notify(WatchErrors);
@@ -133,6 +140,7 @@ const ComponentSwitch: FC = () => {
                   setStep={setStep}
                   errors={errors}
                   imageOutput={image}
+                  addProperties={addProperties}
                 />
               );
             case 3:

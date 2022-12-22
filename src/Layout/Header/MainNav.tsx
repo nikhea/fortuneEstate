@@ -6,15 +6,17 @@ import { Link, NavLink } from "react-router-dom";
 import { routes } from "../../routes/routes";
 import Button from "../../components/UI/FormElement/Button";
 const style = {
-  container: ` flex justify-between w-[95%]  m-auto m-0 text-cente items-center  `,
-  lists: `capitalize hidden md:flex justify-between mr-[100px] `,
-  list: ` mx-[35px] text-center items  text-white `,
-  logo: `w-[200px]`,
+  container: ` flex  justify-between w-[95%]  m-auto m-0 text-cente items-center  `,
+  mainTop:``,
+  lists: `capitalize hidden md:flex flex-wrap justify-center lg:justify-between lg:mr-[100px] mt-5 `,
+  // lists: `mt-5 capitalize grid grid-cols-3 `,
+  list: `mx-5 lg:mx-[35px] text-center items  text-white mb-3`,
+  logo: `w-[200px] mt-5`,
   active: `bg-gradient-to-r from-cyan-500 to-blue-500 text-black py-2 px-5 rounded-full`,
   btn: `uppercase  rounded-full `,
   activeSM: ` text-blue-500 [&+*]:bg-blue-500`,
   shadow: ``,
-  btnadvertising: `hidden md:flex`,
+  btnadvertising: `hidden md:flex mt-5`,
   drawertoggle: `md:hidden absolut z-[] right-10 text-white`,
   drawerInsidetoggle: `absolute right-10 top-[50px] cursor-pointer `,
   drawer: ` md:hidden`,
@@ -33,6 +35,7 @@ const MainNav: FC = () => {
   return (
     <div className={style.shadow}>
       <div className={style.container}>
+        {/* <span className={style.mainTop}> */}
         <NavLink to={routes.home} className={style.logo}>
           <img src="https://www.thehouse48.com/wp-content/uploads/2021/11/cropped-H48-1280x400-1.png" />
         </NavLink>
@@ -84,6 +87,7 @@ const MainNav: FC = () => {
             adverties
           </Button>
         </span>
+        {/* </span> */}
         <span>
           <Drawer
             open={isOpen}

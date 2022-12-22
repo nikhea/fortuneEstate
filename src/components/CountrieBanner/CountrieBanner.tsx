@@ -12,15 +12,15 @@ const CountrieBanner: FC<CountrieProps> = ({
   CountrieBanner,
 }) => {
   const style = {
-    bgImage: ` mt-[5em]  mb-[5em] w-full h-[100vh] md:h-[60vh]  bg-cover bg-center bg-no-repeat relative bg-fixed object-content z-50`,
+    bgImage: ` mt-[2em]  mb-[5em] w-full h-[60vh] md:h-[60vh]  bg-cover bg-center bg-no-repeat relative bg-fixed object-content z-50`,
     container: `h-full  w-[85%] m-auto flex flex-col  justify-between  text-white`,
     textContainer: `flex  items-center justify-between mb-[5px] `,
-    title: `text-7xl font-black uppercase tracking-wider mt-[120px]`,
-    description: `text-[0.9rem] font-light tracking-wide uppercase text-2xl`,
+    title: `text-3xl md:text-7xl font-black uppercase tracking-wider mt-[120px]`,
+    description: `text-[0.9rem] font-light tracking-wide uppercase md:text-2xl`,
     play: ``,
-    hr: `bg-white h-[1.2px] w-[15rem]`,
+    hr: `hidden lg:flex bg-white h-[1.2px] w-[15rem]`,
     textInner: `flex  items-center`,
-    btn: `uppercase font-light tracking-widest ml-5 bg-blue-500 rounded-full py-[1rem] px-[1rem] border-[2px] leading-[]`,
+    btn: `uppercase font-light md:tracking-widest ml-5 bg-blue-500 rounded-full py-2 px-3 md:py-[1rem] w-100 md:px-[1rem] border-[1px] md:border-[2px]  `,
     overlay: `h-[80%] w-full top-0 left-0 absolute bg-black opacity-60 bg-fixed -z-50`,
   };
   return (

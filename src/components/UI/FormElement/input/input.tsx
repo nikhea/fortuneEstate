@@ -75,6 +75,7 @@ const input: FC<inputProps> = (props) => {
         onChange={onChange}
         // autoComplete="off"
         autoComplete="new-password"
+        multiple
       />
       {/* <p className={style.errors}>
         {errors.name?.message && <p>{errors.name?.message}</p>}

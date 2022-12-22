@@ -12,6 +12,7 @@ interface ImageProps {
   setStep: any;
   errors: any;
   imageOutput: string;
+  addProperties: any;
 }
 const style = {
   errors: `block `,
@@ -26,6 +27,7 @@ const Image: FC<ImageProps> = ({
   setStep,
   imageOutput,
   errors,
+  addProperties,
 }) => {
   const continues = (e: any) => {
     e.preventDefault();
@@ -36,26 +38,24 @@ const Image: FC<ImageProps> = ({
     prevStep();
   };
   const onChange = (e: any) => {
-    const file = e.target.files[0];
-    return file.name;
+    const file = e.target.files;
+    console.log("lsjkhkdLZjs", file);
+    // addProperties(file);
+    return file;
+    // return file.name;
   };
   return (
     <div>
       <h1>Image</h1>
       {/* {imageOutput ? <img src={imageOutput} width="450" /> : null} */}
       <span>
-        <Input
-          type="text"
-          name="images"
+        <input
+          type="file"
+          name="propertyImages"
           placeholder="images*"
-          inputFull
-          required
           onChange={onChange}
-          rounded
-          errors={errors}
-          isWhiteBg
-          inputRef={register("images", { required: true })}
-          // multipleFile="multiple"
+          // inputRef={register("propertyImages", { required: true })}
+          multiple
         />
         <p className={style.errors}>
           {errors.images?.message && <p>{errors.images?.message}</p>}
@@ -67,3 +67,18 @@ const Image: FC<ImageProps> = ({
 };
 
 export default Image;
+{
+  /* <Input
+type="file"
+name="propertyImages"
+placeholder="images*"
+inputFull
+required
+onChange={onChange}
+rounded
+errors={errors}
+isWhiteBg
+inputRef={register("propertyImages", { required: true })}
+multipleFile="multiple"
+/> */
+}

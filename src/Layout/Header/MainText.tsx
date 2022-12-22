@@ -4,8 +4,8 @@ import { Link } from "react-router-dom";
 import { routes } from "../../routes/routes";
 const style = {
   container: `flex  w-[95%]  m-auto flex-col items-center justify-center h-full text-center  `,
-  title: `text-[3rem] md:text-[5.5rem] font-light`,
-  subTitle: `text-5xl md:text-8xl font-light font-bold`,
+  title: `text-[3rem] lg:text-[5.5rem] font-light`,
+  subTitle: `text-5xl lg:text-8xl font-light font-bold`,
   text: `text-lg font-light my-2 tracking-widest`,
   btn: ` mt-5 `,
 };

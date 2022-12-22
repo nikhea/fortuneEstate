@@ -24,5 +24,5 @@ export interface FormData {
   lotAreaSymbol?: string;
   yearBuilt?: number;
   lotArea?: number;
-  images: any;
+  propertyImages: any;
 }

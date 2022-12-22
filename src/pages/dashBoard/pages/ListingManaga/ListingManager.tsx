@@ -14,6 +14,7 @@ const style = {
   container: `w-[95%] m-auto my-5 `,
 };
 const ListingManager = () => {
+  let loadProperties;
   const queryClient = useQueryClient();
   const { data: propertiesdata, isLoading } = useQuery(
     [queryKeys.properties],
@@ -26,6 +27,9 @@ const ListingManager = () => {
       },
     }
   );
+  if (isLoading) {
+    return <h1>Loading...</h1>;
+  }
   const { mutateAsync, status, data } = useMutation(deleteProperties, {
     onSuccess: () => {
       //invalidate cached properties query and refresh
@@ -47,24 +51,27 @@ const ListingManager = () => {
     DeleteProperty(id);
   };
   // propertiesdata?.data ||
-  const propertiesResult: any[] = propertiesdata?.data || [];
 
-  const loadProperties = propertiesResult.map((property: any) => (
-    <div key={property._id}>
-      <PropertiesList
-        OnEditProperty={OnEditProperty}
-        OnDeleteProperty={OnDeleteProperty}
-        {...property}
-      />
-    </div>
-  ));
+  if (!Array.isArray(propertiesdata?.data)) {
+    return <h1>Loading...</h1>;
+  } else {
+    const propertiesResult: any[] = propertiesdata?.data || [];
+    loadProperties = propertiesResult.map((property: any) => (
+      <div key={property._id}>
+        <PropertiesList
+          OnEditProperty={OnEditProperty}
+          OnDeleteProperty={OnDeleteProperty}
+          {...property}
+        />
+      </div>
+    ));
+  }
+
   return (
     <>
       {loadProperties.length !== 0 ? (
         <div className={style.container}>
-          <div className={style.bg}>
-            {isLoading ? "loading" : loadProperties}
-          </div>
+          <div className={style.bg}>{loadProperties}</div>
         </div>
       ) : null}
     </>
