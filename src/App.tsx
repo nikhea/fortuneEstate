@@ -1,8 +1,9 @@
 import { FC, Suspense, lazy } from "react";
 import "./App.css";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useNavigate } from "react-router-dom";
 import { routes } from "./routes/routes";
-import {ToastContainer} from "react-toastify"
+import { useAuth } from "./lib/auth";
+import { ToastContainer } from "react-toastify";
 
 import Spinner from "./components/UI/spinner/spinner";
 import Layout from "./Layout/Layout";
@@ -29,6 +30,7 @@ import TrackLisiting from "./pages/dashBoard/pages/trackLisiting";
 // );
 
 const App: FC = () => {
+  const { user, logout } = useAuth();
   return (
     <>
       <Suspense fallback={<p>Loading...</p>}>
@@ -58,19 +60,31 @@ const App: FC = () => {
             <Route path={`${routes.property}/:id`} element={<Property />} />
             {/* <Route path="/Continents/:id/Countries/:id/properties/id/property" element={<Property />} /> */}
           </Route>
-          <Route path="" element={<DashBoardLayout />}>
-            <Route path={routes.dashboard} element={<DashBoard />} />
-            <Route path={routes.upload} element={<Upload />} />
-            <Route path={routes.lisitingManager} element={<ListingManager />} />
-            <Route path={routes.lisitingStat} element={<ListingStats />} />
-            <Route path={routes.tracklisiting} element={<TrackLisiting />} />
-            <Route path={routes.profile} element={<Profile />} />
-            <Route path={routes.settings} element={<Settings />} />
-            <Route
-              path={routes.dashboardProperties}
-              element={<DashboardProperties />}
-            />
-          </Route>
+          {user ? (
+            <>
+              <Route path="" element={<DashBoardLayout />}>
+                <Route path={routes.dashboard} element={<DashBoard />} />
+                <Route path={routes.upload} element={<Upload />} />
+                <Route
+                  path={routes.lisitingManager}
+                  element={<ListingManager />}
+                />
+                <Route path={routes.lisitingStat} element={<ListingStats />} />
+                <Route
+                  path={routes.tracklisiting}
+                  element={<TrackLisiting />}
+                />
+                <Route path={routes.profile} element={<Profile />} />
+                <Route path={routes.settings} element={<Settings />} />
+                <Route
+                  path={routes.dashboardProperties}
+                  element={<DashboardProperties />}
+                />
+              </Route>
+            </>
+          ) : (
+            <Route path={routes.home} element={<Home />} />
+          )}
         </Routes>
       </Suspense>
       {/* <ToastContainer/> */}

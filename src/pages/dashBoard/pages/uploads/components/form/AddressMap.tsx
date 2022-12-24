@@ -20,12 +20,8 @@ const style = {
   buttonContainer: `flex justify-between items-center`,
 };
 const AddressMap: FC<AddressMap> = ({
-  // register,
   nextStep,
   prevStep,
-  SubmitForm,
-  step,
-  setStep,
   errors,
   countries,
 }) => {
@@ -75,7 +71,6 @@ const AddressMap: FC<AddressMap> = ({
             ({ value }: any) => value === propertycountryField.value
           )}
           handleSelectChange={handleCountryChange}
-          // onChange={handleCountryChange}
         />
         <p className={style.errors}>
           {errors.country?.message && <p>{errors.country?.message}</p>}
@@ -122,17 +117,5 @@ const AddressMap: FC<AddressMap> = ({
   );
 };
 
-{
-  /* <Input
-type="text"
-name=" country"
-placeholder="country*"
-inputFull
-required
-isWhiteBg
-rounded
-errors={errors}
-inputRef={register("country", { required: true })}
-/> */
-}
+
 export default AddressMap;

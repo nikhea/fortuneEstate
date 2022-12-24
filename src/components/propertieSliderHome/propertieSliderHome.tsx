@@ -39,12 +39,12 @@ const style = {
 // bg-[#F6F6F6]
 const propertieSliderHome: FC = () => {
   let length: number;
-  const { data: properties,} = useQuery(
+  const { data: properties } = useQuery(
     [queryKeys.properties],
     getAllProperties
   );
-  const propertiesResult = properties?.data.results.slice(0, 6) || [];
-  length = propertiesResult.length;
+  const propertiesResult = properties?.data?.results?.slice(0, 6) || [];
+  length = propertiesResult?.length;
   const [current, setCurrent] = useState(0);
   const timeout = useRef(current);
   useEffect(() => {

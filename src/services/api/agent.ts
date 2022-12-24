@@ -20,8 +20,6 @@ export const deleteProperties = async (id: string) => {
 };
 export const getAgentProperties = async () => {
   const res = await Axiosclient.get(`/properties/me`);
-  console.log(res, "res Service");
-
   return {
     status: res.status,
     data: res.data.data,

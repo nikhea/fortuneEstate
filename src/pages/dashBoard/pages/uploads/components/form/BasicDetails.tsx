@@ -2,12 +2,8 @@ import { FC, useState } from "react";
 import "./textEditor.css";
 import Input from "../../../../../../components/UI/FormElement/input/input";
 import Select from "./select/select";
-import SelectHalf from "./select/selectHalf";
 import Button from "../../../../../../components/UI/FormElement/Button";
 import { useFormContext, useController, Controller } from "react-hook-form";
-import WYSIWYGEditor from "./WYSIWYGEditor/WYSIWYGEditor";
-import { stripHtml } from "string-strip-html";
-import RichTextEditor from "react-rte";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 
@@ -20,7 +16,6 @@ import {
   measurementOPtions,
 } from "../../optionsValue";
 interface BasicDetailsProps {
-  // register: any;
   nextStep: any;
   prevStep: any;
   handleCategoryChange?: any;
@@ -50,26 +45,8 @@ const style = {
 
   errors: `block text-red-500 capitalize  leading-4 tracking-wide my-4 ml-4`,
 };
-const BasicDetails: FC<BasicDetailsProps> = ({
-  // register,
-  nextStep,
-  prevStep,
-  // handleCategoryChange,
-  SubmitForm,
-  step,
-  setStep,
-  errors,
-}) => {
-  const [message, setMessage] = useState("");
-  const getmessage = (e: any) => {};
-
-  const {
-    register,
-    control,
-    setValue,
-    watch,
-    // formState: { errors },
-  } = useFormContext();
+const BasicDetails: FC<BasicDetailsProps> = ({ nextStep, errors }) => {
+  const { register, control, setValue, watch } = useFormContext();
 
   const continues = (e: any) => {
     e.preventDefault();
@@ -142,7 +119,6 @@ const BasicDetails: FC<BasicDetailsProps> = ({
   const descriptionContent = watch("description");
   return (
     <div>
-      {/* <h1>BasicDetails</h1> */}
       <span>
         <h1 className={style.inputTitle}>property title*</h1>
         <Input
@@ -158,7 +134,6 @@ const BasicDetails: FC<BasicDetailsProps> = ({
         />
         <p className={style.errors}>
           {errors.title?.message && <p>{errors.title?.message}</p>}
-          {() => getmessage("skkks")}
         </p>
       </span>
       <span>
@@ -440,51 +415,9 @@ const BasicDetails: FC<BasicDetailsProps> = ({
         <Button rounded primary Color="#8392A5" onClick={continues}>
           Continue
         </Button>
-      </span>{" "}
+      </span>
     </div>
   );
 };
 
 export default BasicDetails;
-
-// const submitForm = (data: any) => {
-//   console.log(handleSubmit);
-
-//   if (data) {
-//     console.log(data, "data");
-//   }
-//   if (!data) console.log(data, "no data");
-
-//   reset();
-// };
-{
-  /* <Input
-type="text"
-name="description"
-placeholder="property description*"
-inputFull
-isWhiteBg
-required
-rounded
-errors={errors}
-inputRef={register("description", { required: true })}
-/> */
-}
-{
-  /* <Controller
-render={({ field }) => <WYSIWYGEditor {...field} />}
-name="description"
-control={control}
-defaultValue=""
-rules={{
-  validate: {
-    required: (v) =>
-      (v && stripHtml(v).result.length > 0) ||
-      "Description is required",
-    maxLength: (v) =>
-      (v && stripHtml(v).result.length <= 2000) ||
-      "Maximum character limit is 2000",
-  },
-}}
-/> */
-}

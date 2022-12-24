@@ -12,15 +12,16 @@ const App: FC = () => {
     <div className="relative">
       <SEO title="Learning React Helmet" />
       <Header />
-      <div className="relative top-[70%] -mt-20">
+      <div className="relative  -mt-20 z-50">
         <FilterCard />
       </div>
       <Carousel />
       <GolbalProperties />
       <CountriesCard />
-      <PropertieSliderHome/>
+      <PropertieSliderHome />
     </div>
   );
 };
 
 export default App;
+// top-[70%]

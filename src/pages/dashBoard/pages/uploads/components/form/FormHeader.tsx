@@ -6,19 +6,12 @@ interface HeaderProps {
   stepTitle: any;
   setStepTitle: any;
 }
-const Header: FC<HeaderProps> = ({
-  step,
-  setStep,
-  stepTitle,
-  setStepTitle,
-}) => {
+const Header: FC<HeaderProps> = ({ step, setStep, stepTitle }) => {
   const style = {
     headerTitleContainer: ` hidden md:flex justify-between borde mb-16 capitalize md:text-1xl`,
     headerTitle: ``,
   };
-  const ys = [0];
-  const zs = stepTitle.filter((_: any, i: any) => !ys.includes(i));
-  // console.log(zs);
+
   const handleSubmitButton = (index: any) => {
     setStep(index);
   };

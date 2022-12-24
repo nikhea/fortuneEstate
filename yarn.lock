@@ -517,6 +517,11 @@
   "resolved" "https://registry.npmjs.org/@types/lodash/-/lodash-4.14.189.tgz"
   "version" "4.14.189"
 
+"@types/node@^18.11.17":
+  "integrity" "sha512-HJSUJmni4BeDHhfzn6nF0sVmd1SMezP7/4F0Lq+aXzmp2xm9O7WXrUtHW/CHlYVtZUbByEvWidHqRtcJXGF2Ng=="
+  "resolved" "https://registry.npmjs.org/@types/node/-/node-18.11.17.tgz"
+  "version" "18.11.17"
+
 "@types/parse-json@^4.0.0":
   "integrity" "sha512-//oorEZjL6sbPcKUaCdIGlIUeH26mgzimjBB77G6XRgnDl/L5wOnpyBGRe/Mmf5CVW3PwEBE1NjiMZ/ssFh4wA=="
   "resolved" "https://registry.npmjs.org/@types/parse-json/-/parse-json-4.0.0.tgz"

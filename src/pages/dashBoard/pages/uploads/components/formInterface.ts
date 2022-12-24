@@ -8,15 +8,12 @@ export interface FormData {
   view: string;
   squareSymbol: string;
   priceSymbol: string;
-
   country: string;
   street: string;
   city: string;
-
   webSiteURL: string;
   webSiteName: string;
   price: number;
-
   bedrooms: number;
   bathrooms: number;
   halfBathrooms?: number;
@@ -24,5 +21,5 @@ export interface FormData {
   lotAreaSymbol?: string;
   yearBuilt?: number;
   lotArea?: number;
-  propertyImages: any;
+  propertyImages: any[];
 }

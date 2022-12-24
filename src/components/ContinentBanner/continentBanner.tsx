@@ -1,10 +1,6 @@
 import { FC } from "react";
 import { IoPlayCircleOutline } from "react-icons/io5";
-const imageLink =
-  "https://www.thehouse48.com/wp-content/uploads/2021/12/chuttersnap-603079-unsplash-e1546425079773.jpg";
-// bg-[url(${imageLink})]
-// bg-[url('${imageLink}')]
-console.log(imageLink);
+
 const style = {
   bgImage: ` md:mt-[2em] w-full h-[60vh] md:h-[340px]  bg-cover bg-center bg-no-repeat relative bg-fixed object-content z-50 bg-[url('https://www.thehouse48.com/wp-content/uploads/2021/12/chuttersnap-603079-unsplash-e1546425079773.jpg')]`,
   container: `h-full  w-[85%] m-auto flex flex-row justify-between items-center`,

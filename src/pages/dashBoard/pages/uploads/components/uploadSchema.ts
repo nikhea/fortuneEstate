@@ -22,51 +22,14 @@ export const uploadSchema = yup.object().shape({
   country: yup.string().required(),
   street: yup.string().required(),
   city: yup.string().required(),
-
   webSiteURL: yup.string().required(),
   webSiteName: yup.string().required(),
-
   price: yup.number().required(),
-  // .maxValue()
-  // .test(
-  //   "greaterThanZero",
-  //   "Value must be greater than zero",
-  //   (value: number) => {
-  //     return value ? value > 0 : " ";
-  //   }
-  // )
   bedrooms: yup.number().required(),
   bathrooms: yup.number().required(),
   halfBathrooms: yup.number(),
   squareFootage: yup.number().required(),
   yearBuilt: yup.number(),
   lotArea: yup.number(),
-
-  propertyImages: yup
-    .mixed()
-    .required("A file is required")
-    .test("FileSize", "The File is too large", (value) => {
-      return value && value[0].size <= 1024 * 1024;
-    })
-    .test(
-      "format",
-      "we dont accept format",
-      (value) => value && SUPPORTED_FORMATS.includes(value[0].type)
-    ),
-  // images: yup.string().required(),
+  propertyImages: yup.mixed(),
 });
-
-// images: yup
-//   .mixed()
-//   .nullable()
-//   .required("A file is required")
-//   .test(
-//     "Fichier taille",
-//     "upload file",
-//     (value) => !value || (value && value.size <= 1024 * 1024)
-//   )
-//   .test(
-//     "format",
-//     "upload file",
-//     (value) => !value || (value && SUPPORTED_FORMATS.includes(value.type))
-//   ),

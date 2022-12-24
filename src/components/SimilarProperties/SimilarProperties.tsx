@@ -19,19 +19,19 @@ import { Link } from "react-router-dom";
 
 const style = {
   container: `w-[80%] m-auto my-10 leading-[100px]`,
-  similar:`font-bold text-xl uppercase`,
+  similar: `font-bold text-xl uppercase text-center`,
   mainContainer: `w-full flex rounded-xl flex-col relative `,
   image: ` w-full h-full object-cover flex rounded-xl  `,
-  textContainer: `rounded-b-xl flex flex-col justify-between pt-[1em] px-[1em] absolute bottom-0  left-0 right-0 z-20`,
-  bgWhite: `pt-[1em] px-[1em] absolute bottom-0 bg-white left-0 right-0 rounded-b-xl hidden`,
+  textContainer: `rounded-b-xl flex flex-col justify-between pt-[1em] px-[1em] absolute bottom-0  left-0 right-0 z-20 `,
+  bgWhite: `pt-[1em] px-[1em] absolute bottom-0 bg-white left-0 right-0 rounded-b-xl hidde bg-gradient-to-r from-cyan-500 to-blue-500 text-white`,
   title: `font-bold text-xl `,
-  location: `font-[400] text-[#8392A5]  flex items-center `,
+  location: `font-[400]   flex items-center hidden md:flex`,
   bed: `text-sm   flex items-center`,
-  span: `font-[400] text-[#8392A5]`,
+  span: `font-[400] `,
   bath: `text-sm  flex items-center`,
   sub: `flex justify-between items-center my-2`,
-  price: `text-[1rem]`,
-  textPrice: `text-white`,
+  price: `text-[1.5rem]`,
+  textPrice: `text-white mb-[50px] md:mb-[70px]`,
   listingType: `capitalize rounded-full  bg-purple-500 text-white absolute py-1 px-3 text-center z-[90] top-2 left-3 transistion ease-out duration-1000`,
   imgContainer: `w-full flex rounded-t-xl flex-col relative [&>p]:hover:hidde [&>p]:transistion [&>p]:ease-in [&>p]:duration-3000`,
 
@@ -46,8 +46,6 @@ const SimilarProperties: FC<Props> = () => {
   if (isLoading) {
     return <h1>Loading properties</h1>;
   }
-  console.log(propertiesResult, "sksldcjjdj");
-
   return (
     <div className="overflow-hidden ">
       <div className={style.container}>
@@ -85,7 +83,7 @@ const SimilarProperties: FC<Props> = () => {
         transitionDuration={1000}
       >
         {propertiesResult.map((property: Props, index: any) => (
-          <div className="mx-4">
+          <div className="mx-4" key={index}>
             <div className={style.mainContainer}>
               <div className={style.imgContainer}>
                 <LazyLoadImage

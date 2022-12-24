@@ -44,11 +44,9 @@ const properties: FC<propertiesProps> = ({
   propertiesPerPage,
 }) => {
   const { countryName } = useParams();
-  const {
-    data: propertiesdata,
-    isLoading,
-  } = useQuery([queryKeys.propertiesCountries, countryName], () =>
-    getPropertiesByCountry(countryName)
+  const { data: propertiesdata, isLoading } = useQuery(
+    [queryKeys.propertiesCountries, countryName],
+    () => getPropertiesByCountry(countryName)
   );
   const properties = propertiesdata?.data;
   // const [properties, setproperties] = useState(propertiesdata?.data || [])

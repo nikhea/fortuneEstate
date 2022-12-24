@@ -1,8 +1,6 @@
 import { useState, useEffect, FC } from "react";
 import { FormData } from "./formInterface";
-// import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useMutation, useQueryClient, useQuery } from "react-query";
-
 import { useForm, FormProvider } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import useFormPersist from "react-hook-form-persist";
@@ -30,15 +28,12 @@ const ComponentSwitch: FC = () => {
       queryClient.invalidateQueries(queryKeys.properties);
     },
   });
-  console.log("status", status);
-  const [image, setImage] = useState("");
   const [step, setStep] = useState(0);
   const [title, setTitle] = useState([
     "basic details",
     "address map",
     "images upload",
     "website details",
-    // "features",
     "submit",
   ]);
   const nextStep = () => {
@@ -70,27 +65,23 @@ const ComponentSwitch: FC = () => {
   };
 
   const submitForm = (formData: any) => {
-    console.log("submitForm DATA main => ", formData);
-
+    // console.log("submitForm DATA main => ", formData);
     if (formData) {
       console.log("submitForm DATA main => ", formData);
-      let p = formData.propertyImages[0]
-      let subb= {...formData, p}
-      console.log(subb);
+      addProperties(formData);
+      if (status === "loading") {
+        toast.warning("submmiting");
+      }
+      if (status === "success") {
+        toast.success("Property Created Successfully");
+        // reset();
+        // localStorage.removeItem("propertiesImage")
+        // propertyImages
+        setStep(0);
+      }
       
-      addProperties(p);
-      // reset();
-      // propertyImages
-      // setStep(0);
-    }
-    notify(WatchErrors);
+    }    notify(WatchErrors);
   };
-  if (status === "success") {
-    toast.success("Property Created Successfully");
-  }
-  if (status === "loading") {
-    toast.warning("submmiting");
-  }
 
   return (
     <FormProvider {...methods}>
@@ -132,15 +123,9 @@ const ComponentSwitch: FC = () => {
             case 2:
               return (
                 <Image
-                  register={register}
                   nextStep={nextStep}
                   prevStep={prevStep}
-                  SubmitForm={submitForm}
-                  step={step}
-                  setStep={setStep}
                   errors={errors}
-                  imageOutput={image}
-                  addProperties={addProperties}
                 />
               );
             case 3:
@@ -182,19 +167,9 @@ const ComponentSwitch: FC = () => {
               );
           }
         })()}
-        {/* <button type="submit">submit</button> */}
       </form>
     </FormProvider>
   );
 };
 
 export default ComponentSwitch;
-
-// onSubmit={handleSubmit((fm) => console.log("FM => ", fm))}
-// const conver2Base64 = (files: any) => {
-//   const reader = new FileReader();
-//   reader.onloadend = () => {
-//     setImage(reader.result?.toString());
-//   };
-//   reader.readAsDataURL(files);
-// };

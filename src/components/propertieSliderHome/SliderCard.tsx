@@ -55,9 +55,9 @@ const style = {
   top: ``,
   middle: ``,
   bottom: ``,
-  SliderController: `flex gap-10  justify-end `,
-  previous: `w-[50px] h-[50px] bg-red-500 rounded-[50%]  cursor-pointer  grid items-center text-center`,
-  next: `w-[50px] h-[50px] bg-red-500 rounded-[50%] grid items-center text-center cursor-pointer`,
+  SliderController: `flex gap-10  justify-end text-white`,
+  previous: `w-[50px] h-[50px]  rounded-[50%]  cursor-pointer  grid items-center text-center bg-gradient-to-r from-cyan-500 to-blue-500`,
+  next: `w-[50px] h-[50px]  rounded-[50%] grid items-center text-center cursor-pointer bg-gradient-to-r from-cyan-500 to-blue-500`,
 };
 // mainContainer: `flex flex-col md:flex-row`,
 // previous: `w-[50px] h-[50px] bg-red-500 rounded-[50%] grid items-center text-center  cursor-pointer`,

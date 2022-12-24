@@ -18,7 +18,7 @@ interface inputProps {
   onChange?: any;
   multipleFile?: any;
   isWhiteBg?: boolean;
-  Width: string;
+  Width?: string;
 }
 const style = {
   input: `my-[10px]  py-[15px] px-[23px]  text-[.9375rem]   pr-[23px] outline-none`,

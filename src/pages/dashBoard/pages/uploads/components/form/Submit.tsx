@@ -1,10 +1,5 @@
 import { FC } from "react";
-import { useNavigate } from "react-router-dom";
-
-import Input from "../../../../../../components/UI/FormElement/input/input";
-import Select from "../../../../../../components/UI/FormElement/select/select";
 import Button from "../../../../../../components/UI/FormElement/Button";
-// import ToasFormMessage from "./ToasFormMessage";
 
 interface SubmiteProps {
   register: any;
@@ -14,7 +9,6 @@ interface SubmiteProps {
   step: any;
   setStep: any;
   errors: any;
-  // notify: () => void;
 }
 const style = {
   errors: `block `,
@@ -30,8 +24,6 @@ const Submit: FC<SubmiteProps> = ({
   errors,
   // notify,
 }) => {
-  let navigate = useNavigate();
-
   const previous = (e: any) => {
     e.preventDefault();
     prevStep();
@@ -39,9 +31,6 @@ const Submit: FC<SubmiteProps> = ({
 
   const handleSubmitButton = () => {
     SubmitForm();
-
-    // return navigate("/upload");
-    
   };
   return (
     <div>
@@ -64,6 +53,3 @@ const Submit: FC<SubmiteProps> = ({
 };
 
 export default Submit;
-{
-  /* <ToasFormMessage errors={errors} /> */
-}

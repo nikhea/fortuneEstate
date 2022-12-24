@@ -1,34 +1,82 @@
-import { FC } from "react";
+import { useEffect, useRef, useState, FC } from "react";
 import Input from "../../../../../../components/UI/FormElement/input/input";
-import Select from "../../../../../../components/UI/FormElement/select/select";
 import Button from "../../../../../../components/UI/FormElement/Button";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
+import { useFormContext, useController } from "react-hook-form";
 import SlideBottons from "./slideBottons/slideBottons";
-interface ImageProps {
-  register: any;
-  nextStep: any;
-  prevStep: any;
-  SubmitForm: any;
-  step: any;
-  setStep: any;
-  errors: any;
-  imageOutput: string;
-  addProperties: any;
-}
 const style = {
-  errors: `block `,
-  buttonContainer: `flex justify-between items-center`,
+  imgContainer: ` flex h-full w-full  w-[100vw] m-auto overflow-hidden`,
+  image: ` w-[50%] rounded`,
 };
-const Image: FC<ImageProps> = ({
-  register,
-  nextStep,
-  prevStep,
-  SubmitForm,
-  step,
-  setStep,
-  imageOutput,
-  errors,
-  addProperties,
-}) => {
+const image: FC<ImageComponentProps> = ({ nextStep, prevStep, errors }) => {
+  const { setValue, register, watch } = useFormContext();
+  const FormWatch = watch();
+  console.log(FormWatch, `Image Watch`);
+
+  const [images, setImages] = useState<any[]>([]);
+
+  const cloudinaryRef = useRef();
+  const widgetRef = useRef();
+
+  // useEffect(() => {
+  const loadedImages = async () => {
+    if (localStorage.getItem("propertiesImage")) {
+      const ParsedImages = localStorage.getItem("propertiesImage");
+      const localImage = JSON.parse(ParsedImages!);
+      for (const file of localImage) {
+        setImages((image) => [...image, file]);
+      }
+      setValue("propertyImages", images);
+    }
+    console.log("loading localImage", images);
+  };
+
+  // }, []);
+  useEffect(() => {
+    //@ts-ignore
+    cloudinaryRef.current = window?.cloudinary; //@ts-ignore
+    widgetRef.current = cloudinaryRef.current.createUploadWidget(
+      {
+        cloudName: process.env.REACT_APP_CLOUDINARY_CLOUD_NAME,
+        uploadPreset: process.env.REACT_APP_CLOUDINARY_UPLOAD_PRESET,
+        folder: `reactUploadProperties/${FormWatch.title}-${Date.now()}`,
+        clientAllowedFormats: ["webp", "png", "jpeg"],
+        showPoweredBy: false,
+        maxFileSize: 1500000,
+        multiple: true,
+        maxFiles: 5,
+        maxImageFileSize: 1500000,
+        max_files: 5,
+      },
+      function (error: any, result: any) {
+        if (!error && result && result.event === "success") {
+          console.log(result.data);
+          
+          // if (!result?.data?.info?.files) {
+          return "please add an image";
+        } else {
+          for (const file of result?.data?.info?.files) {
+            const { uploadInfo } = file;
+            localStorage.setItem(
+              "propertiesImage",
+              JSON.stringify([uploadInfo])
+            );
+          }
+          loadedImages();
+        }
+      }
+      // }
+    );
+  }, []);
+
+  // console.log(images, "images");
+
+  const openWidget = () => {
+    //@ts-ignore
+    widgetRef.current.open();
+  };
+  const removeImage = (id: string) => {};
   const continues = (e: any) => {
     e.preventDefault();
     nextStep();
@@ -37,48 +85,44 @@ const Image: FC<ImageProps> = ({
     e.preventDefault();
     prevStep();
   };
-  const onChange = (e: any) => {
-    const file = e.target.files;
-    console.log("lsjkhkdLZjs", file);
-    // addProperties(file);
-    return file;
-    // return file.name;
-  };
+  const displayproperties = images?.map((image: Props, index: any) => (
+    <div key={index}>
+      <LazyLoadImage
+        alt={image.original_filename}
+        effect="blur"
+        src={image.secure_url}
+        className={style.image}
+      />
+      <Button onClick={removeImage(image.public_id)}>Delete</Button>
+    </div>
+  ));
   return (
     <div>
-      <h1>Image</h1>
-      {/* {imageOutput ? <img src={imageOutput} width="450" /> : null} */}
-      <span>
-        <input
+      <span style={{ display: "none" }}>
+        <Input
           type="file"
           name="propertyImages"
           placeholder="images*"
-          onChange={onChange}
-          // inputRef={register("propertyImages", { required: true })}
-          multiple
+          inputRef={register("propertyImages", { required: true })}
         />
-        <p className={style.errors}>
-          {errors.images?.message && <p>{errors.images?.message}</p>}
-        </p>
       </span>
+      <Button onClick={openWidget}>upload</Button>
+      {displayproperties}
       <SlideBottons previous={previous} continues={continues} />
     </div>
   );
 };
 
-export default Image;
-{
-  /* <Input
-type="file"
-name="propertyImages"
-placeholder="images*"
-inputFull
-required
-onChange={onChange}
-rounded
-errors={errors}
-isWhiteBg
-inputRef={register("propertyImages", { required: true })}
-multipleFile="multiple"
-/> */
+export default image;
+
+interface ImageComponentProps {
+  nextStep: any;
+  prevStep: any;
+  errors: any;
+}
+interface Props {
+  public_id: string;
+  thumbnail_url: string;
+  secure_url: string;
+  original_filename: string;
 }

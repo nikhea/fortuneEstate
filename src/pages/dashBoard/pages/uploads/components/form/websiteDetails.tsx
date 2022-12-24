@@ -50,7 +50,7 @@ const WebsiteDetails: FC<WebsiteDetailsProps> = ({
         <h1 className={style.inputTitle}>website name</h1>
         <Input
           type="text"
-          name=" webSiteName"
+          name="webSiteName"
           placeholder=" website name*"
           inputFull
           required
@@ -70,7 +70,7 @@ const WebsiteDetails: FC<WebsiteDetailsProps> = ({
         <Input
           type="text"
           name="webSiteURL"
-          placeholder=" webSiteURL*"
+          placeholder="webSiteURL*"
           inputFull
           required
           rounded
