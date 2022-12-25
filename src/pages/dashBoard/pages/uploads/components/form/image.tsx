@@ -1,20 +1,33 @@
 import { useEffect, useRef, useState, FC } from "react";
 import Input from "../../../../../../components/UI/FormElement/input/input";
 import Button from "../../../../../../components/UI/FormElement/Button";
-import { LazyLoadImage } from "react-lazy-load-image-component";
-import "react-lazy-load-image-component/src/effects/blur.css";
 import { useFormContext, useController } from "react-hook-form";
+import ImageCard from "./ImageCard";
 import SlideBottons from "./slideBottons/slideBottons";
+
 const style = {
-  imgContainer: ` flex h-full w-full  w-[100vw] m-auto overflow-hidden`,
-  image: ` w-[50%] rounded`,
+  items: `bg-[#E5E5E5]  my-10 shadow-xl flex justify-between items-end`,
 };
 const image: FC<ImageComponentProps> = ({ nextStep, prevStep, errors }) => {
   const { setValue, register, watch } = useFormContext();
   const FormWatch = watch();
   console.log(FormWatch, `Image Watch`);
 
-  const [images, setImages] = useState<any[]>([]);
+  const [images, setImages] = useState<any[]>([
+    {
+      secure_url: `https://images.unsplash.com/photo-1559705421-4ae9bf6fabb5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8dGh1bWJuYWlsfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60`,
+      
+    },
+    {
+      secure_url: `https://images.unsplash.com/photo-1559705421-4ae9bf6fabb5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8dGh1bWJuYWlsfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60`,
+    },
+    {
+      secure_url: `https://images.unsplash.com/photo-1559705421-4ae9bf6fabb5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8dGh1bWJuYWlsfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60`,
+    },
+    {
+      secure_url: `https://images.unsplash.com/photo-1559705421-4ae9bf6fabb5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8dGh1bWJuYWlsfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60`,
+    },
+  ]);
 
   const cloudinaryRef = useRef();
   const widgetRef = useRef();
@@ -52,7 +65,7 @@ const image: FC<ImageComponentProps> = ({ nextStep, prevStep, errors }) => {
       function (error: any, result: any) {
         if (!error && result && result.event === "success") {
           console.log(result.data);
-          
+
           // if (!result?.data?.info?.files) {
           return "please add an image";
         } else {
@@ -86,14 +99,8 @@ const image: FC<ImageComponentProps> = ({ nextStep, prevStep, errors }) => {
     prevStep();
   };
   const displayproperties = images?.map((image: Props, index: any) => (
-    <div key={index}>
-      <LazyLoadImage
-        alt={image.original_filename}
-        effect="blur"
-        src={image.secure_url}
-        className={style.image}
-      />
-      <Button onClick={removeImage(image.public_id)}>Delete</Button>
+    <div key={index} className={style.items}>
+      <ImageCard images={image} removeImage={removeImage} />
     </div>
   ));
   return (

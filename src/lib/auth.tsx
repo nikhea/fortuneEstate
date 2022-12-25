@@ -6,7 +6,7 @@ import {
   User,
 } from "../services/api/auth";
 import { storage } from "./storage";
-import profile from "../pages/dashBoard/pages/profile";
+import profile from "../pages/dashBoard/pages/profile/profile";
 
 export async function handleUserResponse(data: any) {
   const {
