@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "name": "fortuneestate",
+  "alias": "fortuneestate.vercel.app",
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@vercel/npm"
+    }
+  ]
+}

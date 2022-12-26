@@ -8,9 +8,9 @@ import { MdLocationPin } from "react-icons/md";
 import { FaBed, FaBath } from "react-icons/fa";
 import { HiSquaresPlus } from "react-icons/hi2";
 import { AiOutlineArrowLeft } from "react-icons/ai";
-import { formatToCurrency, numberWithCommas} from "../../utils/formateNumbers";
+import { formatToCurrency, numberWithCommas } from "../../utils/formateNumbers";
 import Button from "../UI/FormElement/Button";
-
+import parser from "html-react-parser";
 interface Props {
   [x: string]: any;
   ID?: string;
@@ -107,8 +107,8 @@ const SliderCard: FC<Props> = ({
           <div className={style.hrBig}></div>
           <p className={style.discription}>
             {discription.length < 100
-              ? discription
-              : `${discription.substring(0, 200)}...`}
+              ? parser(discription)
+              : `${parser(discription.substring(0, 200))}...`}
           </p>
           <div className={style.hr}></div>
         </div>

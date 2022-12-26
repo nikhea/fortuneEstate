@@ -28,8 +28,15 @@ export const getAllCountry = async () => {
     data: res.data.data,
   };
 };
-export const getAllProperties = async () => {
-  const res = await Axiosclient.get(`/properties?page=2&limit=1`);
+export const getAllProperties = async (
+  pageNumber: number,
+  limitProperties: number
+) => {
+  console.log(pageNumber, limitProperties);
+  
+  const res = await Axiosclient.get(
+    `/properties?page=${pageNumber}&limit=${limitProperties}`
+  );
   return {
     status: res.status,
     data: res.data.data,

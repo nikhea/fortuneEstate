@@ -17,6 +17,7 @@ import Home from "./pages/home/Home";
 import Countries from "./pages/Countries/Countries";
 import Properties from "./pages/properties/properties";
 import Property from "./pages/property/property";
+import AllProperties from "./pages/allProperties/allProperties";
 import DashBoard from "./pages/dashBoard/dashBoard";
 import Upload from "./pages/dashBoard/pages/uploads/upload";
 import ListingStats from "./pages/dashBoard/pages/ListingStats";
@@ -25,9 +26,6 @@ import Profile from "./pages/dashBoard/pages/profile/profile";
 import Settings from "./pages/dashBoard/pages/settings";
 import DashboardProperties from "./pages/dashBoard/pages/Properties";
 import TrackLisiting from "./pages/dashBoard/pages/trackLisiting";
-// const TrackLisiting = lazy(
-//   () => import("./pages/dashBoard/pages/trackLisiting")
-// );
 
 const App: FC = () => {
   const { user, logout } = useAuth();
@@ -41,9 +39,18 @@ const App: FC = () => {
           <Route path="" element={<Layout />}>
             <Route path={routes.contact} element={<Contact />} />
             <Route
-              path={routes.advertServices}
-              element={<AdvertService />}
-            />{" "}
+              path={`${routes.properties}`}
+              element={
+                <AllProperties
+                  displayproperties={undefined}
+                  pageChange={undefined}
+                  propertiesPerPage={0}
+                  propertiesCount={0}
+                />
+              }
+            />
+
+            <Route path={routes.advertServices} element={<AdvertService />} />
             <Route path={routes.continents} element={<Continents />} />
             <Route path={`${routes.countries}/:name`} element={<Countries />} />
             <Route
@@ -87,7 +94,6 @@ const App: FC = () => {
           )}
         </Routes>
       </Suspense>
-   
     </>
   );
 };

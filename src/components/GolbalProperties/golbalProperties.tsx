@@ -5,7 +5,9 @@ import { useQuery } from "react-query";
 import { getAllProperties } from "../../services/api/shared";
 import { queryKeys } from "../../utils/queryKey";
 import Button from "../UI/FormElement/Button";
+
 import propertiesList from "../../pages/dashBoard/pages/ListingManaga/components/propertiesList";
+import { routes } from '../../routes/routes';
 interface Props {
   [x: string]: any;
   ID?: string;
@@ -88,7 +90,7 @@ const golbalProperties: FC<Props> = () => {
             <div className={style.gridContainer}>{displayproperties}</div>
             <div className={style.container}>
               <Button rounded linearGradient uppercase primary>
-                <Link to="/">all properties</Link>
+                <Link to={routes.properties}>all properties</Link>
               </Button>
             </div>
           </div>
