@@ -9,8 +9,10 @@ export default defineConfig({
   },
   define: {
     "process.env": {
-      REACT_APP_CLOUDINARY_CLOUD_NAME: "dwtx0sgd6",
-      REACT_APP_CLOUDINARY_UPLOAD_PRESET: "i4szcw1n",
+      REACT_APP_CLOUDINARY_CLOUD_NAME:
+        process.env.REACT_APP_CLOUDINARY_CLOUD_NAME,
+      REACT_APP_CLOUDINARY_UPLOAD_PRESET:
+        process.env.REACT_APP_CLOUDINARY_UPLOAD_PRESET,
     },
   },
 });
