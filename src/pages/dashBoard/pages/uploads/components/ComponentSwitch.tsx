@@ -11,21 +11,46 @@ import Image from "./form/image";
 import WebsiteDetails from "./form/websiteDetails";
 import Submit from "./form/Submit";
 import FormHeader from "./form/FormHeader";
-import { toast } from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { notify } from "./notify";
 import { createProperties } from "../../../../../services/api/agent";
 import { queryKeys } from "../../../../../utils/queryKey";
 import { getAllCountry } from "../../../../../services/api/shared";
+import { useParams } from "react-router-dom";
 
 const ComponentSwitch: FC = () => {
+  const methods = useForm<FormData>({
+    resolver: yupResolver(uploadSchema),
+  });
+  const {
+    register,
+    handleSubmit,
+    watch,
+    reset,
+    setValue,
+    formState: { errors },
+  } = methods;
+  let Watch = watch();
+
   const queryClient = useQueryClient();
   const { data: countries } = useQuery([queryKeys.countries], getAllCountry);
 
-  const { mutateAsync, status } = useMutation(createProperties, {
-    onSuccess: () => {
+  const {
+    mutateAsync,
+    status,
+    data: createPropertiesData,
+  } = useMutation(createProperties, {
+    onMutate: () => {},
+    onSettled: () => {
       //invalidate cached properties query and refresh
       // @ts-ignore
-      queryClient.invalidateQueries(queryKeys.properties);
+      queryClient.invalidateQueries();
+      // queryClient.invalidateQueries(queryKeys.properties);
+      // [queryKeys.properties, countryName],
+    },
+    onError: (_error, _hero, context) => {
+      // queryClient.setQueryData("", context.previouse);
     },
   });
   const [step, setStep] = useState(0);
@@ -42,45 +67,44 @@ const ComponentSwitch: FC = () => {
   const prevStep = () => {
     setStep(step - 1);
   };
-  const methods = useForm<FormData>({
-    resolver: yupResolver(uploadSchema),
-  });
 
-  const {
-    register,
-    handleSubmit,
-    watch,
-    reset,
-    setValue,
-    formState: { errors },
-  } = methods;
+  // const {
+  //   register,
+  //   handleSubmit,
+  //   watch,
+  //   reset,
+  //   setValue,
+  //   formState: { errors },
+  // } = methods;
   useFormPersist("storageKey", {
     watch,
     setValue,
     storage: window.localStorage,
   });
-  let WatchErrors = watch();
+
   const addProperties = async (formData: any) => {
     await mutateAsync(formData);
   };
 
-  const submitForm = (formData: any) => {
+  const submitForm = async (formData: any) => {
     // console.log("submitForm DATA main => ", formData);
     if (formData) {
       console.log("submitForm DATA main => ", formData);
-      addProperties(formData);
+      await addProperties(formData);
       if (status === "loading") {
         toast.warning("submmiting");
       }
-      if (status === "success") {
-        toast.success("Property Created Successfully");
+      if (createPropertiesData?.status === 200) {
+        setTimeout(() => {
+          setStep(0);
+        }, 1000);
         // reset();
         // localStorage.removeItem("propertiesImage")
         // propertyImages
-        setStep(0);
       }
-      
-    }    notify(WatchErrors);
+      console.log(createPropertiesData?.status);
+    }
+    notify(Watch);
   };
 
   return (

@@ -24,11 +24,12 @@ export const notify = (WatchErrors: any) => {
     squareFootage,
     lotAreaSymbol,
     yearBuilt,
+    propertyImages,
   } = WatchErrors;
 
-//  const isEmptyImage =Object.keys(images[0]).length === 0 && images.constructor === Object;
+  //  const isEmptyImage =Object.keys(images[0]).length === 0 && images.constructor === Object;
 
-//   console.log(isEmptyImage);
+  //   console.log(isEmptyImage);
 
   if (!title) {
     toast.error("Title  is a required field");
@@ -36,8 +37,8 @@ export const notify = (WatchErrors: any) => {
   if (!pageTitle) {
     toast.error("pageTitle  is a required field");
   }
-  if (!images) {
-    toast.error("Images Must Be Required");
+  if (!propertyImages || propertyImages.length === 0) {
+    toast.error("Images are Required");
   }
 
   if (!description || description.includes("<p><br></p>")) {

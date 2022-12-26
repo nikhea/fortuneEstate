@@ -26,7 +26,7 @@ const style = {
 
 // linear-gradient(271deg, #0D304A, #0D304A);
 const SubNav: FC = () => {
-  const { user, logout } = useAuth();
+  const { user, logout, isLoggingOut } = useAuth();
 
   const showSignUpModal = () => {
     NiceModal.show("signUpModal");
@@ -34,8 +34,10 @@ const SubNav: FC = () => {
   const showregisterModal = () => {
     NiceModal.show("registerModal");
   };
-  const logOutUser = () => {
-    logout();
+  const logOutUser = async () => {
+    try {
+      await logout();
+    } catch (error) {}
   };
   return (
     <div className={style.background}>

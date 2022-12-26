@@ -38,19 +38,91 @@ const style = {
   overlay: `h-full w-full -z-10 top-0 left-0 absolute bg-gradient-to-tl from-black overflow-hidden z-10 rounded-xl`,
 };
 const SimilarProperties: FC<Props> = () => {
-  const { data: properties, isLoading } = useQuery(
-    [queryKeys.properties],
-    getAllProperties
-  );
-  const propertiesResult = properties?.data.results.slice(0, 6) || [];
+  let propertiesResult, loadProperties;
+  const {
+    data: properties,
+    isLoading,
+    status,
+  } = useQuery([queryKeys.properties], getAllProperties);
+
+  if (status === "success") {
+    const p = properties?.data.results[0].data.slice(0, 6);
+    if (Array.isArray(p)) {
+      propertiesResult = p || [];
+    }
+  }
   if (isLoading) {
     return <h1>Loading properties</h1>;
   }
+  loadProperties = propertiesResult?.map((property: Props, index: any) => (
+    <div className="mx-4" key={index}>
+      <div className={style.mainContainer}>
+        <div className={style.imgContainer}>
+          <LazyLoadImage
+            alt={property.title}
+            effect="blur"
+            src={property.propertyImages[0].url}
+            className={style.image}
+          />
+          <p className={style.listingType}>for {property.listingType}</p>
+        </div>
+        <div className={style.textContainer}>
+          <div className={style.textPrice}>
+            <Link to={`${routes.property}/${property._id}`} target="_blank">
+              {/* <a href={`${routes.property}/${property._id}`}> */}
+              <h1 className={style.title}>{property.title}</h1>
+              {/* </a> */}
+            </Link>
+
+            <div className={style.sub}>
+              {/* <p className={style.tag}>{tage}</p> */}
+              <p className={style.price}>
+                $ {formatToCurrency(property.price!)}
+              </p>
+            </div>
+          </div>
+          <div className={style.bgWhite}>
+            <div className={style.location}>
+              <MdLocationPin size={15} style={{ marginRight: "5px" }} />
+              {property.address.street?.length! < 19
+                ? property.address.street
+                : `${property.address.street.substring(0, 40)}...`}
+            </div>
+            <div className={style.sub}>
+              <p className={style.bed}>
+                <span className={style.span}>
+                  <FaBed size={15} style={{ marginRight: "5px" }} />
+                </span>
+                {property.bedrooms} Bed
+              </p>
+              <p className={style.bath}>
+                <span className={style.span}>
+                  <FaBath size={15} style={{ marginRight: "5px" }} />
+                </span>
+                {property.bathrooms} Bath
+              </p>
+              <p className={style.bath}>
+                <span className={style.span}>
+                  <HiSquaresPlus size={15} style={{ marginRight: "5px" }} />
+                </span>
+                {numberWithCommas(property.squareFootage)}{" "}
+                {property.squareSymbol}
+              </p>
+            </div>
+          </div>
+        </div>
+        <div className={style.overlay}></div>
+      </div>
+    </div>
+  ));
+  const titleHeader = () => {
+    if (propertiesResult.length > 0) {
+      return <h1 className={style.similar}>Similar Properties</h1>;
+    }
+  };
   return (
     <div className="overflow-hidden ">
-      <div className={style.container}>
-        <h1 className={style.similar}>Similar Properties</h1>
-      </div>
+      <div className={style.container}>{titleHeader()}</div>
       <Carousel
         responsive={responsive}
         additionalTransfrom={0}
@@ -82,78 +154,13 @@ const SimilarProperties: FC<Props> = () => {
         swipeable
         transitionDuration={1000}
       >
-        {propertiesResult.map((property: Props, index: any) => (
-          <div className="mx-4" key={index}>
-            <div className={style.mainContainer}>
-              <div className={style.imgContainer}>
-                <LazyLoadImage
-                  alt={property.title}
-                  effect="blur"
-                  src={property.propertyImages[0].url}
-                  className={style.image}
-                />
-                <p className={style.listingType}>for {property.listingType}</p>
-              </div>
-              <div className={style.textContainer}>
-                <div className={style.textPrice}>
-                  <Link to={`${routes.property}/${property._id}`}>
-                    {/* <a href={`${routes.property}/${property._id}`}> */}
-                    <h1 className={style.title}>{property.title}</h1>
-                    {/* </a> */}
-                  </Link>
-
-                  <div className={style.sub}>
-                    {/* <p className={style.tag}>{tage}</p> */}
-                    <p className={style.price}>
-                      $ {formatToCurrency(property.price!)}
-                    </p>
-                  </div>
-                </div>
-                <div className={style.bgWhite}>
-                  <div className={style.location}>
-                    <MdLocationPin size={15} style={{ marginRight: "5px" }} />
-                    {property.address.street?.length! < 19
-                      ? property.address.street
-                      : `${property.address.street.substring(0, 40)}...`}
-                  </div>
-                  <div className={style.sub}>
-                    <p className={style.bed}>
-                      <span className={style.span}>
-                        <FaBed size={15} style={{ marginRight: "5px" }} />
-                      </span>
-                      {property.bedrooms} Bed
-                    </p>
-                    <p className={style.bath}>
-                      <span className={style.span}>
-                        <FaBath size={15} style={{ marginRight: "5px" }} />
-                      </span>
-                      {property.bathrooms} Bath
-                    </p>
-                    <p className={style.bath}>
-                      <span className={style.span}>
-                        <HiSquaresPlus
-                          size={15}
-                          style={{ marginRight: "5px" }}
-                        />
-                      </span>
-                      {numberWithCommas(property.squareFootage)}{" "}
-                      {property.squareSymbol}
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div className={style.overlay}></div>
-            </div>
-            {/* <div className={style.overlay}></div> */}
-          </div>
-        ))}
+        {loadProperties}
       </Carousel>
     </div>
   );
 };
 const responsive = {
   superLargeDesktop: {
-    // the naming can be any, depends on you.
     breakpoint: { max: 4000, min: 3000 },
     items: 5,
   },

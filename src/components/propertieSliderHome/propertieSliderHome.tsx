@@ -43,7 +43,8 @@ const propertieSliderHome: FC = () => {
     [queryKeys.properties],
     getAllProperties
   );
-  const propertiesResult = properties?.data?.results?.slice(0, 6) || [];
+  const propertiesResult = properties?.data?.results[0].data.slice(0, 6) || [];
+
   length = propertiesResult?.length;
   const [current, setCurrent] = useState(0);
   const timeout = useRef(current);
@@ -51,6 +52,7 @@ const propertieSliderHome: FC = () => {
     const nextSlide = () => {
       setCurrent((current) => (current === length - 1 ? 0 : current + 1));
     };
+    //@ts-ignore
     timeout.current = setTimeout(nextSlide, 3000);
     return function () {
       if (timeout.current) {
@@ -107,9 +109,7 @@ const propertieSliderHome: FC = () => {
       {displayproperties.length ? (
         <>
           <div className={style.bgContainer}>
-            {/* <div className={style.container}> */}
             <div className={style.flexWrapper}>{displayproperties}</div>
-            {/* </div> */}
           </div>
         </>
       ) : null}

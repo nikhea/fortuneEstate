@@ -1,5 +1,6 @@
 import { request, Axiosclient } from "../../utils/axios";
 import { storage } from "../../lib/storage";
+import { notify } from "./notification";
 
 // export const API_URL = `http://localhost:4000/api`;
 interface AuthResponse {
@@ -42,7 +43,7 @@ export async function getUserProfile() {
 // `Bearer ${storage.getToken()}`
 export async function loginUser(data: any): Promise<AuthResponse> {
   const res = await Axiosclient.post(`/auth/login`, data);
-
+  notify(res.status, res.data.message);
   return handleApiResponse(res);
 }
 
@@ -50,7 +51,7 @@ export async function registerWithEmailAndPassword(
   data: any
 ): Promise<AuthResponse> {
   const res = await Axiosclient.post(`/auth/signup`, data);
-
+  notify(res.status, res.data.message);
   return handleApiResponse(res);
 }
 

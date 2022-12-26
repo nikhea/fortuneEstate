@@ -6,40 +6,42 @@ import { getAgentProperties } from "../../../../services/api/agent";
 import { deleteProperties } from "../../../../services/api/agent";
 import { queryKeys } from "../../../../utils/queryKey";
 import PropertiesList from "./components/propertiesList";
-
-interface ListingManagerProps {}
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { Await } from "react-router-dom";
 
 const style = {
-  bg: `font-Montserrat text-[#0D304A]`,
+  bg: `font-Montserrat text-[#0D304A] grid grid-cols-1 md:grid-cols-2 `,
   container: `w-[95%] m-auto my-5 `,
 };
 const ListingManager = () => {
   let loadProperties;
   const queryClient = useQueryClient();
-  const { data: propertiesdata, isLoading } = useQuery(
-    [queryKeys.properties],
-    () => getAgentProperties(),
-    {
-      onSuccess: () => {
-        //invalidate cached properties query and refresh
-        // @ts-ignore
-        // queryClient.invalidateQueries(queryKeys.properties);
-      },
-    }
-  );
-  if (isLoading) {
-    return <h1>Loading...</h1>;
-  }
-  const { mutateAsync, status, data } = useMutation(deleteProperties, {
+  const {
+    data: propertiesdata,
+    isLoading,
+    status: loadingStatus,
+  } = useQuery([queryKeys.properties], () => getAgentProperties(), {
     onSuccess: () => {
       //invalidate cached properties query and refresh
       // @ts-ignore
+      // queryClient.invalidateQueries(queryKeys.properties);
+    },
+  });
+  const {
+    mutateAsync,
+    status: deleteStatus,
+    data: deleteData,
+  } = useMutation(deleteProperties, {
+    onSuccess: () => {
+      //invalidate cached properties query and refresh
+      // @ts-ignore
+      queryClient.invalidateQueries();
       queryClient.invalidateQueries(queryKeys.properties);
     },
   });
   const DeleteProperty = async (id: string) => {
     await mutateAsync(id);
-    // console.log(data?.message);
   };
 
   const OnEditProperty = (id: string) => {
@@ -47,35 +49,54 @@ const ListingManager = () => {
     // console.log(data);
   };
 
-  const OnDeleteProperty = (id: string) => {
+  const OnDeleteProperty = async (id: string) => {
+    console.log(deleteStatus, "st");
     DeleteProperty(id);
+    //    if (deleteStatus === "loading") {
+    //   toast.warning("deleting");
+    // }
+    // if (deleteData?.status === 200) {
+    //   toast.success("Property deleted Successfully");
+    // }
   };
-  // propertiesdata?.data ||
 
-  if (!Array.isArray(propertiesdata?.data)) {
+  // propertiesdata?.data ||
+  if (isLoading) {
     return <h1>Loading...</h1>;
-  } else {
-    const propertiesResult: any[] = propertiesdata?.data || [];
-    loadProperties = propertiesResult.map((property: any) => (
-      <div key={property._id}>
-        <PropertiesList
-          OnEditProperty={OnEditProperty}
-          OnDeleteProperty={OnDeleteProperty}
-          {...property}
-        />
-      </div>
-    ));
+  }
+
+  if (loadingStatus === "success") {
+    if (Array.isArray(propertiesdata?.data)) {
+      const propertiesResult = propertiesdata?.data || [];
+      loadProperties = propertiesResult?.map((property: any) => (
+        <div key={property._id}>
+          <PropertiesList
+            OnEditProperty={OnEditProperty}
+            OnDeleteProperty={OnDeleteProperty}
+            {...property}
+          />
+        </div>
+      ));
+    }
   }
 
   return (
     <>
-      {loadProperties.length !== 0 ? (
-        <div className={style.container}>
-          <div className={style.bg}>{loadProperties}</div>
-        </div>
-      ) : null}
+      <div className={style.container}>
+        <div className={style.bg}>{loadProperties}</div>
+      </div>
     </>
   );
 };
 
 export default ListingManager;
+
+{
+  /* {loadProperties?.length !== 0 ? ( */
+}
+//    <div className={style.container}>
+//    <div className={style.bg}>{loadProperties}</div>
+//  </div>
+{
+  /* ) : null} */
+}

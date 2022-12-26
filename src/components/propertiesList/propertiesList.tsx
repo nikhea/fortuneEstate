@@ -3,14 +3,9 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
 import { Link } from "react-router-dom";
 import { routes } from "../../routes/routes";
-import {
-  MdLocationPin,
-  MdOutlineFavoriteBorder,
-  MdOutlineFavorite,
-} from "react-icons/md";
+import { MdLocationPin, MdOutlineFavorite } from "react-icons/md";
 import { FaBed, FaBath, FaUserCircle } from "react-icons/fa";
 import { HiSquaresPlus } from "react-icons/hi2";
-import Spinner from "../../components/UI/spinner/spinner";
 import { SEO } from "../seo/seo";
 import { formatToCurrency, numberWithCommas } from "../../utils/formateNumbers";
 interface propertiesList {

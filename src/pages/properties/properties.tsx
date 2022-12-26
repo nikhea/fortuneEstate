@@ -45,24 +45,37 @@ const properties: FC<propertiesProps> = ({
 }) => {
   const { countryName } = useParams();
   const { data: propertiesdata, isLoading } = useQuery(
-    [queryKeys.propertiesCountries, countryName],
+    [queryKeys.properties, countryName],
     () => getPropertiesByCountry(countryName)
   );
   const properties = propertiesdata?.data;
-  // const [properties, setproperties] = useState(propertiesdata?.data || [])
+  console.log(properties);
+  
   if (isLoading) {
     return <h1>....Loading properties </h1>;
   }
+  let p = properties.map((prop) => {
+    console.log(prop);
+    
+    return <div key={prop._id}>
+      {/* {JSON.stringify(prop)} */}
+      {prop.title}
+      {/* jiouhiu */}
+    </div>;
+  });
   return (
     <div className={style.bgContainer}>
       <div className=" col-start-1 col-end-7">
+           {p}
         <PaginatedProperties properties={properties} />
+     
       </div>
       <div className={style.colLeft}>
         <div className={style.newListing}>
           <h1 className={style.newListingTitle}> search</h1>
           <h3 className="divider"></h3>
           {/* <div><div>{displaySlicedproperties}</div></div> */}
+          
         </div>
         <div className={style.newListing}>
           <h1 className={style.newListingTitle}>new listing</h1>
@@ -76,44 +89,3 @@ const properties: FC<propertiesProps> = ({
 };
 
 export default properties;
-
-{
-  /* {propertiesData.map((property, index) => (
-          <div key={index}>
-            <PropertiesList
-              image={property.image}
-              images={property.images}
-              tage={property.tage}
-              price={property.price}
-              title={property.title}
-              location={property.location}
-              bed={property.bed}
-              bath={property.bath}
-              like={property.like}
-              agent={property.agent}
-              agentImage={property.agentImage}
-            />
-            
-          </div>
-        ))} */
-}
-
-// const descending = () => {
-//   return Slicedproperties.sort((a, b) => b - a);
-// };
-// const ascending = () => {
-//   return Slicedproperties.sort((a, b) => a - b);
-// };
-// const displaySlicedproperties = Slicedproperties.sort((a, b) => b - a)
-//   .slice(0, 3)
-//   .map((property: any, index: any) => (
-//     <div key={index}>
-//       <NewListing
-//         image={property.image}
-//         title={property.title}
-//         price={property.price}
-//         location={property.location}
-//         tage={property.tage}
-//       />
-//     </div>
-//   ));

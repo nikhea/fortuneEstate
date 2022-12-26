@@ -27,9 +27,8 @@ const property: FC = () => {
     () => getSingelProperties(propertyID)
   );
 
-  console.log(propertydata?.data);
   if (isLoading) {
-    return <h1>Loading properties</h1>;
+    return <h1>Loading property</h1>;
   }
   const {
     image,

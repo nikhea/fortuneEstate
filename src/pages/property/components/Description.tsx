@@ -1,7 +1,7 @@
 import { FC } from "react";
 import "./hr.css";
 import PropertiesCard from "../../../components/card/PropertyCard";
-
+import parse from 'html-react-parser';
 interface Props {
   description: string;
 }
@@ -21,7 +21,7 @@ const additionalDetails: FC<Props> = ({ description }) => {
           <div className="hr"></div>
           <h1 className={style.title}>description</h1>
         </header>
-        <div className={style.description}>{description}</div>
+        <div className={style.description}>{parse(description)}</div>
       </div>
     </PropertiesCard>
   );

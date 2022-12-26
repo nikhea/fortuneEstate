@@ -32,9 +32,9 @@ const style = {
 const auth: FC = () => {
   const { login, user, isLoggingIn } = useAuth();
 
-  if (isLoggingIn) {
-    toast.warn("Logging");
-  }
+  // if (isLoggingIn) {
+  //   toast.warn("Logging");
+  // }
 
   const {
     register,
@@ -51,7 +51,8 @@ const auth: FC = () => {
     try {
       await login(data);
     } catch (err) {
-      console.log(err, "err");
+      //@ts-ignore
+      toast.error(err?.response?.data.message);
     }
   };
   if (user !== null) {

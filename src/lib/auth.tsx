@@ -6,7 +6,9 @@ import {
   User,
 } from "../services/api/auth";
 import { storage } from "./storage";
+
 import profile from "../pages/dashBoard/pages/profile/profile";
+import { notify } from "../services/api/notification";
 
 export async function handleUserResponse(data: any) {
   const {
@@ -36,7 +38,7 @@ export async function handleUserResponse(data: any) {
 
 async function loadUser() {
   let user = null;
-  
+
   if (storage.getToken()) {
     const data = await getUserProfile();
     if (data) {
@@ -70,7 +72,8 @@ async function registerFn(data: any) {
 }
 
 async function logoutFn() {
-  await storage.clearToken();
+  storage.clearToken();
+  notify(200, "logged out successfully");
 }
 
 const authConfig = {

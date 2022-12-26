@@ -22,7 +22,7 @@ interface propertiesListProps {
 }
 const style = {
   // bg: `bg-white h-screen`,
-  container: `w-[95%] m-auto mt-`,
+  container: ``,
 };
 const propertiesList: FC<propertiesListProps> = ({
   _id,
@@ -51,7 +51,7 @@ const propertiesList: FC<propertiesListProps> = ({
       <ListingCard
         ID={_id}
         title={title}
-        street={street}
+        location={street}
         price={price}
         priceSymbol={priceSymbol}
         category={category}

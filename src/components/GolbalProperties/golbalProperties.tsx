@@ -49,7 +49,7 @@ const golbalProperties: FC<Props> = () => {
     [queryKeys.properties],
     getAllProperties
   );
-  const propertiesResult = properties?.data.results || [];
+  const propertiesResult = properties?.data.results[0].data|| [];
   const displayproperties = propertiesResult
     .slice(0, 6)
     .map((property: Props, index: any) => (

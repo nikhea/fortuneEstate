@@ -1,51 +1,59 @@
 import { useEffect, useRef, useState, FC } from "react";
 import Input from "../../../../../../components/UI/FormElement/input/input";
 import Button from "../../../../../../components/UI/FormElement/Button";
-import { useFormContext, useController } from "react-hook-form";
+import { useFormContext } from "react-hook-form";
 import ImageCard from "./ImageCard";
 import SlideBottons from "./slideBottons/slideBottons";
+import { GiCloudUpload } from "react-icons/gi";
+import Tippy from "@tippyjs/react";
+import "tippy.js/dist/tippy.css";
 
 const style = {
-  items: `bg-[#E5E5E5]  my-10 shadow-xl flex justify-between items-end`,
+  items: `bg-[#E5E5E5]  my-10 shadow-xl flex justify-between items-end w-[100%] m-auto`,
+  uploadImage: `border-4 border-dashed flex items-center justify-center h-[50vh] w-[40vw] m-auto mb-10 `,
+  icon: ` cursor-pointer text-[#E5E5E5]  hover:text-[#0D304A]`,
 };
+const url: any[] = [
+  // {
+  //   url: `https://images.unsplash.com/photo-1559705421-4ae9bf6fabb5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8dGh1bWJuYWlsfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60`,
+  // },
+  {
+    url:`http://res.cloudinary.com/dwtx0sgd6/image/upload/v1671983131/propertyUploadImages/ravz7wxfocabke4vfquh.jpg`,
+  },
+  // {
+  //   url: `https://images.unsplash.com/photo-1559705421-4ae9bf6fabb5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8dGh1bWJuYWlsfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60`,
+  // },
+  // {
+  //   url: `https://images.unsplash.com/photo-1559705421-4ae9bf6fabb5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8dGh1bWJuYWlsfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60`,
+  // },
+];
+localStorage.setItem("propertiesImage", JSON.stringify(url));
 const image: FC<ImageComponentProps> = ({ nextStep, prevStep, errors }) => {
   const { setValue, register, watch } = useFormContext();
   const FormWatch = watch();
   console.log(FormWatch, `Image Watch`);
 
-  const [images, setImages] = useState<any[]>([
-    {
-      secure_url: `https://images.unsplash.com/photo-1559705421-4ae9bf6fabb5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8dGh1bWJuYWlsfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60`,
-      
-    },
-    {
-      secure_url: `https://images.unsplash.com/photo-1559705421-4ae9bf6fabb5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8dGh1bWJuYWlsfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60`,
-    },
-    {
-      secure_url: `https://images.unsplash.com/photo-1559705421-4ae9bf6fabb5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8dGh1bWJuYWlsfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60`,
-    },
-    {
-      secure_url: `https://images.unsplash.com/photo-1559705421-4ae9bf6fabb5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8dGh1bWJuYWlsfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60`,
-    },
-  ]);
+  const [images, setImages] = useState<any[]>([]);
 
   const cloudinaryRef = useRef();
   const widgetRef = useRef();
 
-  // useEffect(() => {
-  const loadedImages = async () => {
-    if (localStorage.getItem("propertiesImage")) {
-      const ParsedImages = localStorage.getItem("propertiesImage");
-      const localImage = JSON.parse(ParsedImages!);
-      for (const file of localImage) {
-        setImages((image) => [...image, file]);
-      }
-      setValue("propertyImages", images);
-    }
-    console.log("loading localImage", images);
-  };
+  useEffect(() => {
+    const loadedImages = async () => {
+      if (localStorage.getItem("propertiesImage")) {
+        const ParsedImages = localStorage.getItem("propertiesImage");
+        const localImage = JSON.parse(ParsedImages!);
 
-  // }, []);
+        for (const file of localImage) {
+          setImages((image) => [...image, file]);
+        }
+      }
+      console.log("loading localImage", images);
+    };
+
+    loadedImages();
+    setValue("propertyImages", url);
+  }, []);
   useEffect(() => {
     //@ts-ignore
     cloudinaryRef.current = window?.cloudinary; //@ts-ignore
@@ -71,19 +79,17 @@ const image: FC<ImageComponentProps> = ({ nextStep, prevStep, errors }) => {
         } else {
           for (const file of result?.data?.info?.files) {
             const { uploadInfo } = file;
-            localStorage.setItem(
-              "propertiesImage",
-              JSON.stringify([uploadInfo])
-            );
+            // localStorage.setItem(
+            //   "propertiesImage",
+            //   JSON.stringify([uploadInfo])
+            // );
           }
-          loadedImages();
+          // loadedImages();
         }
       }
       // }
     );
   }, []);
-
-  // console.log(images, "images");
 
   const openWidget = () => {
     //@ts-ignore
@@ -113,9 +119,26 @@ const image: FC<ImageComponentProps> = ({ nextStep, prevStep, errors }) => {
           inputRef={register("propertyImages", { required: true })}
         />
       </span>
-      <Button onClick={openWidget}>upload</Button>
-      {displayproperties}
-      <SlideBottons previous={previous} continues={continues} />
+      {!images || images.length === 0 ? (
+        <div className={style.uploadImage}>
+          <Tippy content="upload property images">
+            <p className={style.icon} onClick={openWidget}>
+              <GiCloudUpload
+                size={109}
+                style={{ marginRight: "5px", cursor: "pointer" }}
+              />
+            </p>
+          </Tippy>
+        </div>
+      ) : (
+        <>
+          <Button rounded primary onClick={openWidget}>
+            upload
+          </Button>
+          {displayproperties}
+          <SlideBottons previous={previous} continues={continues} />
+        </>
+      )}
     </div>
   );
 };
@@ -131,5 +154,22 @@ interface Props {
   public_id: string;
   thumbnail_url: string;
   secure_url: string;
+  url: string;
   original_filename: string;
 }
+
+// useEffect(() => {
+//   const loadedImages = async () => {
+//     if (localStorage.getItem("propertiesImage")) {
+//       const ParsedImages = localStorage.getItem("propertiesImage");
+//       const localImage = JSON.parse(ParsedImages!);
+//       setValue("propertyImages", images);
+//       for (const file of localImage) {
+//         setImages((image) => [...image, file]);
+//       }
+//     }
+//     console.log("loading localImage", images);
+//   };
+
+//   loadedImages();
+// }, []);
