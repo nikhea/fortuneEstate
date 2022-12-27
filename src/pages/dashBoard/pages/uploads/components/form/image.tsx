@@ -18,7 +18,7 @@ const url: any[] = [
   //   url: `https://images.unsplash.com/photo-1559705421-4ae9bf6fabb5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8dGh1bWJuYWlsfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60`,
   // },
   {
-    url:`http://res.cloudinary.com/dwtx0sgd6/image/upload/v1671983131/propertyUploadImages/ravz7wxfocabke4vfquh.jpg`,
+    url: `http://res.cloudinary.com/dwtx0sgd6/image/upload/v1671983131/propertyUploadImages/ravz7wxfocabke4vfquh.jpg`,
   },
   // {
   //   url: `https://images.unsplash.com/photo-1559705421-4ae9bf6fabb5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8dGh1bWJuYWlsfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60`,
@@ -59,8 +59,8 @@ const image: FC<ImageComponentProps> = ({ nextStep, prevStep, errors }) => {
     cloudinaryRef.current = window?.cloudinary; //@ts-ignore
     widgetRef.current = cloudinaryRef.current.createUploadWidget(
       {
-        cloudName: process.env.REACT_APP_CLOUDINARY_CLOUD_NAME,
-        uploadPreset: process.env.REACT_APP_CLOUDINARY_UPLOAD_PRESET,
+        cloudName: import.meta.env.VITE_REACT_APP_CLOUDINARY_CLOUD_NAME,
+        uploadPreset: import.meta.env.VITE_REACT_APP_CLOUDINARY_UPLOAD_PRESET,
         folder: `reactUploadProperties/${FormWatch.title}-${Date.now()}`,
         clientAllowedFormats: ["webp", "png", "jpeg"],
         showPoweredBy: false,

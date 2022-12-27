@@ -29,6 +29,7 @@ import TrackLisiting from "./pages/dashBoard/pages/trackLisiting";
 
 const App: FC = () => {
   const { user, logout } = useAuth();
+  console.log(import.meta.env.VITE_REACT_APP_CLOUDINARY_CLOUD_NAME, " VITE_");
   return (
     <>
       <Suspense fallback={<p>Loading...</p>}>
@@ -67,31 +68,28 @@ const App: FC = () => {
             <Route path={`${routes.property}/:id`} element={<Property />} />
             {/* <Route path="/Continents/:id/Countries/:id/properties/id/property" element={<Property />} /> */}
           </Route>
-          {user ? (
-            <>
-              <Route path="" element={<DashBoardLayout />}>
-                <Route path={routes.dashboard} element={<DashBoard />} />
-                <Route path={routes.upload} element={<Upload />} />
-                <Route
-                  path={routes.lisitingManager}
-                  element={<ListingManager />}
-                />
-                <Route path={routes.lisitingStat} element={<ListingStats />} />
-                <Route
-                  path={routes.tracklisiting}
-                  element={<TrackLisiting />}
-                />
-                <Route path={routes.profile} element={<Profile />} />
-                <Route path={routes.settings} element={<Settings />} />
-                <Route
-                  path={routes.dashboardProperties}
-                  element={<DashboardProperties />}
-                />
-              </Route>
-            </>
-          ) : (
-            <Route path={routes.home} element={<Home />} />
-          )}
+          {/* {user ? ( */}
+          <>
+            <Route path="" element={<DashBoardLayout />}>
+              <Route path={routes.dashboard} element={<DashBoard />} />
+              <Route path={routes.upload} element={<Upload />} />
+              <Route
+                path={routes.lisitingManager}
+                element={<ListingManager />}
+              />
+              <Route path={routes.lisitingStat} element={<ListingStats />} />
+              <Route path={routes.tracklisiting} element={<TrackLisiting />} />
+              <Route path={routes.profile} element={<Profile />} />
+              <Route path={routes.settings} element={<Settings />} />
+              <Route
+                path={routes.dashboardProperties}
+                element={<DashboardProperties />}
+              />
+            </Route>
+          </>
+          {/* ) : ( */}
+          <Route path={routes.home} element={<Home />} />
+          {/* )} */}
         </Routes>
       </Suspense>
     </>
