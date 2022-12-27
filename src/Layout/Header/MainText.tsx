@@ -12,15 +12,37 @@ const style = {
 const MainText: FC = () => {
   return (
     <div className={style.container}>
-      <h1 className={style.title}>
+      <h1
+        data-aos="fade-up"
+        data-aos-easing="ease-in-out"
+        data-aos-duration="1600"
+        className={style.title}
+      >
         The Largest Real Estate <br />
-        <span className={style.subTitle}>Online Marketplace</span>
       </h1>
-      <span className={style.text}>
+      <span
+        data-aos="fade-up"
+        data-aos-easing="ease-in-out"
+        data-aos-duration="1700"
+        className={style.subTitle}
+      >
+        Online Marketplace
+      </span>
+      <span
+        data-aos="fade-up"
+        data-aos-easing="ease-in-out"
+        data-aos-duration="1800"
+        className={style.text}
+      >
         Find the best property that suits your desires using advanced search
         widget
       </span>
-      <Link to={routes.continents}>
+      <Link
+        data-aos="fade-up"
+        data-aos-easing="ease-in-out"
+        data-aos-duration="2000"
+        to={routes.continents}
+      >
         <Button linearGradient rounded uppercase primary>
           explore countries
         </Button>

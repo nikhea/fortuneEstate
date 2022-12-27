@@ -34,11 +34,22 @@ const MainNav: FC = () => {
   return (
     <div className={style.shadow}>
       <div className={style.container}>
-        <Link to={routes.home} className={style.logo}>
+        <Link
+          data-aos="fade-in"
+          data-aos-easing="linear"
+          data-aos-duration="1500"
+          to={routes.home}
+          className={style.logo}
+        >
           <img src="https://www.thehouse48.com/wp-content/uploads/2021/11/cropped-H48-1280x400-1.png" />
         </Link>
 
-        <ul className={style.lists}>
+        <ul
+          data-aos="fade-in"
+          data-aos-easing="linear"
+          data-aos-duration="1500"
+          className={style.lists}
+        >
           <li className={style.list}>
             <NavLink
               // className={({ isActive }) => (isActive ? `${style.active}` : "")}
@@ -80,7 +91,12 @@ const MainNav: FC = () => {
             </NavLink>
           </li>
         </ul>
-        <span className={style.btnadvertising}>
+        <span
+          data-aos="fade-in"
+          data-aos-easing="linear"
+          data-aos-duration="1500"
+          className={style.btnadvertising}
+        >
           <Button primary rounded linearGradient uppercase>
             adverties
           </Button>

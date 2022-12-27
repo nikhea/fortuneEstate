@@ -2,7 +2,7 @@ import { FC } from "react";
 import Button from "../../components/UI/FormElement/Button";
 
 const style = {
-  container: `text-white  w-[85%] m-auto   flex flex-col lg:flex-row items-center justify-between  pt-[4.5%] pr-[0%] pb-[4%] pl-[0%]`,
+  container: `text-white  w-[85%] m-auto   flex flex-col lg:flex-row items-center justify-between  pt-[4.5%] pr-[0%] pb-[4%] pl-[0%] sm:mt-0 lg:mt-5 `,
   bgContainer: `bg-[#2EA8F2]`,
   textContainer: ``,
   title: `text-3xl leading-[2em] lg:tracking-widest`,
@@ -17,16 +17,31 @@ const style = {
 // 0 3px 35px #00000040
 const newsletter: FC = () => {
   return (
-    <div className={style.bgContainer}>
+    <div
+      className={style.bgContainer}
+      data-aos="fade-up"
+      data-aos-easing="ease-in-out"
+      data-aos-duration="1600"
+    >
       <div className={style.container}>
-        <div className={style.textContainer}>
+        <div
+          className={style.textContainer}
+          data-aos="fade-right"
+          data-aos-easing="ease-in-out"
+          data-aos-duration="2000"
+        >
           <h2 className={style.title}>Sign Up For Our Daily Newsletter</h2>
           <p className={style.subText}>
             Sign up for our emails and be the first to know about special
             offers.
           </p>
         </div>
-        <form className={style.inputContainer}>
+        <form
+          className={style.inputContainer}
+          data-aos="fade-left"
+          data-aos-easing="ease-in-out"
+          data-aos-duration="2900"
+        >
           <input
             className={style.emailInput}
             type="email"

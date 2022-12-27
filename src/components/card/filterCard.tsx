@@ -72,7 +72,12 @@ const filterCard: FC = () => {
   };
   return (
     <FormProvider {...methods}>
-      <div className={style.container}>
+      <div
+        className={style.container}
+        data-aos="fade-up"
+        data-aos-easing="ease-in-out"
+        data-aos-duration="1600"
+      >
         <div className={style.cardContainer}>
           <div className={style.card}>
             <form onSubmit={handleSubmit(submitFilterForm)}>

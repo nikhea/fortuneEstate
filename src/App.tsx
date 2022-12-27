@@ -1,15 +1,13 @@
-import { FC, Suspense, lazy } from "react";
+import { FC, Suspense, lazy, useEffect } from "react";
 import "./App.css";
-import { Routes, Route, useNavigate } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import { routes } from "./routes/routes";
 import { useAuth } from "./lib/auth";
-import { ToastContainer } from "react-toastify";
-
-import Spinner from "./components/UI/spinner/spinner";
+import AOS from "aos";
+import "aos/dist/aos.css";
 import Layout from "./Layout/Layout";
 import HomePageLayout from "./Layout/HomePageLayout";
 import DashBoardLayout from "./Layout/DashBoardLayout";
-
 import AdvertService from "./pages/advertServices/advertServices";
 import Continents from "./pages/Continents/Continents";
 import Contact from "./pages/contact/Contact";
@@ -29,7 +27,11 @@ import TrackLisiting from "./pages/dashBoard/pages/trackLisiting";
 
 const App: FC = () => {
   const { user, logout } = useAuth();
-  console.log(import.meta.env.VITE_REACT_APP_CLOUDINARY_CLOUD_NAME, " VITE_");
+  useEffect(() => {
+    // AOS.init();
+    AOS.init({ duration: 2000 });
+    AOS.refresh();
+  }, []);
   return (
     <>
       <Suspense fallback={<p>Loading...</p>}>
@@ -39,17 +41,7 @@ const App: FC = () => {
           </Route>
           <Route path="" element={<Layout />}>
             <Route path={routes.contact} element={<Contact />} />
-            <Route
-              path={`${routes.properties}`}
-              element={
-                <AllProperties
-                  displayproperties={undefined}
-                  pageChange={undefined}
-                  propertiesPerPage={0}
-                  propertiesCount={0}
-                />
-              }
-            />
+            <Route path={`${routes.properties}`} element={<AllProperties />} />
 
             <Route path={routes.advertServices} element={<AdvertService />} />
             <Route path={routes.continents} element={<Continents />} />

@@ -2,7 +2,6 @@ import { FC, useRef, useState } from "react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
 import { Link } from "react-router-dom";
-import { useCarousel } from "use-carousel-hook";
 import { routes } from "../../routes/routes";
 import { MdLocationPin } from "react-icons/md";
 import { FaBed, FaBath } from "react-icons/fa";
@@ -145,8 +144,6 @@ const SliderCard: FC<Props> = ({
           </div>
           <div className={style.SliderController}>
             <div className={style.previous} onClick={() => previouSlide()}>
-              {/* <AiOutlineArrowLeft style={{ marginRight: "50px" }} /> */}
-
               {`<<`}
             </div>
             <div className={style.next} onClick={() => nextSlide()}>{`>>`}</div>

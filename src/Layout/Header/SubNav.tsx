@@ -76,7 +76,9 @@ const SubNav: FC = () => {
               {user ? (
                 <>
                   <p className={style.Link} style={{ marginRight: "11px" }}>
-                    {user?.firstname} {user?.lastname}
+                    {/* {user?.firstname} {user?.lastname} */}
+                    {user?.username}
+
                   </p>
                   /
                   <p onClick={logOutUser} className={style.Link}>

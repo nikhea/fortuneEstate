@@ -7,7 +7,7 @@ import { queryKeys } from "../../utils/queryKey";
 import Button from "../UI/FormElement/Button";
 
 import propertiesList from "../../pages/dashBoard/pages/ListingManaga/components/propertiesList";
-import { routes } from '../../routes/routes';
+import { routes } from "../../routes/routes";
 interface Props {
   [x: string]: any;
   ID?: string;
@@ -51,7 +51,7 @@ const golbalProperties: FC<Props> = () => {
     [queryKeys.properties],
     getAllProperties
   );
-  const propertiesResult = properties?.data.results[0].data|| [];
+  const propertiesResult = properties?.data.results[0].data || [];
   const displayproperties = propertiesResult
     .slice(0, 6)
     .map((property: Props, index: any) => (
@@ -81,7 +81,11 @@ const golbalProperties: FC<Props> = () => {
   return (
     <>
       {displayproperties.length !== 0 ? (
-        <div>
+        <div
+          data-aos="fade-up"
+          data-aos-easing="ease-in-out"
+          data-aos-duration="3000"
+        >
           <div className={style.bgContainer}>
             <div className={style.container}>
               <h1 className={style.text}>Recent Properties</h1>

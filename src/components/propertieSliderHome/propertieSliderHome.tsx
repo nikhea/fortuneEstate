@@ -1,10 +1,7 @@
 import { FC, useRef, useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import PropertiesList from "../../components/propertiesList/propertiesList";
 import { useQuery } from "react-query";
 import { getAllProperties } from "../../services/api/shared";
 import { queryKeys } from "../../utils/queryKey";
-import Button from "../UI/FormElement/Button";
 import SliderCard from "./SliderCard";
 interface Props {
   [x: string]: any;
@@ -31,7 +28,8 @@ interface Props {
   lastname?: string;
 }
 const style = {
-  bgContainer: ` py-[5em]  px-[2em] h-screen h-max-[1100px] w-full  flex overflow-hidden`,
+  // h-[1100px] lg:h-screen h-max-[1100px]
+  bgContainer: ` py-[5em]  px-[2em]  w-full  flex  overflow-hidden h-full h-screen`,
   container: `w-[80%] m-auto my-10 text-center h-full`,
   flexWrapper: `w-full h-full flex overflow-hidden relative`,
   heroSlide: `z-7 w-full h-full overflow-hidden`,
