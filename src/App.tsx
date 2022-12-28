@@ -44,6 +44,7 @@ const App: FC = () => {
         <>
           <Suspense fallback={<PageLoading />}>
             <Routes>
+              
               <Route path="" element={<HomePageLayout />}>
                 <Route path={routes.home} element={<Home />} />
               </Route>
@@ -103,7 +104,9 @@ const App: FC = () => {
                 </Route>
               </>
               {/* ) : ( */}
-              <Route path={routes.home} element={<Home />} />
+              {/* <Route path="*" element={<HomePageLayout />}>
+                <Route path={routes.home} element={<Home />} />
+              </Route> */}
               {/* )} */}
             </Routes>
           </Suspense>
