@@ -13,6 +13,8 @@ import AboutAuthors from "./components/abountAuthor";
 import { queryKeys } from "../../utils/queryKey";
 import { getSingelProperties } from "../../services/api/shared";
 import SimilarProperties from "../../components/SimilarProperties/SimilarProperties";
+import PageLoading from "../../components/UI/Loading/PageLoading";
+
 const style = {
   container: ``,
   bgContainer: `bg-[#F6F6F6] py-[6em]  pl-[2em] overflow-hidden md:grid md:grid-cols-10 grid-row-3`,
@@ -28,7 +30,7 @@ const property: FC = () => {
   );
 
   if (isLoading) {
-    return <h1>Loading property</h1>;
+    return <PageLoading />;
   }
   const {
     image,
@@ -67,6 +69,7 @@ const property: FC = () => {
             bath={bathrooms}
             bed={bedrooms}
             location={address.street}
+            
           />
         </div>
         <div className={style.bgHalf}>
@@ -99,7 +102,7 @@ const property: FC = () => {
           <FeaturedListing />
         </div>
         <div className={style.full}>
-          <SimilarProperties/>
+          <SimilarProperties />
         </div>
       </div>
     </>

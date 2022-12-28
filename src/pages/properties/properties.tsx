@@ -13,6 +13,7 @@ import paginatedProperties from "./paginatedProperties";
 import { queryKeys } from "../../utils/queryKey";
 import { getPropertiesByCountry } from "../../services/api/shared";
 import PaginatedProperties from "./paginatedProperties";
+import PageLoading from "../../components/UI/Loading/PageLoading";
 const style = {
   bgContainer: `bg-[#F6F6F6] py-[6em]  pl-[2em] overflow-hidden md:grid md:grid-cols-10`,
   container: ` w-full md:grid grid-cols-1 md:grid-cols-2   m-0 p-0 `,
@@ -50,32 +51,32 @@ const properties: FC<propertiesProps> = ({
   );
   const properties = propertiesdata?.data;
   console.log(properties);
-  
+
   if (isLoading) {
-    return <h1>....Loading properties </h1>;
+    return <PageLoading />;
   }
   let p = properties.map((prop) => {
     console.log(prop);
-    
-    return <div key={prop._id}>
-      {/* {JSON.stringify(prop)} */}
-      {prop.title}
-      {/* jiouhiu */}
-    </div>;
+
+    return (
+      <div key={prop._id}>
+        {/* {JSON.stringify(prop)} */}
+        {prop.title}
+        {/* jiouhiu */}
+      </div>
+    );
   });
   return (
     <div className={style.bgContainer}>
       <div className=" col-start-1 col-end-7">
-           {p}
+        {p}
         <PaginatedProperties properties={properties} />
-     
       </div>
       <div className={style.colLeft}>
         <div className={style.newListing}>
           <h1 className={style.newListingTitle}> search</h1>
           <h3 className="divider"></h3>
           {/* <div><div>{displaySlicedproperties}</div></div> */}
-          
         </div>
         <div className={style.newListing}>
           <h1 className={style.newListingTitle}>new listing</h1>

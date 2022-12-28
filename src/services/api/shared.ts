@@ -32,7 +32,6 @@ export const getAllProperties = async (
   pageNumber: number,
   limitProperties: number
 ) => {
-  
   const res = await Axiosclient.get(
     `/properties?page=${pageNumber}&limit=${limitProperties}`
   );

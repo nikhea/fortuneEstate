@@ -15,6 +15,9 @@ const additionalDetails: FC<Props> = ({ description }) => {
   };
 
   return (
+    <span  data-aos="fade-up"
+    data-aos-easing="ease-in-out"
+    data-aos-duration="1100">
     <PropertiesCard width={100} height={100}>
       <div>
         <header className={style.header}>
@@ -24,6 +27,7 @@ const additionalDetails: FC<Props> = ({ description }) => {
         <div className={style.description}>{parse(description)}</div>
       </div>
     </PropertiesCard>
+    </span>
   );
 };
 

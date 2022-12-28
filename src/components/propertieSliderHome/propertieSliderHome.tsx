@@ -2,6 +2,7 @@ import { FC, useRef, useState, useEffect } from "react";
 import { useQuery } from "react-query";
 import { getAllProperties } from "../../services/api/shared";
 import { queryKeys } from "../../utils/queryKey";
+import PageLoading from "../UI/Loading/PageLoading";
 import SliderCard from "./SliderCard";
 interface Props {
   [x: string]: any;
@@ -37,10 +38,13 @@ const style = {
 // bg-[#F6F6F6]
 const propertieSliderHome: FC = () => {
   let length: number;
-  const { data: properties } = useQuery(
+  const { data: properties, isLoading } = useQuery(
     [queryKeys.properties],
     getAllProperties
   );
+  if (isLoading) {
+    return <PageLoading />;
+  }
   const propertiesResult = properties?.data?.results[0].data.slice(0, 6) || [];
 
   length = propertiesResult?.length;
@@ -51,7 +55,7 @@ const propertieSliderHome: FC = () => {
       setCurrent((current) => (current === length - 1 ? 0 : current + 1));
     };
     //@ts-ignore
-    timeout.current = setTimeout(nextSlide, 3000);
+    timeout.current = setTimeout(nextSlide, 6000);
     return function () {
       if (timeout.current) {
         clearTimeout(timeout.current);
@@ -74,7 +78,11 @@ const propertieSliderHome: FC = () => {
 
   const displayproperties = propertiesResult.map(
     (property: Props, index: any) => (
-      <div className={style.heroSlide} key={property._id}>
+      <div
+        className={style.heroSlide}
+        key={property._id}
+    
+      >
         {index === current && (
           <SliderCard
             ID={property._id}
@@ -106,7 +114,12 @@ const propertieSliderHome: FC = () => {
     <>
       {displayproperties.length ? (
         <>
-          <div className={style.bgContainer}>
+          <div
+            className={style.bgContainer}
+            data-aos="fade-up"
+            data-aos-easing="linear"
+            data-aos-duration="5500"
+          >
             <div className={style.flexWrapper}>{displayproperties}</div>
           </div>
         </>

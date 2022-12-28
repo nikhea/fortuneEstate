@@ -2,7 +2,7 @@ import { FC } from "react";
 import ReactLoading from "react-loading";
 
 interface spinnerProps {
-  type: string;
+  type: any;
   color: string;
 }
 const Spinner: FC<spinnerProps> = ({ type, color }) => (

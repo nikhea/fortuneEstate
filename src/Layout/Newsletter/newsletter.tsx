@@ -19,16 +19,16 @@ const newsletter: FC = () => {
   return (
     <div
       className={style.bgContainer}
-      data-aos="fade-up"
-      data-aos-easing="ease-in-out"
-      data-aos-duration="1600"
+      // data-aos="fade-up"
+      // data-aos-easing="ease-in-out"
+      // data-aos-duration="1600"
     >
       <div className={style.container}>
         <div
           className={style.textContainer}
           data-aos="fade-right"
           data-aos-easing="ease-in-out"
-          data-aos-duration="2000"
+          data-aos-duration="9000"
         >
           <h2 className={style.title}>Sign Up For Our Daily Newsletter</h2>
           <p className={style.subText}>
@@ -40,7 +40,7 @@ const newsletter: FC = () => {
           className={style.inputContainer}
           data-aos="fade-left"
           data-aos-easing="ease-in-out"
-          data-aos-duration="2900"
+          data-aos-duration="9500"
         >
           <input
             className={style.emailInput}

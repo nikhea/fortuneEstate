@@ -10,7 +10,7 @@ import { routes } from "../../routes/routes";
 // import { countries } from "../../data/countries";
 import { getCONTINENT } from "../../services/api/shared";
 import Button from "../../components/UI/FormElement/Button";
-import Spinner from "../../components/UI/spinner/spinner";
+import Spinner from "../../components/UI/Loading/spinner";
 const style = {
   container: `w-[90%] m-auto items-center justify-center grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3  my-[4rem] overflow-hidden`,
   items: `mx-6 mb-9 leading-[2] fl items-center flex-col `,
@@ -25,6 +25,7 @@ const style = {
 };
 import CountrieBanner from "../../components/CountrieBanner/CountrieBanner";
 import { SEO } from "../../components/seo/seo";
+import PageLoading from "../../components/UI/Loading/PageLoading";
 const bg2 =
   "https://www.thehouse48.com/wp-content/uploads/2021/12/chris-barbalis-98731-unsplash.jpg";
 const bg =
@@ -41,10 +42,12 @@ interface Props {
 }
 const Countrie: FC = () => {
   const { name, CountinentName } = useParams();
-  const { data: continent, error } = useQuery(["continent", name], () =>
+  const { data: continent, isLoading } = useQuery(["continent", name], () =>
     getCONTINENT(name)
   );
-
+  if (isLoading) {
+    return <PageLoading />;
+  }
   const { bgImage, countries } = continent?.data || {};
   return (
     <div>

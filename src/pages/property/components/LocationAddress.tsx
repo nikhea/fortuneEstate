@@ -15,35 +15,41 @@ const additionalDetails: FC<Props> = ({ street, country, city }) => {
     span: `capitalize`,
   };
   return (
-    <PropertiesCard width={100} height={100}>
-      <div>
-        <header className={style.header}>
-          <div className="hr"></div>
-          <h1 className={style.title}>location address</h1>
-        </header>
-        <div className={style.details}>
-          <p className={style.description}>
-            <span className={style.span}>country : </span> {country}
-          </p>
-          <p className={style.description}>
-            <span className={style.span}>street : </span> {street}
-          </p>
-          <p className={style.description}>
-            <span className={style.span}>city : </span>
-            {city}
-          </p>
-          <p className={style.description}>
-            <span className={style.span}>floor number : </span>1
-          </p>
-          <p className={style.description}>
-            <span className={style.span}>longitude : </span> W60 22'5"
-          </p>
-          <p className={style.description}>
-            <span className={style.span}>view longitude : </span> N30 22'5"
-          </p>
+    <span
+      data-aos="fade-up"
+      data-aos-easing="ease-in-out"
+      data-aos-duration="8000"
+    >
+      <PropertiesCard width={100} height={100}>
+        <div>
+          <header className={style.header}>
+            <div className="hr"></div>
+            <h1 className={style.title}>location address</h1>
+          </header>
+          <div className={style.details}>
+            <p className={style.description}>
+              <span className={style.span}>country : </span> {country}
+            </p>
+            <p className={style.description}>
+              <span className={style.span}>street : </span> {street}
+            </p>
+            <p className={style.description}>
+              <span className={style.span}>city : </span>
+              {city}
+            </p>
+            <p className={style.description}>
+              <span className={style.span}>floor number : </span>1
+            </p>
+            <p className={style.description}>
+              <span className={style.span}>longitude : </span> W60 22'5"
+            </p>
+            <p className={style.description}>
+              <span className={style.span}>view longitude : </span> N30 22'5"
+            </p>
+          </div>
         </div>
-      </div>
-    </PropertiesCard>
+      </PropertiesCard>
+    </span>
   );
 };
 

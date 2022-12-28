@@ -22,8 +22,14 @@ const App: FC = () => {
       <Carousel />
       <GolbalProperties />
       <CountriesCard />
-      {lg ? <PropertieSliderHome /> :  <div className="mb-20"><SimilarProperties /></div>}
-      {/* {sm && <SimilarProperties />} */}
+      {lg ? (
+        // <PropertieSliderHome />
+        <></>
+      ) : (
+        <div className="mb-20">
+          {/* <SimilarProperties /> */}
+        </div>
+      )}
     </div>
   );
 };

@@ -43,54 +43,62 @@ const additionalDetails: FC<Props> = ({
     span: `capitalize`,
   };
   return (
-    <PropertiesCard width={100} height={100}>
-      <div>
-        <header className={style.header}>
-          <div className="hr"></div>
-          <h1 className={style.title}>additional details</h1>
-        </header>
-        <div className={style.details}>
-          <p className={style.description}>
-            <span className={style.span}>property type : </span> {propertyType}
-          </p>
-          <p className={style.description}>
-            <span className={style.span}>listing type : </span> for{" "}
-            {listingType}
-          </p>
-          <p className={style.description}>
-            <span className={style.span}>listing ID : </span>1
-          </p>
-          <p className={style.description}>
-            <span className={style.span}>price : </span> {priceSymbol}
-            {formatToCurrency(price)}
-          </p>
-          <p className={style.description}>
-            <span className={style.span}>view : </span>
-            {view}
-          </p>
-          <p className={style.description}>
-            <span className={style.span}>bedrooms : </span> {bed}
-          </p>
-          <p className={style.description}>
-            <span className={style.span}>bathrooms : </span> {bath}
-          </p>
-          <p className={style.description}>
-            <span className={style.span}>half bathrooms : </span>{" "}
-            {halfBathrooms}
-          </p>
-          <p className={style.description}>
-            <span className={style.span}>square footage : </span>
-            {numberWithCommas(squareFootage)} {squareSymbol}  </p>
-          <p className={style.description}>
-            <span className={style.span}>year built : </span> {yearBuilt}
-          </p>
-          <p className={style.description}>
-            <span className={style.span}>lot area : </span>
-            {numberWithCommas(lotArea)} {lotAreaSymbol}
-          </p>
+    <span
+      data-aos="fade-up"
+      data-aos-easing="ease-in-out"
+      data-aos-duration="6000"
+    >
+      <PropertiesCard width={100} height={100}>
+        <div>
+          <header className={style.header}>
+            <div className="hr"></div>
+            <h1 className={style.title}>additional details</h1>
+          </header>
+          <div className={style.details}>
+            <p className={style.description}>
+              <span className={style.span}>property type : </span>{" "}
+              {propertyType}
+            </p>
+            <p className={style.description}>
+              <span className={style.span}>listing type : </span> for{" "}
+              {listingType}
+            </p>
+            <p className={style.description}>
+              <span className={style.span}>listing ID : </span>1
+            </p>
+            <p className={style.description}>
+              <span className={style.span}>price : </span> {priceSymbol}
+              {formatToCurrency(price)}
+            </p>
+            <p className={style.description}>
+              <span className={style.span}>view : </span>
+              {view}
+            </p>
+            <p className={style.description}>
+              <span className={style.span}>bedrooms : </span> {bed}
+            </p>
+            <p className={style.description}>
+              <span className={style.span}>bathrooms : </span> {bath}
+            </p>
+            <p className={style.description}>
+              <span className={style.span}>half bathrooms : </span>{" "}
+              {halfBathrooms}
+            </p>
+            <p className={style.description}>
+              <span className={style.span}>square footage : </span>
+              {numberWithCommas(squareFootage)} {squareSymbol}{" "}
+            </p>
+            <p className={style.description}>
+              <span className={style.span}>year built : </span> {yearBuilt}
+            </p>
+            <p className={style.description}>
+              <span className={style.span}>lot area : </span>
+              {numberWithCommas(lotArea)} {lotAreaSymbol}
+            </p>
+          </div>
         </div>
-      </div>
-    </PropertiesCard>
+      </PropertiesCard>
+    </span>
   );
 };
 

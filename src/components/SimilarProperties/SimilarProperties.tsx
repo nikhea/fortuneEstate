@@ -16,6 +16,7 @@ import "react-multi-carousel/lib/styles.css";
 import { formatToCurrency, numberWithCommas } from "../../utils/formateNumbers";
 import { routes } from "../../routes/routes";
 import { Link } from "react-router-dom";
+import PageLoading from "../UI/Loading/PageLoading";
 
 const style = {
   container: `w-[80%] m-auto my-10 leading-[100px]`,
@@ -52,7 +53,7 @@ const SimilarProperties: FC<Props> = () => {
     }
   }
   if (isLoading) {
-    return <h1>Loading properties</h1>;
+    return <PageLoading />;
   }
   loadProperties = propertiesResult?.map((property: Props, index: any) => (
     <div className="mx-4" key={index}>

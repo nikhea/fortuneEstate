@@ -8,6 +8,7 @@ import Button from "../UI/FormElement/Button";
 
 import propertiesList from "../../pages/dashBoard/pages/ListingManaga/components/propertiesList";
 import { routes } from "../../routes/routes";
+import PageLoading from "../UI/Loading/PageLoading";
 interface Props {
   [x: string]: any;
   ID?: string;
@@ -47,10 +48,13 @@ const style = {
     font-[300] `,
 };
 const golbalProperties: FC<Props> = () => {
-  const { data: properties, error } = useQuery(
+  const { data: properties, isLoading } = useQuery(
     [queryKeys.properties],
     getAllProperties
   );
+  if (isLoading) {
+    return <PageLoading />;
+  }
   const propertiesResult = properties?.data.results[0].data || [];
   const displayproperties = propertiesResult
     .slice(0, 6)

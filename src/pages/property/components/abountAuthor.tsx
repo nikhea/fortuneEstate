@@ -9,14 +9,20 @@ const AboutAuthor: FC = () => {
     details: ` items-center  justify-betwee  flex flex-wrap `,
   };
   return (
-    <PropertiesCard width={100} height={100}>
-      <div>
-        <header className={style.header}>
-          <div className="hr"></div>
-          <h1 className={style.title}>About Author</h1>
-        </header>
-      </div>
-    </PropertiesCard>
+    <span
+      data-aos="fade-up"
+      data-aos-easing="ease-in-out"
+      data-aos-duration="12000"
+    >
+      <PropertiesCard width={100} height={100}>
+        <div>
+          <header className={style.header}>
+            <div className="hr"></div>
+            <h1 className={style.title}>About Author</h1>
+          </header>
+        </div>
+      </PropertiesCard>
+    </span>
   );
 };
 

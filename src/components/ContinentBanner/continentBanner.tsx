@@ -17,16 +17,31 @@ const continentBanner: FC = () => {
     <div className={style.bgImage}>
       <div className={style.container}>
         <div className={style.textContainer}>
-          <h1 className={style.title}>
+          <h1
+            className={style.title}
+            data-aos="fade-right"
+            data-aos-easing="ease-in-out"
+            data-aos-duration="1500"
+          >
             House48 <br /> Continents
           </h1>
-          <p className={style.description}>
+          <p
+            className={style.description}
+            data-aos="fade-right"
+            data-aos-easing="ease-in-out"
+            data-aos-duration="2500"
+          >
             House48 covers all regions of the worlds. Tap on any region to view
             countries available within the area.
           </p>
         </div>
 
-        <div className={style.play}>
+        <div
+          className={style.play}
+          data-aos="fade-left"
+          data-aos-easing="ease-in-out"
+          data-aos-duration="2500"
+        >
           <IoPlayCircleOutline color="#fff" size={100} />
         </div>
       </div>
@@ -36,3 +51,13 @@ const continentBanner: FC = () => {
 };
 
 export default continentBanner;
+{/* <Button
+primary
+isCurve
+margin
+padding
+uppercase
+
+>
+get in touch
+</Button> */}

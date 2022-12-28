@@ -38,8 +38,8 @@ const MainNav: FC = () => {
         {/* <span className={style.mainTop}> */}
         <NavLink
           data-aos="fade-in"
-          data-aos-easing="linear"
-          data-aos-duration="1500"
+          data-aos-easing="ease-in-out"
+          data-aos-duration="6500"
           to={routes.home}
           className={style.logo}
         >
@@ -49,8 +49,8 @@ const MainNav: FC = () => {
         <ul
           className={style.lists}
           data-aos="fade-in"
-          data-aos-easing="linear"
-          data-aos-duration="1500"
+          data-aos-easing="ease-in-out"
+          data-aos-duration="6500"
         >
           <li className={style.list}>
             <NavLink
@@ -95,8 +95,8 @@ const MainNav: FC = () => {
         </ul>
         <span
           data-aos="fade-in"
-          data-aos-easing="linear"
-          data-aos-duration="1500"
+          data-aos-easing="ease-in-out"
+          data-aos-duration="6500"
           className={style.btnadvertising}
         >
           <Button primary rounded linearGradient uppercase>

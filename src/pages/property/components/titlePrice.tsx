@@ -43,7 +43,12 @@ const TitlePrice: FC<Props> = ({
     bath: ``,
   };
   return (
-    <div className="w-[90%] m-auto">
+    <div
+      className="w-[90%] m-auto"
+      data-aos="fade-up"
+      data-aos-easing="ease-in-out"
+      data-aos-duration="3000"
+    >
       <PropertiesCard width={100} height={100}>
         <div className={style.container}>
           <header className={style.Header}>
@@ -54,7 +59,7 @@ const TitlePrice: FC<Props> = ({
           </header>
           <div className={style.priceContainer}>
             <h2 className={style.price}>
-              {priceSymbol} {formatToCurrency(price)}
+              {priceSymbol} {formatToCurrency(price!)}
             </h2>
             <p className={style.sqft}>
               {numberWithCommas(squareFootage)}/{squareSymbol}

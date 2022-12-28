@@ -86,7 +86,12 @@ const SliderCard: FC<Props> = ({
 }) => {
   return (
     <div className={style.mainContainer}>
-      <div className={style.imgContainer}>
+      <div
+        className={style.imgContainer}
+        data-aos="fade-right"
+        data-aos-easing="linear"
+        data-aos-duration="2500"
+      >
         <img
           alt={title}
           // effect="blur"
@@ -100,7 +105,12 @@ const SliderCard: FC<Props> = ({
           </h2>
         </div>
       </div>
-      <div className={style.textContainer}>
+      <div
+        className={style.textContainer}
+        data-aos="fade-left"
+        data-aos-easing="linear"
+        data-aos-duration="2000"
+      >
         <div className={style.top}>
           <h1 className={style.title}>{title}</h1>
           <div className={style.hrBig}></div>

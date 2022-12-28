@@ -9,6 +9,7 @@ import PropertiesList from "./components/propertiesList";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Await } from "react-router-dom";
+import PageLoading from "../../../../components/UI/Loading/PageLoading";
 
 const style = {
   bg: `font-Montserrat text-[#0D304A] grid grid-cols-1 md:grid-cols-2 `,
@@ -62,7 +63,7 @@ const ListingManager = () => {
 
   // propertiesdata?.data ||
   if (isLoading) {
-    return <h1>Loading...</h1>;
+    return <PageLoading/>;
   }
 
   if (loadingStatus === "success") {

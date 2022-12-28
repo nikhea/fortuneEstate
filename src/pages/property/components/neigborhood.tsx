@@ -9,6 +9,9 @@ const Neighborhood: FC = () => {
     details: ` items-center  justify-betwee  flex flex-wrap `,
   };
   return (
+    <span  data-aos="fade-up"
+    data-aos-easing="ease-in-out"
+    data-aos-duration="11000">
     <PropertiesCard width={100} height={100}>
       <div>
         <header className={style.header}>
@@ -17,6 +20,7 @@ const Neighborhood: FC = () => {
         </header>
       </div>
     </PropertiesCard>
+    </span>
   );
 };
 

@@ -9,10 +9,11 @@ import { routes } from "../../routes/routes";
 import { MdLocationPin } from "react-icons/md";
 import ContinentBanner from "../../components/ContinentBanner/continentBanner";
 import Button from "../../components/UI/FormElement/Button";
-import Spinner from "../../components/UI/spinner/spinner";
+import Spinner from "../../components/UI/Loading/spinner";
 
 import { getAllCONTINENTS } from "../../services/api/shared";
 import { SEO } from "../../components/seo/seo";
+import PageLoading from "../../components/UI/Loading/PageLoading";
 const style = {
   container: `w-[90%] m-auto items-center justify-center grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 grid-rows- my-[4rem]`,
   items: `fle flex-col  mx-3 my-3`,
@@ -33,11 +34,13 @@ interface Props {
   image: string;
 }
 const Continents: FC = () => {
-  const { data: continents, status } = useQuery(
+  const { data: continents, isLoading } = useQuery(
     ["continents"],
     getAllCONTINENTS
   );
-
+  if (isLoading) {
+    return <PageLoading />;
+  }
   return (
     <div>
       {/* <SEO title="continents" /> */}
@@ -46,7 +49,46 @@ const Continents: FC = () => {
       <div className={style.container}>
         {continents?.data.map((continent: Props, index: Key) => (
           // <LazyLoadImage>
-          <div className={style.items} key={continent._id}>
+          <div
+            className={style.items}
+            key={continent._id}
+            data-aos="fade-up"
+            data-aos-easing="ease-in-out"
+            data-aos-duration={
+              index === 0
+                ? "24000"
+                : // : index === 1
+                  // ? "8000"
+                  // : index === 2
+                  // ? "5000"
+                  // : index === 3
+                  // ? "13000"
+                  // : index === 4
+                  // ? "17000"
+                  // : index === 5
+                  // ? "2200"
+                  // : index === 6
+                  // ? "2800"
+                  null
+            }
+            data-aos-delay={
+              index === 0
+                ? "24000"
+                : index === 1
+                ? "8000"
+                : index === 2
+                ? "5000"
+                : index === 3
+                ? "13000"
+                : index === 4
+                ? "17000"
+                : // : index === 5
+                  // ? "2200"
+                  // : index === 6
+                  // ? "2800"
+                  null
+            }
+          >
             <div className={style.imgContainer}>
               <LazyLoadImage
                 alt={continent.name}
@@ -82,10 +124,23 @@ export const Discover = () => {
   return (
     <div className={style.discoverContainer}>
       <div className={style.discoverText}>
-        <h1 className={style.discoverTitle}>discover your dream house</h1>
-        <Button primary isCurve margin padding uppercase>
-          get in touch
-        </Button>
+        <h1
+          className={style.discoverTitle}
+          data-aos="fade-up"
+          data-aos-easing="ease-in-out"
+          data-aos-duration="3500"
+        >
+          discover your dream house
+        </h1>
+        <span
+          data-aos="fade-up"
+          data-aos-easing="ease-in-out"
+          data-aos-duration="4500"
+        >
+          <Button primary isCurve margin padding uppercase>
+            get in touch
+          </Button>
+        </span>
       </div>
     </div>
   );
