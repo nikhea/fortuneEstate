@@ -8,7 +8,7 @@ const FormLeft = () => {
     textContainer: `mb-[80px]`,
     title: `text-[2rem] text-[#7f7f7f] font-bold tracking-[1.1px] uppercase`,
     description: `text-[#7f7f7f] font-light tracking-[1.1px] text-justify py-3`,
-    link: `text-[#0d304a] flex -10 `,
+    link: `text-[#0d304a] flex items-center`,
   };
   //   my-12  font-light tracking-[1.1px] text-justify
   return (
