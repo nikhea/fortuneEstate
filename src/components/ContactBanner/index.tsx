@@ -7,7 +7,7 @@ const style = {
   container: `h-full  w-[85%] m-auto flex flex-col md:flex-row  justify-center md:justify-between md:items-center`,
   textContainer: `text-white z-50   md:text-start mt-5`,
   socialIcons: `flex  lg:justify-between bg-red-20 my-10`,
-  title: `text-5xl md:text-7xl font-black uppercase tracking-wider`,
+  title: `text-3xl md:text-7xl font-black uppercase tracking-wider`,
   description: ` my-5 text-sm md:text-[0.9rem] tracking-wide pr-20 md:pr-0`,
   play: `md:mr-[60px] `,
   circle: `border border-2 rounded-full py-4 px-4 ml-4`,
