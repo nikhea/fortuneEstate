@@ -8,14 +8,15 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import Select from "../../../../components/UI/FormElement/select/select";
+import Button from "../../../../components/UI/FormElement/Button";
 
 const style = {
   title: ` uppercase text-[2rem] text-[#7f7f7f] font-bold tracking-[1.1px]`,
-  titleMessage: `text-[#7f7f7f] font-light tracking-[1.1px]`,
-  form: ` w-full flex flex-wrap justify-between   m-auto`,
+  titleMessage: `text-[#7f7f7f] font-light tracking-[1.1px] text-justify`,
+  form: ` w-full flex flex-wrap justify-between   m-auto `,
   inputContainer: `flex flex-col my-5 w-[45%]`,
   inputContainerFull: `flex flex-col my-5 w-[99%]`,
-
+  containerForm: ` w-full md:grid grid-cols-1 md:grid-cols-2   m-0 p-0 `,
   label: `capitalize tracking-[1.1px] font-light`,
 };
 
@@ -58,6 +59,7 @@ const contactForm: FC = () => {
         ullam qui, inventore, laboriosam tenetur similique quasi recusandae
         dignissimos corporis, odio incidunt ducimus.
       </p>
+      {/* <div className={style.containerForm}> */}
       <FormProvider {...methods}>
         <form onSubmit={handleSubmit(submitForm)}>
           <div className={style.form}>
@@ -127,9 +129,13 @@ const contactForm: FC = () => {
               />
             </div>
           </div>
+          <Button primary Color="#7f7f7f" uppercase rounded marginHorizontal>
+            submit
+          </Button>
         </form>
       </FormProvider>
     </div>
+    // </div>
   );
 };
 
