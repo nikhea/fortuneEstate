@@ -18,6 +18,7 @@ interface inputProps {
   onChange?: any;
   multipleFile?: any;
   isWhiteBg?: boolean;
+  borderBottom?: boolean;
   Width?: string;
 }
 const style = {
@@ -29,6 +30,7 @@ const style = {
   rounded: `rounded-[25px]`,
   bold: `font-bold`,
   isWhiteBg: `border border-[#C4C4C4] border-solid bg-white text-black  focus:outline-none focus:border-sky-500 `,
+  borderBottom:` border-bottom border-t-0 border-l-0 border-r-0 border-b-2  py-[1px] px-[2px]`,
   errors: ``,
 };
 // focus:ring-1 focus:ring-sky-500
@@ -52,6 +54,7 @@ const input: FC<inputProps> = (props) => {
     multipleFile,
     isWhiteBg,
     Width,
+    borderBottom,
     ...rest
   } = props;
   let Input = {
@@ -62,6 +65,7 @@ const input: FC<inputProps> = (props) => {
     [`${style.rounded}`]: rounded,
     [`${style.bold}`]: bold,
     [`${style.isWhiteBg}`]: isWhiteBg,
+    [`${style.borderBottom}`] : borderBottom
   };
   return (
     <>
