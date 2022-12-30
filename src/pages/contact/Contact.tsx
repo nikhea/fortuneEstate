@@ -1,5 +1,6 @@
 import React from "react";
 import FAQ from "./components/faq";
+import ContactBanner from "../../components/ContactBanner";
 const style = {
   container: `w-[90%] m-auto items-center justify-center   my-[4rem] overflow-hidden`,
   items: `mx-6 mb-9 leading-[2] fl items-center flex-col `,
@@ -14,8 +15,11 @@ const style = {
 };
 const Contact = () => {
   return (
-    <div className={style.container}>
-      <FAQ />
+    <div>
+      <ContactBanner/>
+      <div className={style.container}>
+        <FAQ />
+      </div>
     </div>
   );
 };
