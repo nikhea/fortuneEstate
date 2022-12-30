@@ -10,7 +10,7 @@ const style = {
   title: `text-3xl md:text-7xl font-black uppercase tracking-wider`,
   description: ` my-5 text-sm md:text-[0.9rem] tracking-wide pr-20 md:pr-0`,
   play: `md:mr-[60px] `,
-  circle: `border border-2 rounded-full py-2 px-2 lg:py-4 lg:px-4  ml-4`,
+  circle: `border border-2 rounded-full py-2 px-2  ml-4`,
   overlay: `h-full w-full top-0 left-0 absolute bg-black opacity-60 bg-fixed -z-50`,
 };
 
