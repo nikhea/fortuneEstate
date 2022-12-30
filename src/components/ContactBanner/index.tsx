@@ -3,7 +3,7 @@ import { IoPlayCircleOutline } from "react-icons/io5";
 import { GrFacebookOption, GrInstagram, GrTwitter } from "react-icons/gr";
 import { FaTiktok } from "react-icons/fa";
 const style = {
-  bgImage: ` md:mt-[2em] w-full h-[60vh] md:h-[340px]  bg-cover bg-center bg-no-repeat relative bg-fixed object-content z-50 bg-[url('https://www.thehouse48.com/wp-content/uploads/2021/12/chuttersnap-603079-unsplash-e1546425079773.jpg')]`,
+  bgImage: ` md:mt-[2em] w-full h-[60vh] md:h-[340px]  bg-cover bg-center bg-no-repeat relative bg-fixed object-content z-50 bg-[url('https://www.thehouse48.com/wp-content/uploads/2021/12/pexels-photo-396303.jpeg')]`,
   container: `h-full  w-[85%] m-auto flex flex-col md:flex-row  justify-center md:justify-between md:items-center`,
   textContainer: `text-white z-50   md:text-start mt-5`,
   socialIcons: `flex  lg:justify-between bg-red-20 my-10`,
