@@ -3,7 +3,7 @@ import Faq from "react-faq-component";
 
 const style = {
   container: `items-center text-center justify-center grid gap-4 grid-cols-1 md:grid-cols-2`,
-  title: ` uppercase text-5xl text-[#7f7f7f] font-normal tracking-[1.1px] text-center font-[900]`,
+  title: ` uppercase text-5xl text-[#7f7f7f] font-normal tracking-[1.1px] text-center font-[900] my-5`,
   textContainer: `relative`,
   tage: `uppercase text-3xl text-[#7f7f7f]  my-2`,
   discoverTitle: `text-[#7f7f7f] capitalize font-bold text-5xl mb-[1em]`,
