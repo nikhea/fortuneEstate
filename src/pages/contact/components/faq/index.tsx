@@ -15,7 +15,7 @@ const index = () => {
         {/* <div className={style.tage}>faq</div> */}
         <h1 className={style.title}>freqently asked questions.</h1>
       </div>
-      <Faq data={data} styles={styles} config={config} />;
+      <Faq data={data} styles={styles} config={config} />
     </div>
   );
 };

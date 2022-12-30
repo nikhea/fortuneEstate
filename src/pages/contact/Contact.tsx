@@ -28,7 +28,7 @@ const Contact = () => {
         <FAQ />
       </div>
     </div>
-  );
-};
+  )
+}
 
 export default Contact;
