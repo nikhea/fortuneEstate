@@ -9,5 +9,6 @@ module.exports = {
       }, //end of fontFamily
     },
   },
+  important: true,
   plugins: [],
 };
