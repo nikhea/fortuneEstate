@@ -14,7 +14,7 @@
   font-family: "Roboto", sans-serif;
 }
 html {
-  overflow: auto;
+  /* overflow: auto; */
 }
 body {
   overflow-x: hidden;
