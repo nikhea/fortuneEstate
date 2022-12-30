@@ -43,13 +43,11 @@ const auth: FC = () => {
     console.log("registing...");
   }
   if (user) {
-    console.log(user, "Sucessful");
   }
   const {
     register,
     control,
     handleSubmit,
-    watch,
     reset,
     formState: { errors },
   } = useForm<FormData>({

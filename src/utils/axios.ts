@@ -1,8 +1,14 @@
+// import * as dotenv from "dotenv";
+// dotenv.config();
 import axios from "axios";
 import { storage } from "../lib/storage";
 
+// const PRODUCTION =import.meta.env.VITE_REACT_APP_BACKEND_PRODUCTION
+const DEVELOPMENT = process.env.REACT_APP_BACKEND_DEVELOPMENT;
+const p ="https://backendfortuneestate.onrender.com/api"
+console.log(DEVELOPMENT, "VITE_REACT_APP_BACKEND_DEVELOPMENT");
 export const Axiosclient = axios.create({
-  baseURL: "http://localhost:4000/api",
+  baseURL: p,
   headers: {
     Authorization: `Bearer ${storage.getToken()}`,
   },
