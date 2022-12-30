@@ -1,5 +1,5 @@
 import { FC } from "react";
-// import "./textEditor.css";
+import "./textEditor.css";
 import Input from "../../../../components/UI/FormElement/input/input";
 import { useForm, FormProvider, useController } from "react-hook-form";
 import useFormPersist from "react-hook-form-persist";

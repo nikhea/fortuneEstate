@@ -1,0 +1,19 @@
+.text-editor {
+    margin-top: 20px;
+}
+.quill.text-editor {
+  border-radius: 50%;
+}
+.ql-toolbar.ql-snow + .ql-container.ql-snow {
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+  height: 20vh;
+}
+.ql-toolbar.ql-snow {
+    /* border-radius: 50px; */
+    border: 0;
+    /* display:flex; */
+    justify-content:space-between;
+    align-items:center
+}
