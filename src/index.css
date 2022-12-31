@@ -15,6 +15,7 @@
 }
 html {
   /* overflow: auto; */
+  @apply overflow-auto md:overflow-visible
 }
 body {
   overflow-x: hidden;
