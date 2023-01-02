@@ -31,9 +31,9 @@ const contactBanner: FC = () => {
 
         <div
           className={style.socialIcons}
-            data-aos="fade-left"
-            data-aos-easing="ease-in-out"
-            data-aos-duration="2500"
+          data-aos="fade-left"
+          data-aos-easing="ease-in-out"
+          data-aos-duration="2500"
         >
           <div className={style.circle}>
             <GrFacebookOption color="#fff" size={20} />

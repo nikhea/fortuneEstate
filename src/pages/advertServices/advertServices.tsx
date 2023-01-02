@@ -1,9 +1,19 @@
-import React from 'react'
+import React from "react";
+import AdvertBanner from "../../components/AdvertBanner";
+import ListService from "./components/listService";
 
 const advertServices = () => {
+  const style = {
+    container: `w-[90%] m-auto  overflow-hidden `,
+  };
   return (
-    <div>advertServices</div>
-  )
-}
+    <div>
+      <AdvertBanner />
+      <div className={style.container}>
+        <ListService />
+      </div>
+    </div>
+  );
+};
 
-export default advertServices
+export default advertServices;

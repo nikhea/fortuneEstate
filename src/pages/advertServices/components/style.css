@@ -1,0 +1,30 @@
+.listServiceLayout {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+  padding: 1rem;
+  text-align: center;
+  margin: 0 auto;
+  box-shadow: 0px 3px 35px 0px rgb(0 0 0 / 1%);
+  /* border-radius: 15px 15px 15px 15px; */
+  transition: background 0.3s, border 0.3s, border-radius 0.3s, box-shadow 0.3s;
+  width: 100%;
+
+  /* @apply flex  items-center justify-between rounded flex-col leading-[1.5] text-center py-5 px-5 shadow  hover:shadow-lg transistion ease-out duration-1000; */
+}
+.listServiceLayout:hover {
+  box-shadow: 0px 3px 35px 0px rgb(0 0 0 / 10%);
+  transition: background 0.3s, border 0.3s, border-radius 0.3s, box-shadow 0.3s;
+}
+@media only screen and (max-width: 760px) {
+  .listServiceLayout {
+    background: #fff;
+    padding: 69px 10px 54px 10px;
+    margin-bottom: 0px;
+    box-shadow: 0px 3px 35px 0px rgb(0 0 0 / 6%);
+    width: 95%;
+    @apply my-5 overflow-hidden py-6;
+  }
+}
