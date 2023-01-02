@@ -1,12 +1,14 @@
 import React from "react";
 import "./style.css";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 import { ServicData } from "./services";
 const style = {
-  containerGrid: ` w-full md:grid grid-cols-1 md:grid-cols-2   md:grid-cols-3 my-20   md:my-20 p-0 gap-[3%]`,
+  containerGrid: ` w-full md:grid grid-cols-1 md:grid-cols-2   md:grid-cols-3   md:my-20 px-20 gap-[3%]`,
   ListContainer: `   hover:shadow-xl `,
   title: ` uppercase text-sm text-[#7f7f7f] font-normal tracking-[1.1px] text-center my-4`,
   content: `text-[#7f7f7f] font-normal tracking-[1.1px] text-center my-4`,
-  icon: `text-[50px]`,
+  icon: `w-[50%] flex items-center justify-center  object-cover `,
 };
 
 interface serviceItemsProps {
@@ -58,7 +60,13 @@ const listService = () => {
               : null
           }
         >
-          <p className={style.icon}> {serviceItems.icon}</p>
+          <p className={style.icon}>
+            <LazyLoadImage
+              className={style.icon}
+              src={serviceItems.icon}
+              alt={serviceItems.title}
+            />
+          </p>
           <h1 className={style.title}>{serviceItems.title}</h1>
           <p className={style.content}>{serviceItems.content}</p>
         </div>
