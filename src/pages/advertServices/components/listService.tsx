@@ -4,10 +4,10 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
 import { ServicData } from "./services";
 const style = {
-  containerGrid: ` w-full md:grid grid-cols-1 md:grid-cols-2   md:grid-cols-3    gap-[3%]`,
+  containerGrid: ` w-full md:grid grid-cols-1 md:grid-cols-2   lg:grid-cols-3    gap-[3%]`,
   ListContainer: `   hover:shadow-xl `,
   title: ` uppercase text-sm text-[#7f7f7f] font-normal tracking-[1.1px] text-center my-4`,
-  baseTitle: `my-20  uppercase text-5xl text-[#7f7f7f] font-normal tracking-[1.1px] text-center`,
+  baseTitle: `my-20  uppercase text-xl lg:text-5xl text-[#7f7f7f] font-normal tracking-[1.1px] text-center`,
   content: `text-[#7f7f7f] font-normal tracking-[1.1px] text-center my-4`,
   icon: `w-[50%] flex items-center justify-center  object-cover `,
 };
@@ -20,7 +20,7 @@ interface serviceItemsProps {
 
 const listService = () => {
   return (
-    <div className=" my-20 px-20">
+    <div className="my-20 px-3 md:px-10 lg:px-20">
       <h1
         className={style.baseTitle}
         data-aos="fade-up"

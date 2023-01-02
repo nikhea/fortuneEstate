@@ -135,9 +135,11 @@ export const Discover = () => {
           data-aos-easing="ease-in-out"
           data-aos-duration="4500"
         >
-          <Button primary isCurve margin padding uppercase>
-            get in touch
-          </Button>
+          <Link to={routes.contact}>
+            <Button primary isCurve margin padding uppercase>
+              get in touch
+            </Button>
+          </Link>
         </span>
       </div>
     </div>
