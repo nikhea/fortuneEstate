@@ -8,6 +8,9 @@ import CountriesCard from "../../components/CountriesCard";
 import GolbalProperties from "../../components/GolbalProperties/golbalProperties";
 import PropertieSliderHome from "../../components/propertieSliderHome/propertieSliderHome";
 import SimilarProperties from "../../components/SimilarProperties/SimilarProperties";
+import ListService from "../advertServices/components/listService";
+// import ListService from "./components/listService";
+
 const App: FC = () => {
   const sm = useMediaQuery({ minWidth: 640 });
   const lg = useMediaQuery({ minWidth: 1024 });
@@ -20,17 +23,19 @@ const App: FC = () => {
         <FilterCard />
       </div>
       <Carousel />
+      <ListService />
       <GolbalProperties />
       <CountriesCard />
+
       {lg ? (
         // <PropertieSliderHome />
-        <SimilarProperties />
-        // <></>
+        // <SimilarProperties />
+        <></>
       ) : (
-        <div className="mb-20">
-          <SimilarProperties />
-        </div>
+        // <></>
+        <div className="mb-20">{/* <SimilarProperties /> */}</div>
       )}
+  
     </div>
   );
 };
