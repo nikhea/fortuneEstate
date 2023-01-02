@@ -3,14 +3,12 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
 import Tilt from "react-parallax-tilt";
 import { Link } from "react-router-dom";
-// import { useQuery } from "@tanstack/react-query";
 import { useQuery } from "react-query";
 import { routes } from "../../routes/routes";
 import { MdLocationPin } from "react-icons/md";
 import ContinentBanner from "../../components/ContinentBanner/continentBanner";
 import Button from "../../components/UI/FormElement/Button";
 import Spinner from "../../components/UI/Loading/spinner";
-
 import { getAllCONTINENTS } from "../../services/api/shared";
 import { SEO } from "../../components/seo/seo";
 import PageLoading from "../../components/UI/Loading/PageLoading";
@@ -92,7 +90,7 @@ const Continents: FC = () => {
             <div className={style.imgContainer}>
               <LazyLoadImage
                 alt={continent.name}
-                effect="blur"
+                // effect="blur"
                 src={continent.image}
                 className={style.image}
               />

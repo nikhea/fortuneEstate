@@ -87,7 +87,7 @@ const propertiesList: FC<propertiesList> = ({
             <div className={style.imgContainer}>
               <LazyLoadImage
                 alt={title}
-                effect="blur"
+                // effect="blur"
                 src={images[0].url}
                 className={style.image}
               />

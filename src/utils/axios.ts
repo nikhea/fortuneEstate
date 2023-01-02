@@ -5,10 +5,11 @@ import { storage } from "../lib/storage";
 
 // const PRODUCTION =import.meta.env.VITE_REACT_APP_BACKEND_PRODUCTION
 const DEVELOPMENT = process.env.REACT_APP_BACKEND_DEVELOPMENT;
-const p ="https://backendfortuneestate.onrender.com/api"
+const API_DEVELOPMENT =`http://localhost:4000/api`
+// const API_URL ="https://backendfortuneestate.onrender.com/api"
 console.log(DEVELOPMENT, "VITE_REACT_APP_BACKEND_DEVELOPMENT");
 export const Axiosclient = axios.create({
-  baseURL: p,
+  baseURL:  API_DEVELOPMENT ,
   headers: {
     Authorization: `Bearer ${storage.getToken()}`,
   },

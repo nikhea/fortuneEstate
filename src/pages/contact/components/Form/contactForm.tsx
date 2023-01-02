@@ -67,10 +67,11 @@ const contactForm: FC = () => {
               <label className={style.label}>name</label>
               <Input
                 type="text"
-                placeholder=""
+                placeholder="Full Name"
                 name="name"
                 required
-                borderBottom
+                // borderBottom
+                rounded
                 isWhiteBg
                 errors={errors}
                 Width="100%"
@@ -81,10 +82,11 @@ const contactForm: FC = () => {
               <label className={style.label}>email address</label>
               <Input
                 type="text"
-                placeholder=""
+                placeholder="Youremail@email.com"
                 name="email"
                 required
-                borderBottom
+                // borderBottom
+                rounded
                 Width="100%"
                 isWhiteBg
                 errors={errors}
@@ -95,10 +97,11 @@ const contactForm: FC = () => {
               <label className={style.label}>insterested in</label>
               <Input
                 type="email"
-                placeholder=""
-                name=" insterested"
+                placeholder="What are you insterested in"
+                name="insterested"
                 required
-                borderBottom
+                // borderBottom
+                rounded
                 Width="100%"
                 isWhiteBg
                 errors={errors}
@@ -106,13 +109,14 @@ const contactForm: FC = () => {
               />
             </div>
             <div className={style.inputContainer}>
-              <label className={style.label}>phone number</label>
+              <label className={style.label}>Phone Number</label>
               <Input
-                type="phone"
-                placeholder=""
+                type="number"
+                placeholder="Mobile Number"
                 name="phone"
                 required
-                borderBottom
+                // borderBottom
+                rounded
                 Width="100%"
                 isWhiteBg
                 errors={errors}
@@ -126,6 +130,7 @@ const contactForm: FC = () => {
                 value={messageContent}
                 onChange={onMessagenChange}
                 className="text-editor"
+                placeholder="Your Message..."
               />
             </div>
           </div>

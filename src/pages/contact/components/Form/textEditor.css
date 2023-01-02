@@ -1,19 +1,23 @@
 .text-editor {
   margin-top: 20px;
+  /* @apply shadow-md; */
+
 }
 .quill.text-editor {
-  border-radius: 50%;
+  /* border-radius: 50%; */
 }
 .ql-toolbar.ql-snow + .ql-container.ql-snow {
   border-top: 0;
   border-left: 0;
   border-right: 0;
-  height: 20vh;
+  border-bottom: 0;
+
+  height: 30vh;
+  @apply shadow-md;
 }
 .ql-toolbar.ql-snow {
-  /* border-radius: 50px; */
-  border: 0 !important;
-  /* display:flex; */
+  /* border: 0 !important; */
+    border-radius: 50px;
   justify-content: space-between;
   align-items: center;
 }

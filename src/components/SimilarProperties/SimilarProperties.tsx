@@ -59,9 +59,9 @@ const SimilarProperties: FC<Props> = () => {
     <div className="mx-4" key={index}>
       <div className={style.mainContainer}>
         <div className={style.imgContainer}>
-          <LazyLoadImage
+          <img
             alt={property.title}
-            effect="blur"
+            // effect="blur"
             src={property.propertyImages[0].url}
             className={style.image}
           />

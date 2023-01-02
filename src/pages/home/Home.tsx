@@ -24,10 +24,11 @@ const App: FC = () => {
       <CountriesCard />
       {lg ? (
         // <PropertieSliderHome />
-        <></>
+        <SimilarProperties />
+        // <></>
       ) : (
         <div className="mb-20">
-          {/* <SimilarProperties /> */}
+          <SimilarProperties />
         </div>
       )}
     </div>
