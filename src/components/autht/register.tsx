@@ -22,7 +22,7 @@ const style = {
   header: `flex items-center justify-between w-full mt-[20px] mb-[10px]`,
   form: ` h-[] flex flex-col items-center justify-center`,
   checkbox: `flex items-center [&>*]:mr-[15px] font-light my-[20px]`,
-  inputHalf: `flex justify-between `,
+  inputHalf: `flex justify-between gap-1`,
   forgot: `flex justify-between items-center`,
   forgotpassword: `text-blue-600`,
   errors: `block `,

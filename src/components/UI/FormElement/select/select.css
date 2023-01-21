@@ -1,5 +1,5 @@
 input {
-  border: none;
+  border: none !important;
 }
 .react-select-container {
   @apply outline-none border-0 rounded-full;
