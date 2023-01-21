@@ -28,13 +28,13 @@ const TitlePrice: FC<Props> = ({
   bed,
 }) => {
   const style = {
-    container: `mx-9 w-[50%] m-auto`,
+    container: `mx-9 lg:w-[50%] m-auto`,
     Header: ``,
     titleHeader: `flex items-center `,
     title: `font-[500] text-3xl mr-8 drop-shadow-2xl my-5`,
     tag: `rounded text-[0.7rem] py-1 px-3   block capitalize  flex bg-[#736EFE] outline-none text-white `,
-    priceContainer: `w-[60] rounded-[10px] bg-[#0D304A] flex items-center justify-between shadow-xl text-white py-1 px-5 my-3`,
-    price: `text-[2rem] text-bold`,
+    priceContainer: `max-w-[70%]  lg:max-w-[60%] rounded-[10px] bg-[#0D304A] flex items-center justify-between shadow-xl text-white py-3 lg:py-3 px-5 my-3`,
+    price: `text-[1.5rem] lg:text-[2rem] text-bold`,
     sqft: `text-[1.2rem]`,
     location: `font-[400] text-[#8392A5] leading-10 flex items-center text-xl my-3`,
     hr: ``,

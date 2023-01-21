@@ -11,7 +11,7 @@ const Image = () => {
     <div className={style.imgContainer}>
       <LazyLoadImage
         alt="https://www.thehouse48.com/wp-content/uploads/WPL/53830/img_Property-4ddc7151039d0f37226399adc8981124-126373025-1024x700.jpg"
-        effect="blur"
+        // effect="blur"
         src="https://www.thehouse48.com/wp-content/uploads/WPL/53830/img_Property-4ddc7151039d0f37226399adc8981124-126373025-1024x700.jpg"
         className={style.image}
       />

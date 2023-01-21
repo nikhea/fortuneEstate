@@ -38,8 +38,8 @@ const additionalDetails: FC<Props> = ({
   const style = {
     header: ` flex items-center  w-full mb-5`,
     title: `ml-5 capitalize font-[600] text-[1.75rem]`,
-    details: ` items-center  justify-betwee  flex flex-wrap `,
-    description: `py-4 w-[23%] font-[400] text-[#0D304A] text-base mr-[4rem]`,
+    details: ` lg:items-center  justify-betwee  flex flex-col md:flex-row flex-wrap capitalize`,
+    description: `py-4 lg:w-[23%] font-[400] text-[#0D304A] text-lg lg:text-base mr-[4rem]`,
     span: `capitalize`,
   };
   return (

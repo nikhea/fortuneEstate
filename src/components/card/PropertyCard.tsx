@@ -1,5 +1,5 @@
 import { FC } from "react";
-import "./propertyCard.css"
+import "./propertyCard.css";
 interface propertiesCard {
   children: React.ReactNode;
   width?: number;
@@ -21,6 +21,5 @@ const PropertiesCard: FC<propertiesCard> = ({ children, width, height }) => {
     </div>
   );
 };
-
 
 export default PropertiesCard;

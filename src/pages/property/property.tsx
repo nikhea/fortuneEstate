@@ -55,7 +55,7 @@ const property: FC = () => {
 
   return (
     <>
-      {/* <ImageCard /> */}
+      <ImageCard />
       <div className={style.bgContainer}>
         <div className={style.full}></div>
         <div className={style.full}>
@@ -69,7 +69,6 @@ const property: FC = () => {
             bath={bathrooms}
             bed={bedrooms}
             location={address.street}
-            
           />
         </div>
         <div className={style.bgHalf}>
