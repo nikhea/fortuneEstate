@@ -14,9 +14,9 @@ const contactBanner: FC = () => {
         <div className={style.textContainer}>
           <h1
             className={style.title}
-            data-aos="fade-up"
-            data-aos-easing="ease-in-out"
-            data-aos-duration="1500"
+            // data-aos="fade-up"
+            // data-aos-easing="ease-in-out"
+            // data-aos-duration="1500"
           >
             adverties
           </h1>

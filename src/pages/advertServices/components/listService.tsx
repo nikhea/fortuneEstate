@@ -23,9 +23,9 @@ const listService = () => {
     <div className="my-20 px-3 md:px-10 lg:px-20">
       <h1
         className={style.baseTitle}
-        data-aos="fade-up"
-        data-aos-easing="ease-in-out"
-        data-aos-duration="1500"
+        // data-aos="fade-up"
+        // data-aos-easing="ease-in-out"
+        // data-aos-duration="1500"
       >
         why choose us
       </h1>
@@ -34,41 +34,41 @@ const listService = () => {
           <div
             key={index}
             className="listServiceLayout"
-            data-aos={
-              index === 0
-                ? "fade-up"
-                : index === 1
-                ? "fade-up"
-                : index === 2
-                ? "fade-up"
-                : index === 3
-                ? "fade-up"
-                : index === 4
-                ? "fade-up"
-                : index === 5
-                ? "fade-up"
-                : index === 6
-                ? "fade-up"
-                : null
-            }
-            data-aos-easing="ease-in-out"
-            data-aos-duration={
-              index === 0
-                ? "2000"
-                : index === 1
-                ? "3500"
-                : index === 2
-                ? "5000"
-                : index === 3
-                ? "7000"
-                : index === 4
-                ? "9000"
-                : index === 5
-                ? "2200"
-                : index === 6
-                ? "2500"
-                : null
-            }
+            // data-aos={
+            //   index === 0
+            //     ? "fade-up"
+            //     : index === 1
+            //     ? "fade-up"
+            //     : index === 2
+            //     ? "fade-up"
+            //     : index === 3
+            //     ? "fade-up"
+            //     : index === 4
+            //     ? "fade-up"
+            //     : index === 5
+            //     ? "fade-up"
+            //     : index === 6
+            //     ? "fade-up"
+            //     : null
+            // }
+            // data-aos-easing="ease-in-out"
+            // data-aos-duration={
+            //   index === 0
+            //     ? "2000"
+            //     : index === 1
+            //     ? "3500"
+            //     : index === 2
+            //     ? "5000"
+            //     : index === 3
+            //     ? "7000"
+            //     : index === 4
+            //     ? "9000"
+            //     : index === 5
+            //     ? "2200"
+            //     : index === 6
+            //     ? "2500"
+            //     : null
+            // }
           >
             <p className={style.icon}>
               <LazyLoadImage

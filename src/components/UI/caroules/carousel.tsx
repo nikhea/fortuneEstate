@@ -56,9 +56,9 @@ const Gallery: FC = () => {
   return (
     <div
       className={style.container}
-      data-aos="fade-up"
-      data-aos-easing="ease-in-out"
-      data-aos-duration="1700"
+      // data-aos="fade-up"
+      // data-aos-easing="ease-in-out"
+      // data-aos-duration="1700"
     >
       <AliceCarousel
         autoPlayInterval={2000}

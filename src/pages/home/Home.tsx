@@ -23,19 +23,12 @@ const App: FC = () => {
         <FilterCard />
       </div>
       <Carousel />
-      <ListService />
       <GolbalProperties />
       <CountriesCard />
 
-      {lg ? (
-        // <PropertieSliderHome />
-        // <SimilarProperties />
-        <></>
-      ) : (
-        // <></>
-        <div className="mb-20">{/* <SimilarProperties /> */}</div>
-      )}
-  
+      {lg ? <>{/* <PropertieSliderHome /> */}</> : null}
+      <ListService />
+      <SimilarProperties />
     </div>
   );
 };

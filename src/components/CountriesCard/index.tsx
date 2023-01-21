@@ -49,17 +49,17 @@ const CountriesCard: FC = () => {
           <div className={style.textContainer}>
             <h1
               className={style.title}
-              data-aos="fade-up"
-              data-aos-easing="ease-in-out"
-              data-aos-duration="1000"
+              // data-aos="fade-up"
+              // data-aos-easing="ease-in-out"
+              // data-aos-duration="1000"
             >
               Exceptional properties around the world
             </h1>
             <p
               className={style.description}
-              data-aos="fade-up"
-              data-aos-easing="ease-in-out"
-              data-aos-duration="1000"
+              // data-aos="fade-up"
+              // data-aos-easing="ease-in-out"
+              // data-aos-duration="1000"
             >
               Great cities or exclusive localities. Choose the luxury that suits
               you.
@@ -79,79 +79,79 @@ const CountriesCard: FC = () => {
                     src={countries.image}
                     alt={countries.name}
                     className={style.image}
-                    data-aos={
-                      index === 0
-                        ? "fade-right"
-                        : index === 1
-                        ? "fade-left"
-                        : index === 2
-                        ? "zoom-in"
-                        : index === 3
-                        ? "zoom-in"
-                        : index === 4
-                        ? "zoom-in"
-                        : index === 5
-                        ? "fade-right"
-                        : index === 6
-                        ? "fade-left"
-                        : null
-                    }
-                    data-aos-easing="ease-in-out"
-                    data-aos-duration={
-                      index === 0
-                        ? "2000"
-                        : index === 1
-                        ? "3500"
-                        : index === 2
-                        ? "5000"
-                        : index === 3
-                        ? "7000"
-                        : index === 4
-                        ? "9000"
-                        : index === 5
-                        ? "2200"
-                        : index === 6
-                        ? "2500"
-                        : null
-                    }
+                    // data-aos={
+                    //   index === 0
+                    //     ? "fade-right"
+                    //     : index === 1
+                    //     ? "fade-left"
+                    //     : index === 2
+                    //     ? "zoom-in"
+                    //     : index === 3
+                    //     ? "zoom-in"
+                    //     : index === 4
+                    //     ? "zoom-in"
+                    //     : index === 5
+                    //     ? "fade-right"
+                    //     : index === 6
+                    //     ? "fade-left"
+                    //     : null
+                    // }
+                    // data-aos-easing="ease-in-out"
+                    // data-aos-duration={
+                    //   index === 0
+                    //     ? "2000"
+                    //     : index === 1
+                    //     ? "3500"
+                    //     : index === 2
+                    //     ? "5000"
+                    //     : index === 3
+                    //     ? "7000"
+                    //     : index === 4
+                    //     ? "9000"
+                    //     : index === 5
+                    //     ? "2200"
+                    //     : index === 6
+                    //     ? "2500"
+                    //     : null
+                    // }
                   />
                   <p
                     className={style.text}
-                    data-aos={
-                      index === 0
-                        ? "fade-right"
-                        : index === 1
-                        ? "fade-left"
-                        : index === 2
-                        ? "zoom-in"
-                        : index === 3
-                        ? "zoom-in"
-                        : index === 4
-                        ? "zoom-in"
-                        : index === 5
-                        ? "fade-right"
-                        : index === 6
-                        ? "fade-left"
-                        : null
-                    }
-                    data-aos-easing="ease-in-out"
-                    data-aos-duration={
-                      index === 0
-                        ? "2000"
-                        : index === 1
-                        ? "3500"
-                        : index === 2
-                        ? "5000"
-                        : index === 3
-                        ? "7000"
-                        : index === 4
-                        ? "9000"
-                        : index === 5
-                        ? "2200"
-                        : index === 6
-                        ? "2500"
-                        : null
-                    }
+                    // data-aos={
+                    //   index === 0
+                    //     ? "fade-right"
+                    //     : index === 1
+                    //     ? "fade-left"
+                    //     : index === 2
+                    //     ? "zoom-in"
+                    //     : index === 3
+                    //     ? "zoom-in"
+                    //     : index === 4
+                    //     ? "zoom-in"
+                    //     : index === 5
+                    //     ? "fade-right"
+                    //     : index === 6
+                    //     ? "fade-left"
+                    //     : null
+                    // }
+                    // data-aos-easing="ease-in-out"
+                    // data-aos-duration={
+                    //   index === 0
+                    //     ? "2000"
+                    //     : index === 1
+                    //     ? "3500"
+                    //     : index === 2
+                    //     ? "5000"
+                    //     : index === 3
+                    //     ? "7000"
+                    //     : index === 4
+                    //     ? "9000"
+                    //     : index === 5
+                    //     ? "2200"
+                    //     : index === 6
+                    //     ? "2500"
+                    //     : null
+                    // }
                   >
                     <span className={style.hr}>{countries.name}</span>
                   </p>

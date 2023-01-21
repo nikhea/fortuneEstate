@@ -51,7 +51,8 @@ const continentBanner: FC = () => {
 };
 
 export default continentBanner;
-{/* <Button
+{
+  /* <Button
 primary
 isCurve
 margin
@@ -60,4 +61,5 @@ uppercase
 
 >
 get in touch
-</Button> */}
+</Button> */
+}

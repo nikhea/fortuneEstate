@@ -45,7 +45,7 @@ const SimilarProperties: FC<Props> = () => {
     isLoading,
     status,
   } = useQuery([queryKeys.properties], getAllProperties);
-
+  if (!properties) return;
   if (status === "success") {
     const p = properties?.data.results[0].data.slice(0, 6);
     if (Array.isArray(p)) {
