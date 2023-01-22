@@ -89,7 +89,7 @@ const ComponentSwitch: FC = () => {
   const submitForm = async (formData: any) => {
     // console.log("submitForm DATA main => ", formData);
     if (formData) {
-      console.log("submitForm DATA main => ", formData);
+      // console.log("submitForm DATA main => ", formData);
       await addProperties(formData);
       if (status === "loading") {
         toast.warning("submmiting");
@@ -102,7 +102,7 @@ const ComponentSwitch: FC = () => {
         // localStorage.removeItem("propertiesImage")
         // propertyImages
       }
-      console.log(createPropertiesData?.status);
+      // console.log(createPropertiesData?.status);
     }
     notify(Watch);
   };

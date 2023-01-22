@@ -78,14 +78,15 @@ const propertiesList: FC<propertiesList> = ({
     setLike(like);
   };
   return (
-    <div className={style.container}>
+    // className={style.container}
+    <div>
       {/* <SEO title={`continents/${title}`} /> */}
 
       <div className={style.cardContainer}>
         <div className={style.card}>
           <Link to={`${routes.property}/${ID}`}>
             <div className={style.imgContainer}>
-              <LazyLoadImage
+              <img
                 alt={title}
                 // effect="blur"
                 src={images[0].url}

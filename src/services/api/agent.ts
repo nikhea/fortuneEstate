@@ -6,6 +6,8 @@ export const createProperties = async (properties: any) => {
   // http://localhost:4000/api/properties
 
   const res = await Axiosclient.post(`properties`, properties);
+  console.log(res, "jsdlksljxsklajxklskl");
+
   notify(res.status, res.data.message);
   return {
     status: res.status,

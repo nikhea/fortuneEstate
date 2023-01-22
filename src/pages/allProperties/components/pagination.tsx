@@ -30,7 +30,7 @@ interface Props {
   squareSymbol?: string;
   firstname?: string;
   lastname?: string;
-  properties?:any
+  properties?: any;
 }
 interface pageChange {
   selected?: any;
@@ -50,7 +50,6 @@ const style = {
   headerSelect: `ml-5`,
 };
 const paginatedProperties: FC<paginatedPropertiesProps> = ({ properties }) => {
-
   const displayproperties = properties.map((property: Props, index: any) => (
     <div key={index}>
       <PropertiesList
@@ -76,11 +75,7 @@ const paginatedProperties: FC<paginatedPropertiesProps> = ({ properties }) => {
     </div>
   ));
 
-  return (
-    <MainCard width={70}>
-      <div className={style.container}>{displayproperties}</div>
-    </MainCard>
-  );
+  return <div className={style.container}>{displayproperties}</div>;
 };
 
 export default paginatedProperties;

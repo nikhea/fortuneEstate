@@ -98,9 +98,11 @@ const golbalProperties: FC<Props> = () => {
             </div>
             <div className={style.gridContainer}>{displayproperties}</div>
             <div className={style.container}>
-              <Button rounded linearGradient uppercase primary>
-                <Link to={routes.properties}>all properties</Link>
-              </Button>
+              <Link to={routes.properties}>
+                <Button rounded linearGradient uppercase primary>
+                  all properties
+                </Button>
+              </Link>
             </div>
           </div>
         </div>

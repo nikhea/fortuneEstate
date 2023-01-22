@@ -29,7 +29,7 @@ const App: FC = () => {
       {lg ? <> {/* <PropertieSliderHome />{" "} */}</> : null}
       <ListService />
       <SimilarProperties />
-      <div className="mb-10 lg:mb-24"></div>
+      <div className="mb-10 lg:mb-14"></div>
     </div>
   );
 };

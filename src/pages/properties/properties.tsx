@@ -1,4 +1,12 @@
-import { FC, useState } from "react";
+import {
+  FC,
+  JSXElementConstructor,
+  Key,
+  ReactElement,
+  ReactFragment,
+  ReactPortal,
+  useState,
+} from "react";
 // import { useQuery } from "@tanstack/react-query";
 import { useQuery } from "react-query";
 
@@ -55,21 +63,20 @@ const properties: FC<propertiesProps> = ({
   if (isLoading) {
     return <PageLoading />;
   }
-  let p = properties.map((prop) => {
-    console.log(prop);
+  // let p = properties.map((prop: any) => {
+  //   console.log(prop);
 
-    return (
-      <div key={prop._id}>
-        {/* {JSON.stringify(prop)} */}
-        {prop.title}
-        {/* jiouhiu */}
-      </div>
-    );
-  });
+  //   return (
+  //     <div key={prop._id}>
+  //       {JSON.stringify(prop)}
+  //       {prop.title}
+  //       jiouhiu
+  //     </div>
+  //   );
+  // });
   return (
     <div className={style.bgContainer}>
       <div className=" col-start-1 col-end-7">
-        {p}
         <PaginatedProperties properties={properties} />
       </div>
       <div className={style.colLeft}>
