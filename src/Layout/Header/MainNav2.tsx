@@ -35,9 +35,9 @@ const MainNav: FC = () => {
     <div className={style.shadow}>
       <div className={style.container}>
         <Link
-          data-aos="fade-in"
-          data-aos-easing="ease-in-out"
-          data-aos-duration="6500"
+          // data-aos="fade-in"
+          // data-aos-easing="ease-in-out"
+          // data-aos-duration="6500"
           to={routes.home}
           className={style.logo}
         >
@@ -45,9 +45,9 @@ const MainNav: FC = () => {
         </Link>
 
         <ul
-          data-aos="fade-in"
-          data-aos-easing="ease-in-out"
-          data-aos-duration="6500"
+          // data-aos="fade-in"
+          // data-aos-easing="ease-in-out"
+          // data-aos-duration="6500"
           className={style.lists}
         >
           <li className={style.list}>
@@ -92,9 +92,9 @@ const MainNav: FC = () => {
           </li>
         </ul>
         <span
-          data-aos="fade-in"
-          data-aos-easing="ease-in-out"
-          data-aos-duration="6500"
+          // data-aos="fade-in"
+          // data-aos-easing="ease-in-out"
+          // data-aos-duration="6500"
           className={style.btnadvertising}
         >
           <Button primary rounded linearGradient uppercase>

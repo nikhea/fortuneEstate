@@ -1,5 +1,5 @@
 .paginationContainer {
-  @apply flex justify-between;
+  @apply flex justify-between flex-row-reverse;
   @apply mx-20 mb-10;
   margin-top: 50px;
 }
@@ -11,7 +11,7 @@
   @apply px-3 py-1;
   @apply text-sm uppercase;
   @apply transition duration-500 ease-in;
-  @apply rounded-full;
+  @apply rounded-[10px];
   @apply border-2 border-violet-600 text-violet-600;
 }
 .paginationDisabled {

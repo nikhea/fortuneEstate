@@ -50,42 +50,43 @@ const Continents: FC = () => {
           <div
             className={style.items}
             key={continent._id}
-            data-aos="fade-up"
-            data-aos-easing="ease-in-out"
-            data-aos-duration={
-              index === 0
-                ? "24000"
-                : // : index === 1
-                  // ? "8000"
-                  // : index === 2
-                  // ? "5000"
-                  // : index === 3
-                  // ? "13000"
-                  // : index === 4
-                  // ? "17000"
-                  // : index === 5
-                  // ? "2200"
-                  // : index === 6
-                  // ? "2800"
-                  null
-            }
-            data-aos-delay={
-              index === 0
-                ? "24000"
-                : index === 1
-                ? "8000"
-                : index === 2
-                ? "5000"
-                : index === 3
-                ? "13000"
-                : index === 4
-                ? "17000"
-                : // : index === 5
-                  // ? "2200"
-                  // : index === 6
-                  // ? "2800"
-                  null
-            }
+            // data-aos="fade-up"
+            // data-aos-easing="ease-in-out"
+            // data-aos-duration={
+            // index === 0
+            //   ? "24000"
+            // :  : index === 1
+            // ? "8000"
+            // : index === 2
+            // ? "5000"
+            // : index === 3
+            // ? "13000"
+            // : index === 4
+            // ? "17000"
+            // : index === 5
+            // ? "2200"
+            // : index === 6
+            // ? "2800"
+            //       null
+            // }
+            // data-aos-delay={
+            //   index === 0
+            //     ? "24000"
+            //     : index === 1
+            //     ? "8000"
+            //     : index === 2
+            //     ? "5000"
+            //     : index === 3
+            //     ? "13000"
+            //     : index === 4
+            //     ? "17000"
+            // :
+            // : index === 5
+            // ? "2200"
+            // : index === 6
+            // ? "2800"
+            //       null
+            // }
           >
             <div className={style.imgContainer}>
               <LazyLoadImage

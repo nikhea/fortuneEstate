@@ -87,9 +87,9 @@ const golbalProperties: FC<Props> = () => {
     <>
       {displayproperties.length !== 0 ? (
         <div
-          data-aos="fade-up"
-          data-aos-easing="ease-in-out"
-          data-aos-duration="3000"
+        // data-aos="fade-up"
+        // data-aos-easing="ease-in-out"
+        // data-aos-duration="3000"
         >
           <div className={style.bgContainer}>
             <div className={style.container}>

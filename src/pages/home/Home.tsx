@@ -19,16 +19,15 @@ const App: FC = () => {
     <div className="relative">
       <SEO title="Learning React Helmet" />
       <Header />
-      <div className="relative  -mt-20 z-50">
+      {/* <div className="relative  -mt-20 z-50">
         <FilterCard />
-      </div>
+      </div> */}
+      <CountriesCard />
       <Carousel />
       <GolbalProperties />
-      <CountriesCard />
-
       {lg ? <> {/* <PropertieSliderHome />{" "} */}</> : null}
       <ListService />
-      {/* <SimilarProperties /> */}
+      <SimilarProperties />
       <div className="mb-10 lg:mb-14"></div>
     </div>
   );

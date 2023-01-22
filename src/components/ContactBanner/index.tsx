@@ -21,9 +21,9 @@ const contactBanner: FC = () => {
         <div className={style.textContainer}>
           <h1
             className={style.title}
-            data-aos="fade-right"
-            data-aos-easing="ease-in-out"
-            data-aos-duration="1500"
+            // data-aos="fade-right"
+            // data-aos-easing="ease-in-out"
+            // data-aos-duration="1500"
           >
             contact us
           </h1>
@@ -31,9 +31,9 @@ const contactBanner: FC = () => {
 
         <div
           className={style.socialIcons}
-          data-aos="fade-left"
-          data-aos-easing="ease-in-out"
-          data-aos-duration="2500"
+          // data-aos="fade-left"
+          // data-aos-easing="ease-in-out"
+          // data-aos-duration="2500"
         >
           <div className={style.circle}>
             <GrFacebookOption color="#fff" size={20} />

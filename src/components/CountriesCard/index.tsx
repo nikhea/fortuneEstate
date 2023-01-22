@@ -53,7 +53,7 @@ const CountriesCard: FC = () => {
               // data-aos-easing="ease-in-out"
               // data-aos-duration="1000"
             >
-              Exceptional properties around the world
+              Exceptional Properties Around The World
             </h1>
             <p
               className={style.description}

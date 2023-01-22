@@ -19,17 +19,17 @@ const continentBanner: FC = () => {
         <div className={style.textContainer}>
           <h1
             className={style.title}
-            data-aos="fade-right"
-            data-aos-easing="ease-in-out"
-            data-aos-duration="1500"
+            // data-aos="fade-right"
+            // data-aos-easing="ease-in-out"
+            // data-aos-duration="1500"
           >
             House48 <br /> Continents
           </h1>
           <p
             className={style.description}
-            data-aos="fade-right"
-            data-aos-easing="ease-in-out"
-            data-aos-duration="2500"
+            // data-aos="fade-right"
+            // data-aos-easing="ease-in-out"
+            // data-aos-duration="2500"
           >
             House48 covers all regions of the worlds. Tap on any region to view
             countries available within the area.
@@ -38,9 +38,9 @@ const continentBanner: FC = () => {
 
         <div
           className={style.play}
-          data-aos="fade-left"
-          data-aos-easing="ease-in-out"
-          data-aos-duration="2500"
+          // data-aos="fade-left"
+          // data-aos-easing="ease-in-out"
+          // data-aos-duration="2500"
         >
           <IoPlayCircleOutline color="#fff" size={100} />
         </div>
