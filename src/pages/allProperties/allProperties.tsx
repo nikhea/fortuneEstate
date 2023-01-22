@@ -9,10 +9,12 @@ import MainPagination from "../../components/Mainpagination";
 // import Button from "../UI/FormElement/Button";
 const allProperties = () => {
   const [pageNumber, setPageNumber] = useState(1);
-  const [limitProperties, setLimitProperties] = useState(2);
+  const [limitProperties, setLimitProperties] = useState(8);
+  const [sortProperties, setSortProperties] = useState(1);
+
   const { data: properties, isLoading } = useQuery(
-    [queryKeys.properties, pageNumber, limitProperties],
-    () => getAllProperties(pageNumber, limitProperties),
+    [queryKeys.properties, pageNumber, limitProperties, sortProperties],
+    () => getAllProperties(pageNumber, limitProperties, sortProperties),
     {
       keepPreviousData: true,
     }
@@ -48,6 +50,8 @@ const allProperties = () => {
         handlePageClick={handlePageClick}
         previouspage={previouspage}
         propertiesLength={metadata.total}
+        sortProperties={sortProperties}
+        setSortProperties={setSortProperties}
       >
         <Pagination properties={propertiesResult} />
       </MainPagination>

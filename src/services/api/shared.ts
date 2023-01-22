@@ -30,10 +30,11 @@ export const getAllCountry = async () => {
 };
 export const getAllProperties = async (
   pageNumber: number,
-  limitProperties: number
+  limitProperties: number,
+  sortProperties: number
 ) => {
   const res = await Axiosclient.get(
-    `/properties?page=${pageNumber}&limit=${limitProperties}`
+    `/properties?page=${pageNumber}&limit=${limitProperties}&sort=${sortProperties}`
   );
   return {
     status: res.status,

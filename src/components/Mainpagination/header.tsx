@@ -16,12 +16,29 @@ const style = {
   headerLength: `flex items-end `,
   headerView: `flex items-center `,
   headerSort: `flex items-center`,
-  headerSelect: `ml-5`,
+  headerSelect: `
+   my-[10px]  py-[15px] px-[23px]  
+  text-[.9375rem]   pr-[23px] outline-none  bg-[#f1f1f1] outline-none text-[#9a9a9a]
+  border border-[#C4C4C4] border-solid bg-white text-black  focus:outline-none focus:border-sky-500
+  rounded-[25px] w-full;
+  `,
 };
 interface IHeader {
   propertiesLength: number;
+  sortProperties: any;
+  setSortProperties: any;
 }
-const header: FC<IHeader> = ({ propertiesLength }) => {
+const header: FC<IHeader> = ({
+  propertiesLength,
+  sortProperties,
+  setSortProperties,
+}) => {
+  const handleChange = (event: {
+    target: { value: React.SetStateAction<string> };
+  }) => {
+    console.log(event.target.value);
+    setSortProperties(event.target.value);
+  };
   return (
     <div className={style.header}>
       <div className={style.headerLength}>
@@ -42,13 +59,13 @@ const header: FC<IHeader> = ({ propertiesLength }) => {
             <MdOutlineGridView size={30} color="#" />
           </div>
         </div>
-        <select className={style.headerSelect}>
-          <option value="Religious center ascending">
-            Religious center ascending
-          </option>
-          <option value="Religious center descending">
-            Religious center descending
-          </option>
+        <select
+          value={sortProperties}
+          className={style.headerSelect}
+          onChange={handleChange}
+        >
+          <option value={1}>Religious center ascending</option>
+          <option value={-1}>Religious center descending</option>
         </select>
       </div>
     </div>

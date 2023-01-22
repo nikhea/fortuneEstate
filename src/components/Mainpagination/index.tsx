@@ -10,6 +10,8 @@ interface Props {
   handlePageClick: (page: number) => void;
   previouspage: () => void;
   propertiesLength: number;
+  sortProperties: any;
+  setSortProperties: any;
 }
 const style = {
   container: `w-[90%] m-auto my-10`,
@@ -22,11 +24,17 @@ const index: FC<Props> = ({
   handlePageClick,
   previouspage,
   propertiesLength,
+  sortProperties,
+  setSortProperties,
 }) => {
   return (
     <MainCard width={70}>
       <div className={style.container}>
-        <Header propertiesLength={propertiesLength} />
+        <Header
+          propertiesLength={propertiesLength}
+          sortProperties={sortProperties}
+          setSortProperties={setSortProperties}
+        />
         {children}
         <Navigation
           page={page}
