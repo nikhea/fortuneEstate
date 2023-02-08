@@ -57,7 +57,7 @@ const Button: FC<Button> = ({
     curve: `rounded-[8px] `,
     uppercase: `uppercase`,
     padding: `!px-[5em] !py-[1em]`,
-    linearGradient: `bg-gradient-to-r from-cyan-500 to-blue-500 !px-[1.3em] py-0 tracking-widest outline-none min-h-[44px] border-0 `,
+    linearGradient: `bg-gradient-to-r from-cyan-500 to-blue-500 !px-[1.3em] !py-0 tracking-widest outline-none min-h-[44px] border-0 `,
     border: `  tracking-widest     border-[2px]  `,
   };
   // btn: `bg-[#06c4e5] w-full  text-center text-[0.9rem] tracking-[3px] text-white py-2  capitalize  rounded `,
