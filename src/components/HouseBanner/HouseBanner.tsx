@@ -6,7 +6,7 @@ const style = {
   img: `w-full`,
   class:
     "font-extrabold text-transparent text-8xl bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600",
-  logoBig: `text-center font-extrabold text-transparent text-[3rem] lg:text-[5rem] bg-clip-text bg-gradient-to-r from-cyan-800 to-purple-400 px-[3em] py-0 tracking-widest outline-none min-h-[44px] border-0 `,
+  logoBig: `text-center font-extrabold text-transparent text-[2rem] lg:text-[5rem] bg-clip-text bg-gradient-to-r from-cyan-800 to-purple-400 px-[3em] py-0 tracking-widest outline-none min-h-[44px] border-0 `,
 };
 const HouseBanner: FC = () => {
   return (
