@@ -8,7 +8,7 @@ import Button from "../../components/UI/FormElement/Button";
 const style = {
   container: ` flex justify-between w-[95%]  m-auto m-0  items-center  `,
   lists: `capitalize hidden md:flex flex-wrap justify-center lg:justify-between lg:mr-[100px] mt-5 `,
-  list: ` mx-5 lg:mx-[35px] mb-3 text-center items text-[#0D304A]`,
+  list: ` mx-5  mb-3 text-center items text-[#0D304A]`,
   // list: `mx-5 lg:mx-[35px] text-center items  text-white mb-3`,
   logo: `w-[200px] mt-5`,
   active: `bg-gradient-to-r from-cyan-500 to-blue-500 text-white py-2 px-5 rounded-full`,
