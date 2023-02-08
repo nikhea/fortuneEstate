@@ -40,7 +40,6 @@ const Button: FC<Button> = ({
   border,
   Color,
   onClick,
-
 }) => {
   const style = {
     // btn: `border border-solid bg-transparen min-w-[100px] not-italic font-[400] text-[14px] outline-none cursor-pointer my-[2em] mx-0 py-[1.3em] px-0`,
@@ -58,7 +57,7 @@ const Button: FC<Button> = ({
     curve: `rounded-[8px] `,
     uppercase: `uppercase`,
     padding: `!px-[5em] !py-[1em]`,
-    linearGradient: `bg-gradient-to-r from-cyan-500 to-blue-500 px-[3em] py-0 tracking-widest outline-none min-h-[44px] border-0 `,
+    linearGradient: `bg-gradient-to-r from-cyan-500 to-blue-500 !px-[3em] py-0 tracking-widest outline-none min-h-[44px] border-0 `,
     border: `  tracking-widest     border-[2px]  `,
   };
   // btn: `bg-[#06c4e5] w-full  text-center text-[0.9rem] tracking-[3px] text-white py-2  capitalize  rounded `,
