@@ -20,9 +20,14 @@ const allProperties = () => {
       keepPreviousData: true,
     }
   );
+
+  if (!properties?.data.results[0].metadata[0]) {
+    return;
+  }
   if (isLoading) {
     return <PageLoading />;
   }
+
   const metadata = properties?.data.results[0].metadata[0];
 
   const propertiesResult = properties?.data.results[0].data || [];
