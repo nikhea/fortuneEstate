@@ -6,6 +6,7 @@ import { queryKeys } from "../../utils/queryKey";
 import Button from "../../components/UI/FormElement/Button";
 import PageLoading from "../../components/UI/Loading/PageLoading";
 import MainPagination from "../../components/Mainpagination";
+import useFiliters from "../../hooks/useFiliters";
 // import Button from "../UI/FormElement/Button";
 const allProperties = () => {
   const [pageNumber, setPageNumber] = useState(1);
@@ -23,6 +24,7 @@ const allProperties = () => {
     return <PageLoading />;
   }
   const metadata = properties?.data.results[0].metadata[0];
+
   const propertiesResult = properties?.data.results[0].data || [];
   const handlePageClick = (page: SetStateAction<number>) => {
     setPageNumber(page);

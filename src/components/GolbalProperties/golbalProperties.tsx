@@ -52,7 +52,7 @@ const golbalProperties: FC<Props> = () => {
     [queryKeys.properties],
     getAllProperties
   );
-  if (!properties) return;
+  if (!properties) return null;
   if (isLoading) {
     return <PageLoading />;
   }

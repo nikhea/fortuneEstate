@@ -50,7 +50,8 @@ const SubNav: FC = () => {
                 size={20}
                 style={{ marginRight: "11px" }}
               />
-              enquiry@thehouse48.com
+              {/* enquiry@thehouse48.com */}
+              enquiry@fortuneEstate.com
             </Link>
           </div>
 
@@ -78,7 +79,6 @@ const SubNav: FC = () => {
                   <p className={style.Link} style={{ marginRight: "11px" }}>
                     {/* {user?.firstname} {user?.lastname} */}
                     {user?.username}
-
                   </p>
                   /
                   <p onClick={logOutUser} className={style.Link}>

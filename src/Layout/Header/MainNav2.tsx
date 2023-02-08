@@ -6,7 +6,7 @@ import { Link, NavLink } from "react-router-dom";
 import { routes } from "../../routes/routes";
 import Button from "../../components/UI/FormElement/Button";
 const style = {
-  container: ` flex justify-between w-[95%]  m-auto m-0 text-cente items-center  `,
+  container: ` flex justify-between w-[95%]  m-auto m-0  items-center  `,
   lists: `capitalize hidden md:flex flex-wrap justify-center lg:justify-between lg:mr-[100px] mt-5 `,
   list: ` mx-5 lg:mx-[35px] mb-3 text-center items text-[#0D304A]`,
   // list: `mx-5 lg:mx-[35px] text-center items  text-white mb-3`,
@@ -14,7 +14,7 @@ const style = {
   active: `bg-gradient-to-r from-cyan-500 to-blue-500 text-white py-2 px-5 rounded-full`,
   activeSM: `text-blue-500 [&+*]:bg-blue-500`,
   btn: `uppercase  rounded-full `,
-  shadow: ``,
+  shadow: `my-5`,
   btnadvertising: `hidden md:flex mt-5`,
   drawertoggle: `md:hidden absolut z-[] right-10`,
   drawerInsidetoggle: `absolute right-10 top-[50px] cursor-pointer `,
@@ -22,6 +22,7 @@ const style = {
   listsSM: ` h-full w-full  flex flex-col flex-end justify-items-start  uppercase mt-[150px] w-[80%] m-auto text-sm tracking-widest`,
   listSM: `  w-full h-ful  `,
   hr: `bg-[#181818] h-[1px] w-full my-3`,
+  logoBig: `font-extrabold text-transparent text-[20px] lg:text-[20px] bg-clip-text bg-gradient-to-r from-cyan-800 to-purple-400 px-[3em] py-0 tracking-widest`,
 };
 const MainNav: FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -39,9 +40,10 @@ const MainNav: FC = () => {
           // data-aos-easing="ease-in-out"
           // data-aos-duration="6500"
           to={routes.home}
-          className={style.logo}
+          className={style.logoBig}
         >
-          <img src="https://www.thehouse48.com/wp-content/uploads/2021/11/cropped-H48-1280x400-1.png" />
+          Fortune Estate
+          {/* <img src="https://www.thehouse48.com/wp-content/uploads/2021/11/cropped-H48-1280x400-1.png" /> */}
         </Link>
 
         <ul

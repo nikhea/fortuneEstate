@@ -29,9 +29,9 @@ export const getAllCountry = async () => {
   };
 };
 export const getAllProperties = async (
-  pageNumber: number,
-  limitProperties: number,
-  sortProperties: number
+  pageNumber?: number,
+  limitProperties?: number,
+  sortProperties?: number
 ) => {
   const res = await Axiosclient.get(
     `/properties?page=${pageNumber}&limit=${limitProperties}&sort=${sortProperties}`
@@ -46,6 +46,7 @@ export const getPropertiesByCountry = async (countryName: any) => {
   return {
     status: res.status,
     data: res.data.data,
+    message: res.data.message,
   };
 };
 

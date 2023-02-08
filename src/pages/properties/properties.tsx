@@ -1,12 +1,4 @@
-import {
-  FC,
-  JSXElementConstructor,
-  Key,
-  ReactElement,
-  ReactFragment,
-  ReactPortal,
-  useState,
-} from "react";
+import { FC } from "react";
 // import { useQuery } from "@tanstack/react-query";
 import { useQuery } from "react-query";
 
@@ -22,6 +14,7 @@ import { queryKeys } from "../../utils/queryKey";
 import { getPropertiesByCountry } from "../../services/api/shared";
 import PaginatedProperties from "./paginatedProperties";
 import PageLoading from "../../components/UI/Loading/PageLoading";
+import SimilarProperties from "../../components/SimilarProperties/SimilarProperties";
 const style = {
   bgContainer: `bg-[#F6F6F6] py-[6em]  pl-[2em] overflow-hidden md:grid md:grid-cols-10`,
   container: ` w-full md:grid grid-cols-1 md:grid-cols-2   m-0 p-0 `,
@@ -35,6 +28,7 @@ const style = {
   headerView: `flex items-center `,
   headerSort: `flex items-center`,
   headerSelect: `ml-5`,
+  full: ` col-start-1 col-end-11`,
 };
 // container: ` w-full  grid  grid-cols-1 md:grid-cols-2 grid-rows-3  m-0 p-0 `,
 interface propertiesProps {
@@ -57,8 +51,9 @@ const properties: FC<propertiesProps> = ({
     [queryKeys.properties, countryName],
     () => getPropertiesByCountry(countryName)
   );
-  const properties = propertiesdata?.data;
-  console.log(properties);
+  const properties = propertiesdata?.data || [];
+  const message = propertiesdata?.message;
+  console.log(properties.length);
 
   if (isLoading) {
     return <PageLoading />;
@@ -77,7 +72,11 @@ const properties: FC<propertiesProps> = ({
   return (
     <div className={style.bgContainer}>
       <div className=" col-start-1 col-end-7">
-        <PaginatedProperties properties={properties} />
+        {properties.length > 0 ? (
+          <PaginatedProperties properties={properties} />
+        ) : (
+          message
+        )}
       </div>
       <div className={style.colLeft}>
         <div className={style.newListing}>
@@ -92,6 +91,9 @@ const properties: FC<propertiesProps> = ({
         </div>
         <FeaturedListing />
       </div>
+      {/* <div className={style.full}>
+        <SimilarProperties />
+      </div> */}
     </div>
   );
 };

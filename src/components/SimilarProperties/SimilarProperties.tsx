@@ -69,8 +69,8 @@ const SimilarProperties: FC<Props> = () => {
         </div>
         <div className={style.textContainer}>
           <div className={style.textPrice}>
-            <Link to={`${routes.property}/${property._id}`} target="_blank">
-              {/* <a href={`${routes.property}/${property._id}`}> */}
+            <Link to={`${routes.property}/${property._id}`}>
+              {/* <a href={`${routes.property}/${property._id}`} target="_blank"> */}
               <h1 className={style.title}>{property.title}</h1>
               {/* </a> */}
             </Link>

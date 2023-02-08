@@ -38,73 +38,79 @@ const App: FC = () => {
   }, []);
   return (
     <>
-      {/* {Loading ? (
+      {Loading ? (
         <PageLoading />
-      ) : ( */}
-      <>
-        <Suspense fallback={<PageLoading />}>
-          <Routes>
-            <Route path="" element={<HomePageLayout />}>
-              <Route path={routes.home} element={<Home />} />
-            </Route>
-            <Route path="" element={<Layout />}>
-              <Route path={routes.contact} element={<Contact />} />
-              <Route
-                path={`${routes.properties}`}
-                element={<AllProperties />}
-              />
-
-              <Route path={routes.advertServices} element={<AdvertService />} />
-              <Route path={routes.continents} element={<Continents />} />
-              <Route
-                path={`${routes.countries}/:name`}
-                element={<Countries />}
-              />
-              <Route
-                path={`${routes.properties}/:countryName`}
-                element={
-                  <Properties
-                    displayproperties={undefined}
-                    pageChange={undefined}
-                    propertiesPerPage={0}
-                    propertiesCount={0}
-                  />
-                }
-              />
-              <Route path={`${routes.property}/:id`} element={<Property />} />
-              {/* <Route path="/Continents/:id/Countries/:id/properties/id/property" element={<Property />} /> */}
-            </Route>
-            {/* {user ? ( */}
-            <>
-              <Route path="" element={<DashBoardLayout />}>
-                <Route path={routes.dashboard} element={<DashBoard />} />
-                <Route path={routes.upload} element={<Upload />} />
-                <Route
-                  path={routes.lisitingManager}
-                  element={<ListingManager />}
-                />
-                <Route path={routes.lisitingStat} element={<ListingStats />} />
-                <Route
-                  path={routes.tracklisiting}
-                  element={<TrackLisiting />}
-                />
-                <Route path={routes.profile} element={<Profile />} />
-                <Route path={routes.settings} element={<Settings />} />
-                <Route
-                  path={routes.dashboardProperties}
-                  element={<DashboardProperties />}
-                />
+      ) : (
+        <>
+          <Suspense fallback={<PageLoading />}>
+            <Routes>
+              <Route path="" element={<HomePageLayout />}>
+                <Route path={routes.home} element={<Home />} />
               </Route>
-            </>
-            {/* ) : ( */}
-            {/* <Route path="*" element={<HomePageLayout />}>
+              <Route path="" element={<Layout />}>
+                <Route path={routes.contact} element={<Contact />} />
+                <Route
+                  path={`${routes.properties}`}
+                  element={<AllProperties />}
+                />
+
+                <Route
+                  path={routes.advertServices}
+                  element={<AdvertService />}
+                />
+                <Route path={routes.continents} element={<Continents />} />
+                <Route
+                  path={`${routes.countries}/:name`}
+                  element={<Countries />}
+                />
+                <Route
+                  path={`${routes.properties}/:countryName`}
+                  element={
+                    <Properties
+                      displayproperties={undefined}
+                      pageChange={undefined}
+                      propertiesPerPage={0}
+                      propertiesCount={0}
+                    />
+                  }
+                />
+                <Route path={`${routes.property}/:id`} element={<Property />} />
+                {/* <Route path="/Continents/:id/Countries/:id/properties/id/property" element={<Property />} /> */}
+              </Route>
+              {/* {user ? ( */}
+              <>
+                <Route path="" element={<DashBoardLayout />}>
+                  <Route path={routes.dashboard} element={<DashBoard />} />
+                  <Route path={routes.upload} element={<Upload />} />
+                  <Route
+                    path={routes.lisitingManager}
+                    element={<ListingManager />}
+                  />
+                  <Route
+                    path={routes.lisitingStat}
+                    element={<ListingStats />}
+                  />
+                  <Route
+                    path={routes.tracklisiting}
+                    element={<TrackLisiting />}
+                  />
+                  <Route path={routes.profile} element={<Profile />} />
+                  <Route path={routes.settings} element={<Settings />} />
+                  <Route
+                    path={routes.dashboardProperties}
+                    element={<DashboardProperties />}
+                  />
+                </Route>
+              </>
+              {/* ) : ( */}
+              {/* <Route path="*" element={<HomePageLayout />}>
                 <Route path={routes.home} element={<Home />} />
               </Route> */}
-            {/* )} */}
-          </Routes>
-        </Suspense>
-      </>
-      {/* )} */}
+              {/* )} */}
+            </Routes>
+          </Suspense>
+        </>
+      )}
     </>
   );
 };

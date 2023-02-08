@@ -100,9 +100,9 @@ const property: FC = () => {
         <div className={style.bgSmall}>
           <FeaturedListing />
         </div>
-        <div className={style.full}>
+        {/* <div className={style.full}>
           <SimilarProperties />
-        </div>
+        </div> */}
       </div>
     </>
   );

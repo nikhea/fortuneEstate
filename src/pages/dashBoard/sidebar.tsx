@@ -26,12 +26,14 @@ const style = {
   listsSM: ` h-full w-full  flex flex-col flex-end justify-items-start  uppercase mt-[150px] w-[80%] m-auto text-sm tracking-widest`,
   listSM: `  w-full h-ful  `,
   hr: `bg-[#181818] h-[1px] w-full my-3`,
+  logoBig: `font-extrabold text-transparent text-[15px]  bg-clip-text bg-gradient-to-r from-cyan-800 to-purple-400 px-[3em] py-0 tracking-widest`,
 };
 const SideBar: FC = () => {
   return (
     <div className={style.sidBarLayout}>
-      <Link to={routes.home} className={style.logo}>
-        <img src="https://www.thehouse48.com/wp-content/uploads/2021/11/cropped-H48-1280x400-1.png" />
+      <Link to={routes.home} className={style.logoBig}>
+        Fortune Estate
+        {/* <img src="https://www.thehouse48.com/wp-content/uploads/2021/11/cropped-H48-1280x400-1.png" /> */}
       </Link>
       <ul className={style.lists}>
         <div className={style.upNavigation}>

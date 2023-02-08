@@ -7,11 +7,11 @@ import { storage } from "../lib/storage";
 const DEVELOPMENT = process.env.REACT_APP_BACKEND_DEVELOPMENT;
 const API_DEVELOPMENT = `http://localhost:4000/api`;
 // const API_URL ="https://backendfortuneestate.onrender.com/api"
-console.log(
-  DEVELOPMENT,
-  "VITE_REACT_APP_BACKEND_DEVELOPMENT",
-  storage.getToken()
-);
+// console.log(
+//   DEVELOPMENT,
+//   "VITE_REACT_APP_BACKEND_DEVELOPMENT",
+//   storage.getToken()
+// );
 export const Axiosclient = axios.create({
   baseURL: API_DEVELOPMENT,
   headers: {
