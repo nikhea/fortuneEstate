@@ -3,7 +3,7 @@ import { BsFillArrowUpCircleFill } from "react-icons/bs";
 
 const style = {
   bgButton: `relative bg-black`,
-  button: `fixed w-full left-[95%] bottom-[40px] h-[20px] text-[2rem] z-9 cursor-pointer text-black hover:text-[blue]`,
+  button: `fixed w-full left-[90%]  lg:left-[95%] bottom-[40px] h-[20px] text-[2rem] z-9 cursor-pointer text-black hover:text-blue-800`,
 };
 const ScrollButton: FC = () => {
   const [visible, setVisible] = useState(false);
