@@ -14,13 +14,14 @@ import { queryKeys } from "../../utils/queryKey";
 import { getSingelProperties } from "../../services/api/shared";
 import SimilarProperties from "../../components/SimilarProperties/SimilarProperties";
 import PageLoading from "../../components/UI/Loading/PageLoading";
+import PropertieSide from "../../components/PropertieSide";
 
 const style = {
   container: ``,
   bgContainer: `bg-[#F6F6F6] py-[6em]  pl-[2em] overflow-hidden md:grid md:grid-cols-10 grid-row-3`,
   full: ` col-start-1 col-end-11`,
   bgHalf: `col-start-1 col-end-7`,
-  bgSmall: `col-start-8 col-end-11`,
+  bgSmall: `col-start-8 col-end-11 mt-16`,
 };
 const property: FC = () => {
   const { id: propertyID } = useParams();
@@ -98,7 +99,7 @@ const property: FC = () => {
           <AboutAuthors />
         </div>
         <div className={style.bgSmall}>
-          <FeaturedListing />
+          <PropertieSide />
         </div>
         {/* <div className={style.full}>
           <SimilarProperties />

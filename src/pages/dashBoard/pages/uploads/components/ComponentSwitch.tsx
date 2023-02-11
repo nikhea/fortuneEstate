@@ -32,6 +32,7 @@ const ComponentSwitch: FC = () => {
     formState: { errors },
   } = methods;
   let Watch = watch();
+  console.log(Watch);
 
   const queryClient = useQueryClient();
   const { data: countries } = useQuery([queryKeys.countries], getAllCountry);

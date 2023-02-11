@@ -16,9 +16,9 @@ const additionalDetails: FC<Props> = ({ street, country, city }) => {
   };
   return (
     <span
-      data-aos="fade-up"
-      data-aos-easing="ease-in-out"
-      data-aos-duration="8000"
+    // data-aos="fade-up"
+    // data-aos-easing="ease-in-out"
+    // data-aos-duration="8000"
     >
       <PropertiesCard width={100} height={100}>
         <div>

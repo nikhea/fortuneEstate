@@ -44,9 +44,9 @@ const additionalDetails: FC<Props> = ({
   };
   return (
     <span
-      data-aos="fade-up"
-      data-aos-easing="ease-in-out"
-      data-aos-duration="6000"
+    // data-aos="fade-up"
+    // data-aos-easing="ease-in-out"
+    // data-aos-duration="6000"
     >
       <PropertiesCard width={100} height={100}>
         <div>

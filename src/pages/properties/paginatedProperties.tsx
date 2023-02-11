@@ -88,7 +88,7 @@ const paginatedProperties: FC<paginatedPropertiesProps> = ({ properties }) => {
     setPageNumber(selected);
   };
   return (
-    <MainCard width={70}>
+    <MainCard width={100}>
       <div className={style.header}>
         <div className={style.headerLength}>
           <div className={style.icons}>

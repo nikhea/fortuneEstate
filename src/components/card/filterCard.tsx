@@ -7,10 +7,6 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import useFormPersist from "react-hook-form-persist";
 import Select from "../../pages/dashBoard/pages/uploads/components/form/select/select";
 import { CiSearch } from "react-icons/ci";
-
-// import Select from "../../components/UI/FormElement/select/select";
-// import Select from "./select/select";
-//
 import {
   categoryOPtions,
   propertyTypeOPtions,
@@ -30,17 +26,6 @@ const style = {
   searchInput: `-mb-7 lg:mb-0 relative`,
   searchIcon: `absolute bottom-6 right-5`,
 };
-
-// const style = {
-//   container: `flex  w-full m-auto `,
-//   cardContainer: ` w-[90%] m-auto rounded-[30px] bg-white shadow-2xl mb-3`,
-//   card: ` w-full py-8 `,
-//   form: `w-[90%] m-auto flex items-cente flex-col`,
-//   btn: `w-[90%] m-auto [&>*]:mr-5`,
-//   errors: `block text-red-500 capitalize  leading-4 tracking-wide my-4 ml-4`,
-//   fillitersInput: `flex flex-col md:flex-row justify-between my-3`,
-//   searchInput: ``,
-// };
 interface FormFilterData {
   searchProperties: string;
   searchPropertyType: string;
@@ -68,16 +53,13 @@ const filterCard: FC = () => {
     control,
     formState: { errors },
   } = methods;
-  useFormPersist("filiterSearchKey", {
-    watch,
-    setValue,
-    storage: window.localStorage,
-  });
+  console.log(watch());
 
   const { field: propertyTypeField } = useController({
     name: "searchPropertyType",
     control,
   });
+
   const handlepropertyTypeChange = (option: any) => {
     propertyTypeField.onChange(option.value);
 
@@ -85,9 +67,14 @@ const filterCard: FC = () => {
   };
   const submitFilterForm = (formData: any) => {
     console.log(formData, "filter Data");
-
-    console.log(FormData);
+    // console.log(FormData);
   };
+  useFormPersist("filiterSearchKey", {
+    watch,
+    setValue,
+    storage: window.localStorage,
+  });
+  const title = watch("searchProperties");
   return (
     <FormProvider {...methods}>
       <div className={style.container}>
@@ -95,14 +82,14 @@ const filterCard: FC = () => {
           <div className={style.card}>
             <form onSubmit={handleSubmit(submitFilterForm)}>
               <div className={style.form}>
+                {title}
                 <div className={style.searchInput}>
                   <Input
                     type="text"
                     placeholder="what are you looking for?"
                     name="searchProperties"
-                    required
+                    // required
                     rounded
-                    // isWhiteBg
                     inputFull
                     errors={errors}
                     inputRef={register("searchProperties")}
@@ -117,22 +104,11 @@ const filterCard: FC = () => {
                   </span>
                 </div>
                 <div className={style.fillitersInput}>
-                  {/* <Select/> */}
-                  <Select
-                    placeholder="property Type*"
-                    options={propertyTypeOPtions}
-                    field={propertyTypeOPtions.find(
-                      ({ value }) => value === propertyTypeField.value
-                    )}
-                    handleSelectChange={handlepropertyTypeChange}
-                    inputFull
-                  />
-
                   <Input
                     type="number"
                     placeholder="enter price?"
                     name="searchPrice"
-                    required
+                    // required
                     rounded
                     isWhiteBg
                     errors={errors}
@@ -142,7 +118,7 @@ const filterCard: FC = () => {
                     type="number"
                     placeholder="Bedrooms?"
                     name="searchBedrooms"
-                    required
+                    // required
                     rounded
                     isWhiteBg
                     errors={errors}
@@ -152,11 +128,20 @@ const filterCard: FC = () => {
                     type="number"
                     placeholder="Bathrooms?"
                     name="searchBed"
-                    required
+                    // required
                     rounded
                     isWhiteBg
                     errors={errors}
                     inputRef={register("searchBathrooms")}
+                  />
+                  <Select
+                    placeholder="property Type*"
+                    options={propertyTypeOPtions}
+                    field={propertyTypeOPtions.find(
+                      ({ value }) => value === propertyTypeField.value
+                    )}
+                    handleSelectChange={handlepropertyTypeChange}
+                    inputFull
                   />
                 </div>
               </div>

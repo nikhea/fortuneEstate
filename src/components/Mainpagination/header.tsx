@@ -10,17 +10,19 @@ const style = {
   colLeft: ` flex flex-col  col-start-8 col-end-11 -mt-10 m-auto ml-[1em] mr-[2em]    `,
   newListing: ``,
   newListingTitle: `text-[1.5rem] uppercase z-1 p-0 text-[#0D304A] text-center  unset font-[500] m-10`,
-  header: `flex  justify-between items-center my-20 mx-10`,
+  header: `flex  justify-between items-center my-20 mx-10 gap-10`,
   icons: `text-[#09203F] cursor-pointer hover:text-[#736efe] active:text-[#736efe] mx-1`,
   headerText: `mt-[px] capitalize text-[#09203F] font-bold tracking-widest `,
   headerLength: `flex items-end `,
-  headerView: `flex items-center `,
-  headerSort: `flex items-center`,
+  headerView: `flex items-center hidden lg:flex`,
+  headerSort: `flex items-center `,
   headerSelect: `
    my-[10px]  py-[15px] px-[23px]  
   text-[.9375rem]   pr-[23px] outline-none  bg-[#f1f1f1] outline-none text-[#9a9a9a]
   border border-[#C4C4C4] border-solid bg-white text-black  focus:outline-none focus:border-sky-500
-  rounded-[25px] w-full;
+  rounded-[25px]
+  w-[20%];
+  lg:w-full 
   `,
 };
 interface IHeader {

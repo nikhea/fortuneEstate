@@ -9,17 +9,19 @@ const Neighborhood: FC = () => {
     details: ` items-center  justify-betwee  flex flex-wrap `,
   };
   return (
-    <span  data-aos="fade-up"
-    data-aos-easing="ease-in-out"
-    data-aos-duration="11000">
-    <PropertiesCard width={100} height={100}>
-      <div>
-        <header className={style.header}>
-          <div className="hr"></div>
-          <h1 className={style.title}>neighborhood</h1>
-        </header>
-      </div>
-    </PropertiesCard>
+    <span
+    // data-aos="fade-up"
+    // data-aos-easing="ease-in-out"
+    // data-aos-duration="11000"
+    >
+      <PropertiesCard width={100} height={100}>
+        <div>
+          <header className={style.header}>
+            <div className="hr"></div>
+            <h1 className={style.title}>neighborhood</h1>
+          </header>
+        </div>
+      </PropertiesCard>
     </span>
   );
 };

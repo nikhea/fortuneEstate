@@ -45,9 +45,9 @@ const TitlePrice: FC<Props> = ({
   return (
     <div
       className="w-[90%] m-auto"
-      data-aos="fade-up"
-      data-aos-easing="ease-in-out"
-      data-aos-duration="3000"
+      // data-aos="fade-up"
+      // data-aos-easing="ease-in-out"
+      // data-aos-duration="3000"
     >
       <PropertiesCard width={100} height={100}>
         <div className={style.container}>

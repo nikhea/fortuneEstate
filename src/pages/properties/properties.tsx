@@ -15,6 +15,7 @@ import { getPropertiesByCountry } from "../../services/api/shared";
 import PaginatedProperties from "./paginatedProperties";
 import PageLoading from "../../components/UI/Loading/PageLoading";
 import SimilarProperties from "../../components/SimilarProperties/SimilarProperties";
+import PropertieSide from "../../components/PropertieSide";
 const style = {
   bgContainer: `bg-[#F6F6F6] py-[6em]  pl-[2em] overflow-hidden md:grid md:grid-cols-10`,
   container: ` w-full md:grid grid-cols-1 md:grid-cols-2   m-0 p-0 `,
@@ -71,31 +72,33 @@ const properties: FC<propertiesProps> = ({
   // });
   return (
     <div className={style.bgContainer}>
-      <div className=" col-start-1 col-end-7">
+      <div className=" col-start-1 col-end-7 w-full">
         {properties.length > 0 ? (
           <PaginatedProperties properties={properties} />
         ) : (
           message
         )}
       </div>
-      <div className={style.colLeft}>
-        <div className={style.newListing}>
-          <h1 className={style.newListingTitle}> search</h1>
-          <h3 className="divider"></h3>
-          {/* <div><div>{displaySlicedproperties}</div></div> */}
-        </div>
-        <div className={style.newListing}>
-          <h1 className={style.newListingTitle}>new listing</h1>
-          <h3 className="divider"></h3>
-          <div>{/* <div>{displaySlicedproperties}</div> */}</div>
-        </div>
-        <FeaturedListing />
-      </div>
-      {/* <div className={style.full}>
-        <SimilarProperties />
-      </div> */}
+      <PropertieSide />
     </div>
   );
 };
 
 export default properties;
+
+{
+  /* <div className={style.colLeft}>
+<div className={style.newListing}>
+  <h1 className={style.newListingTitle}> search</h1>
+  <h3 className="divider"></h3>
+</div>
+<div className={style.newListing}>
+  <h1 className={style.newListingTitle}>new listing</h1>
+  <h3 className="divider"></h3>
+</div>
+{/* <FeaturedListing /> */
+}
+// </div>
+// {/* <div className={style.full}>
+// <SimilarProperties />
+// </div> */}

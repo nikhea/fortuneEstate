@@ -1,7 +1,7 @@
 import { FC } from "react";
 import "./hr.css";
 import PropertiesCard from "../../../components/card/PropertyCard";
-import parse from 'html-react-parser';
+import parse from "html-react-parser";
 interface Props {
   description: string;
 }
@@ -15,18 +15,20 @@ const additionalDetails: FC<Props> = ({ description }) => {
   };
 
   return (
-    <span  data-aos="fade-up"
-    data-aos-easing="ease-in-out"
-    data-aos-duration="1100">
-    <PropertiesCard width={100} height={100}>
-      <div>
-        <header className={style.header}>
-          <div className="hr"></div>
-          <h1 className={style.title}>description</h1>
-        </header>
-        <div className={style.description}>{parse(description)}</div>
-      </div>
-    </PropertiesCard>
+    <span
+    // data-aos="fade-up"
+    // data-aos-easing="ease-in-out"
+    // data-aos-duration="1100"
+    >
+      <PropertiesCard width={100} height={100}>
+        <div>
+          <header className={style.header}>
+            <div className="hr"></div>
+            <h1 className={style.title}>description</h1>
+          </header>
+          <div className={style.description}>{parse(description)}</div>
+        </div>
+      </PropertiesCard>
     </span>
   );
 };

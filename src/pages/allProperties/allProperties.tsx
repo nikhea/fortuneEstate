@@ -7,6 +7,7 @@ import Button from "../../components/UI/FormElement/Button";
 import PageLoading from "../../components/UI/Loading/PageLoading";
 import MainPagination from "../../components/Mainpagination";
 import useFiliters from "../../hooks/useFiliters";
+import PropertieSide from "../../components/PropertieSide";
 // import Button from "../UI/FormElement/Button";
 const allProperties = () => {
   const [pageNumber, setPageNumber] = useState(1);
@@ -47,21 +48,30 @@ const allProperties = () => {
       setPageNumber(metadata.page - 1);
     }
   };
-
+  const style = {
+    bgContainer: `md:grid md:grid-cols-10`,
+    colRight: `col-start-1 col-end-8`,
+    colLeft: `col-start-8 col-end-11    `,
+  };
   return (
-    <div>
-      <MainPagination
-        page={metadata.page}
-        total_Pages={metadata.total_Pages}
-        nextpage={nextpage}
-        handlePageClick={handlePageClick}
-        previouspage={previouspage}
-        propertiesLength={metadata.total}
-        sortProperties={sortProperties}
-        setSortProperties={setSortProperties}
-      >
-        <Pagination properties={propertiesResult} />
-      </MainPagination>
+    <div className={style.bgContainer}>
+      <div className={style.colRight}>
+        <MainPagination
+          page={metadata.page}
+          total_Pages={metadata.total_Pages}
+          nextpage={nextpage}
+          handlePageClick={handlePageClick}
+          previouspage={previouspage}
+          propertiesLength={metadata.total}
+          sortProperties={sortProperties}
+          setSortProperties={setSortProperties}
+        >
+          <Pagination properties={propertiesResult} />
+        </MainPagination>
+      </div>
+      <div className={style.colLeft}>
+        <PropertieSide />
+      </div>
     </div>
   );
 };

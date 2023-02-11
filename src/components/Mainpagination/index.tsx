@@ -28,7 +28,7 @@ const index: FC<Props> = ({
   setSortProperties,
 }) => {
   return (
-    <MainCard width={70}>
+    <MainCard width={100}>
       <div className={style.container}>
         <Header
           propertiesLength={propertiesLength}
