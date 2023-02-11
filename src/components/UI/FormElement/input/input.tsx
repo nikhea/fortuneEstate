@@ -20,6 +20,7 @@ interface inputProps {
   isWhiteBg?: boolean;
   borderBottom?: boolean;
   Width?: string;
+  isBlackBg?: boolean;
 }
 const style = {
   input: `my-[10px]  py-[15px] px-[23px]  text-[.9375rem]   pr-[23px] outline-none`,
@@ -30,7 +31,8 @@ const style = {
   rounded: `rounded-[25px]`,
   bold: `font-bold`,
   isWhiteBg: `border border-[#C4C4C4] border-solid bg-white text-black  focus:outline-none focus:border-sky-500 `,
-  borderBottom:` border-bottom border-t-0 border-l-0 border-r-0 border-b-2  py-[1px] px-[2px]`,
+  isBlackBg: `border border-[#C4C4C4] border-solid bg-[#2b2b2b] text-white placeholder-white  `,
+  borderBottom: ` border-bottom border-t-0 border-l-0 border-r-0 border-b-2  py-[1px] px-[2px]`,
   errors: ``,
 };
 // focus:ring-1 focus:ring-sky-500
@@ -55,6 +57,7 @@ const input: FC<inputProps> = (props) => {
     isWhiteBg,
     Width,
     borderBottom,
+    isBlackBg,
     ...rest
   } = props;
   let Input = {
@@ -65,7 +68,8 @@ const input: FC<inputProps> = (props) => {
     [`${style.rounded}`]: rounded,
     [`${style.bold}`]: bold,
     [`${style.isWhiteBg}`]: isWhiteBg,
-    [`${style.borderBottom}`] : borderBottom
+    [`${style.isBlackBg}`]: isBlackBg,
+    [`${style.borderBottom}`]: borderBottom,
   };
   return (
     <>

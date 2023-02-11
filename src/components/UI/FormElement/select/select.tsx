@@ -18,7 +18,7 @@ interface inputProps {
   isCurve?: boolean;
   bold?: boolean;
   rounded?: boolean;
-  isWhiteBg?:boolean;
+  isWhiteBg?: boolean;
   options: optionsProps[];
   field: any;
   handleSelectChange: any;
@@ -29,6 +29,7 @@ interface inputProps {
 //   { value: "strawberry", label: "Strawberry" },
 //   { value: "vanilla", label: "Vanilla" },
 // ];
+
 const style = {
   input: `my-[10px]  bg-[#f1f1f1]  py-[15px] px-[23px] text-[#9a9a9a] text-[.9375rem]  outline-none pr-[23px]`,
   inputHalf: `w-[47%]`,

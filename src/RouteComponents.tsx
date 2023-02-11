@@ -21,6 +21,8 @@ import DashboardProperties from "./pages/dashBoard/pages/Properties";
 import TrackLisiting from "./pages/dashBoard/pages/trackLisiting";
 import PageLoading from "./components/UI/Loading/PageLoading";
 import { Suspense } from "react";
+import SubNav from "./Layout/Header/SubNav";
+import Filiters from "./components/Filiters/FilitersLayout";
 const RouteComponent = () => {
   return (
     <Suspense fallback={<PageLoading />}>
@@ -30,11 +32,17 @@ const RouteComponent = () => {
         </Route>
         <Route path="" element={<Layout />}>
           <Route path={routes.contact} element={<Contact />} />
-          <Route path={`${routes.properties}`} element={<AllProperties />} />
+          {/* <Route path={`${routes.properties}`} element={<AllProperties />} /> */}
 
           <Route path={routes.advertServices} element={<AdvertService />} />
           <Route path={routes.continents} element={<Continents />} />
           <Route path={`${routes.countries}/:name`} element={<Countries />} />
+
+          <Route path={`${routes.property}/:id`} element={<Property />} />
+          {/* <Route path="/Continents/:id/Countries/:id/properties/id/property" element={<Property />} /> */}
+        </Route>
+        <Route path="" element={<Filiters />}>
+          <Route path={`${routes.properties}`} element={<AllProperties />} />
           <Route
             path={`${routes.properties}/:countryName`}
             element={
@@ -46,8 +54,6 @@ const RouteComponent = () => {
               />
             }
           />
-          <Route path={`${routes.property}/:id`} element={<Property />} />
-          {/* <Route path="/Continents/:id/Countries/:id/properties/id/property" element={<Property />} /> */}
         </Route>
         {/* {user ? ( */}
         <>
