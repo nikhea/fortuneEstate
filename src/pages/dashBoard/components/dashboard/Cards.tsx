@@ -2,7 +2,7 @@ import { PieChartData } from "./config/pieChartData";
 import PieChart from "./PieChart";
 
 const style = {
-  container: `mt-[2rem] grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-4 `,
+  container: `mt-[1rem] grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-4 `,
 };
 // flex flex-wrap gap-2
 const Cards = () => {

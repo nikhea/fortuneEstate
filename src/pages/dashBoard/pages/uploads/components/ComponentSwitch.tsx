@@ -29,10 +29,24 @@ const ComponentSwitch: FC = () => {
     watch,
     reset,
     setValue,
+    getValues,
     formState: { errors },
   } = methods;
-  let Watch = watch();
-  console.log(Watch);
+  const FormWatch = watch();
+  console.log(FormWatch, `Watch`);
+  // useEffect(() => {
+  //   const intervalId = setInterval(() => {
+  //     const getLink = async () => {
+  //       watch();
+  //       getValues();
+  //       setValue();
+  //     };
+
+  //     getLink();
+  //   }, 1000);
+
+  //   return () => clearInterval(intervalId);
+  // }, [setValue, watch]);
 
   const queryClient = useQueryClient();
   const { data: countries } = useQuery([queryKeys.countries], getAllCountry);
