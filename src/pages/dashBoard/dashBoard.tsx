@@ -5,6 +5,9 @@ import TotalRevenue from "./components/dashboard/TotalRevenue";
 import AgentDetails from "../../components/AgentCard/AgentDetails";
 import { AgentData } from "../../components/AgentCard/AgentData";
 
+import { CustomerData } from "../../components/CustomerCard/CustomerData";
+import CustomerDetails from "../../components/CustomerCard/CustomerDetails";
+
 const style = {
   container: `w-[90%] m-auto my-[2rem]`,
   h1: `text-[#11142D] font-normal text-[2rem]`,
@@ -29,7 +32,7 @@ const dashBoard: FC = () => {
           <AgentDetails AgentData={AgentData} />
         </span>
         <span>
-          <PropertyReferrals />
+          <CustomerDetails CustomerData={CustomerData} />
         </span>
         <span>
           <PropertyReferrals />

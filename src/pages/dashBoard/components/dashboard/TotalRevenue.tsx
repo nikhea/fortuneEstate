@@ -4,7 +4,7 @@ import { FiArrowUpCircle } from "react-icons/fi";
 import ReactApexChart from "react-apexcharts";
 const style = {
   container: `bg-white shadow-lg rounded-md p-4   `,
-  title: `text-[18px] font-[600] text-[#11142d]`,
+  title: `text-[25px] font-[400 text-[#11142d]`,
   mainFlex: `my-10 flex gap-4 flex-wrap`,
   SubmainFlex: `flex gap-1 flex-wrap items-center`,
 };

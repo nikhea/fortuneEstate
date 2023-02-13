@@ -1,6 +1,6 @@
 export interface IAgent {
   [x: string]: any;
-  ID: string;
+  ID?: string;
   image: string;
   email: string;
   firstname: string;
@@ -8,13 +8,7 @@ export interface IAgent {
   username: string;
   role: string;
 }
-export interface IAgentData {
-  _id: string;
-  image: string;
-  email: string;
-  firstname: string;
-  lastname: string;
-  username: string;
-  role: string;
-  AgentData: [IAgentData];
+
+export interface IAgentProps {
+  AgentData: IAgent[];
 }
