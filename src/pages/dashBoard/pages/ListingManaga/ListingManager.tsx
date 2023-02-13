@@ -8,7 +8,7 @@ import { queryKeys } from "../../../../utils/queryKey";
 import PropertiesList from "./components/propertiesList";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { Await } from "react-router-dom";
+import { Await, useParams } from "react-router-dom";
 import PageLoading from "../../../../components/UI/Loading/PageLoading";
 
 const style = {
@@ -22,7 +22,7 @@ const ListingManager = () => {
     data: propertiesdata,
     isLoading,
     status: loadingStatus,
-  } = useQuery([queryKeys.properties], () => getAgentProperties(), {
+  } = useQuery([queryKeys.propertiesMe], () => getAgentProperties(), {
     onSuccess: () => {
       //invalidate cached properties query and refresh
       // @ts-ignore
@@ -41,6 +41,8 @@ const ListingManager = () => {
       queryClient.invalidateQueries(queryKeys.properties);
     },
   });
+  console.log(propertiesdata);
+
   const DeleteProperty = async (id: string) => {
     await mutateAsync(id);
   };
@@ -63,7 +65,7 @@ const ListingManager = () => {
 
   // propertiesdata?.data ||
   if (isLoading) {
-    return <PageLoading/>;
+    return <PageLoading />;
   }
 
   if (loadingStatus === "success") {

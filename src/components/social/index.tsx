@@ -16,10 +16,10 @@ const index = () => {
       </div>
       <div className={style.textContainer}>
         <p className={style.language}>
-          TheHouse48.com Site: International - Español - Português - Deutsch -
-          Français - Italiano - हिंदी - Pусский - 한국어 - 日本語 - اللغة
+          FortuneEstate.com Site: International - Español - Português - Deutsch
+          - Français - Italiano - हिंदी - Pусский - 한국어 - 日本語 - اللغة
           العربية - ภาษาไทย - Türk - Nederlands - tiếng Việt - Indonesian -
-         <br/> עברית.
+          <br /> עברית.
         </p>
         <p className={style.propertyLocations}>
           Property Sales | Property Auction | Premium Properties: United States

@@ -17,7 +17,7 @@ const footer: FC = () => {
         // data-aos-duration="1900"
       >
         <h1 className={style.title}>
-          © {new Date().getFullYear()} - TheHouse48 Inc. All Right Reserved
+          © {new Date().getFullYear()} - FortuneEstate Inc. All Right Reserved
         </h1>
       </div>
       <ScrollToTop />
