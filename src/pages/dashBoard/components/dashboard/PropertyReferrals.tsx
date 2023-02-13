@@ -8,7 +8,7 @@ interface ProgressBarProps {
 
 const style = {
   container: ` bg-white shadow-lg  rounded-md p-4 `,
-  progress: `flex gap-4 my-20 flex-col h-full`,
+  progress: `flex gap-3 my-20 flex-col h-full`,
 };
 const PropertyReferrals = () => {
   return (
