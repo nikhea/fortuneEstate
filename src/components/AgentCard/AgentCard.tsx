@@ -3,7 +3,8 @@ import { IAgent } from "../../interfaces/Agent";
 import AgentImage from "./img/agentImage.png";
 import { BsThreeDotsVertical } from "react-icons/bs";
 const style = {
-  container: ` p-4  flex h-full justify-between w-full items-center text-[#808191] capitalize border border-t-0 border-x-0`,
+  // border border-t-0 border-x-0
+  container: ` p-1  flex h-full justify-between w-full items-center text-[#808191] capitalize `,
   title: `text-[18px] font-[600] text-[#11142d]`,
   mainFlex: `my-10 flex gap-4 flex-wrap`,
   SubmainFlex: `flex gap-1 flex-wrap items-center`,

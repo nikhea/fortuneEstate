@@ -8,7 +8,7 @@ const style = {
   title: `text-[18px] font-[600] text-[#11142d] capitalize`,
   mainFlex: `my-10 flex gap-4 flex-wrap`,
   SubmainFlex: `flex gap-1 flex-wrap items-center`,
-  link: ` capitalize p-2 px-3 border border-4 rounded-md text-[18px] text-gray-400`,
+  link: ` capitalize p-2 px-3 border border-[4px] rounded-md text-[18px] text-gray-400`,
 };
 const Agent: FC<IAgentData> = ({ AgentData }) => {
   const displayAgent = AgentData.map((agent) => (
