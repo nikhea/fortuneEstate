@@ -14,7 +14,7 @@ const PropertyReferrals = () => {
   return (
     <div className={style.container}>
       <h1 className="text-[25px] font-[400]  text-[#11142d]">
-        Property Referrals
+        Properties Referrals
       </h1>
       <div className={style.progress}>
         {propertyReferralsInfo.map((bar) => (
