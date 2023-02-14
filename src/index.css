@@ -11,7 +11,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Roboto", sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 html {
   /* overflow: auto; */
@@ -36,6 +36,6 @@ select {
 .apexcharts-legend.apx-legend-position-bottom.apexcharts-align-right,
 .apexcharts-legend.apx-legend-position-top.apexcharts-align-right {
   /* display: none !important; */
-  /* top: -99px !important;
-  width: 100px !important; */
+  /* top: -99px !important; */
+  /* width: 100px !important; */
 }
