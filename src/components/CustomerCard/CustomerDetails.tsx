@@ -16,9 +16,7 @@ const CustomerDetails: FC<ICustomerProps> = ({ CustomerData }) => {
     (customer: ICustomer, index: number) => (
       <div
         key={customer._id}
-        className={
-          index === 0 ? "border border-x-0 border-t-0 border-[3px]" : ""
-        }
+        className={index === 0 ? " border-x-0 border-t-0 border-[3px]" : ""}
       >
         <CustomerCard
           title={customer.title}

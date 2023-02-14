@@ -7,6 +7,8 @@ import { AgentData } from "../../components/AgentCard/AgentData";
 
 import { CustomerData } from "../../components/CustomerCard/CustomerData";
 import CustomerDetails from "../../components/CustomerCard/CustomerDetails";
+import SaleDetails from "../../components/Sales/SaleDetails";
+import { SaleData } from "../../components/Sales/SaleData";
 
 const style = {
   container: `w-[90%] m-auto my-[2rem]`,
@@ -35,7 +37,7 @@ const dashBoard: FC = () => {
           <CustomerDetails CustomerData={CustomerData} />
         </span>
         <span>
-          <PropertyReferrals />
+          <SaleDetails SaleData={SaleData} />
         </span>
       </div>
     </div>

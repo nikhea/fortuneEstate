@@ -11,7 +11,7 @@ const style = {
   Imgcontainer: `w-[60px] h-[60px] rounded-full`,
   image: `w-full h-full rounded-full object-cover`,
   textcontainer: `text-[15px] font-[300] text-[#11142d] mx-3 `,
-  subTitile: `capitalize text-[18px] text-gray-400`,
+  subTitile: `capitalize text-[15px] text-gray-400`,
 };
 const AgentCard: FC<IAgent> = ({
   ID,
@@ -26,7 +26,7 @@ const AgentCard: FC<IAgent> = ({
     <div className={style.container}>
       <div className={style.SubmainFlex}>
         <div className={style.Imgcontainer}>
-          <img src={AgentImage} alt={firstname} className={style.image} />
+          <img src={image} alt={firstname} className={style.image} />
         </div>
         <div className={style.textcontainer}>
           <h1 className={style.title}>
