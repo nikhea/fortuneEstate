@@ -15,12 +15,12 @@
 }
 html {
   /* overflow: auto; */
-  @apply overflow-auto md:overflow-visible
+  @apply overflow-auto md:overflow-visible;
 }
 body {
   overflow-x: hidden;
 }
-a{
+a {
   margin: 0;
   padding: 0;
   /* line-height: 0; */
@@ -28,4 +28,14 @@ a{
 
 select {
   border-right: 16px solid transparent;
+}
+
+.apexcharts-toolbar {
+  top: -4rem !important;
+}
+.apexcharts-legend.apx-legend-position-bottom.apexcharts-align-right,
+.apexcharts-legend.apx-legend-position-top.apexcharts-align-right {
+  /* display: none !important; */
+  /* top: -99px !important;
+  width: 100px !important; */
 }

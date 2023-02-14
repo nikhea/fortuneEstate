@@ -35,7 +35,7 @@ export const SaleData: ISale[] = [
     price: "50",
   },
   {
-    _id: "1",
+    _id: "4",
     image:
       "https://pic.le-cdn.com/thumbs/1024x768/04/1/properties/Property-ba390000000007a20001633f1ce1-128072122.jpg",
     title: "Metro Jayakar Apartment",

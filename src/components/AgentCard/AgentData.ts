@@ -2,7 +2,7 @@ import { IAgent } from "../../interfaces/Agent";
 
 export const AgentData: IAgent[] = [
   {
-    _id: "639e42573d0b98a5b9f2d3ff",
+    _id: "639e",
     image: "https://randomuser.me/api/portraits/thumb/men/75.jpg",
     email: "admin@gmail.com",
     firstname: "Chandran",
@@ -11,7 +11,7 @@ export const AgentData: IAgent[] = [
     role: "ADMIN",
   },
   {
-    _id: "639e42573d0b98a5b9f2d3ff",
+    _id: "63ff",
     image: "https://randomuser.me/api/portraits/thumb/women/11.jpg",
     email: "admin@gmail.com",
     firstname: "Afanasiya",
@@ -20,7 +20,7 @@ export const AgentData: IAgent[] = [
     role: "ADMIN",
   },
   {
-    _id: "639e42573d0b98a5b9f2d3ff",
+    _id: "3ff",
     image: "https://randomuser.me/api/portraits/thumb/men/71.jpg",
     email: "admin@gmail.com",
     firstname: "Thomas",
@@ -29,7 +29,7 @@ export const AgentData: IAgent[] = [
     role: "ADMIN",
   },
   {
-    _id: "639e42573d0b98a5b9f2d3ff",
+    _id: "63",
     image: "https://randomuser.me/api/portraits/thumb/women/51.jpg",
     email: "admin@gmail.com",
     firstname: "Jennie",
