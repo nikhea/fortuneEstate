@@ -13,10 +13,10 @@ const style = {
 const TotalRevenue = () => {
   return (
     <div className={style.container}>
-      <div className="flex flex-nowrap items-center justify-between">
+      {/* <div className="flex flex-nowrap items-center justify-between">
         <h1 className={style.title}>Total Revenue</h1>
         <BsThreeDots size={20} color="#808191" />
-      </div>
+      </div> */}
       <div className="flex-1 flex flex-cols">
         <div className={style.mainFlex}>
           <h1 className="text-[28px] font-[700]  text-[#11142d]">$236,535</h1>

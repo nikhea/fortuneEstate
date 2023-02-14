@@ -11,7 +11,7 @@ import SaleDetails from "../../components/Sales/SaleDetails";
 import { SaleData } from "../../components/Sales/SaleData";
 
 const style = {
-  container: `w-[90%] m-auto my-[2rem]`,
+  container: `w-[90%] m-auto my-[2rem] overflow-hidden`,
   h1: `text-[#11142D] font-normal text-[2rem]`,
   dividerFlex: `grid gap-4 grid-cols-12 my-[2rem]`,
   dividerThreeColumn: `grid gap-4 grid-cols-1 lg:grid-cols-3 `,
