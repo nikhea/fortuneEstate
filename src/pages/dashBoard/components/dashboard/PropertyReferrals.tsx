@@ -1,6 +1,7 @@
 import { propertyReferralsInfo } from "./config/ProgessBar";
-
+import { motion } from "framer-motion";
 interface ProgressBarProps {
+  index: number;
   title: string;
   percentage: number;
   color: string;
@@ -17,8 +18,8 @@ const PropertyReferrals = () => {
         Properties Referrals
       </h1>
       <div className={style.progress}>
-        {propertyReferralsInfo.map((bar) => (
-          <ProgressBar key={bar.title} {...bar} />
+        {propertyReferralsInfo.map((bar, index) => (
+          <ProgressBar key={bar.title} {...bar} index={index} />
         ))}
       </div>
     </div>
@@ -27,17 +28,24 @@ const PropertyReferrals = () => {
 
 export default PropertyReferrals;
 
-const ProgressBar = ({ title, percentage, color }: ProgressBarProps) => (
+const ProgressBar = ({ title, percentage, color, index }: ProgressBarProps) => (
   <div className="w-full">
     <div className="flex items-center justify-between">
       <h1 className="text-[16px] font-medium text-[#11142d]">{title}</h1>
       <h1 className="text-[16px] font-medium text-[#11142d]">{percentage}%</h1>
     </div>
     <div className="mt-2 relative w-full h-[8px] rounded-md bg-[#e4e8ef]">
-      <div
+      <motion.div
+        initial={{
+          width: 0,
+        }}
+        animate={{
+          width: `${percentage}%`,
+        }}
+        transition={{ duration: 0.5, delay: index * 0.2 }}
         className="h-full absolute rounded-md"
         style={{
-          width: `${percentage}%`,
+          // width: `${percentage}%`,
           backgroundColor: `${color}`,
         }}
       />

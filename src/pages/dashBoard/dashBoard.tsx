@@ -9,6 +9,7 @@ import CustomerDetails from "../../components/CustomerCard/CustomerDetails";
 import SaleDetails from "../../components/Sales/SaleDetails";
 import { SaleData } from "../../components/Sales/SaleData";
 import PageStatistics from "./components/dashboard/PageStatistics";
+import { BsThreeDotsVertical } from "react-icons/bs";
 
 const style = {
   container: `w-[90%] m-auto my-[2rem] overflow-hidden`,
@@ -20,7 +21,10 @@ const style = {
 const dashBoard: FC = () => {
   return (
     <div className={style.container}>
-      <h1 className={style.h1}>Dashboard</h1>
+      <div className="flex items-center">
+        <h1 className={style.h1}>Dashboard</h1>
+        <BsThreeDotsVertical size={25} color="#11142D" />
+      </div>
       <Cards />
       <div className={style.dividerTwoColumn}>
         <span className=" col-span-full lg:col-start-1 lg:col-end-9">

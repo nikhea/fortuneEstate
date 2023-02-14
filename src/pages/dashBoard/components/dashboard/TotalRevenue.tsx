@@ -6,7 +6,7 @@ import { BsThreeDots } from "react-icons/bs";
 const style = {
   container: `bg-white shadow-lg rounded-md p-4   `,
   title: ` text-[25px] font-[400] text-[#11142d] capitalize`,
-  mainFlex: `my-10 flex gap-4 flex-wrap ml-24`,
+  mainFlex: `my-10 flex gap-4 flex-wrap ml-16 md:ml-24 `,
   SubmainFlex: `flex gap-1 flex-wrap items-center`,
 };
 //text-[18px] font-[600] text-[#11142d]
