@@ -11,7 +11,7 @@ export const routes = {
   lisitingStat: "/lisitingstats",
   lisitingManager: "/lisitingManager",
   tracklisiting: "/tracklisiting",
-  dashboardProperties: "/dashboard/properties",
+  dashboardProperties: "/dashboardproperties",
   profile: "/profile",
   settings: "/settings",
 };

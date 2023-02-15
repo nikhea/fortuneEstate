@@ -83,12 +83,11 @@ const filterCard: FC = () => {
             <form onSubmit={handleSubmit(submitFilterForm)}>
               <div className={style.form}>
                 {title}
-                <div className={style.searchInput}>
+                {/* <div className={style.searchInput}>
                   <Input
                     type="text"
                     placeholder="what are you looking for?"
                     name="searchProperties"
-                    // required
                     rounded
                     inputFull
                     errors={errors}
@@ -102,38 +101,35 @@ const filterCard: FC = () => {
                       color="white"
                     />
                   </span>
-                </div>
+                </div> */}
                 <div className={style.fillitersInput}>
-                  <Input
+                  {/* <Input
                     type="number"
                     placeholder="enter price?"
                     name="searchPrice"
-                    // required
                     rounded
                     isWhiteBg
                     errors={errors}
                     inputRef={register("searchPrice")}
-                  />
-                  <Input
+                  /> */}
+                  {/* <Input
                     type="number"
                     placeholder="Bedrooms?"
                     name="searchBedrooms"
-                    // required
                     rounded
                     isWhiteBg
                     errors={errors}
                     inputRef={register("searchBedrooms")}
-                  />
-                  <Input
+                  /> */}
+                  {/* <Input
                     type="number"
                     placeholder="Bathrooms?"
                     name="searchBed"
-                    // required
                     rounded
                     isWhiteBg
                     errors={errors}
                     inputRef={register("searchBathrooms")}
-                  />
+                  /> */}
                   <Select
                     placeholder="property Type*"
                     options={propertyTypeOPtions}

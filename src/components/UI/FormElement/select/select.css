@@ -42,6 +42,19 @@ input {
 .react-select__value-container .css-1d8n9bt {
   @apply bg-[#f1f1f1] border-0  text-[#9a9a9a] text-[.9375rem]  outline-none pr-[px] rounded-full rounded-r-none  py-[10px] px-[23px] border-0;
 }
+
+.css-nqaof0-control {
+  border-radius: 90px !important;
+}
+.react-select__control .css-nqaof0-control {
+  border-radius: 90px !important;
+}
+.css-1d8n9bt {
+  border-radius: 90px !important;
+}
+.react-select__value-container {
+  border-radius: 90px !important;
+}
 /* .react-select__value-container{
     @apply   bg-[#f1f1f1]   text-[#9a9a9a] text-[.9375rem]  outline-none pr-[px];
 

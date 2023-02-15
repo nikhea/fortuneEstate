@@ -30,12 +30,13 @@ const Properties = () => {
       keepPreviousData: true,
     }
   );
-  if (!properties?.data.results[0].metadata[0]) {
-    return null;
-  }
   if (isLoading) {
     return <PageLoading />;
   }
+  if (!properties?.data.results[0].metadata[0]) {
+    return null;
+  }
+
   const metadata = properties?.data.results[0].metadata[0];
 
   const propertiesResult = properties?.data.results[0].data || [];
@@ -65,7 +66,6 @@ const Properties = () => {
           <Button isCurve linearGradient uppercase primary padding full>
             <span className="mx-2"> +Add Property</span>
           </Button>
-          {/* isCurve linearGradient uppercase primary padding full */}
         </Link>
       </div>
       <div className="dashboardProperties">

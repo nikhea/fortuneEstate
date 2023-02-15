@@ -43,6 +43,10 @@ const style = {
   bed: `text-sm  leading-10 flex items-center`,
   span: `font-[400] text-[#8392A5] `,
   bath: `text-sm leading-10 flex items-center`,
+  agent: `text-sm leading-10 font-[400] text-[#8392A5] ml-3`,
+  agentImage: ` max-w-[35px]  h-[35px] rounded-full flex items-center`,
+  imgAgent: ` w-full h-full rounded-full`,
+  agentDetails: `flex items-center`,
 };
 const PropertiesListDashBoard: FC<propertiesList> = ({
   ID,
@@ -115,6 +119,21 @@ const PropertiesListDashBoard: FC<propertiesList> = ({
             </span>
             {bath} Bath
           </p>
+        </div>
+        <div className={style.agentDetails}>
+          <div className={style.agentImage}>
+            {agentImage ? (
+              <LazyLoadImage
+                className={style.imgAgent}
+                alt={title}
+                effect="blur"
+                src={agentImage}
+              />
+            ) : (
+              <FaUserCircle color="#8392A5" size={15} />
+            )}
+          </div>
+          <p className={style.agent}> {`${firstname} ${lastname}`}</p>
         </div>
       </div>
     </div>
