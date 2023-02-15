@@ -33,7 +33,7 @@ const CustomerDetails: FC<ICustomerProps> = ({ CustomerData }) => {
         <h1 className={style.title}>customer</h1>
         <BsThreeDotsVertical size={20} color="#808191" />
       </div>
-      <div className="h-[90%]  w-full flex flex-col justify-evenly">
+      <div className="  w-full flex flex-col justify-evenly">
         {displayCustomer}
       </div>
     </div>

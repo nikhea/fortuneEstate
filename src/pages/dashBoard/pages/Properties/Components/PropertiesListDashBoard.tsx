@@ -32,14 +32,14 @@ interface propertiesList {
   lastname?: string;
 }
 const style = {
-  imgContainer: `max-w-[250px] h-full flex rounded-xl flex-col relative`,
+  imgContainer: `max-w-[300px] lg:max-w-[250px] h-full flex rounded-xl flex-col relative`,
   image: ` w-full h-full object-cover flex rounded-xl `,
   textContainer: `px-[1em] py-[1em] capitalize `,
   listingType: `capitalize rounded-md text-[.65em] bg-purple-500 text-white absolute py-1 px-1 text-center z-[90] top-1 left-1 `,
   sub: `flex justify-between items-center  leading `,
   price: `text-[1rem] bg-[#DADEFA] text-[#475BE8] rounded-md p-2 w-fit`,
   title: `font-semibold text-xl leading-10`,
-  location: `font-[400] text-[#8392A5] leading-10 flex items-center `,
+  location: `font-[400] text-[#8392A5] leading-10 flex items-center  flex-nowrap text-sm md:text-md `,
   bed: `text-sm  leading-10 flex items-center`,
   span: `font-[400] text-[#8392A5] `,
   bath: `text-sm leading-10 flex items-center`,

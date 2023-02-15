@@ -29,7 +29,7 @@ interface Props {
 }
 
 const style = {
-  container: ` w-full h-full grid grid-cols-1 md:grid-cols-2 gap-y-10 gap-x-2 my-20`,
+  container: ` w-full h-full grid grid-cols-1 md:grid-cols-2 gap-y-10 gap-x-2 my-20 place-items-center`,
 };
 // grid grid-cols-1 md:grid-cols-2
 const PaginationDashBoard: FC<paginatedPropertiesProps> = ({ properties }) => {
