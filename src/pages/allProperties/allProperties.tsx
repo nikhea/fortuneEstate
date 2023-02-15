@@ -9,7 +9,7 @@ import MainPagination from "../../components/Mainpagination";
 import useFiliters from "../../hooks/useFiliters";
 import PropertieSide from "../../components/PropertieSide";
 // import Button from "../UI/FormElement/Button";
-const allProperties = () => {
+const AllProperties = () => {
   const [pageNumber, setPageNumber] = useState(1);
   const [limitProperties, setLimitProperties] = useState(8);
   const [sortProperties, setSortProperties] = useState(1);
@@ -23,7 +23,7 @@ const allProperties = () => {
   );
 
   if (!properties?.data.results[0].metadata[0]) {
-    return;
+    return null;
   }
   if (isLoading) {
     return <PageLoading />;
@@ -76,7 +76,7 @@ const allProperties = () => {
   );
 };
 
-export default allProperties;
+export default AllProperties;
 interface Props {
   properties?: any;
 }

@@ -5,7 +5,7 @@ const TableLsiting = lazy(() => import("../components/Table/table"));
 import PageLoading from "../../../components/UI/Loading/PageLoading";
 
 const style = {
-  container: `w-[99.5%] m-auto bg-gree-500 h-full  flex flex-col`,
+  container: `w-[99.5%] m-auto bg-gree-500 h-full  flex flex-col `,
 };
 const trackLisiting = () => {
   return (

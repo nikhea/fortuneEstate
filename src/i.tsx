@@ -22,7 +22,7 @@ import ListingStats from "./pages/dashBoard/pages/ListingStats";
 import ListingManager from "./pages/dashBoard/pages/ListingManaga/ListingManager";
 import Profile from "./pages/dashBoard/pages/profile/profile";
 import Settings from "./pages/dashBoard/pages/settings";
-import DashboardProperties from "./pages/dashBoard/pages/Properties";
+import DashboardProperties from "./pages/dashBoard/pages/Properties/Properties";
 import TrackLisiting from "./pages/dashBoard/pages/trackLisiting";
 import PageLoading from "./components/UI/Loading/PageLoading";
 const App: FC = () => {
