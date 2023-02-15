@@ -32,7 +32,7 @@ interface propertiesList {
   lastname?: string;
 }
 const style = {
-  imgContainer: `w-[290px] h-full flex rounded-xl flex-col relative`,
+  imgContainer: `max-w-[250px] h-full flex rounded-xl flex-col relative`,
   image: ` w-full h-full object-cover flex rounded-xl `,
   textContainer: `px-[1em] py-[1em] capitalize `,
   listingType: `capitalize rounded-md text-[.65em] bg-purple-500 text-white absolute py-1 px-1 text-center z-[90] top-1 left-1 `,
