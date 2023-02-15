@@ -15,7 +15,7 @@ input {
 }
 
 .react-select__value-container.css-1kwwvb1-ValueContainer2 {
-  @apply bg-[#f1f1f1] border-0  text-[#9a9a9a] text-[.9375rem]  outline-none pr-[px] rounded-full rounded-r-none  py-[10px] px-[23px] border-0;
+  @apply bg-[#f1f1f1]  text-[#9a9a9a] text-[.9375rem]  outline-none pr-[px] rounded-full rounded-r-none  py-[10px] px-[23px] border-0;
 }
 
 .react-select__indicators {
@@ -37,20 +37,22 @@ input {
 .react-select__value-container
   .react-select__value-container--has-value
   .css-1d8n9b {
-  @apply bg-[#f1f1f1] border-0  text-[#9a9a9a] text-[.9375rem]  outline-none pr-[px] rounded-full rounded-r-none  py-[10px] px-[23px] border-0;
+  @apply bg-[#f1f1f1]   text-[#9a9a9a] text-[.9375rem]  outline-none pr-[px] rounded-full rounded-r-none  py-[10px] px-[23px] border-0;
 }
 .react-select__value-container .css-1d8n9bt {
-  @apply bg-[#f1f1f1] border-0  text-[#9a9a9a] text-[.9375rem]  outline-none pr-[px] rounded-full rounded-r-none  py-[10px] px-[23px] border-0;
+  @apply bg-[#f1f1f1]   text-[#9a9a9a] text-[.9375rem]  outline-none pr-[px] rounded-full rounded-r-none  py-[10px] px-[23px] border-0;
 }
 
 .css-nqaof0-control {
-  border-radius: 90px !important;
+  @apply bg-[#f1f1f1]   text-[#9a9a9a] text-[.9375rem]  outline-none pr-[px] rounded-full rounded-r-none   border-0;
+  /* border-radius: 90px !important; */
 }
 .react-select__control .css-nqaof0-control {
   /* border-radius: 90px !important; */
 }
 .css-1d8n9bt {
-  border-radius: 90px !important;
+  /* border-radius: 90px !important; */
+  @apply bg-[#f1f1f1]   text-[#9a9a9a] text-[.9375rem]  outline-none pr-[px] rounded-full rounded-r-none  py-[10px] px-[23px] border-0;
 }
 .react-select__value-container {
   /* border-radius: 90px !important; */
