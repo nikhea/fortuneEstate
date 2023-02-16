@@ -23,6 +23,7 @@ import PageLoading from "./components/UI/Loading/PageLoading";
 import { Suspense } from "react";
 import SubNav from "./Layout/Header/SubNav";
 import Filiters from "./components/Filiters/FilitersLayout";
+import PropertiesDetails from "./pages/dashBoard/pages/PropertiesDetails/PropertiesDetails";
 const RouteComponent = () => {
   return (
     <Suspense fallback={<PageLoading />}>
@@ -68,6 +69,10 @@ const RouteComponent = () => {
             <Route
               path={routes.dashboardProperties}
               element={<DashboardProperties />}
+            />
+            <Route
+              path={routes.dashboardPropertiesDetails}
+              element={<PropertiesDetails />}
             />
           </Route>
         </>

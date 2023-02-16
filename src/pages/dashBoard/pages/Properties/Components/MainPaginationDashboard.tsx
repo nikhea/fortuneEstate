@@ -1,4 +1,5 @@
 import React, { FC, ReactNode } from "react";
+import Navigation from "./navigation";
 
 interface Props {
   children: JSX.Element[] | JSX.Element | ReactNode;
@@ -8,6 +9,7 @@ interface Props {
   handlePageClick: (page: number) => void;
   previouspage: () => void;
   propertiesLength: number;
+  limitProperties: number;
   sortProperties: any;
   setSortProperties: any;
 }
@@ -18,6 +20,7 @@ export const MainPaginationDashboard: FC<Props> = ({
   nextpage,
   handlePageClick,
   previouspage,
+  limitProperties,
   propertiesLength,
   sortProperties,
   setSortProperties,
@@ -26,6 +29,14 @@ export const MainPaginationDashboard: FC<Props> = ({
     <div>
       <div>Header</div>
       {children}
+      <Navigation
+        page={page}
+        total_Pages={total_Pages}
+        nextpage={nextpage}
+        handlePageClick={handlePageClick}
+        previouspage={previouspage}
+        limitProperties={limitProperties}
+      />
     </div>
   );
 };

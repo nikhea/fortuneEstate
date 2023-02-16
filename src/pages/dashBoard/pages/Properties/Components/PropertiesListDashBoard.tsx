@@ -76,7 +76,7 @@ const PropertiesListDashBoard: FC<propertiesList> = ({
   };
   return (
     <div className="flex ">
-      <Link to={`${routes.property}/${ID}`}>
+      <Link to={`${routes.dashboardProperties}/${ID}`}>
         <div className={style.imgContainer}>
           <img
             alt={title}
@@ -90,7 +90,7 @@ const PropertiesListDashBoard: FC<propertiesList> = ({
 
       <div className={style.textContainer}>
         <p className={style.price}>$ {formatToCurrency(price!)}</p>
-        <Link to={`${routes.property}/${ID}`}>
+        <Link to={`${routes.dashboardProperties}/${ID}`}>
           <h1 className={style.title}>{title}</h1>
         </Link>
         <div className={style.location}>

@@ -78,6 +78,7 @@ const Properties = () => {
           propertiesLength={metadata.total}
           sortProperties={sortProperties}
           setSortProperties={setSortProperties}
+          limitProperties={limitProperties}
         >
           <PaginationDashBoard properties={propertiesResult} />
         </MainPaginationDashboard>
