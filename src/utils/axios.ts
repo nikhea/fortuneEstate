@@ -9,7 +9,7 @@ const API_DEVELOPMENT = `http://localhost:4000/api`;
 const API_URL = "https://backendfortuneestate.onrender.com/api";
 
 export const Axiosclient = axios.create({
-  baseURL: API_DEVELOPMENT,
+  baseURL: API_URL,
   headers: {
     Authorization: `Bearer ${storage.getToken()}`,
   },
