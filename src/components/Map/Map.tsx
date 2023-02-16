@@ -33,3 +33,5 @@ function Map({ address }: any) {
     </div>
   );
 }
+
+export default Map;

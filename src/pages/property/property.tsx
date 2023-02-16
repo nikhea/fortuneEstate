@@ -89,6 +89,7 @@ const property: FC = () => {
             yearBuilt={yearBuilt}
           />
           <LocationAddress
+            address={address}
             street={address.street}
             country={address.country}
             city={address.city}

@@ -1,12 +1,14 @@
 import { FC } from "react";
 import "./hr.css";
 import PropertiesCard from "../../../components/card/PropertyCard";
+import Map from "../../../components/Map/Map";
 interface Props {
   street: string;
   country: string;
   city: string;
+  address: any;
 }
-const additionalDetails: FC<Props> = ({ street, country, city }) => {
+const additionalDetails: FC<Props> = ({ street, country, city, address }) => {
   const style = {
     header: ` flex items-center  w-full mb-5`,
     title: `ml-5 capitalize font-[600] text-[1.75rem]`,
@@ -48,6 +50,7 @@ const additionalDetails: FC<Props> = ({ street, country, city }) => {
             </p>
           </div>
         </div>
+        {/* {address && <Map address={address} />} */}
       </PropertiesCard>
     </span>
   );
