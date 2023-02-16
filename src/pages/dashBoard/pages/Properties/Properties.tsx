@@ -20,7 +20,7 @@ const style = {
 };
 const Properties = () => {
   const [pageNumber, setPageNumber] = useState(1);
-  const [limitProperties, setLimitProperties] = useState(8);
+  const [limitProperties, setLimitProperties] = useState(6);
   const [sortProperties, setSortProperties] = useState(1);
 
   const { data: properties, isLoading } = useQuery(
@@ -56,7 +56,8 @@ const Properties = () => {
       setPageNumber(metadata.page - 1);
     }
   };
-  console.log(propertiesResult);
+  // console.log(propertiesResult);
+  console.log(propertiesResult.length, "dklkfjldj");
 
   return (
     <div className={style.container}>
@@ -75,7 +76,7 @@ const Properties = () => {
           nextpage={nextpage}
           handlePageClick={handlePageClick}
           previouspage={previouspage}
-          propertiesLength={metadata.total}
+          propertiesLength={propertiesResult.length}
           sortProperties={sortProperties}
           setSortProperties={setSortProperties}
           limitProperties={limitProperties}

@@ -24,11 +24,17 @@
   @apply text-sm uppercase;
   @apply transition duration-500 ease-in;
   @apply rounded-md;
-  /* @apply border-2 border-violet-600 text-violet-600 opacity-30; */
-  /* @apply border-2 bg-violet-600 text-white; */
+  @apply border-2 border-violet-600 text-violet-600 opacity-30;
   @apply shadow-2xl;
 }
-
+.paginationDItems {
+  @apply px-5 py-2;
+  @apply text-sm uppercase;
+  @apply transition duration-500 ease-in;
+  @apply rounded-md;
+  @apply border-2 border-violet-600 text-violet-600 opacity-30;
+  @apply shadow-2xl;
+}
 .previousBtn {
   @apply px-2 py-2 mx-10;
   @apply text-sm uppercase;

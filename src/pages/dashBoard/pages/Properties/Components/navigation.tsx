@@ -4,6 +4,7 @@ interface INavigation {
   page: number;
   total_Pages: number;
   limitProperties: number;
+  propertiesLength: number;
   nextpage: () => void;
   handlePageClick: (page: number) => void;
   previouspage: () => void;
@@ -15,11 +16,12 @@ const navigation: FC<INavigation> = ({
   nextpage,
   handlePageClick,
   previouspage,
+  propertiesLength,
 }) => {
   return (
-    <div className="flex items-center justify-center md:justify-between w-[90%] mx-auto">
+    <div className="flex items-center justify-center md:justify-between w-[92%] mx-auto">
       <h1 className="text-gray-500 hidden md:flex">
-        Showing 1 to {limitProperties} Propertys{" "}
+        Showing 1 to {propertiesLength} Propertys
       </h1>
       <div className={style.paginationContainer}>
         <button
@@ -43,7 +45,11 @@ const navigation: FC<INavigation> = ({
               <button
                 key={listPage}
                 onClick={() => handlePageClick(listPage)}
-                className={listPage === page ? style.activeClassName : ""}
+                className={
+                  listPage === page
+                    ? style.activeClassName
+                    : style.paginationDItems
+                }
               >
                 {listPage}
               </button>

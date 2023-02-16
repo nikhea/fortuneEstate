@@ -36,6 +36,7 @@ export const MainPaginationDashboard: FC<Props> = ({
         handlePageClick={handlePageClick}
         previouspage={previouspage}
         limitProperties={limitProperties}
+        propertiesLength={propertiesLength}
       />
     </div>
   );
