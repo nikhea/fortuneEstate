@@ -132,9 +132,7 @@ const image: FC<ImageComponentProps> = ({ nextStep, prevStep, errors }) => {
         </div>
       ) : (
         <>
-          <Button rounded primary onClick={openWidget}>
-            upload
-          </Button>
+          <div onClick={openWidget}>upload</div>
           {displayproperties}
           <SlideBottons previous={previous} continues={continues} />
         </>
