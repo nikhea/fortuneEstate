@@ -43,7 +43,7 @@ const PropertiesDetails = () => {
 
   return (
     <div className="dashboardPropertiesDetails">
-      <Link to={`${routes.dashboardProperties}`}>
+      <Link to={`${routes.dashboardProperties}`} className="flex items-start">
         <h1 className={style.title}>
           <IoIosArrowBack size={25} style={{ marginRight: "10px" }} /> Details
         </h1>
