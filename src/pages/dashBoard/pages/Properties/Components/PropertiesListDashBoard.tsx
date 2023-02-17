@@ -36,7 +36,7 @@ const style = {
   image: ` w-full h-full object-cover flex rounded-xl `,
   textContainer: `px-[1em] py-[1em] capitalize `,
   listingType: `capitalize rounded-md text-[.65em] bg-purple-500 text-white absolute py-1 px-1 text-center z-[90] top-1 left-1 `,
-  sub: `flex justify-between items-center  leading `,
+  sub: `flex items-center  leading space-x-5`,
   price: `text-[.9rem] lg:text-[1rem] bg-[#DADEFA] text-[#475BE8] rounded-md p-2 w-fit`,
   title: ` font-semibold text-[.8rem] md:text-sm  leading-10 mt-5`,
   location: `font-[400] text-[#8392A5] leading-10 flex items-center  flex-nowrap text-[.7rem] md:text-[.9rem] `,
