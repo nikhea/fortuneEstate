@@ -19,3 +19,19 @@ export interface IProperty {
   firstname?: string;
   lastname?: string;
 }
+
+export interface IProperyDetails {
+  price: number;
+  priceSymbol: string;
+  bed: number;
+  bath: number;
+  squareFootage: number;
+  squareSymbol: string;
+  listingType: string;
+  propertyType: string;
+  view: string;
+  halfBathrooms: number;
+  lotAreaSymbol: string;
+  lotArea: number;
+  yearBuilt: number;
+}
