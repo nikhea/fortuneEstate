@@ -16,7 +16,7 @@ const style = {
   downNavigation: ``,
   logo: `w-[190px]`,
   icon: `text-red-300`,
-  active: `bg-[#8392A5] bg-[#E5E5E5] text-white  `,
+  active: ` bg-[#E5E5E5] text-[#181818]  `,
   btn: `uppercase  rounded-full `,
   shadow: ``,
   btnadvertising: `hidden md:flex`,
@@ -26,8 +26,10 @@ const style = {
   listsSM: ` h-full w-full  flex flex-col flex-end justify-items-start  uppercase mt-[150px] w-[80%] m-auto text-sm tracking-widest`,
   listSM: `  w-full h-ful  `,
   hr: `bg-[#181818] h-[1px] w-full my-3`,
-  logoBig: `font-extrabold text-transparent text-[15px]  bg-clip-text bg-gradient-to-r from-cyan-800 to-purple-400 px-[3em] py-0 tracking-widest`,
+  linkItem: `md:hidden lg:block`,
+  logoBig: `font-extrabold text-transparent text-[5px] lg:text-[16px]  bg-clip-text bg-gradient-to-r from-cyan-800 to-purple-400 px-[3em] py-0 tracking-widest`,
 };
+// bg-[#8392A5]
 const SideBar: FC = () => {
   return (
     <div className={style.sidBarLayout}>
@@ -47,7 +49,7 @@ const SideBar: FC = () => {
                 size={20}
                 style={{ marginRight: "11px" }}
               />
-              dashboard
+              <span className={style.linkItem}> dashboard</span>
             </NavLink>
           </li>
           <li className={style.list}>
@@ -60,7 +62,7 @@ const SideBar: FC = () => {
                 size={20}
                 style={{ marginRight: "11px" }}
               />
-              upload
+              <span className={style.linkItem}> upload</span>
             </NavLink>
           </li>
           <li className={style.list}>
@@ -73,7 +75,7 @@ const SideBar: FC = () => {
                 size={20}
                 style={{ marginRight: "11px" }}
               />
-              listing Manager
+              <span className={style.linkItem}> listing Manager</span>
             </NavLink>
           </li>
 
@@ -87,7 +89,7 @@ const SideBar: FC = () => {
                 size={20}
                 style={{ marginRight: "11px" }}
               />
-              listing Stats
+              <span className={style.linkItem}> listing Stats</span>
             </NavLink>
           </li>
           <li className={style.list}>
@@ -99,8 +101,8 @@ const SideBar: FC = () => {
                 // color="red"
                 size={20}
                 style={{ marginRight: "11px" }}
-              />
-              track your listing
+              />{" "}
+              <span className={style.linkItem}> track your listing</span>
             </NavLink>
           </li>
           <li className={style.list}>
@@ -113,7 +115,7 @@ const SideBar: FC = () => {
                 size={20}
                 style={{ marginRight: "11px" }}
               />
-              property
+              <span className={style.linkItem}> property</span>
             </NavLink>
           </li>
         </div>
@@ -128,7 +130,8 @@ const SideBar: FC = () => {
                 size={20}
                 style={{ marginRight: "11px" }}
               />
-              profile
+
+              <span className={style.linkItem}> profile </span>
             </NavLink>
           </li>
           <li className={style.list}>
@@ -141,7 +144,8 @@ const SideBar: FC = () => {
                 size={20}
                 style={{ marginRight: "11px" }}
               />
-              settings
+
+              <span className={style.linkItem}> settings</span>
             </NavLink>
           </li>
         </div>

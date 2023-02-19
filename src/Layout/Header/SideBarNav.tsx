@@ -23,6 +23,7 @@ const style = {
   listsSM: ` h-full w-full  flex flex-col justify-betwee uppercase mt-[40px] mb-[20px] w-full m-auto text-sm tracking-widest`,
   upNavigation: ``,
   downNavigation: `mt-[90px]`,
+  logoBig: `font-extrabold text-transparent text-[20px] lg:text-[20px] bg-clip-text bg-gradient-to-r from-cyan-800 to-purple-400 px-[.4em] lg:px-[3em]  py-0 tracking-widest`,
 };
 const SideBarNav = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -34,8 +35,9 @@ const SideBarNav = () => {
   };
   return (
     <div className={style.container}>
-      <Link to={routes.home} className={style.logo}>
-        <img src="https://www.thehouse48.com/wp-content/uploads/2021/11/cropped-H48-1280x400-1.png" />
+      <Link to={routes.home} className={style.logoBig}>
+        {/* <img src="https://www.thehouse48.com/wp-content/uploads/2021/11/cropped-H48-1280x400-1.png" /> */}
+        FortuneEstate
       </Link>
       <span>
         <Drawer

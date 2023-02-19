@@ -7,7 +7,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import Layout from "./Layout/Layout";
 import HomePageLayout from "./Layout/HomePageLayout";
-import DashBoardLayout from "./Layout/DashBoardLayout";
+import DashBoardLayout from "./Layout/DashBoard/DashBoardLayout";
 import AdvertService from "./pages/advertServices/advertServices";
 import Continents from "./pages/Continents/Continents";
 import Contact from "./pages/contact/Contact";

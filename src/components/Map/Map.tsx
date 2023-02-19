@@ -21,11 +21,11 @@ export default function App({ address }: MapProps) {
   });
   const [display_name, setName] = useState("");
   useEffect(() => {
-    navigator.geolocation.getCurrentPosition(
-      getCurrentCityName,
-      error,
-      options
-    );
+    // navigator.geolocation.getCurrentPosition(
+    //   getCurrentCityName,
+    //   error,
+    //   options
+    // );
     getData();
   }, []);
 

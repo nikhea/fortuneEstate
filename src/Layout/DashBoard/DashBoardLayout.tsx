@@ -1,14 +1,15 @@
 import { FC } from "react";
 import { Outlet } from "react-router-dom";
-import { routes } from "../routes/routes";
+import { routes } from "../../routes/routes";
 import { Link } from "react-router-dom";
-import SideBar from "../pages/dashBoard/sidebar";
-import SideBarNav from "../Layout/Header/SideBarNav";
+import SideBar from "../../pages/dashBoard/sidebar";
+import SideBarNav from "../Header/SideBarNav";
+import DashBoardHeader from "./DashBoardHeader";
 const dashBoard: FC = () => {
   const style = {
     dashBoardLayout: `text-[#0D304A] border-l-[5px] border-b-[0px] border-t-[0px] h-scree h-ful border-[#E5E5E5] bg-[#E5E5E5]  overflow-hidde flex flex-col md:flex-row relative`,
     container: `  w-[95%]  m-auto`,
-    sidebar: `border-[#E5E5E5] border-solid border-y-4 hidden md:block md:col-start-1 md:col-end-1 h-screen md:w-[20%] sticky fixe top-0 bottom-0 left-0 right-0`,
+    sidebar: `border-[#E5E5E5] border-solid border-y-4 hidden md:block md:col-start-1 md:col-end-1 h-screen lg:w-[20%] sticky fixe top-0 bottom-0 left-0 right-0`,
     sidebarNav: ` md:hidden`,
     Outlet: `md:col-start-2 md:col-end-11 h-full w-full`,
     logo: `w-[30%]`,
@@ -30,6 +31,8 @@ const dashBoard: FC = () => {
           <SideBarNav />
         </div>
         <div className={style.Outlet}>
+          <DashBoardHeader />
+
           <Outlet />
         </div>
       </div>

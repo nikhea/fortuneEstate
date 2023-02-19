@@ -3,7 +3,7 @@ import { BsThreeDots } from "react-icons/bs";
 import OpenStreetMap from "../../../../../../components/Map/Map";
 import { TbMessage } from "react-icons/tb";
 const style = {
-  card: `border-2 rounded-[10px] p-5 py-7 shadow-sm h-[515px]`,
+  card: `border-2 rounded-[10px] p-5 py-7 shadow-sm lg:h-[517px]`,
   container: ` p-1  flex h-full justify-between w-full items-center text-[#808191] capitalize mb-5 lg:mb-1`,
   title: `text-[18px] font-[600] text-[#11142d]`,
   mainFlex: `flex flex-col gap-2 flex-nowrap items-center text-center py-10`,
