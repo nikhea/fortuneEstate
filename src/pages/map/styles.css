@@ -1,0 +1,12 @@
+.leaflet-container {
+  width: 100%;
+  /* height: 100vh; */
+  height: 400px;
+
+  @apply shadow-2xl rounded-3xl mt-10;
+}
+
+.leaflet-control-attribution.leaflet-control {
+  /* top: ; */
+  display: none;
+}

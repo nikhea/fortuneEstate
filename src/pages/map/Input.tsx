@@ -1,25 +1,20 @@
-// import "./styles.css";
-import Map from "./OpenStreeMap";
-import { useEffect, useState } from "react";
-
-interface Address {
-  country: string;
-  street: string;
-  // state: string;
-  city: string;
-  _id: string;
-}
-
-interface MapProps {
-  address: Address;
-}
-
-export default function App({ address }: MapProps) {
+import "./styles.css";
+import Map from "./Maps";
+import { MouseEvent, useEffect, useState } from "react";
+export default function App() {
   const [coords, setCorrds] = useState({
     latitude: "",
     longitude: "",
   });
   const [display_name, setName] = useState("");
+  const [address, setAddress] = useState({
+    country: "United States",
+    state: "Massachusetts",
+    street: "Mantua+6815+Montevideo+Departamento+de+Montevideo",
+    city: "Massachusetts",
+    _id: "63a8a1e4a7c115b135bd8471",
+  });
+
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(
       getCurrentCityName,
@@ -74,9 +69,17 @@ export default function App({ address }: MapProps) {
       .then((data) => setName(data.display_name));
   }
 
+  //get input from text fields and append it to address object
+  function update(field: string) {
+    return (e: { currentTarget: { value: any } }) => {
+      const value = e.currentTarget.value;
+      setAddress((address) => ({ ...address, [field]: value }));
+    };
+  }
+
   //send the data on the state to the API
   function getData() {
-    let url = `https://nominatim.openstreetmap.org/search?&state=${address.city}&country=${address.country}&format=json`;
+    let url = `https://nominatim.openstreetmap.org/search?&state=${address.state}&country=${address.country}&format=json`;
     console.log(url, "dsajljld");
 
     fetch(url, {

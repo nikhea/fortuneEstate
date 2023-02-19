@@ -1,7 +1,6 @@
 .dashboardPropertiesDetails {
   background: #fff;
   /* padding: 69px 50px 54px 50px; */
-  padding: 59px 50px 40px 40px;
 
   margin: 0 auto;
   margin-top: 20px;
@@ -12,15 +11,13 @@
   width: 90%;
   @apply my-10 overflow-hidden;
 }
-/* .uploadContainer {
-    margin: 0 auto;
-    width: 90%;
-  } */
+.dashboardPropertiesDetailspadding {
+  padding: 59px 50px 40px 40px;
+}
 @media only screen and (max-width: 760px) {
   .dashboardPropertiesDetails {
     background: #fff;
     /* padding: 69px 50px 54px 50px; */
-    padding: 69px 10px 54px 10px;
 
     /* margin: 0 auto; */
     /* margin-top: 20px; */
@@ -31,5 +28,8 @@
       box-shadow 0.3s;
     /* width: 95%; */
     @apply my-5 overflow-hidden py-6;
+  }
+  .dashboardPropertiesDetailspadding {
+    padding: 69px 10px 54px 10px;
   }
 }

@@ -1,4 +1,5 @@
-import React from "react";
+// import OpenStreetMap from "../../../../../../components/Map/Map";
+import OpenStreetMap from "../../../../../../components/Map/Map";
 import ImageCard from "../ImageCard";
 import Details from "./Details";
 import Facilities from "./Facilities";
@@ -24,26 +25,29 @@ const PropertiesDetails = () => {
     yearBuilt,
   } = SingleProperties;
   return (
-    <div>
-      <ImageCard />
-      <Header />
-      <Facilities
-        propertyType={propertyType}
-        price={price}
-        priceSymbol={priceSymbol}
-        listingType={listingType}
-        squareFootage={squareFootage}
-        squareSymbol={squareSymbol}
-        bath={bathrooms}
-        bed={bedrooms}
-        view={view}
-        halfBathrooms={halfBathrooms}
-        lotArea={lotArea}
-        lotAreaSymbol={lotAreaSymbol}
-        yearBuilt={yearBuilt}
-      />
-      <Details />
-    </div>
+    <>
+      <div>
+        <ImageCard />
+        <Header />
+        <Facilities
+          propertyType={propertyType}
+          price={price}
+          priceSymbol={priceSymbol}
+          listingType={listingType}
+          squareFootage={squareFootage}
+          squareSymbol={squareSymbol}
+          bath={bathrooms}
+          bed={bedrooms}
+          view={view}
+          halfBathrooms={halfBathrooms}
+          lotArea={lotArea}
+          lotAreaSymbol={lotAreaSymbol}
+          yearBuilt={yearBuilt}
+        />
+        <Details />
+      </div>
+      <OpenStreetMap address={address} />
+    </>
   );
 };
 
@@ -76,9 +80,9 @@ const SingleProperties = {
   isLiked: false,
   isPublished: false,
   address: {
-    country: "poland",
-    street: "Thomas estate ajah",
-    city: "wrds",
+    country: "United States",
+    street: "123 Chestnut St, Williamstown, Berkshire County,",
+    city: "Massachusetts",
     _id: "63a8a1e4a7c115b135bd8471",
   },
   websiteCopy: {

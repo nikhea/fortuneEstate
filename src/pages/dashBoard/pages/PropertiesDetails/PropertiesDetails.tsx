@@ -8,11 +8,12 @@ import { IoIosArrowBack } from "react-icons/io";
 import { routes } from "../../../../routes/routes";
 import PropertiesDetailsPage from "./components/PropertiesDetails/PropertiesDetails";
 import AgentDetails from "./components/AgentDetails/AgentDetails";
+import OpenStreetMap from "../../../../components/Map/Map";
 
 const style = {
   title: ` flex items-center text-2xl text-[#11142D] font-normal text-[2rem]`,
   // dividerThreeColumn: `grid gap-4 grid-cols-1 lg:grid-cols-3 `,
-  dividerTwoColumn: `grid gap-4 grid-cols-12 my-[2rem]`,
+  dividerTwoColumn: `grid gap-4 grid-cols-12 mt-[2rem] `,
 };
 const PropertiesDetails = () => {
   const { PropertyId: propertyID } = useParams();
@@ -40,10 +41,15 @@ const PropertiesDetails = () => {
   // lotArea,
   // yearBuilt,
   // } = propertydata?.data;
-
+  const address = {
+    country: "United States",
+    street: "123 Chestnut St, Williamstown, Berkshire County,",
+    city: "Massachusetts",
+    _id: "63a8a1e4a7c115b135bd8471",
+  };
   return (
-    <div className="dashboardPropertiesDetails">
-      <Link to={`${routes.dashboardProperties}`} className="flex items-start">
+    <div className="dashboardPropertiesDetails dashboardPropertiesDetailspadding ">
+      <Link to={`${routes.dashboardProperties}`} className="flex items-start ">
         <h1 className={style.title}>
           <IoIosArrowBack size={25} style={{ marginRight: "10px" }} /> Details
         </h1>

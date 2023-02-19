@@ -24,12 +24,14 @@ import { Suspense } from "react";
 import SubNav from "./Layout/Header/SubNav";
 import Filiters from "./components/Filiters/FilitersLayout";
 import PropertiesDetails from "./pages/dashBoard/pages/PropertiesDetails/PropertiesDetails";
+import Maps from "./pages/map/Input";
 const RouteComponent = () => {
   return (
     <Suspense fallback={<PageLoading />}>
       <Routes>
         <Route path="" element={<HomePageLayout />}>
           <Route path={routes.home} element={<Home />} />
+          <Route path="/map" element={<Maps />} />
         </Route>
         <Route path="" element={<Layout />}>
           <Route path={routes.contact} element={<Contact />} />
