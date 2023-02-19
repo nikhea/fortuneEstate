@@ -11,7 +11,7 @@ import PropertieSide from "../../components/PropertieSide";
 // import Button from "../UI/FormElement/Button";
 const AllProperties = () => {
   const [pageNumber, setPageNumber] = useState(1);
-  const [limitProperties, setLimitProperties] = useState(8);
+  const [limitProperties, setLimitProperties] = useState(6);
   const [sortProperties, setSortProperties] = useState(1);
 
   const { data: properties, isLoading } = useQuery(

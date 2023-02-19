@@ -1,6 +1,6 @@
 import { MdLocationPin, MdCall } from "react-icons/md";
 import { BsThreeDots } from "react-icons/bs";
-import Button from "../../../../../../components/UI/FormElement/Button";
+import OpenStreetMap from "../../../../../../components/Map/Map";
 import { TbMessage } from "react-icons/tb";
 const style = {
   card: `border-2 rounded-[10px] p-5 py-7 shadow-sm`,
@@ -17,55 +17,73 @@ const style = {
   border border-solid bg-transparen 
   min-w-[100px] not-italic font-[400] text-[14px] 
   capitalize text-white
-  flex items-center justify-center
+  flex items-center justify-center w-ful
   outline-none cursor-pointer mx-0 py-[1.3em] px-5 rounded-[10px]`,
 };
 const AgentDetails = () => {
+  const address = {
+    country: "United States",
+    street: "123 Chestnut St, Williamstown, Berkshire County,",
+    city: "Massachusetts",
+    _id: "63a8a1e4a7c115b135bd8471",
+  };
   return (
-    <div className={style.card}>
-      <span className="flex justify-end items-center mb-3">
-        <BsThreeDots size={20} color="#808191" />
-      </span>
-      <div className={style.mainFlex}>
-        <div className={style.Imgcontainer}>
-          <img
-            src={agent.image}
-            alt={agent.firstname}
-            className={style.image}
-          />
+    <div className="flex flex-col gap-5">
+      <div className={style.card}>
+        <span className="flex justify-end items-center mb-3">
+          <BsThreeDots size={20} color="#808191" />
+        </span>
+        <div className={style.mainFlex}>
+          <div className={style.Imgcontainer}>
+            <img
+              src={agent.image}
+              alt={agent.firstname}
+              className={style.image}
+            />
+          </div>
+          <div className={style.textcontainer}>
+            <h1 className={style.title}>
+              {agent.firstname} {agent.lastname}
+            </h1>
+            <h2 className={style.subTitile}> agent</h2>
+          </div>
+          <div className={style.location}>
+            <MdLocationPin size={15} style={{ marginRight: "5px" }} />
+            North Carolina, USA
+          </div>
+          <p>10 properties</p>
         </div>
-        <div className={style.textcontainer}>
-          <h1 className={style.title}>
-            {agent.firstname} {agent.lastname}
-          </h1>
-          <h2 className={style.subTitile}> agent</h2>
+        <div className="flex items-center justify-center flex-nowrap my-5 gap-5">
+          <button
+            className={style.btn}
+            style={{
+              backgroundColor: "#475BE8",
+            }}
+          >
+            <TbMessage size={20} style={{ marginRight: "5px" }} />
+            message
+          </button>
+          <button
+            className={style.btn}
+            style={{
+              backgroundColor: "#2ED480",
+            }}
+          >
+            <MdCall size={20} style={{ marginRight: "5px" }} />
+            call
+          </button>
         </div>
-        <div className={style.location}>
-          <MdLocationPin size={15} style={{ marginRight: "5px" }} />
-          North Carolina, USA
-        </div>
-        <p>10 properties</p>
       </div>
-      <div className="flex items-center justify-center flex-nowrap my-5 gap-5">
-        <button
-          className={style.btn}
-          style={{
-            backgroundColor: "#475BE8",
-          }}
-        >
-          <TbMessage size={20} style={{ marginRight: "5px" }} />
-          message
-        </button>
-        <button
-          className={style.btn}
-          style={{
-            backgroundColor: "#2ED480",
-          }}
-        >
-          <MdCall size={20} style={{ marginRight: "5px" }} />
-          call
-        </button>
-      </div>
+      <OpenStreetMap address={address} />
+      <button
+        className={style.btn}
+        style={{
+          backgroundColor: "#475BE8",
+        }}
+      >
+        <MdCall size={20} style={{ marginRight: "5px" }} />
+        buy now
+      </button>
     </div>
   );
 };

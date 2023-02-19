@@ -47,28 +47,10 @@
   }
 
   .PropertyimagesDetailsItem {
-    /* height: 400px; */
-    /* height: 100%; */
-    max-height: 200px;
+    height: 100% !important;
+    @apply h-fit;
   }
 }
 
 @media screen and (max-width: 768px) {
-  .PropertyimagesDetailsContainer {
-    display: flex;
-    flex-direction: column;
-    gap: 1em;
-    margin: 0 auto;
-  }
-
-  .PropertyimagesGridItem {
-    height: 400px;
-    height: 100%;
-  }
-  .PropertyimagesGridItem:nth-of-type(1) {
-  }
-  .PropertyimagesGridItem::nth-of-type(2) {
-  }
-  .PropertyimagesGridItem::nth-of-type(3) {
-  }
 }

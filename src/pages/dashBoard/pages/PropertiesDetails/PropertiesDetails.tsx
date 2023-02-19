@@ -49,7 +49,10 @@ const PropertiesDetails = () => {
   };
   return (
     <div className="dashboardPropertiesDetails dashboardPropertiesDetailspadding ">
-      <Link to={`${routes.dashboardProperties}`} className="flex items-start ">
+      <Link
+        to={`${routes.dashboardProperties}`}
+        className="flex items-start w-fit "
+      >
         <h1 className={style.title}>
           <IoIosArrowBack size={25} style={{ marginRight: "10px" }} /> Details
         </h1>

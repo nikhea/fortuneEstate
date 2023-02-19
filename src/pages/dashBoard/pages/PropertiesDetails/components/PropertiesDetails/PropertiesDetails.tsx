@@ -46,7 +46,7 @@ const PropertiesDetails = () => {
         />
         <Details />
       </div>
-      <OpenStreetMap address={address} />
+      {/* <OpenStreetMap address={address} /> */}
     </>
   );
 };
