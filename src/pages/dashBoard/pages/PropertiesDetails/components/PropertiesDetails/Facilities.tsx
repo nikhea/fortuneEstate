@@ -70,7 +70,7 @@ const Facilities: FC<IProperyDetails> = ({
           <span className={style.span}>
             <GrView size={20} style={{ marginRight: "15px" }} />
           </span>
-          {view}
+          {view} View
         </p>
         <p className={style.description}>
           <span className={style.span}>
