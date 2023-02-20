@@ -23,7 +23,7 @@ const images = [
 ];
 const Image = () => {
   const style = {
-    Container: `w-[80%] m-auto my-10`,
+    Container: `w-[95%] m-auto my-10`,
     image: `w-full h-full object-cover  rounded flex`,
   };
   const displayImages = images.map((image) => (
