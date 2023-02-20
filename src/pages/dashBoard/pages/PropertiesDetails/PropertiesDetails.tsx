@@ -21,7 +21,8 @@ const PropertiesDetails = () => {
     [queryKeys.properties, propertyID],
     () => getSingelProperties(propertyID)
   );
-  // if (!propertydata) return null;
+  if (!propertydata) return <PageLoading />;
+  // console.log(propertydata.data.user, "propertiu");
 
   // const {
   // price,
@@ -66,7 +67,7 @@ const PropertiesDetails = () => {
             <PropertiesDetailsPage />
           </span>
           <span className=" col-span-full lg:col-start-9 lg:col-end-13 ">
-            <AgentDetails />
+            <AgentDetails UserID={propertydata.data.user} />
           </span>
         </div>
       )}

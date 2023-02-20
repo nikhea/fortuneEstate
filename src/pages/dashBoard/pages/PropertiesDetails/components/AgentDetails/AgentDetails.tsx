@@ -2,6 +2,8 @@ import { MdLocationPin, MdCall } from "react-icons/md";
 import { BsThreeDots } from "react-icons/bs";
 import OpenStreetMap from "../../../../../../components/Map/Map";
 import { TbMessage } from "react-icons/tb";
+import { useAuth } from "../../../../../../lib/auth";
+import { FC } from "react";
 const style = {
   card: `border-2 rounded-[10px] p-5 py-7 shadow-sm lg:h-[517px]`,
   container: ` p-1  flex h-full justify-between w-full items-center text-[#808191] capitalize mb-5 lg:mb-1`,
@@ -20,7 +22,13 @@ const style = {
   flex items-center justify-center w-ful
   outline-none cursor-pointer mx-0 py-[1.3em] px-5 rounded-[10px]`,
 };
-const AgentDetails = () => {
+interface IAgentDetails {
+  UserID: any;
+}
+const AgentDetails: FC<IAgentDetails> = ({ UserID }) => {
+  const { user } = useAuth();
+  console.log(UserID, user?._id);
+
   const address = {
     country: "United States",
     street: "123 Chestnut St, Williamstown, Berkshire County,",
@@ -53,25 +61,50 @@ const AgentDetails = () => {
           </div>
           <p>10 properties</p>
         </div>
-        <div className="flex items-center justify-center flex-nowrap my-5 gap-5">
-          <button
-            className={style.btn}
-            style={{
-              backgroundColor: "#475BE8",
-            }}
-          >
-            <TbMessage size={20} style={{ marginRight: "5px" }} />
-            message
-          </button>
-          <button
-            className={style.btn}
-            style={{
-              backgroundColor: "#2ED480",
-            }}
-          >
-            <MdCall size={20} style={{ marginRight: "5px" }} />
-            call
-          </button>
+        <div className="">
+          {UserID === user?._id ? (
+            <div className="flex items-center justify-center flex-nowrap my-5 gap-5">
+              <button
+                className={style.btn}
+                style={{
+                  backgroundColor: "#475BE8",
+                }}
+              >
+                <TbMessage size={20} style={{ marginRight: "5px" }} />
+                edit
+              </button>
+              <button
+                className={style.btn}
+                style={{
+                  backgroundColor: "red",
+                }}
+              >
+                <MdCall size={20} style={{ marginRight: "5px" }} />
+                delete
+              </button>
+            </div>
+          ) : (
+            <div className="flex items-center justify-center flex-nowrap my-5 gap-5">
+              <button
+                className={style.btn}
+                style={{
+                  backgroundColor: "#475BE8",
+                }}
+              >
+                <TbMessage size={20} style={{ marginRight: "5px" }} />
+                message
+              </button>
+              <button
+                className={style.btn}
+                style={{
+                  backgroundColor: "#2ED480",
+                }}
+              >
+                <MdCall size={20} style={{ marginRight: "5px" }} />
+                call
+              </button>{" "}
+            </div>
+          )}
         </div>
       </div>
       <OpenStreetMap address={address} />
@@ -100,3 +133,22 @@ const agent = {
   role: "ADMIN",
   //   length:10
 };
+
+//  <button
+//           className={style.btn}
+//           style={{
+//             backgroundColor: "#475BE8",
+//           }}
+//         >
+//           <TbMessage size={20} style={{ marginRight: "5px" }} />
+//           message
+//         </button>
+//         <button
+//           className={style.btn}
+//           style={{
+//             backgroundColor: "#2ED480",
+//           }}
+//         >
+//           <MdCall size={20} style={{ marginRight: "5px" }} />
+//           call
+//         </button>

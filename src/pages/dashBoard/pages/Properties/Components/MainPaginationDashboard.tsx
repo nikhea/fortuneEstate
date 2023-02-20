@@ -1,4 +1,5 @@
 import React, { FC, ReactNode } from "react";
+import Filiters from "./Header/Filiters";
 import Navigation from "./navigation";
 
 interface Props {
@@ -27,7 +28,7 @@ export const MainPaginationDashboard: FC<Props> = ({
 }) => {
   return (
     <div>
-      <div>Header</div>
+      <Filiters />
       {children}
       <Navigation
         page={page}

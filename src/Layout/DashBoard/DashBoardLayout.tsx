@@ -32,7 +32,6 @@ const dashBoard: FC = () => {
         </div>
         <div className={style.Outlet}>
           <DashBoardHeader />
-
           <Outlet />
         </div>
       </div>

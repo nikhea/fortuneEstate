@@ -22,7 +22,7 @@ const style = {
   form: `w-[90%] m-auto flex items-cente flex-col `,
   btn: `w-[90%] m-auto [&>*]:mr-5`,
   errors: `block text-red-500 capitalize  leading-4 tracking-wide my-4 ml-4`,
-  fillitersInput: `flex flex-col md:flex-row justify-between my-3 gap-1 bg-red-500 w-full`,
+  fillitersInput: `flex flex-col md:flex-row justify-between my-3 gap-1  w-full`,
   searchInput: `-mb-2 lg:mb-0 relative`,
   searchIcon: `absolute bottom-6 right-5`,
 };
@@ -53,7 +53,6 @@ const filterCard: FC = () => {
     control,
     formState: { errors },
   } = methods;
-  console.log(watch());
 
   const { field: propertyTypeField } = useController({
     name: "searchPropertyType",
@@ -120,6 +119,7 @@ const filterCard: FC = () => {
                     errors={errors}
                     inputRef={register("searchBedrooms")}
                   />
+
                   <Input
                     type="number"
                     placeholder="Bathrooms?"
@@ -129,6 +129,7 @@ const filterCard: FC = () => {
                     errors={errors}
                     inputRef={register("searchBathrooms")}
                   />
+
                   <Select
                     placeholder="property Type*"
                     options={propertyTypeOPtions}

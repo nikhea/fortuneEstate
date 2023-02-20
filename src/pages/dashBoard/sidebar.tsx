@@ -16,7 +16,7 @@ const style = {
   downNavigation: ``,
   logo: `w-[190px]`,
   icon: `text-red-300`,
-  active: ` bg-[#E5E5E5] text-[#181818]  `,
+  active: ` bg-[#E5E5E5]  bg-[#8392A5]  text-white`,
   btn: `uppercase  rounded-full `,
   shadow: ``,
   btnadvertising: `hidden md:flex`,
@@ -29,7 +29,7 @@ const style = {
   linkItem: `md:hidden lg:block`,
   logoBig: `font-extrabold text-transparent text-[5px] lg:text-[16px]  bg-clip-text bg-gradient-to-r from-cyan-800 to-purple-400 px-[3em] py-0 tracking-widest`,
 };
-// bg-[#8392A5]
+// bg-[#8392A5] text-[#181818]
 const SideBar: FC = () => {
   return (
     <div className={style.sidBarLayout}>
