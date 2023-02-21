@@ -25,9 +25,9 @@ const App: FC = () => {
       <CountriesCard />
       <Carousel />
       <GolbalProperties />
-      {lg ? <> {/* <PropertieSliderHome />{" "} */}</> : null}
+      {lg ? <>{/* <PropertieSliderHome />{" "} */}</> : null}
       <ListService />
-      {/* <SimilarProperties /> */}
+      <SimilarProperties />
       <div className="mb-10 lg:mb-14"></div>
     </div>
   );

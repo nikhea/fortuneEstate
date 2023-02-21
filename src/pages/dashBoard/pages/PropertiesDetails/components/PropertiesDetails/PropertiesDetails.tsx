@@ -4,8 +4,10 @@ import ImageCard from "../ImageCard";
 import Details from "./Details";
 import Facilities from "./Facilities";
 import Header from "./header";
+import { IProperty } from "../../../../../../interfaces/property";
+import { FC } from "react";
 
-const PropertiesDetails = () => {
+const PropertiesDetails: FC<IProperty> = ({ property: SingleProperties }) => {
   const {
     price,
     priceSymbol,
@@ -28,7 +30,12 @@ const PropertiesDetails = () => {
     <>
       <div>
         <ImageCard />
-        <Header />
+        <Header
+          address={address}
+          title={title}
+          propertyType={propertyType}
+          price={price}
+        />
         <Facilities
           propertyType={propertyType}
           price={price}
@@ -44,7 +51,7 @@ const PropertiesDetails = () => {
           lotAreaSymbol={lotAreaSymbol}
           yearBuilt={yearBuilt}
         />
-        <Details />
+        <Details description={description} />
       </div>
       {/* <OpenStreetMap address={address} /> */}
     </>

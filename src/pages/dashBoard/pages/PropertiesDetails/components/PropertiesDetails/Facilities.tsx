@@ -53,7 +53,7 @@ const Facilities: FC<IProperyDetails> = ({
         <p className={style.description}>
           <span className={style.span}>
             <VscTypeHierarchySuper size={20} style={{ marginRight: "15px" }} />
-          </span>{" "}
+          </span>
           For {listingType}
         </p>
         {/* <p className={style.description}>

@@ -10,25 +10,31 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Await, useParams } from "react-router-dom";
 import PageLoading from "../../../../components/UI/Loading/PageLoading";
+import { useAuth } from "../../../../lib/auth";
 
 const style = {
   bg: `font-Montserrat text-[#0D304A] grid grid-cols-1 md:grid-cols-2 `,
   container: `w-[95%] m-auto my-5 `,
 };
 const ListingManager = () => {
+  const { user } = useAuth();
   let loadProperties;
   const queryClient = useQueryClient();
   const {
     data: propertiesdata,
     isLoading,
     status: loadingStatus,
-  } = useQuery([queryKeys.propertiesMe], () => getAgentProperties(), {
-    onSuccess: () => {
-      //invalidate cached properties query and refresh
-      // @ts-ignore
-      // queryClient.invalidateQueries(queryKeys.properties);
-    },
-  });
+  } = useQuery(
+    [queryKeys.propertiesMe, user?._id],
+    () => getAgentProperties(user?._id),
+    {
+      onSuccess: () => {
+        //invalidate cached properties query and refresh
+        // @ts-ignore
+        // queryClient.invalidateQueries(queryKeys.properties);
+      },
+    }
+  );
   const {
     mutateAsync,
     status: deleteStatus,
@@ -41,7 +47,6 @@ const ListingManager = () => {
       queryClient.invalidateQueries(queryKeys.properties);
     },
   });
-  console.log(propertiesdata);
 
   const DeleteProperty = async (id: string) => {
     await mutateAsync(id);

@@ -23,11 +23,21 @@ export const deleteProperties = async (id: string) => {
     data: res.data.data,
   };
 };
-export const getAgentProperties = async () => {
-  const res = await Axiosclient.get(`/properties/me`);
+export const getAgentProperties = async (userId: any) => {
+  const res = await Axiosclient.get(`/properties/user/${userId}`);
 
   return {
     status: res.status,
     data: res.data.data,
   };
 };
+// export const getAgentPropertiesMy = async () => {
+//   const res = await Axiosclient.get(`/properties/me`);
+
+//   return {
+//     status: res.status,
+//     data: res.data.data,
+//   };
+// };
+
+// http://localhost:4000/api/properties/user/639e574b80213b52bd232dcd

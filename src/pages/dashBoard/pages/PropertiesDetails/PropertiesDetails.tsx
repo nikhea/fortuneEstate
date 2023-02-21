@@ -42,12 +42,7 @@ const PropertiesDetails = () => {
   // lotArea,
   // yearBuilt,
   // } = propertydata?.data;
-  const address = {
-    country: "United States",
-    street: "123 Chestnut St, Williamstown, Berkshire County,",
-    city: "Massachusetts",
-    _id: "63a8a1e4a7c115b135bd8471",
-  };
+
   return (
     <div className="dashboardPropertiesDetails dashboardPropertiesDetailspadding ">
       <Link
@@ -64,10 +59,13 @@ const PropertiesDetails = () => {
       ) : (
         <div className={style.dividerTwoColumn}>
           <span className=" col-span-full lg:col-start-1 lg:col-end-9">
-            <PropertiesDetailsPage />
+            <PropertiesDetailsPage property={propertydata.data} ID={""} />
           </span>
           <span className=" col-span-full lg:col-start-9 lg:col-end-13 ">
-            <AgentDetails UserID={propertydata.data.user} />
+            <AgentDetails
+              property={propertydata.data}
+              agent={propertydata.data.user}
+            />
           </span>
         </div>
       )}

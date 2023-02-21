@@ -3,7 +3,7 @@ import { MdNotifications } from "react-icons/md";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import { useAuth } from "../../lib/auth";
 const style = {
-  container: `hidden md:flex bg-white p-[0em] py-2  overflow-hidden text-[#11142D] border-t-[#E5E5E5] border-solid border-y-4 relative sticky  top-0 bottom-0 left-0 right-0 z-[9999999999999999999999999999999999999999999999999999999999999999999999999999]`,
+  container: `hidden md:flex bg-white p-[0em] py-2  overflow-hidden text-[#11142D] border-t-[#E5E5E5] border-solid border-y-4 relative sticky  top-0 bottom-0 left-0 right-0 z-[9999] overflow-hidden`,
   subContainer: `flex justify-between items-center w-[95%] m-auto `,
   colRight: ``,
   colLeft: `flex items-center`,

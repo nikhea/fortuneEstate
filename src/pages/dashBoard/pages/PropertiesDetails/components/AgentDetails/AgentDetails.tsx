@@ -1,9 +1,17 @@
-import { MdLocationPin, MdCall } from "react-icons/md";
+import { MdLocationPin, MdCall, MdDelete } from "react-icons/md";
 import { BsThreeDots } from "react-icons/bs";
 import OpenStreetMap from "../../../../../../components/Map/Map";
 import { TbMessage } from "react-icons/tb";
 import { useAuth } from "../../../../../../lib/auth";
 import { FC } from "react";
+import { useQuery, useQueryClient, useMutation } from "react-query";
+import { useNavigate } from "react-router-dom";
+import {
+  deleteProperties,
+  getAgentProperties,
+} from "../../../../../../services/api/agent";
+import { queryKeys } from "../../../../../../utils/queryKey";
+import { toast } from "react-toastify";
 const style = {
   card: `border-2 rounded-[10px] p-5 py-7 shadow-sm lg:h-[517px]`,
   container: ` p-1  flex h-full justify-between w-full items-center text-[#808191] capitalize mb-5 lg:mb-1`,
@@ -23,18 +31,48 @@ const style = {
   outline-none cursor-pointer mx-0 py-[1.3em] px-5 rounded-[10px]`,
 };
 interface IAgentDetails {
-  UserID: any;
+  agent: any;
+  property: any;
 }
-const AgentDetails: FC<IAgentDetails> = ({ UserID }) => {
+const AgentDetails: FC<IAgentDetails> = ({ agent, property }) => {
+  const navigate = useNavigate();
   const { user } = useAuth();
-  console.log(UserID, user?._id);
+  const queryClient = useQueryClient();
+  const {
+    data: propertiesdata,
+    isLoading,
+    status: loadingStatus,
+  } = useQuery([queryKeys.propertiesMe, agent._id], () =>
+    getAgentProperties(agent._id)
+  );
 
-  const address = {
-    country: "United States",
-    street: "123 Chestnut St, Williamstown, Berkshire County,",
-    city: "Massachusetts",
-    _id: "63a8a1e4a7c115b135bd8471",
+  const {
+    mutateAsync,
+    status: deleteStatus,
+    data: deleteData,
+  } = useMutation(deleteProperties, {
+    onSuccess: () => {
+      //invalidate cached properties query and refresh
+      // @ts-ignore
+      queryClient.invalidateQueries();
+      queryClient.invalidateQueries(queryKeys.properties);
+    },
+  });
+
+  const DeleteProperty = async (id: string) => {
+    await mutateAsync(id);
   };
+  const OnDeleteProperty = async (id: string) => {
+    DeleteProperty(id);
+    navigate("/dashboardproperties");
+    if (deleteStatus === "loading") {
+      toast.warning("deleting");
+    }
+    if (deleteData?.status === 200) {
+      toast.success("Property deleted Successfully");
+    }
+  };
+
   return (
     <div className="flex flex-col gap-5">
       <div className={style.card}>
@@ -44,7 +82,7 @@ const AgentDetails: FC<IAgentDetails> = ({ UserID }) => {
         <div className={style.mainFlex}>
           <div className={style.Imgcontainer}>
             <img
-              src={agent.image}
+              src={agento.image}
               alt={agent.firstname}
               className={style.image}
             />
@@ -53,16 +91,16 @@ const AgentDetails: FC<IAgentDetails> = ({ UserID }) => {
             <h1 className={style.title}>
               {agent.firstname} {agent.lastname}
             </h1>
-            <h2 className={style.subTitile}> agent</h2>
+            <h2 className={style.subTitile}>{agent.role}</h2>
           </div>
           <div className={style.location}>
             <MdLocationPin size={15} style={{ marginRight: "5px" }} />
             North Carolina, USA
           </div>
-          <p>10 properties</p>
+          <p>{propertiesdata?.data.length} properties</p>
         </div>
         <div className="">
-          {UserID === user?._id ? (
+          {agent?._id === user?._id ? (
             <div className="flex items-center justify-center flex-nowrap my-5 gap-5">
               <button
                 className={style.btn}
@@ -78,8 +116,9 @@ const AgentDetails: FC<IAgentDetails> = ({ UserID }) => {
                 style={{
                   backgroundColor: "red",
                 }}
+                onClick={() => OnDeleteProperty(property._id)}
               >
-                <MdCall size={20} style={{ marginRight: "5px" }} />
+                <MdDelete size={19} style={{ marginRight: "5px" }} />
                 delete
               </button>
             </div>
@@ -122,8 +161,13 @@ const AgentDetails: FC<IAgentDetails> = ({ UserID }) => {
 };
 
 export default AgentDetails;
-
-const agent = {
+const address = {
+  country: "United States",
+  street: "123 Chestnut St, Williamstown, Berkshire County,",
+  city: "Massachusetts",
+  _id: "63a8a1e4a7c115b135bd8471",
+};
+const agento = {
   _id: "639e",
   image: "https://randomuser.me/api/portraits/thumb/men/75.jpg",
   email: "admin@gmail.com",

@@ -20,7 +20,7 @@ import PageLoading from "../UI/Loading/PageLoading";
 
 const style = {
   container: `w-[80%] m-auto my-10 leading-[100px]`,
-  similar: `font-bold text-xl uppercase text-center`,
+  similar: `font-semibold text-xl uppercase text-center`,
   mainContainer: `w-full flex rounded-xl flex-col relative `,
   image: ` w-full h-full object-cover flex rounded-xl  `,
   textContainer: `rounded-b-xl flex flex-col justify-between pt-[1em] px-[1em] absolute bottom-0  left-0 right-0 z-20 `,
@@ -160,6 +160,8 @@ const SimilarProperties: FC<Props> = () => {
     </div>
   );
 };
+
+export default SimilarProperties;
 const responsive = {
   superLargeDesktop: {
     breakpoint: { max: 4000, min: 3000 },
@@ -202,4 +204,3 @@ interface Props {
   firstname?: string;
   lastname?: string;
 }
-export default SimilarProperties;

@@ -8,6 +8,7 @@ import PageLoading from "../../components/UI/Loading/PageLoading";
 import MainPagination from "../../components/Mainpagination";
 import useFiliters from "../../hooks/useFiliters";
 import PropertieSide from "../../components/PropertieSide";
+import SimilarProperties from "../../components/SimilarProperties/SimilarProperties";
 // import Button from "../UI/FormElement/Button";
 const AllProperties = () => {
   const [pageNumber, setPageNumber] = useState(1);
@@ -54,25 +55,28 @@ const AllProperties = () => {
     colLeft: `col-start-8 col-end-11    `,
   };
   return (
-    <div className={style.bgContainer}>
-      <div className={style.colRight}>
-        <MainPagination
-          page={metadata.page}
-          total_Pages={metadata.total_Pages}
-          nextpage={nextpage}
-          handlePageClick={handlePageClick}
-          previouspage={previouspage}
-          propertiesLength={metadata.total}
-          sortProperties={sortProperties}
-          setSortProperties={setSortProperties}
-        >
-          <Pagination properties={propertiesResult} />
-        </MainPagination>
+    <>
+      <div className={style.bgContainer}>
+        <div className={style.colRight}>
+          <MainPagination
+            page={metadata.page}
+            total_Pages={metadata.total_Pages}
+            nextpage={nextpage}
+            handlePageClick={handlePageClick}
+            previouspage={previouspage}
+            propertiesLength={metadata.total}
+            sortProperties={sortProperties}
+            setSortProperties={setSortProperties}
+          >
+            <Pagination properties={propertiesResult} />
+          </MainPagination>
+        </div>
+        <div className={style.colLeft}>
+          <PropertieSide />
+        </div>
       </div>
-      <div className={style.colLeft}>
-        <PropertieSide />
-      </div>
-    </div>
+      <SimilarProperties />
+    </>
   );
 };
 
