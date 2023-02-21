@@ -14,7 +14,7 @@ import { registerSchema } from "./SCHEMA";
 import { useAuth } from "../../lib/auth";
 
 const style = {
-  container: `flex  `,
+  container: `flex  h-full `,
   ImgContainer: ` w-[100%] `,
   img: `hidden md:flex h-full `,
   content: `w-full mx-[5%]`,
@@ -196,8 +196,8 @@ const auth: FC = () => {
               <p className={style.errors}>{errors.role?.message}</p>
             </span>
             <div className={style.checkbox}>
-              <input type="checkbox" />
-              <span>I Agree To The Terms Of Service</span>
+              {/* <input type="checkbox" />
+              <span>I Agree To The Terms Of Service</span> */}
             </div>
           </div>
           <Button
