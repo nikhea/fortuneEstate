@@ -74,7 +74,7 @@ const AgentDetails: FC<IAgentDetails> = ({ agent, property }) => {
   };
 
   return (
-    <div className="flex flex-col gap-5">
+    <div className="flex h-full flex-col gap-5 ">
       <div className={style.card}>
         <span className="flex justify-end items-center mb-3">
           <BsThreeDots size={20} color="#808191" />

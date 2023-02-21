@@ -77,7 +77,7 @@ export default function App({ address }: MapProps) {
   //send the data on the state to the API
   function getData() {
     let url = `https://nominatim.openstreetmap.org/search?&state=${address.city}&country=${address.country}&format=json`;
-    console.log(url, "dsajljld");
+    // console.log(url, "dsajljld");
 
     fetch(url, {
       method: "POST",
@@ -87,7 +87,7 @@ export default function App({ address }: MapProps) {
       },
     })
       .then((response) => {
-        console.log(response, "dsajljld");
+        // console.log(response, "dsajljld");
         if (response.ok) {
           return response.json();
         }
@@ -106,7 +106,7 @@ export default function App({ address }: MapProps) {
   }
 
   return (
-    <div className="App">
+    <div className="App flex-1">
       <Map coords={coords} display_name={display_name} />
     </div>
   );
