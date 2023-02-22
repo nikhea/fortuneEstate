@@ -58,6 +58,14 @@ export const getSingelProperties = async (id: any) => {
   };
 };
 
+export const getAllAgents = async () => {
+  const res = await Axiosclient.get(`/user`);
+  return {
+    status: res.status,
+    data: res.data.data,
+  };
+};
+
 // export const getProperties = async (id: number, countryName: string) => {
 //   const res = await Axiosclient.get(`/properties?populate=*`);
 //   return {

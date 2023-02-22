@@ -4,4 +4,5 @@ export const queryKeys = {
   propertiesMe: "properties/me",
   propertiesCountries: "propertiesCountries",
   property: "property",
+  agents: "agents",
 };

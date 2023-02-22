@@ -13,6 +13,8 @@ export const routes = {
   tracklisiting: "/tracklisiting",
   dashboardProperties: "/dashboardproperties",
   dashboardPropertiesDetails: "/dashboardproperties/:PropertyId",
+  dashboardAgents: "/dashboardagents",
+  dashboardAgentsDetails: "/dashboardagents/:AgentId",
   profile: "/profile",
   settings: "/settings",
 };

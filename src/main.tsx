@@ -11,6 +11,7 @@ import { AuthProvider } from "./lib/auth";
 import { HelmetProvider } from "react-helmet-async";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import "tippy.js/dist/tippy.css";
 const queryClient = new QueryClient();
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(

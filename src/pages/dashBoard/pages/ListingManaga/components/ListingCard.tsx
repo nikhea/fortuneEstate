@@ -7,7 +7,7 @@ import { FaBed, FaBath, FaEdit } from "react-icons/fa";
 import { HiSquaresPlus } from "react-icons/hi2";
 import { routes } from "../../../../../routes/routes";
 import Tippy from "@tippyjs/react";
-import "tippy.js/dist/tippy.css"; //
+// import "tippy.js/dist/tippy.css";
 import {
   formatToCurrency,
   numberWithCommas,

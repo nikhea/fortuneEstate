@@ -15,7 +15,7 @@ import PaginationDashBoard from "./Components/PaginationDashBoard";
 const style = {
   container: `w-[95%] m-auto my-[2rem] overflow-hidden text-[#11142D]`,
   header: `flex justify-between items-center`,
-  h1: ` font-[500] text-[2rem]`,
+  h1: ` font-[500] text-[2rem] capitalize`,
   subContainer: ``,
 };
 const Properties = () => {

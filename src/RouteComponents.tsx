@@ -25,6 +25,8 @@ import SubNav from "./Layout/Header/SubNav";
 import Filiters from "./components/Filiters/FilitersLayout";
 import PropertiesDetails from "./pages/dashBoard/pages/PropertiesDetails/PropertiesDetails";
 import Maps from "./pages/map/Input";
+import Agents from "./pages/dashBoard/pages/agents/Agents";
+
 const RouteComponent = () => {
   return (
     <Suspense fallback={<PageLoading />}>
@@ -76,6 +78,7 @@ const RouteComponent = () => {
               path={routes.dashboardPropertiesDetails}
               element={<PropertiesDetails />}
             />
+            <Route path={routes.dashboardAgents} element={<Agents />} />
           </Route>
         </>
         {/* ) : ( */}
