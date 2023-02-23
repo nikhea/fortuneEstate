@@ -59,7 +59,7 @@ export const getSingelProperties = async (id: any) => {
 };
 
 export const getAllAgents = async () => {
-  const res = await Axiosclient.get(`/user`);
+  const res = await Axiosclient.get(`/user/agents`);
   return {
     status: res.status,
     data: res.data.data,

@@ -1,3 +1,4 @@
+import "./style/dashboardAgent.css";
 import { useQuery } from "react-query";
 import { Link } from "react-router-dom";
 import Button from "../../../../components/UI/FormElement/Button";
@@ -14,10 +15,10 @@ const style = {
   header: `flex justify-between items-center`,
   h1: ` font-[500] text-[2rem] capitalize`,
   title: `text-[18px] font-[600] text-[#11142d] capitalize`,
-  Imgcontainer: `max-w-[200px] max-h-[200px] rounded-[8px]`,
+  Imgcontainer: `max-w-[300px] max-h-[300px] rounded-[8px]`,
   image: `w-full h-full rounded-[8px] object-cover`,
   textcontainer: `text-[15px] font-[300] text-[#11142d] mx-3 flex flex-col gap-5  w-full`,
-  location: `text-[#8392A5]  flex  items-center `,
+  location: `text-[#8392A5]  flex  items-center space-x-10`,
   subTitile: `capitalize text-[20px] text-gray-400 font-[600]`,
   subContainer: ``,
   left: `flex `,
@@ -50,7 +51,7 @@ const Agents = () => {
   // <BsThreeDots size={20} color="#808191" />
 
   const displayAgentList = AgentList.data.map((agent: IAgentDetails) => (
-    <div key={agent._id} className=" my-5 bg-white py-10 px-5 shadow-md ">
+    <div key={agent._id} className=" my-5 bg-whit py-10 px-5 shadow-m ">
       <div className={style.left}>
         <div className={style.Imgcontainer}>
           <img src={AgentImage} alt={agent.firstname} className={style.image} />
@@ -65,7 +66,7 @@ const Agents = () => {
             </div>
             <BsThreeDots size={20} color="#808191" />
           </div>
-          <div className=" grid grid-cols-2 gap-5 gap-x-10 lg:w-[70%]">
+          <div className="grid  grid-cols-1 lg:grid-cols-2 gap-5 gap-x-10 lg:w-[70%]">
             <p className={style.location}>
               <MdEmail size={20} style={{ marginRight: "5px" }} />
               {agent.email}
@@ -105,7 +106,7 @@ const Agents = () => {
         </Link>
       </div>
 
-      <div className="dashboardPropertie">{displayAgentList}</div>
+      <div className="dashboardAgent">{displayAgentList}</div>
     </div>
   );
 };
