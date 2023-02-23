@@ -26,6 +26,7 @@ import Filiters from "./components/Filiters/FilitersLayout";
 import PropertiesDetails from "./pages/dashBoard/pages/PropertiesDetails/PropertiesDetails";
 import Maps from "./pages/map/Input";
 import Agents from "./pages/dashBoard/pages/agents/Agents";
+import AgentDetails from "./pages/dashBoard/pages/agentDetails/AgentDetails";
 
 const ScrollToTopPage = () => {
   const { pathname } = useLocation();
@@ -94,6 +95,10 @@ const RouteComponent = () => {
                 element={<PropertiesDetails />}
               />
               <Route path={routes.dashboardAgents} element={<Agents />} />
+              <Route
+                path={`${routes.dashboardAgentsDetails}/:AgentId`}
+                element={<AgentDetails />}
+              />
             </Route>
           </>
           {/* ) : ( */}

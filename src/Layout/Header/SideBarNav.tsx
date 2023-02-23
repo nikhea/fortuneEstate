@@ -10,6 +10,7 @@ import { MdDashboard } from "react-icons/md";
 import { BiStats } from "react-icons/bi";
 import { SiGoogletagmanager } from "react-icons/si";
 import { HiHomeModern } from "react-icons/hi2";
+import { FiUsers } from "react-icons/fi";
 const style = {
   container: `flex justify-between items-center mt-1 flex-row-reverse`,
   drawertoggle: `md:hidden absolut z-[] right-10 mr-4`,
@@ -22,7 +23,7 @@ const style = {
   active: `bg-[#8392A5] bg-[#E5E5E5] text-white  `,
   listsSM: ` h-full w-full  flex flex-col justify-betwee uppercase mt-[40px] mb-[20px] w-full m-auto text-sm tracking-widest`,
   upNavigation: ``,
-  downNavigation: `mt-[90px]`,
+  downNavigation: `mt-[-20px]`,
   logoBig: `font-extrabold text-transparent text-[20px] lg:text-[20px] bg-clip-text bg-gradient-to-r from-cyan-800 to-purple-400 px-[.4em] lg:px-[3em]  py-0 tracking-widest`,
 };
 const SideBarNav = () => {
@@ -144,6 +145,21 @@ const SideBarNav = () => {
                     style={{ marginRight: "11px" }}
                   />
                   property
+                </NavLink>
+              </li>
+              <li className={style.list} onClick={toggleDrawer}>
+                <NavLink
+                  className={({ isActive }) =>
+                    isActive ? `${style.active}` : ""
+                  }
+                  to={routes.dashboardAgents}
+                >
+                  <FiUsers
+                    // color="red"
+                    size={20}
+                    style={{ marginRight: "11px" }}
+                  />
+                  Agent
                 </NavLink>
               </li>
             </div>

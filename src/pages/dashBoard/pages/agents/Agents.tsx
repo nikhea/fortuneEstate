@@ -9,15 +9,16 @@ import { queryKeys } from "../../../../utils/queryKey";
 import { MdCall, MdEmail, MdLocationPin } from "react-icons/md";
 import { BsThreeDots } from "react-icons/bs";
 import { HiOutlineBuildingOffice2 } from "react-icons/hi2";
+import { routes } from "../../../../routes/routes";
 
 const style = {
   container: `w-[95%] m-auto my-[2rem] overflow-hidden text-[#11142D]`,
   header: `flex justify-between items-center`,
   h1: ` font-[500] text-[2rem] capitalize`,
   title: `text-[18px] font-[600] text-[#11142d] capitalize`,
-  Imgcontainer: `max-w-[300px] max-h-[300px] rounded-[8px]`,
+  Imgcontainer: `md:h-full max-w-[300px] lg:max-h-[300px] rounded-[8px]`,
   image: `w-full h-full rounded-[8px] object-cover`,
-  textcontainer: `text-[15px] font-[300] text-[#11142d] mx-3 flex flex-col gap-5  w-full`,
+  textcontainer: `text-[15px] font-[300] text-[#11142d] mx-3 flex flex-col gap-5  w-full py-1`,
   location: `text-[#8392A5]  flex  items-center space-x-10`,
   subTitile: `capitalize text-[20px] text-gray-400 font-[600]`,
   subContainer: ``,
@@ -53,15 +54,23 @@ const Agents = () => {
   const displayAgentList = AgentList.data.map((agent: IAgentDetails) => (
     <div key={agent._id} className=" my-5 bg-whit py-10 px-5 shadow-m ">
       <div className={style.left}>
-        <div className={style.Imgcontainer}>
-          <img src={AgentImage} alt={agent.firstname} className={style.image} />
-        </div>
+        <Link to={`${routes.dashboardAgentsDetails}/${agent._id}`}>
+          <div className={style.Imgcontainer}>
+            <img
+              src={AgentImage}
+              alt={agent.firstname}
+              className={style.image}
+            />
+          </div>
+        </Link>
         <div className={style.textcontainer}>
           <div className="flex justify-between">
             <div className="">
-              <h1 className={style.title}>
-                {agent.firstname} {agent.lastname}
-              </h1>
+              <Link to={`${routes.dashboardAgentsDetails}/${agent._id}`}>
+                <h1 className={style.title}>
+                  {agent.firstname} {agent.lastname}
+                </h1>
+              </Link>
               <h2 className={style.subTitile}>real estate agent</h2>
             </div>
             <BsThreeDots size={20} color="#808191" />
@@ -91,21 +100,13 @@ const Agents = () => {
           </div>
         </div>
       </div>
-
-      {/* <div className={style.right}></div> */}
     </div>
   ));
   return (
     <div className={style.container}>
       <div className={style.header}>
         <h1 className={style.h1}>agents list</h1>
-        <Link to="/upload">
-          <Button isCurve linearGradient uppercase primary padding full>
-            <span className="mx-2"> +Add Agent</span>
-          </Button>
-        </Link>
       </div>
-
       <div className="dashboardAgent">{displayAgentList}</div>
     </div>
   );
@@ -124,3 +125,14 @@ export default Agents;
 //   role: "ADMIN",
 
 // };
+{
+  /* <div className={style.right}></div> */
+}
+
+{
+  /* <Link to="/upload">
+          <Button isCurve linearGradient uppercase primary padding full>
+            <span className="mx-2"> +Add Agent</span>
+          </Button>
+        </Link> */
+}

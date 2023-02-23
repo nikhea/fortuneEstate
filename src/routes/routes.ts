@@ -14,7 +14,7 @@ export const routes = {
   dashboardProperties: "/dashboardproperties",
   dashboardPropertiesDetails: "/dashboardproperties/:PropertyId",
   dashboardAgents: "/dashboardagents",
-  dashboardAgentsDetails: "/dashboardagents/:AgentId",
+  dashboardAgentsDetails: "/dashboardagents",
   profile: "/profile",
   settings: "/settings",
 };
