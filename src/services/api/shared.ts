@@ -65,6 +65,13 @@ export const getAllAgents = async () => {
     data: res.data.data,
   };
 };
+export const getSingleAgent = async (id: any) => {
+  const res = await Axiosclient.get(`/user/agents/${id}`);
+  return {
+    status: res.status,
+    data: res.data.data,
+  };
+};
 
 // export const getProperties = async (id: number, countryName: string) => {
 //   const res = await Axiosclient.get(`/properties?populate=*`);

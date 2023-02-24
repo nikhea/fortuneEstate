@@ -28,7 +28,7 @@ const style = {
   listSM: `  w-full h-ful  `,
   hr: `bg-[#181818] h-[1px] w-full my-3`,
   linkItem: `md:hidden lg:block`,
-  logoBig: `font-extrabold text-transparent text-[5px] lg:text-[16px]  bg-clip-text bg-gradient-to-r from-cyan-800 to-purple-400 px-[3em] py-0 tracking-widest`,
+  logoBig: `font-extrabold text-transparent text-[10px] lg:text-[16px]  bg-clip-text bg-gradient-to-r from-cyan-800 to-purple-400 px-[1em] py-0 tracking-widest`,
 };
 // bg-[#8392A5] text-[#181818]
 const SideBar: FC = () => {
@@ -80,29 +80,25 @@ const SideBar: FC = () => {
             </NavLink>
           </li>
 
-          <li className={style.list}>
+          {/* <li className={style.list}>
             <NavLink
               className={({ isActive }) => (isActive ? `${style.active}` : "")}
               to={routes.lisitingStat}
             >
               <BiStats
-                // color="red"
+                color="red"
                 size={20}
                 style={{ marginRight: "11px" }}
               />
               <span className={style.linkItem}> listing Stats</span>
             </NavLink>
-          </li>
+          </li> */}
           <li className={style.list}>
             <NavLink
               className={({ isActive }) => (isActive ? `${style.active}` : "")}
               to={routes.tracklisiting}
             >
-              <FaMagento
-                // color="red"
-                size={20}
-                style={{ marginRight: "11px" }}
-              />{" "}
+              <FaMagento size={20} style={{ marginRight: "11px" }} />
               <span className={style.linkItem}> track your listing</span>
             </NavLink>
           </li>
@@ -111,11 +107,7 @@ const SideBar: FC = () => {
               className={({ isActive }) => (isActive ? `${style.active}` : "")}
               to={routes.dashboardProperties}
             >
-              <HiHomeModern
-                // color="red"
-                size={20}
-                style={{ marginRight: "11px" }}
-              />
+              <HiHomeModern size={20} style={{ marginRight: "11px" }} />
               <span className={style.linkItem}> property</span>
             </NavLink>
           </li>
@@ -124,11 +116,7 @@ const SideBar: FC = () => {
               className={({ isActive }) => (isActive ? `${style.active}` : "")}
               to={routes.dashboardAgents}
             >
-              <FiUsers
-                // color="red"
-                size={20}
-                style={{ marginRight: "11px" }}
-              />
+              <FiUsers size={20} style={{ marginRight: "11px" }} />
               <span className={style.linkItem}>Agent</span>
             </NavLink>
           </li>
@@ -139,29 +127,21 @@ const SideBar: FC = () => {
               className={({ isActive }) => (isActive ? `${style.active}` : "")}
               to={routes.profile}
             >
-              <FaUser
-                // color="red"
-                size={20}
-                style={{ marginRight: "11px" }}
-              />
+              <FaUser size={20} style={{ marginRight: "11px" }} />
 
               <span className={style.linkItem}> profile </span>
             </NavLink>
           </li>
-          <li className={style.list}>
+          {/* <li className={style.list}>
             <NavLink
               className={({ isActive }) => (isActive ? `${style.active}` : "")}
               to={routes.settings}
             >
-              <IoSettingsSharp
-                // color="red"
-                size={20}
-                style={{ marginRight: "11px" }}
-              />
+              <IoSettingsSharp size={20} style={{ marginRight: "11px" }} />
 
               <span className={style.linkItem}> settings</span>
             </NavLink>
-          </li>
+          </li> */}
         </div>
       </ul>
     </div>

@@ -8,6 +8,7 @@ import RouteComponents from "./RouteComponents";
 const App: FC = () => {
   const [Loading, setLoading] = useState(true);
   const { user, logout } = useAuth();
+
   useEffect(() => {
     setTimeout(() => setLoading(false), 1000);
   }, []);

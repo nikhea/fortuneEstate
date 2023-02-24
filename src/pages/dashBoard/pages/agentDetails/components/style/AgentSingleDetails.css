@@ -1,0 +1,16 @@
+.check {
+  /* shape */
+
+  width: 7px;
+  height: 5px;
+  background-color: blue;
+  /* White color */
+
+  border: 1.07143px solid #fcfcfc;
+
+  /* Inside auto layout */
+
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}

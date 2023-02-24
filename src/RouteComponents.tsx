@@ -30,6 +30,15 @@ import AgentDetails from "./pages/dashBoard/pages/agentDetails/AgentDetails";
 
 const ScrollToTopPage = () => {
   const { pathname } = useLocation();
+  // const location = useLocation();
+
+  // const zoomOut = () => {
+  //   document.body.style.transform = "scale(0.91)";
+  // };
+
+  // useEffect(() => {
+  //   zoomOut();
+  // }, [location.pathname]);
   useEffect(() => {
     window.scrollTo({
       top: 0,

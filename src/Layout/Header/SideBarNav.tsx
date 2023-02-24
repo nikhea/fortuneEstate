@@ -102,7 +102,7 @@ const SideBarNav = () => {
                   listing Manager
                 </NavLink>
               </li>
-              <li className={style.list} onClick={toggleDrawer}>
+              {/* <li className={style.list} onClick={toggleDrawer}>
                 <NavLink
                   className={({ isActive }) =>
                     isActive ? `${style.active}` : ""
@@ -116,7 +116,7 @@ const SideBarNav = () => {
                   />
                   listing Stats
                 </NavLink>
-              </li>
+              </li> */}
               <li className={style.list} onClick={toggleDrawer}>
                 <NavLink
                   className={({ isActive }) =>
@@ -179,7 +179,7 @@ const SideBarNav = () => {
                   profile
                 </NavLink>
               </li>
-              <li className={style.list} onClick={toggleDrawer}>
+              {/* <li className={style.list} onClick={toggleDrawer}>
                 <NavLink
                   className={({ isActive }) =>
                     isActive ? `${style.active}` : ""
@@ -193,7 +193,7 @@ const SideBarNav = () => {
                   />
                   settings
                 </NavLink>
-              </li>
+              </li> */}
             </div>
           </ul>
         </Drawer>
