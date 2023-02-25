@@ -54,7 +54,6 @@ const properties: FC<propertiesProps> = ({
   );
   const properties = propertiesdata?.data || [];
   const message = propertiesdata?.message;
-  console.log(properties.length);
 
   if (isLoading) {
     return <PageLoading />;

@@ -27,6 +27,9 @@ const AgentInfo = () => {
         className={style.imgContainer}
         style={{
           backgroundImage: `url(${urlImg})`,
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "cover",
+          // backgroundPosition: "100px",
         }}
       >
         <div className={style.profileImg}>

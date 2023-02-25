@@ -11,10 +11,12 @@ const style = {
   h1: ` text-[#11142D] font-normal text-[.9rem] lg:text-[2rem] capitalize`,
   // agentImage: ` max-w-[35px]  h-[35px] rounded-full flex items-center`,
   img: ` w-full h-full rounded-full`,
+  profileImg: `shadow-xl h-[50px] w-[50px] bg-red-500 rounded-full mr-3 border-2 object-cover`,
+  thumbnailImage: `h-full w-full bg-red-500 rounded-full object-cover `,
 };
 const DashBoardHeader = () => {
   const { user } = useAuth();
-  console.log(user);
+  let urlImg = user?.profile.profileImage.url;
 
   return (
     <div className={style.container}>
@@ -32,13 +34,16 @@ const DashBoardHeader = () => {
             <div className="bg-red-800 h-2 w-2 rounded-full absolute left-2 top-[1px]"></div>
           </div>
           <p>
-            {user?.profile?.img ? (
-              <LazyLoadImage
-                className={style.img}
-                alt={user.firstname}
-                effect="blur"
-                src={user?.profile?.img}
-              />
+            {urlImg ? (
+              // <LazyLoadImage
+              //   className={style.img}
+              //   alt={user?.firstname}
+              //   // effect="blur"
+              //   src={urlImg}
+              // />
+              <div className={style.profileImg}>
+                <LazyLoadImage className={style.thumbnailImage} src={urlImg} />
+              </div>
             ) : (
               <>
                 <FaUserCircle

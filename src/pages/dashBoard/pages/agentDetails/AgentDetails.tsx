@@ -26,7 +26,6 @@ const AgentDetails = () => {
     () => getSingleAgent(AgentId)
   );
   if (!agentData) return <PageLoading />;
-  console.log(agentData);
 
   return (
     <div className={style.container}>

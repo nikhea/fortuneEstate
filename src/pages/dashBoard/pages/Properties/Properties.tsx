@@ -1,14 +1,11 @@
 import "./style/dashboardProperties.css";
 import { Link } from "react-router-dom";
 import Button from "../../../../components/UI/FormElement/Button";
-import { routes } from "../../../../routes/routes";
 import { queryKeys } from "../../../../utils/queryKey";
 import { useQuery } from "react-query";
 import PageLoading from "../../../../components/UI/Loading/PageLoading";
 import { getAllProperties } from "../../../../services/api/shared";
 import { SetStateAction, useState } from "react";
-import Pagination from "../../../allProperties/components/pagination";
-import MainPagination from "../../../../components/Mainpagination";
 import { MainPaginationDashboard } from "./Components/MainPaginationDashboard";
 import PaginationDashBoard from "./Components/PaginationDashBoard";
 
@@ -56,8 +53,6 @@ const Properties = () => {
       setPageNumber(metadata.page - 1);
     }
   };
-  // console.log(propertiesResult);
-  console.log(propertiesResult.length, "dklkfjldj");
 
   return (
     <div className={style.container}>

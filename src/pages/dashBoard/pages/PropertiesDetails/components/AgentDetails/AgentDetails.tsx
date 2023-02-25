@@ -147,15 +147,17 @@ const AgentDetails: FC<IAgentDetails> = ({ agent, property }) => {
         </div>
       </div>
       <OpenStreetMap address={address} />
-      <button
+      <a
         className={style.btn}
         style={{
           backgroundColor: "#475BE8",
         }}
+        href={propertiesdata?.data.websiteCopy?.webSiteURL}
+        target="_blank"
       >
         <MdCall size={20} style={{ marginRight: "5px" }} />
-        buy now
-      </button>
+        Book Now{" "}
+      </a>
     </div>
   );
 };

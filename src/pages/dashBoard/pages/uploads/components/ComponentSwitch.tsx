@@ -33,7 +33,6 @@ const ComponentSwitch: FC = () => {
     formState: { errors },
   } = methods;
   const FormWatch = watch();
-  console.log(FormWatch, `Watch`);
   // useEffect(() => {
   //   const intervalId = setInterval(() => {
   //     const getLink = async () => {
@@ -61,7 +60,7 @@ const ComponentSwitch: FC = () => {
       //invalidate cached properties query and refresh
       // @ts-ignore
       queryClient.invalidateQueries();
-      // queryClient.invalidateQueries(queryKeys.properties);
+      queryClient.invalidateQueries(queryKeys.properties);
       // [queryKeys.properties, countryName],
     },
     onError: (_error, _hero, context) => {
@@ -119,7 +118,7 @@ const ComponentSwitch: FC = () => {
       }
       // console.log(createPropertiesData?.status);
     }
-    notify(Watch);
+    notify(FormWatch);
   };
 
   return (

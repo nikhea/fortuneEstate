@@ -49,7 +49,6 @@ const style = {
   headerSelect: `ml-5`,
 };
 const paginatedProperties: FC<paginatedPropertiesProps> = ({ properties }) => {
-  console.log(properties, "properties");
   const [Slicedproperties] = useState(properties || []);
   const [pageNumber, setPageNumber] = useState(0);
   const propertiesPerPage = 4;

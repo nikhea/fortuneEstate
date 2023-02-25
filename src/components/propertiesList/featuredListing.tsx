@@ -5,8 +5,6 @@ interface propertiesProps {
   properties?: any;
 }
 const featuredListing: FC<propertiesProps> = ({ properties }) => {
-  console.log(properties);
-
   const style = {
     newListing: `w-[90%] m-auto`,
     newListingTitle: `text-[1.5rem] uppercase z-1 p-0 text-[#0D304A] text-center  unset font-[500] m-10`,

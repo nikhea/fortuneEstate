@@ -75,7 +75,6 @@ const Filiters: FC = () => {
     console.log(formData, "filter Data");
     console.log(errors);
   };
-  console.log(errors);
   useFormPersist("filiterSearchKey", {
     watch,
     setValue,

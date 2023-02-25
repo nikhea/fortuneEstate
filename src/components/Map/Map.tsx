@@ -93,7 +93,7 @@ export default function App({ address }: MapProps) {
         }
       })
       .then((data) => {
-        console.log(data, "dsajljld");
+        // console.log(data, "dsajljld");
         setName(data[0].display_name);
         setCorrds({
           latitude: data[0].lat,

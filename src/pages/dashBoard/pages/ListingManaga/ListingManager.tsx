@@ -18,6 +18,7 @@ const style = {
 };
 const ListingManager = () => {
   const { user } = useAuth();
+  if (!user) return null;
   let loadProperties;
   const queryClient = useQueryClient();
   const {

@@ -21,10 +21,10 @@ const ImageCard: FC<Props> = ({ images, removeImage }) => {
   return (
     <>
       <div className={style.imgContainer}>
-        <a style={{ lineHeight: "0" }}  href={images.secure_url} target="_blank">
+        <a style={{ lineHeight: "0" }} href={images.secure_url} target="_blank">
           <LazyLoadImage
             alt={images.original_filename}
-            effect="blur"
+            // effect="blur"
             src={images.url}
             className={style.image}
           />
