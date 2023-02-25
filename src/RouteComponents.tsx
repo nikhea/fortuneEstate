@@ -86,7 +86,7 @@ const RouteComponent = () => {
           <>
             <Route path="" element={<DashBoardLayout />}>
               <Route path={routes.dashboard} element={<DashBoard />} />
-              {/* <Route path={routes.upload} element={<Upload />} /> */}
+              <Route path={routes.upload} element={<Upload />} />
               <Route
                 path={routes.lisitingManager}
                 element={<ListingManager />}
@@ -94,7 +94,7 @@ const RouteComponent = () => {
               <Route path={routes.lisitingStat} element={<ListingStats />} />
               <Route path={routes.tracklisiting} element={<TrackLisiting />} />
               <Route path={routes.profile} element={<Profile />} />
-              <Route path={routes.settings} element={<Settings />} />
+              {/* <Route path={routes.settings} element={<Settings />} />
               <Route
                 path={routes.dashboardProperties}
                 element={<DashboardProperties />}
@@ -107,7 +107,7 @@ const RouteComponent = () => {
               <Route
                 path={`${routes.dashboardAgentsDetails}/:AgentId`}
                 element={<AgentDetails />}
-              />
+              /> */}
             </Route>
           </>
           {/* ) : ( */}
