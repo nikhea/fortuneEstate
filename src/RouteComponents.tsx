@@ -86,14 +86,14 @@ const RouteComponent = () => {
           <>
             <Route path="" element={<DashBoardLayout />}>
               <Route path={routes.dashboard} element={<DashBoard />} />
-              <Route path={routes.upload} element={<Upload />} />
-              <Route
+              {/* <Route path={routes.upload} element={<Upload />} /> */}
+              {/* <Route
                 path={routes.lisitingManager}
                 element={<ListingManager />}
-              />
-              <Route path={routes.lisitingStat} element={<ListingStats />} />
+              /> */}
+              {/* <Route path={routes.lisitingStat} element={<ListingStats />} /> */}
               <Route path={routes.tracklisiting} element={<TrackLisiting />} />
-              <Route path={routes.profile} element={<Profile />} />
+              {/* <Route path={routes.profile} element={<Profile />} /> */}
               {/* <Route path={routes.settings} element={<Settings />} />
               <Route
                 path={routes.dashboardProperties}
