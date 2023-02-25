@@ -16,7 +16,7 @@ const style = {
 };
 const DashBoardHeader = () => {
   const { user } = useAuth();
-  let urlImg = user?.profile.profileImage.url;
+  let urlImg = user?.profile?.profileImage?.url;
 
   return (
     <div className={style.container}>
