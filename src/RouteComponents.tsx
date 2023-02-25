@@ -1,5 +1,5 @@
 import { Suspense, useEffect } from "react";
-import { Routes, Route, useLocation } from "react-router-dom";
+import { Routes, Route, useLocation, Link } from "react-router-dom";
 import { routes } from "./routes/routes";
 import Layout from "./Layout/Layout";
 import HomePageLayout from "./Layout/HomePageLayout";
@@ -86,7 +86,7 @@ const RouteComponent = () => {
           <>
             <Route path="" element={<DashBoardLayout />}>
               <Route path={routes.dashboard} element={<DashBoard />} />
-              {/* <Route path={routes.upload} element={<Upload />} /> */}
+              <Route path={routes.upload} element={<Upload />} />
               {/* <Route
                 path={routes.lisitingManager}
                 element={<ListingManager />}
@@ -115,9 +115,20 @@ const RouteComponent = () => {
       <Route path={routes.home} element={<Home />} />
     </Route> */}
           {/* )} */}
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </Suspense>
     </>
+  );
+};
+
+const NotFound = () => {
+  return (
+    <div>
+      <h1>Oops! You seem to be lost.</h1>
+      <p>Here are some helpful links:</p>
+      <Link to="/">Home</Link>
+    </div>
   );
 };
 
