@@ -1,5 +1,6 @@
 // import { baseURL, GET_CONTINENTS, GET_CONTINENT } from "../../utils/constant";
 import { request, Axiosclient } from "../../utils/axios";
+import { notify } from "./notification";
 
 interface getAllCONTINENTS {
   url: string;
@@ -67,6 +68,19 @@ export const getAllAgents = async () => {
 };
 export const getSingleAgent = async (id: any) => {
   const res = await Axiosclient.get(`/user/agents/${id}`);
+  return {
+    status: res.status,
+    data: res.data.data,
+  };
+};
+
+export const addProfileImage = async (imageDate: any) => {
+  // http://localhost:4000/api/properties
+
+  const res = await Axiosclient.put(`user/me`, imageDate);
+  console.log(res, "jsdlksljxsklajxklskl");
+
+  notify(res.status, res.data.message);
   return {
     status: res.status,
     data: res.data.data,

@@ -1,4 +1,4 @@
-input {
+/* input {
   border: none;
 }
 .react-select-container {
@@ -34,10 +34,4 @@ input {
   outline: none;
   border: none;
   box-shadow: none;
-}
-/* .react-select__value-container{
-    @apply   bg-[#f1f1f1]   text-[#9a9a9a] text-[.9375rem]  outline-none pr-[px];
-
 } */
-/* .css-nqaof0-control */
-/* .react-select__control.react-select__control--is-focused.react-select__control--menu-is-open.css-nqaof0-control { */

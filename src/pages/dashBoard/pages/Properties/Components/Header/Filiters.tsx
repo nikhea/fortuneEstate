@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, useReducer, useRef } from "react";
 import * as yup from "yup";
 import Button from "../../../../../../components/UI/FormElement/Button";
 import Input from "../../../../../../components/UI/FormElement/input/input";
@@ -6,7 +6,7 @@ import { useForm, FormProvider, useController } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import useFormPersist from "react-hook-form-persist";
 import Select from "../../../../../../pages/dashBoard/pages/uploads/components/form/select/select";
-import { CiSearch } from "react-icons/ci";
+
 import {
   categoryOPtions,
   propertyTypeOPtions,
@@ -30,6 +30,10 @@ interface FormFilterData {
   searchBathrooms: string;
   searchLisitingType: string;
 }
+interface OptionType {
+  label: string;
+  value: string;
+}
 export const uploadSchema = yup.object().shape({
   searchProperties: yup.string(),
   searchPropertyType: yup.string(),
@@ -39,6 +43,15 @@ export const uploadSchema = yup.object().shape({
   searchBathrooms: yup.string(),
 });
 const Filiters: FC = () => {
+  const selectRef = useRef(null);
+  const defaultValues = {
+    searchProperties: "",
+    searchPropertyType: "",
+    searchLisitingType: "",
+    searchPrice: "",
+    searchBedrooms: "",
+    searchBathrooms: "",
+  };
   const methods = useForm<FormFilterData>({
     resolver: yupResolver(uploadSchema),
   });
@@ -74,6 +87,12 @@ const Filiters: FC = () => {
   const submitFilterForm = (formData: any) => {
     console.log(formData, "filter Data");
     console.log(errors);
+  };
+  const ResetForm = (e: any) => {
+    reset();
+    // if (selectRef.current) {
+    //   selectRef.current.select.clearValue();
+    // }
   };
   useFormPersist("filiterSearchKey", {
     watch,
@@ -126,20 +145,11 @@ const Filiters: FC = () => {
                 errors={errors}
                 inputRef={register("searchBathrooms")}
               />
+              <div className=" w-[80] mt-[-.7]"></div>
               <div className=" w-[80] mt-[-.7]">
                 <Select
-                  placeholder="Lisiting*"
-                  options={ListingTypeOPtions}
-                  field={ListingTypeOPtions.find(
-                    ({ value }) => value === propertyTypeField.value
-                  )}
-                  handleSelectChange={handleListingTypeChange}
-                  inputHalf
-                />
-              </div>
-              <div className=" w-[80] mt-[-.7]">
-                <Select
-                  placeholder="Property*"
+                  selectRef={selectRef}
+                  placeholder="Property"
                   options={propertyTypeOPtions}
                   field={propertyTypeOPtions.find(
                     ({ value }) => value === ListingTypeField.value
@@ -154,7 +164,7 @@ const Filiters: FC = () => {
                 Search
               </Button>
               <Button
-                onClick={() => reset()}
+                onClick={(e: any) => ResetForm(e)}
                 primary
                 rounded
                 linearGradient
@@ -171,3 +181,15 @@ const Filiters: FC = () => {
 };
 
 export default Filiters;
+{
+  /* <Select
+selectRef={selectRef}
+placeholder="Lisiting"
+options={ListingTypeOPtions}
+field={ListingTypeOPtions.find(
+  ({ value }) => value === propertyTypeField.value
+)}
+handleSelectChange={handleListingTypeChange}
+inputHalf
+/> */
+}

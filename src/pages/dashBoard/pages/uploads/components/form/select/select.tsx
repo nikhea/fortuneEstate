@@ -1,7 +1,7 @@
-import { FC, useState } from "react";
+import { FC, useState, useRef } from "react";
 import "./select.css";
-import Select from "react-select";
-import makeAnimated from 'react-select/animated';
+import Select, { Props } from "react-select";
+import makeAnimated from "react-select/animated";
 import classnames from "classnames";
 
 export interface optionsProps {
@@ -23,6 +23,7 @@ interface inputProps {
   options: optionsProps[];
   field: any;
   handleSelectChange: any;
+  selectRef: any;
 }
 
 // const options = [
@@ -55,9 +56,8 @@ const InputSelect: FC<inputProps> = ({
   options,
   handleSelectChange,
   field,
+  selectRef,
 }) => {
-  const [selectedOption, setSelectedOption] = useState(null);
-
   let inputSelectContainer = {
     // [`${style.input}`]: true,
     [`${style.inputFull}`]: inputFull,
@@ -79,6 +79,8 @@ const InputSelect: FC<inputProps> = ({
       marginTop: "5%",
     }),
   };
+  // console.log("selectField", field);
+
   const themeOptions = (theme: any) => ({
     ...theme,
     colors: {
@@ -90,13 +92,14 @@ const InputSelect: FC<inputProps> = ({
   return (
     <div>
       <Select
+        ref={selectRef}
+        key={`my_unique_select_key__${field}`}
         value={field}
         placeholder={placeholder}
         name={name}
         styles={customStyles}
         className="react-select-container"
         classNamePrefix="react-select"
-        // ref={register}
         onChange={handleSelectChange}
         options={options}
         required={required}

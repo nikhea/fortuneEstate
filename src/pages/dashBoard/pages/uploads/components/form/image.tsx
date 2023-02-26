@@ -65,10 +65,9 @@ const image: FC<ImageComponentProps> = ({ nextStep, prevStep, errors }) => {
         clientAllowedFormats: ["webp", "png", "jpeg"],
         showPoweredBy: false,
         maxFileSize: 1500000,
-        multiple: true,
-        maxFiles: 5,
+        maxFiles: 3,
         maxImageFileSize: 1500000,
-        max_files: 5,
+        max_files: 3,
       },
       function (error: any, result: any) {
         if (!error && result && result.event === "success") {
