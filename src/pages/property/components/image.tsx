@@ -21,12 +21,12 @@ const images = [
   //   url: "http://res.cloudinary.com/dwtx0sgd6/image/upload/v1671983131/propertyUploadImages/ravz7wxfocabke4vfquh.jpg",
   // },
 ];
-const Image = () => {
+const Image = ({ propertyImages }: any) => {
   const style = {
     Container: `w-[95%] m-auto my-10`,
     image: `w-full h-full object-cover  rounded flex`,
   };
-  const displayImages = images.map((image) => (
+  const displayImages = propertyImages.map((image: any) => (
     <div key={image._id} className="PropertyimagesGridItem">
       {/* <Zoom img={image.url} zoomScale={2} width={100} height={100} className={style.image}  /> */}
       <LazyLoadImage alt={image.url} src={image.url} className={style.image} />

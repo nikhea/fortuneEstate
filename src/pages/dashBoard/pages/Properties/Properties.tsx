@@ -8,6 +8,8 @@ import { getAllProperties } from "../../../../services/api/shared";
 import { SetStateAction, useState } from "react";
 import { MainPaginationDashboard } from "./Components/MainPaginationDashboard";
 import PaginationDashBoard from "./Components/PaginationDashBoard";
+import HeaderNavigation from "./Components/HeaderNavigation";
+import ProperiesData from "./Components/Header/ProperiesData";
 
 const style = {
   container: `w-[95%] m-auto my-[2rem] overflow-hidden text-[#11142D]`,
@@ -16,68 +18,46 @@ const style = {
   subContainer: ``,
 };
 const Properties = () => {
-  const [pageNumber, setPageNumber] = useState(1);
-  const [limitProperties, setLimitProperties] = useState(10);
-  const [sortProperties, setSortProperties] = useState(1);
+  // const [pageNumber, setPageNumber] = useState(1);
+  // const [limitProperties, setLimitProperties] = useState(10);
+  // const [sortProperties, setSortProperties] = useState(1);
 
-  const { data: properties, isLoading } = useQuery(
-    [queryKeys.properties, pageNumber, limitProperties, sortProperties],
-    () => getAllProperties(pageNumber, limitProperties, sortProperties),
-    {
-      keepPreviousData: true,
-    }
-  );
-  if (isLoading) {
-    return <PageLoading />;
-  }
-  if (!properties?.data.results[0].metadata[0]) {
-    return null;
-  }
+  // const { data: properties, isLoading } = useQuery(
+  //   [queryKeys.properties, pageNumber, limitProperties, sortProperties],
+  //   () => getAllProperties(pageNumber, limitProperties, sortProperties),
+  //   {
+  //     keepPreviousData: true,
+  //   }
+  // );
+  // if (isLoading) {
+  //   return <PageLoading />;
+  // }
+  // if (!properties?.data.results[0].metadata[0]) {
+  //   return null;
+  // }
 
-  const metadata = properties?.data.results[0].metadata[0];
+  // const metadata = properties?.data.results[0].metadata[0];
 
-  const propertiesResult = properties?.data.results[0].data || [];
-  const handlePageClick = (page: SetStateAction<number>) => {
-    setPageNumber(page);
-    // onPageChange(page);
-  };
-  const nextpage = () => {
-    // setPageNumber(pageNumber + 1);
-    if (metadata.page < metadata.total_Pages) {
-      setPageNumber(metadata.page + 1);
-    }
-  };
-  const previouspage = () => {
-    // setPageNumber(pageNumber - 1);
-    if (metadata.page > 1) {
-      setPageNumber(metadata.page - 1);
-    }
-  };
+  // const propertiesResult = properties?.data.results[0].data || [];
+  // const handlePageClick = (page: SetStateAction<number>) => {
+  //   setPageNumber(page);
+  // };
+  // const nextpage = () => {
+  //   if (metadata.page < metadata.total_Pages) {
+  //     setPageNumber(metadata.page + 1);
+  //   }
+  // };
+  // const previouspage = () => {
+  //   if (metadata.page > 1) {
+  //     setPageNumber(metadata.page - 1);
+  //   }
+  // };
 
   return (
     <div className={style.container}>
-      <div className={style.header}>
-        <h1 className={style.h1}>Property List</h1>
-        <Link to="/upload">
-          <Button isCurve linearGradient uppercase primary padding full>
-            <span className="mx-2"> +Add Property</span>
-          </Button>
-        </Link>
-      </div>
+      <HeaderNavigation />
       <div className="dashboardProperties">
-        <MainPaginationDashboard
-          page={metadata.page}
-          total_Pages={metadata.total_Pages}
-          nextpage={nextpage}
-          handlePageClick={handlePageClick}
-          previouspage={previouspage}
-          propertiesLength={propertiesResult.length}
-          sortProperties={sortProperties}
-          setSortProperties={setSortProperties}
-          limitProperties={limitProperties}
-        >
-          <PaginationDashBoard properties={propertiesResult} />
-        </MainPaginationDashboard>
+        <ProperiesData />
       </div>
     </div>
   );

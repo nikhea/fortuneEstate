@@ -25,11 +25,12 @@ const PropertiesDetails: FC<IProperty> = ({ property: SingleProperties }) => {
     lotAreaSymbol,
     lotArea,
     yearBuilt,
+    propertyImages,
   } = SingleProperties;
   return (
     <>
       <div>
-        <ImageCard />
+        <ImageCard propertyImages={propertyImages} />
         <Header
           address={address}
           title={title}

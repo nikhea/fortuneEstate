@@ -100,7 +100,7 @@ const AgentDetails: FC<IAgentDetails> = ({ agent, property }) => {
           <p>{propertiesdata?.data.length} properties</p>
         </div>
         <div className="">
-          {agent?._id === user?._id ? (
+          {agent?._id === user?._id || user?.role === "ADMIN" ? (
             <div className="flex items-center justify-center flex-nowrap my-5 gap-5">
               <button
                 className={style.btn}

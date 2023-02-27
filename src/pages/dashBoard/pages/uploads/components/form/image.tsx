@@ -13,21 +13,18 @@ const style = {
   uploadImage: `border-4 border-dashed flex items-center justify-center h-[50vh] w-[40vw] m-auto mb-10 `,
   icon: ` cursor-pointer text-[#E5E5E5]  hover:text-[#0D304A]`,
 };
-const url: any[] = [
-  // {
-  //   url: `https://images.unsplash.com/photo-1559705421-4ae9bf6fabb5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8dGh1bWJuYWlsfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60`,
-  // },
-  {
-    url: `https://res.cloudinary.com/dwtx0sgd6/image/upload/v1671983131/propertyUploadImages/ravz7wxfocabke4vfquh.jpg`,
-  },
-  // {
-  //   url: `https://images.unsplash.com/photo-1559705421-4ae9bf6fabb5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8dGh1bWJuYWlsfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60`,
-  // },
-  // {
-  //   url: `https://images.unsplash.com/photo-1559705421-4ae9bf6fabb5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8dGh1bWJuYWlsfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60`,
-  // },
-];
-localStorage.setItem("propertiesImage", JSON.stringify(url));
+// const url: any[] = [
+//   {
+//     url: `https://res.cloudinary.com/dwtx0sgd6/image/upload/v1671983131/propertyUploadImages/ravz7wxfocabke4vfquh.jpg`,
+//   },
+//   {
+//     url: `https://images.unsplash.com/photo-1559705421-4ae9bf6fabb5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8dGh1bWJuYWlsfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60`,
+//   },
+//   {
+//     url: `https://images.unsplash.com/photo-1559705421-4ae9bf6fabb5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8dGh1bWJuYWlsfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60`,
+//   },
+// ];
+// localStorage.setItem("propertiesImage", JSON.stringify(url));
 const image: FC<ImageComponentProps> = ({ nextStep, prevStep, errors }) => {
   const { setValue, register, watch } = useFormContext();
   const FormWatch = watch();
@@ -37,7 +34,7 @@ const image: FC<ImageComponentProps> = ({ nextStep, prevStep, errors }) => {
 
   const cloudinaryRef = useRef();
   const widgetRef = useRef();
-
+  console.log("loading localImage", images);
   useEffect(() => {
     const loadedImages = async () => {
       if (localStorage.getItem("propertiesImage")) {
@@ -48,11 +45,10 @@ const image: FC<ImageComponentProps> = ({ nextStep, prevStep, errors }) => {
           setImages((image) => [...image, file]);
         }
       }
-      console.log("loading localImage", images);
     };
 
     loadedImages();
-    setValue("propertyImages", url);
+    // setValue("propertyImages", localImage);
   }, []);
   useEffect(() => {
     //@ts-ignore
@@ -61,7 +57,9 @@ const image: FC<ImageComponentProps> = ({ nextStep, prevStep, errors }) => {
       {
         cloudName: import.meta.env.VITE_REACT_APP_CLOUDINARY_CLOUD_NAME,
         uploadPreset: import.meta.env.VITE_REACT_APP_CLOUDINARY_UPLOAD_PRESET,
-        folder: `reactUploadProperties/${FormWatch.title}-${Date.now()}`,
+        folder: `reactUploadProperties/${FormWatch.title}${
+          FormWatch.view
+        }-${Date.now()}`,
         clientAllowedFormats: ["webp", "png", "jpeg"],
         showPoweredBy: false,
         maxFileSize: 1500000,
@@ -72,21 +70,30 @@ const image: FC<ImageComponentProps> = ({ nextStep, prevStep, errors }) => {
       function (error: any, result: any) {
         if (!error && result && result.event === "success") {
           console.log(result.data);
-
-          // if (!result?.data?.info?.files) {
           return "please add an image";
         } else {
-          for (const file of result?.data?.info?.files) {
-            const { uploadInfo } = file;
-            // localStorage.setItem(
-            //   "propertiesImage",
-            //   JSON.stringify([uploadInfo])
-            // );
+          if (
+            result?.data?.info?.files[0]?.uploadInfo !== null ||
+            result?.data?.info?.files[0]?.uploadInfo !== undefined
+          ) {
+            let images = result?.data?.info?.files;
+            console.log("lsjdjsl", images);
+            if (images !== undefined || images.length >= 0 || images !== null) {
+              const uploadInfoArray = [];
+              for (let i = 0; i < images.length; i++) {
+                const uploadInfo = images[i].uploadInfo;
+                uploadInfoArray.push(uploadInfo);
+              }
+              console.log(uploadInfoArray);
+              localStorage.setItem(
+                "propertiesImage",
+                JSON.stringify(uploadInfoArray)
+              );
+              setValue("propertyImages", uploadInfoArray);
+            }
           }
-          // loadedImages();
         }
       }
-      // }
     );
   }, []);
 

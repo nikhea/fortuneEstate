@@ -101,9 +101,7 @@ const ComponentSwitch: FC = () => {
   };
 
   const submitForm = async (formData: any) => {
-    // console.log("submitForm DATA main => ", formData);
     if (formData) {
-      // console.log("submitForm DATA main => ", formData);
       await addProperties(formData);
       if (status === "loading") {
         toast.warning("submmiting");

@@ -52,11 +52,13 @@ const property: FC = () => {
     lotAreaSymbol,
     lotArea,
     yearBuilt,
+    propertyImages,
   } = propertydata?.data;
 
   return (
     <>
-      <ImageCard />
+      <ImageCard propertyImages={propertyImages} />
+
       <div className={style.bgContainer}>
         <div className={style.full}></div>
         <div className={style.full}>

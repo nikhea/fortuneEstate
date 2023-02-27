@@ -17,14 +17,18 @@ const images = [
     url: "https://pic.le-cdn.com/showcase/1280x720/596fd77d783bbe055593b1058ae6882b/128239740.jpg",
   },
 ];
-const Image = () => {
+const Image = ({ propertyImages }: any) => {
   const style = {
     Container: `w-[100%] m-auto `,
     image: `w-full h-full object-cover  rounded flex`,
   };
-  const displayImages = images.map((image) => (
+  const displayImages = propertyImages.map((image: any) => (
     <div key={image._id} className="PropertyimagesDetailsItem">
-      <LazyLoadImage alt={image.url} src={image.url} className={style.image} />
+      <LazyLoadImage
+        alt={image.url}
+        src={image.secure_url}
+        className={style.image}
+      />
     </div>
   ));
   return (
