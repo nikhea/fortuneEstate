@@ -2,6 +2,7 @@ import { FC } from "react";
 import { useQuery } from "react-query";
 import { useParams } from "react-router-dom";
 import FeaturedListing from "../../components/propertiesList/featuredListing";
+
 import ImageCard from "./components/image";
 import TitlePrice from "./components/titlePrice";
 import AdditionalDetails from "./components/additionalDetails";
@@ -12,9 +13,9 @@ import NeighborHood from "./components/neigborhood";
 import AboutAuthors from "./components/abountAuthor";
 import { queryKeys } from "../../utils/queryKey";
 import { getSingelProperties } from "../../services/api/shared";
-import SimilarProperties from "../../components/SimilarProperties/SimilarProperties";
 import PageLoading from "../../components/UI/Loading/PageLoading";
 import PropertieSide from "../../components/PropertieSide";
+import ImageSlider from "./components/ImageSlider";
 
 const style = {
   container: ``,
@@ -58,7 +59,7 @@ const property: FC = () => {
   return (
     <>
       <ImageCard propertyImages={propertyImages} />
-
+      {/* <ImageSlider propertyImages={propertyImages} /> */}
       <div className={style.bgContainer}>
         <div className={style.full}></div>
         <div className={style.full}>
@@ -104,9 +105,6 @@ const property: FC = () => {
         <div className={style.bgSmall}>
           <PropertieSide />
         </div>
-        {/* <div className={style.full}>
-          <SimilarProperties />
-        </div> */}
       </div>
     </>
   );

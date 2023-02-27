@@ -5,6 +5,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import PageLoading from "./components/UI/Loading/PageLoading";
 import RouteComponents from "./RouteComponents";
+import "react-lazy-load-image-component/src/effects/blur.css";
 const App: FC = () => {
   const [Loading, setLoading] = useState(true);
   const { user, logout } = useAuth();

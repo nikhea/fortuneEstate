@@ -1,0 +1,51 @@
+.slide {
+  display: flex;
+  // background-color: red;
+  justify-content: center;
+  padding: 100px 0px;
+  max-width: none; /* optional */
+  box-sizing: border-box; /* optional */
+  height: 500px;
+  .container {
+    flex-grow: 1;
+    // width: 200vw;
+    position: relative;
+    height: 500px;
+    border-radius: 25px;
+  }
+
+  .carousel-initialized {
+    // position: static;
+    height: 600px;
+    margin-left: 25px;
+
+    border-radius: 25px;
+  }
+
+  .carousel-prev,
+  .carousel-next {
+    width: 50px;
+    height: 50px;
+    background-color: rgb(243, 243, 243);
+    border-radius: 50%;
+    // color: blue;
+
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+  }
+
+  .carousel-prev {
+    left: 25px;
+  }
+  .carousel-next {
+    right: 25px;
+  }
+  .carousel-prev:before {
+    margin: 12px;
+  }
+  .carousel-next:before {
+    margin: 12px;
+  }
+}

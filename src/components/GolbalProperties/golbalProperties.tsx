@@ -60,50 +60,43 @@ const golbalProperties: FC<Props> = () => {
   const displayproperties = propertiesResult
     .slice(0, 6)
     .map((property: Props, index: any) => (
-      <div key={index}>
-        <PropertiesList
-          ID={property._id}
-          images={property.propertyImages}
-          // images={property.images}
-          tage={property.listingType}
-          price={property.price}
-          title={property.title}
-          location={property.address.street}
-          bed={property.bedrooms}
-          bath={property.bathrooms}
-          like={property.isLiked}
-          squareFootage={property.squareFootage}
-          squareSymbol={property.squareSymbol}
-          listingType={property.listingType}
-          firstname={property.user.firstname}
-          lastname={property.user.lastname}
-          agent={property.user.username}
-          agentImage={property.user.image}
-        />
-      </div>
+      <PropertiesList
+        key={index}
+        ID={property._id}
+        images={property.propertyImages}
+        // images={property.images}
+        tage={property.listingType}
+        price={property.price}
+        title={property.title}
+        location={property.address.street}
+        bed={property.bedrooms}
+        bath={property.bathrooms}
+        like={property.isLiked}
+        squareFootage={property.squareFootage}
+        squareSymbol={property.squareSymbol}
+        listingType={property.listingType}
+        firstname={property.user.firstname}
+        lastname={property.user.lastname}
+        agent={property.user.username}
+        agentImage={property.user.image}
+      />
     ));
 
   return (
     <>
       {displayproperties.length !== 0 ? (
-        <div
-        // data-aos="fade-up"
-        // data-aos-easing="ease-in-out"
-        // data-aos-duration="3000"
-        >
-          <div className={style.bgContainer}>
-            <div className={style.container}>
-              <h1 className={style.text}>Recent Properties</h1>
-              <p className={style.subText}>Check Out My Recent</p>
-            </div>
-            <div className={style.gridContainer}>{displayproperties}</div>
-            <div className={style.container}>
-              <Link to={routes.properties}>
-                <Button rounded linearGradient uppercase primary>
-                  all properties
-                </Button>
-              </Link>
-            </div>
+        <div className={style.bgContainer}>
+          <div className={style.container}>
+            <h1 className={style.text}>Recent Properties</h1>
+            <p className={style.subText}>Check Out My Recent</p>
+          </div>
+          <div className={style.gridContainer}>{displayproperties}</div>
+          <div className={style.container}>
+            <Link to={routes.properties}>
+              <Button rounded linearGradient uppercase primary>
+                all properties
+              </Button>
+            </Link>
           </div>
         </div>
       ) : null}

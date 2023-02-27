@@ -31,8 +31,8 @@ const style = {
   container: `w-[80%] m-auto my-10`,
   cardContainer: ` mx-[5px] rounded-t-xl rounded-b-xl bg-white hover:shadow-xl  mb-5 transistion ease-out duration-1000 border border-t-[0px]  `,
   MainContainer: ``,
-  imgContainer: `w-full flex rounded-t-xl flex-col relative [&>p]:hover:hidde [&>p]:transistion [&>p]:ease-in [&>p]:duration-3000`,
-  image: ` w-full h-full object-cover flex rounded-t-xl `,
+  imgContainer: `w-full h-[320px] flex rounded-t-xl flex-col relative [&>p]:hover:hidde [&>p]:transistion [&>p]:ease-in [&>p]:duration-3000`,
+  image: ` w-full h-full  object-cover flex rounded-t-xl `,
   textContainer: ` flex flex-col justify-between pt-[2em] px-[2em]`,
   sub: `flex justify-between items-center  mb-[20px] leading`,
   price: `text-[1rem]`,
@@ -79,7 +79,7 @@ const propertiesList: FC<propertiesList> = ({
   };
   return (
     // className={style.container}
-    <div>
+    <div className=" flex">
       {/* <SEO title={`continents/${title}`} /> */}
 
       <div className={style.cardContainer}>
