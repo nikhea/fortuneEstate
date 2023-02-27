@@ -16,6 +16,7 @@ export async function handleUserResponse(data: any) {
     token: jwt,
     email,
     firstname,
+    userID,
     lastname,
     username,
     role,
@@ -28,6 +29,7 @@ export async function handleUserResponse(data: any) {
     // jwt,
     email,
     firstname,
+    userID,
     lastname,
     username,
     role,
@@ -42,13 +44,22 @@ async function loadUser() {
   if (storage.getToken()) {
     const data = await getUserProfile();
     if (data) {
-      const { _id, email, firstname, lastname, username, role, profile } =
-        data.data;
+      const {
+        _id,
+        email,
+        firstname,
+        lastname,
+        userID,
+        username,
+        role,
+        profile,
+      } = data.data;
       user = {
         _id,
         // jwt:storage.getToken(),
         email,
         firstname,
+        userID,
         lastname,
         username,
         role,

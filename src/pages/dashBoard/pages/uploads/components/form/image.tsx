@@ -60,11 +60,11 @@ const image: FC<ImageComponentProps> = ({ nextStep, prevStep, errors }) => {
         folder: `reactUploadProperties/${FormWatch.title}${
           FormWatch.view
         }-${Date.now()}`,
-        clientAllowedFormats: ["webp", "png", "jpeg"],
+        clientAllowedFormats: ["image/jpeg", "image/png", "image/webp"],
         showPoweredBy: false,
-        maxFileSize: 1500000,
+        // maxFileSize: 1500000,
         maxFiles: 3,
-        maxImageFileSize: 1500000,
+        // maxImageFileSize: 1500000,
         max_files: 3,
       },
       function (error: any, result: any) {
