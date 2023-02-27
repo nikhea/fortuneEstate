@@ -42,7 +42,7 @@ export const notify = (WatchErrors: any) => {
   }
 
   if (!description || description.includes("<p><br></p>")) {
-    toast.error("Description  is a required field");
+    // toast.error("Description  is a required field");
   }
   if (!category) {
     toast.error("category is a required field");

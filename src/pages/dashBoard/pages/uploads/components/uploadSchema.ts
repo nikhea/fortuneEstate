@@ -11,7 +11,7 @@ export const validateImageType = (value: any) => {
 export const uploadSchema = yup.object().shape({
   title: yup.string().required(),
   pageTitle: yup.string().required(),
-  description: yup.string().required(),
+  description: yup.string(),
   category: yup.string().required(),
   propertyType: yup.string().required(),
   listingType: yup.string().required(),

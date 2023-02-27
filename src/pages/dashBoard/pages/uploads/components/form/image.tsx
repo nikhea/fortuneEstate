@@ -57,11 +57,9 @@ const image: FC<ImageComponentProps> = ({ nextStep, prevStep, errors }) => {
       {
         cloudName: import.meta.env.VITE_REACT_APP_CLOUDINARY_CLOUD_NAME,
         uploadPreset: import.meta.env.VITE_REACT_APP_CLOUDINARY_UPLOAD_PRESET,
-        folder: `reactUploadProperties/${FormWatch.title}${
-          FormWatch.view
-        }-${Date.now()}`,
-        clientAllowedFormats: ["image/jpeg", "image/png", "image/webp"],
-        showPoweredBy: false,
+        folder: `reactUploadProperties/${FormWatch.title}-${Date.now()}`,
+        // clientAllowedFormats: ["images"],
+        // showPoweredBy: false,
         // maxFileSize: 1500000,
         maxFiles: 3,
         // maxImageFileSize: 1500000,
