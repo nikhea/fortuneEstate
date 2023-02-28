@@ -35,7 +35,7 @@ const style = {
   imgContainer: `max-w-[300px] lg:max-w-[250px] h-full flex rounded-xl flex-col relative`,
   image: ` w-full h-full object-cover flex rounded-xl `,
   textContainer: `px-[1em] py-[1em] capitalize `,
-  listingType: `capitalize rounded-md text-[.65em] bg-purple-500 text-white absolute py-1 px-1 text-center z-[90] top-1 left-1 `,
+  listingType: `capitalize rounded-md text-[.65em]  text-white absolute py-1 px-1 text-center z-[90] top-2 left-2 `,
   sub: `flex items-center  leading space-x-5`,
   price: `text-[.9rem] lg:text-[1rem] bg-[#DADEFA] text-[#475BE8] rounded-md p-2 w-fit`,
   title: ` font-semibold text-[.8rem] md:text-sm  leading-10 mt-5`,
@@ -84,7 +84,13 @@ const PropertiesListDashBoard: FC<propertiesList> = ({
             src={images[0].url}
             className={style.image}
           />
-          <p className={style.listingType}>for {listingType}</p>
+          <p
+            className={`${style.listingType} ${
+              listingType === "sale" ? "bg-purple-500" : "bg-red-500"
+            }`}
+          >
+            for {listingType}
+          </p>
         </div>
       </Link>
 

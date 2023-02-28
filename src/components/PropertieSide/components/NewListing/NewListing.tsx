@@ -14,7 +14,7 @@ const NewListing: FC<propertiesProps> = ({ properties }) => {
     image: ``,
   };
   const displayProperties = properties
-    .slice(0, 3)
+    .slice(0, 5)
     .map((property: IProperty) => (
       <div key={property._id} className={style.cards}>
         <NewListingCard

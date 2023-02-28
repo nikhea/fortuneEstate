@@ -17,8 +17,8 @@ const style = {
   cards: ` my-5`,
   textContainer: `flex flex-col justify-between `,
   textTitlePrice: `mb-3 text-[13px] uppercase `,
-  imageContainer: `w-[300px] lg:w-[200px]  h-[100px] rounded-md`,
-  image: `h-full w-full object-cover rounded-md`,
+  imageContainer: `w-[300px] lg:max-w-[100px]   h-[100px] rounded-md flex`,
+  image: `h-full w-full object-cover rounded-md flex`,
 };
 const FeatureCards: FC<IFeatureCard> = ({
   ID,
@@ -30,7 +30,7 @@ const FeatureCards: FC<IFeatureCard> = ({
 }) => {
   const content =
     description.length >= 20
-      ? `${description.substring(0, 100)}...`
+      ? `${description.substring(0, 90)}...`
       : description;
   return (
     <div className={style.container}>
@@ -54,7 +54,7 @@ const FeatureCards: FC<IFeatureCard> = ({
           </h1>
         </div>
         <p
-          className="text-[12px]"
+          className="text-[12px] text-gray-500"
           dangerouslySetInnerHTML={{ __html: content }}
         />
       </div>

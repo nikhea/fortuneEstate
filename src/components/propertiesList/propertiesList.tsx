@@ -48,7 +48,7 @@ const style = {
   agentDetails: `flex items-center`,
   card: ` w-full rounded sm:fle block `,
   like: `cursor-pointer`,
-  listingType: `capitalize rounded-full  bg-purple-500 text-white absolute py-1 px-3 text-center z-[90] top-2 left-3 transistion ease-out duration-1000`,
+  listingType: `capitalize rounded-md  text-white absolute py-1 px-3 text-center z-[90] top-2 left-3 transistion ease-out duration-1000`,
   tag: `rounded text-[0.7rem] py-1 px-3   block capitalize  flex bg-[#736EFE] outline-none text-white `,
 };
 const propertiesList: FC<propertiesList> = ({
@@ -92,7 +92,14 @@ const propertiesList: FC<propertiesList> = ({
                 src={images[0].url}
                 className={style.image}
               />
-              <p className={style.listingType}>for {listingType}</p>
+              <p
+                // className={style.listingType}
+                className={`${style.listingType} ${
+                  listingType === "sale" ? "bg-purple-500" : "bg-red-500"
+                }`}
+              >
+                for {listingType}
+              </p>
             </div>
           </Link>
           <div className={style.textContainer}>

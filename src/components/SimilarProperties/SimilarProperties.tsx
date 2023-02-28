@@ -33,7 +33,7 @@ const style = {
   sub: `flex justify-between items-center my-2`,
   price: `text-[1.5rem]`,
   textPrice: `text-white mb-[50px] md:mb-[70px]`,
-  listingType: `capitalize rounded-full  bg-purple-500 text-white absolute py-1 px-3 text-center z-[90] top-2 left-3 transistion ease-out duration-1000`,
+  listingType: `capitalize rounded-md   text-white absolute py-1 px-3 text-center z-[90] top-2 left-3 transistion ease-out duration-1000`,
   imgContainer: `w-full flex rounded-t-xl flex-col relative [&>p]:hover:hidde [&>p]:transistion [&>p]:ease-in [&>p]:duration-3000`,
 
   overlay: `h-full w-full -z-10 top-0 left-0 absolute bg-gradient-to-tl from-black overflow-hidden z-10 rounded-xl`,
@@ -65,7 +65,13 @@ const SimilarProperties: FC<Props> = () => {
             src={property.propertyImages[0].url}
             className={style.image}
           />
-          <p className={style.listingType}>for {property.listingType}</p>
+          <p
+            className={`${style.listingType} ${
+              property.listingType === "sale" ? "bg-purple-500" : "bg-red-500"
+            }`}
+          >
+            for {property.listingType}
+          </p>
         </div>
         <div className={style.textContainer}>
           <div className={style.textPrice}>
