@@ -56,7 +56,7 @@ const SimilarProperties: FC<Props> = () => {
     return <PageLoading />;
   }
   loadProperties = propertiesResult?.map((property: Props, index: any) => (
-    <div className="mx-4" key={index}>
+    <div className="mx-4 flex h-full" key={index}>
       <div className={style.mainContainer}>
         <div className={style.imgContainer}>
           <img

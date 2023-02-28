@@ -50,7 +50,7 @@ const AllProperties = () => {
     }
   };
   const style = {
-    bgContainer: `md:grid md:grid-cols-10`,
+    bgContainer: `md:grid md:grid-cols-10 `,
     colRight: `col-start-1 col-end-8`,
     colLeft: `col-start-8 col-end-11    `,
   };

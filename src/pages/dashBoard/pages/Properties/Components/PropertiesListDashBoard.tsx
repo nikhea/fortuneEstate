@@ -39,7 +39,7 @@ const style = {
   sub: `flex items-center  leading space-x-5`,
   price: `text-[.9rem] lg:text-[1rem] bg-[#DADEFA] text-[#475BE8] rounded-md p-2 w-fit`,
   title: ` font-semibold text-[.8rem] md:text-sm  leading-10 mt-5`,
-  location: `font-[400] text-[#8392A5] leading-10 flex items-center  flex-nowrap text-[.7rem] md:text-[.9rem] `,
+  location: `font-[400] text-[#8392A5] leading-10 flex items-center  flex-nowrap text-[.7rem] md:text-[.8rem] `,
   bed: `text-sm  leading-10 flex items-center`,
   span: `font-[400] text-[#8392A5] `,
   bath: `text-sm leading-10 flex items-center`,

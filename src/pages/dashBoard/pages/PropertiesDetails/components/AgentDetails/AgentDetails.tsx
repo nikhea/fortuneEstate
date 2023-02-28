@@ -64,15 +64,18 @@ const AgentDetails: FC<IAgentDetails> = ({ agent, property }) => {
   };
   const OnDeleteProperty = async (id: string) => {
     DeleteProperty(id);
-    navigate("/dashboardproperties");
+
     if (deleteStatus === "loading") {
       toast.warning("deleting");
     }
+    navigate("/dashboardproperties");
     if (deleteData?.status === 200) {
       toast.success("Property deleted Successfully");
     }
   };
-
+  if (deleteStatus === "loading") {
+    toast.warning("deleting");
+  }
   return (
     <div className="flex h-full flex-col gap-5 ">
       <div className={style.card}>

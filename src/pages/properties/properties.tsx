@@ -17,7 +17,7 @@ import PageLoading from "../../components/UI/Loading/PageLoading";
 import SimilarProperties from "../../components/SimilarProperties/SimilarProperties";
 import PropertieSide from "../../components/PropertieSide";
 const style = {
-  bgContainer: `bg-[#F6F6F6] py-[6em]  pl-[2em] overflow-hidden md:grid md:grid-cols-10`,
+  bgContainer: `bg-[F6F6F6] py-[6em]  pl-[2em] overflow-hidden md:grid md:grid-cols-10`,
   container: ` w-full md:grid grid-cols-1 md:grid-cols-2   m-0 p-0 `,
   colLeft: ` flex flex-col  col-start-8 col-end-11 -mt-10 m-auto ml-[1em] mr-[2em]    `,
   newListing: ``,
@@ -71,7 +71,7 @@ const properties: FC<propertiesProps> = ({
   // });
   return (
     <div className={style.bgContainer}>
-      <div className=" col-start-1 col-end-7 w-full">
+      <div className=" col-start-1 col-end-8 w-full">
         {properties.length > 0 ? (
           <PaginatedProperties properties={properties} />
         ) : (

@@ -14,7 +14,7 @@ interface Props {
   setSortProperties: any;
 }
 const style = {
-  container: `w-[90%] m-auto my-10`,
+  container: `w-[95%] m-auto my-10`,
 };
 const index: FC<Props> = ({
   children,

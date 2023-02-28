@@ -16,5 +16,6 @@ export const routes = {
   dashboardAgents: "/dashboardagents",
   dashboardAgentsDetails: "/dashboardagents",
   profile: "/profile",
+  profileUpdate: "/profile/update",
   settings: "/settings",
 };

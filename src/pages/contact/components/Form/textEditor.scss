@@ -1,7 +1,6 @@
 .text-editor {
   margin-top: 20px;
   /* @apply shadow-md; */
-
 }
 .quill.text-editor {
   /* border-radius: 50%; */
@@ -13,11 +12,11 @@
   border-bottom: 0;
 
   height: 30vh;
-  @apply shadow-md;
+  // @apply shadow-md;
 }
 .ql-toolbar.ql-snow {
   /* border: 0 !important; */
-    border-radius: 50px;
+  border-radius: 50px;
   justify-content: space-between;
   align-items: center;
 }

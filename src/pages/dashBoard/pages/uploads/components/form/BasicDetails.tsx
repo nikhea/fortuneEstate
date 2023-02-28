@@ -1,11 +1,11 @@
 import { FC, useState } from "react";
-import "./textEditor.css";
+import "./textEditor.scss";
 import Input from "../../../../../../components/UI/FormElement/input/input";
 import Select from "./select/select";
 import Button from "../../../../../../components/UI/FormElement/Button";
 import { useFormContext, useController, Controller } from "react-hook-form";
 import ReactQuill from "react-quill";
-import "react-quill/dist/quill.snow.css";
+// import "react-quill/dist/quill.snow.css";
 
 import {
   categoryOPtions,
@@ -159,7 +159,7 @@ const BasicDetails: FC<BasicDetailsProps> = ({ nextStep, errors }) => {
           theme="snow"
           value={descriptionContent}
           onChange={onDescriptionChange}
-          className="text-editor"
+          className="text-editors"
         />
         <p className={style.errors}>
           {errors.description?.message && <p>{errors.description?.message}</p>}

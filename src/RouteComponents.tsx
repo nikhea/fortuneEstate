@@ -27,6 +27,7 @@ import PropertiesDetails from "./pages/dashBoard/pages/PropertiesDetails/Propert
 import Maps from "./pages/map/Input";
 import Agents from "./pages/dashBoard/pages/agents/Agents";
 import AgentDetails from "./pages/dashBoard/pages/agentDetails/AgentDetails";
+import ProfileUpdate from "./pages/dashBoard/pages/profileUpdate/profileUpdate";
 
 const ScrollToTopPage = () => {
   const { pathname } = useLocation();
@@ -94,6 +95,7 @@ const RouteComponent = () => {
               <Route path={routes.lisitingStat} element={<ListingStats />} />
               <Route path={routes.tracklisiting} element={<TrackLisiting />} />
               <Route path={routes.profile} element={<Profile />} />
+              <Route path={routes.profileUpdate} element={<ProfileUpdate />} />
               <Route path={routes.settings} element={<Settings />} />
               <Route
                 path={routes.dashboardProperties}
