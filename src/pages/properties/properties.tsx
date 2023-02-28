@@ -7,7 +7,7 @@ import "./properties.css";
 import PropertiesList from "../../components/propertiesList/propertiesList";
 import Pagination from "../../components/UI/Pagination";
 import NewListing from "../../components/propertiesList/newListing";
-import FeaturedListing from "../../components/propertiesList/featuredListing";
+import FeaturedListing from "../../components/PropertieSide/components/Features/featuredListing";
 import paginatedProperties from "./paginatedProperties";
 // import { propertiesData } from "../../data/property";
 import { queryKeys } from "../../utils/queryKey";

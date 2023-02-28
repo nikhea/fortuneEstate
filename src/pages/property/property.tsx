@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { useQuery } from "react-query";
 import { useParams } from "react-router-dom";
-import FeaturedListing from "../../components/propertiesList/featuredListing";
+import FeaturedListing from "../../components/PropertieSide/components/Features/featuredListing";
 
 import ImageCard from "./components/image";
 import TitlePrice from "./components/titlePrice";
