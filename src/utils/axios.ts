@@ -10,7 +10,7 @@ const API_URL = "https://backendfortuneestate.onrender.com/api";
 const API_URL2 = "https://backendfortuneestate-production.up.railway.app/api/";
 
 export const Axiosclient = axios.create({
-  baseURL:  API_DEVELOPMENT,
+  baseURL: API_URL,
   headers: {
     Authorization: `Bearer ${storage.getToken()}`,
   },
@@ -24,9 +24,8 @@ export const request = ({ ...options }) => {
   return Axiosclient(options).then(onSuccess).catch(OnError);
 };
 
-
 // export const request = ({ ...options }) => {
-  // Axiosclient.defaults.headers.common.Authorization = `Bearer ${storage.getToken()}`;
+// Axiosclient.defaults.headers.common.Authorization = `Bearer ${storage.getToken()}`;
 //   const onSuccess = (response: any) => response;
 //   const OnError = (error: any) => error;
 
