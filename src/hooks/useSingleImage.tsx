@@ -70,7 +70,6 @@ const useSingleImage = (widgetRef: any) => {
             if (data) {
               const submitImage = async () => {
                 await mutateAsync(data);
-                console.log(data, "data");
               };
               submitImage();
             }
@@ -79,7 +78,6 @@ const useSingleImage = (widgetRef: any) => {
       }
     );
   }, [widgetRef]);
-  console.log(UserData, "userrrrrrrrrrrrrrrrr");
 
   return UserData;
 };
