@@ -85,7 +85,7 @@ const AgentDetails: FC<IAgentDetails> = ({ agent, property }) => {
         <div className={style.mainFlex}>
           <div className={style.Imgcontainer}>
             <img
-              src={agento.image}
+              src={agent?.profile?.profileImage?.secure_url}
               alt={agent.firstname}
               className={style.image}
             />

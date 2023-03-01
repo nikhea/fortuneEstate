@@ -9,6 +9,7 @@ import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import Select from "../../../../components/UI/FormElement/select/select";
 import Button from "../../../../components/UI/FormElement/Button";
+import { DevTool } from "@hookform/devtools";
 
 const style = {
   title: ` uppercase text-[2rem] text-[#7f7f7f] font-bold tracking-[1.1px]`,
@@ -138,6 +139,7 @@ const contactForm: FC = () => {
             submit
           </Button>
         </form>
+        <DevTool control={control} /> {/* set up the dev tool */}
       </FormProvider>
     </div>
     // </div>

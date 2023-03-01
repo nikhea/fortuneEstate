@@ -18,15 +18,17 @@ import { createProperties } from "../../../../../services/api/agent";
 import { queryKeys } from "../../../../../utils/queryKey";
 import { getAllCountry } from "../../../../../services/api/shared";
 import { useParams } from "react-router-dom";
-
+import { DevTool } from "@hookform/devtools";
 const ComponentSwitch: FC = () => {
   const methods = useForm<FormData>({
     resolver: yupResolver(uploadSchema),
+    mode: "onChange",
   });
   const {
     register,
     handleSubmit,
     watch,
+    control,
     reset,
     setValue,
     getValues,
@@ -127,7 +129,6 @@ const ComponentSwitch: FC = () => {
         stepTitle={title}
         setStepTitle={setTitle}
       />
-
       <form onSubmit={handleSubmit(submitForm)}>
         {(() => {
           switch (step) {
@@ -204,6 +205,7 @@ const ComponentSwitch: FC = () => {
           }
         })()}
       </form>
+      <DevTool control={control} /> {/* set up the dev tool */}
     </FormProvider>
   );
 };

@@ -13,11 +13,11 @@ interface Image {
   public_id: any;
 }
 const style = {
-  imgContainer: `h-full  rounded-tl-xl rounded-bl-xl relative`,
+  imgContainer: `h-full  rounded-tl-md rounded-tr-md relative`,
   thumbnailImg: ``,
-  profileImg: `shadow-xl h-[100px] w-[100px] bg-red-500 rounded-full absolute bottom-[130p] top-[290px] right-[290px] md:right-[500px]   lg:top-10  lg:-right-10 border-2 object-cover`,
+  profileImg: `shadow-xl  h-[100px] w-[100px] bg-red-500 rounded-full absolute -bottom-[50px] left-10   border-4 border-white object-cover`,
   thumbnailImage: `h-full w-full bg-red-500 rounded-full object-cover `,
-  btnContainer: `absolute left-3 top-[20px] lg:top-[300px]`,
+  btnContainer: `absolute left-3 top-[20px] `,
   btn: `bg-white p-3 rounded-md flex items-center justify-between capitalize`,
 };
 const BannerImage = ({ user }: any) => {

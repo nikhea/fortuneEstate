@@ -16,8 +16,8 @@ const style = {
   header: `flex justify-between items-center`,
   h1: ` font-[500] text-[2rem] capitalize`,
   title: `text-[18px] font-[600] text-[#11142d] capitalize`,
-  Imgcontainer: `md:h-full max-w-[300px] lg:max-h-[300px] rounded-[8px]`,
-  image: `w-full h-full rounded-[8px] object-cover`,
+  Imgcontainer: `md:h-full max-w-[300px] flex lg:max-w-[200px] lg:max-h-[400px] rounded-[8px]`,
+  image: `w-full h-full lg:max-h-[300px] flex rounded-[8px] object-cover`,
   textcontainer: `text-[15px] font-[300] text-[#11142d] mx-3 flex flex-col gap-5  w-full py-1`,
   location: `text-[#8392A5]  flex  items-center space-x-10`,
   subTitile: `capitalize text-[20px] text-gray-400 font-[600]`,
@@ -34,6 +34,11 @@ interface IAgentDetails {
   email: string;
   phone: string;
   location: string;
+  profile: {
+    profileImage: {
+      secure_url: string;
+    };
+  };
 }
 const Agents = () => {
   const { data: AgentList, isLoading } = useQuery(
@@ -50,6 +55,7 @@ const Agents = () => {
     return null;
   }
   // <BsThreeDots size={20} color="#808191" />
+  // let urlImg = user?.profile?.profileImage?.secure_url;
 
   const displayAgentList = AgentList.data.map((agent: IAgentDetails) => (
     <div key={agent._id} className=" my-5 bg-whit py-10 px-5 shadow-m ">
@@ -57,7 +63,7 @@ const Agents = () => {
         <Link to={`${routes.dashboardAgentsDetails}/${agent._id}`}>
           <div className={style.Imgcontainer}>
             <img
-              src={AgentImage}
+              src={agent?.profile?.profileImage?.secure_url}
               alt={agent.firstname}
               className={style.image}
             />
