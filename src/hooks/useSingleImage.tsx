@@ -25,7 +25,7 @@ const useSingleImage = (widgetRef: any) => {
     onSettled: () => {
       //invalidate cached properties query and refresh
       // @ts-ignore
-      queryClient.invalidateQueries();
+      // queryClient.invalidateQueries();
       queryClient.invalidateQueries("auth-user");
       // [queryKeys.properties, countryName],
     },
@@ -43,7 +43,7 @@ const useSingleImage = (widgetRef: any) => {
         folder: `user/profile/${user?.firstname} ${
           user?.lastname
         }-${Date.now()}`,
-        clientAllowedFormats: ["webp", "png", "jpeg"],
+        // clientAllowedFormats: ["webp", "png", "jpeg"],
         showPoweredBy: false,
         maxFileSize: 1500000,
         multiple: false,
@@ -54,7 +54,6 @@ const useSingleImage = (widgetRef: any) => {
           // console.log(result.data);
           return "please add an image";
         } else {
-          console.log(typeof result?.data?.info?.files[0]?.uploadInfo);
           if (
             result?.data?.info?.files[0]?.uploadInfo !== null ||
             result?.data?.info?.files[0]?.uploadInfo !== undefined
@@ -68,18 +67,21 @@ const useSingleImage = (widgetRef: any) => {
               public_id,
             };
             setNewImageData(data);
-            // if (newImageData) {
-            const submitImage = async () => {
-              await mutateAsync(data);
-            };
-            submitImage();
-            // }
+            if (data) {
+              const submitImage = async () => {
+                await mutateAsync(data);
+                console.log(data, "data");
+              };
+              submitImage();
+            }
           }
         }
       }
     );
-  }, []);
-  return newImageData;
+  }, [widgetRef]);
+  console.log(UserData, "userrrrrrrrrrrrrrrrr");
+
+  return UserData;
 };
 
 export default useSingleImage;

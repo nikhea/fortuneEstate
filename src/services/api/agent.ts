@@ -1,4 +1,5 @@
 // import { baseURL, GET_CONTINENTS, GET_CONTINENT } from "../../utils/constant";
+import { storage } from "../../lib/storage";
 import { request, Axiosclient } from "../../utils/axios";
 import { notify } from "./notification";
 
@@ -6,7 +7,6 @@ export const createProperties = async (properties: any) => {
   // http://localhost:4000/api/properties
 
   const res = await Axiosclient.post(`properties`, properties);
-  console.log(res, "jsdlksljxsklajxklskl");
 
   notify(res.status, res.data.message);
   return {
@@ -31,13 +31,16 @@ export const getAgentProperties = async (userId: any) => {
     data: res.data.data,
   };
 };
-// export const getAgentPropertiesMy = async () => {
-//   const res = await Axiosclient.get(`/properties/me`);
-
-//   return {
-//     status: res.status,
-//     data: res.data.data,
-//   };
-// };
+export const getAgentPropertiesMy = async () => {
+  const res = await Axiosclient.get(`/properties/me`, {
+    headers: {
+      Authorization: `Bearer ${storage.getToken()}`,
+    },
+  });
+  return {
+    status: res.status,
+    data: res.data.data,
+  };
+};
 
 // http://localhost:4000/api/properties/user/639e574b80213b52bd232dcd

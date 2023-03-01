@@ -2,7 +2,10 @@ import { FC } from "react";
 // import { useQuery, useQueryClient, useMutation } from "@tanstack/react-query";
 import { useQuery, useQueryClient, useMutation } from "react-query";
 
-import { getAgentProperties } from "../../../../services/api/agent";
+import {
+  getAgentProperties,
+  getAgentPropertiesMy,
+} from "../../../../services/api/agent";
 import { deleteProperties } from "../../../../services/api/agent";
 import { queryKeys } from "../../../../utils/queryKey";
 import PropertiesList from "./components/propertiesList";
@@ -18,7 +21,7 @@ const style = {
 };
 const ListingManager = () => {
   const { user } = useAuth();
-  if (!user) return null;
+  // if (!user) return null;
   let loadProperties;
   const queryClient = useQueryClient();
   const {
@@ -27,12 +30,12 @@ const ListingManager = () => {
     status: loadingStatus,
   } = useQuery(
     [queryKeys.propertiesMe, user?._id],
-    () => getAgentProperties(user?._id),
+    () => getAgentPropertiesMy(),
     {
       onSuccess: () => {
         //invalidate cached properties query and refresh
         // @ts-ignore
-        // queryClient.invalidateQueries(queryKeys.properties);
+        // queryClient.invalidateQueries();
       },
     }
   );

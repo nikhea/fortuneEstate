@@ -13,12 +13,11 @@ interface INewListingCard {
   propertyImages: any[];
 }
 const style = {
-  container: `bg-gray-100  shadow-md flex items-center justify-center py-6 px-5 rounded-lg`,
-  cards: ` my-5`,
+  container: `bg-gray-100  shadow-md flex items-center justify-center py-6 px-6 lg:py-6 lg:px-5 rounded-lg cursor-pointe`,
   textContainer: `flex flex-col justify-between  bottom-2  left-3 absolute z-[90]`,
   title: `text-white text-[1rem] font-semibold capitalize`,
   textTitlePrice: `mb-3 text-[13px] uppercase `,
-  imageContainer: `w-[300px] lg:w-[500px]  h-full rounded-md relative overflow-hidden`,
+  imageContainer: `w-full lg:w-[500px]  h-full rounded-md relative overflow-hidden`,
   image: `h-full w-full object-cover rounded-lg`,
   priceContainer: `w-full rounded-[10px] bg-[#0D304A] uppercase items-center text-center justify-between shadow-xl text-white py-1 px-5 my-3 `,
   price: `text-[1rem] text-bold text-center`,

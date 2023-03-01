@@ -15,7 +15,7 @@ const featuredListing: FC<propertiesProps> = ({ properties }) => {
     image: ``,
   };
   const displayProperties = properties
-    .slice(0, 6)
+    .slice(0, 4)
     .map((property: IProperty) => (
       <div key={property._id} className={style.cards}>
         <FeatureCards

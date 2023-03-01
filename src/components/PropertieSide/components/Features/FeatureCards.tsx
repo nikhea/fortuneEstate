@@ -14,9 +14,8 @@ interface IFeatureCard {
 }
 const style = {
   container: `flex p-1 items-center justify-center  gap-x-3`,
-  cards: ` my-5`,
   textContainer: `flex flex-col justify-between `,
-  textTitlePrice: `mb-3 text-[13px] uppercase `,
+  textTitlePrice: `mt-2 text-[12px] lg:text-[12px] uppercase `,
   imageContainer: `w-[300px] lg:max-w-[100px]   h-[100px] rounded-md flex`,
   image: `h-full w-full object-cover rounded-md flex`,
 };
@@ -54,7 +53,7 @@ const FeatureCards: FC<IFeatureCard> = ({
           </h1>
         </div>
         <p
-          className="text-[12px] text-gray-500"
+          className="text-[12px] text-gray-500 mb-1"
           dangerouslySetInnerHTML={{ __html: content }}
         />
       </div>

@@ -7,7 +7,6 @@ import {
 } from "../services/api/auth";
 import { storage } from "./storage";
 
-import profile from "../pages/dashBoard/pages/profile/profile";
 import { notify } from "../services/api/notification";
 
 export async function handleUserResponse(data: any) {

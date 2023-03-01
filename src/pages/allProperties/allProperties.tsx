@@ -22,12 +22,11 @@ const AllProperties = () => {
       keepPreviousData: true,
     }
   );
-
-  if (!properties?.data.results[0].metadata[0]) {
-    return null;
-  }
   if (isLoading) {
     return <PageLoading />;
+  }
+  if (!properties?.data.results[0].metadata[0]) {
+    return null;
   }
 
   const metadata = properties?.data.results[0].metadata[0];
