@@ -4,6 +4,10 @@ export const roles = {
   subscriber: "SUBSCRIBER",
 };
 
+export const genderOPtions = [
+  { value: "male", label: "male" },
+  { value: "female", label: "female" },
+];
 export const categoryOPtions = [
   { value: "residential", label: "Residential" },
   { value: "commercial", label: "Commercial" },

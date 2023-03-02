@@ -9,17 +9,23 @@ const style = {
   iconContainer: `flex flex-col gap-3 flex-1`,
 };
 const ProfileDetails = ({ user }: any) => {
+  const displayName =
+    user?.profile?.gender === "female"
+      ? `Miss ${user?.firstname} ${user?.lastname}`
+      : user?.profile?.gender === "male"
+      ? `Mr ${user?.firstname} ${user?.lastname}`
+      : ` ${user?.firstname} ${user?.lastname}`;
   return (
     <div>
       <header className="flex justify-between items-center">
-        <h1>{user?.firstName && `Mr ${user?.firstname} ${user?.lastname}`} </h1>
+        <h1> {displayName}</h1>
         <BsThreeDots size={20} color="#808191" />
       </header>
       <div>{user?.role}</div>
       <div className="w-[80%] my-5">
         <div className="flex flex-col gap-3">
           <h1>location</h1>
-          <div className={style.icons}>
+          <div className={`${style.icons} text-[12px]`}>
             <MdLocationPin size={20} style={{ marginRight: "5px" }} />
             {user?.profile.address}{" "}
           </div>

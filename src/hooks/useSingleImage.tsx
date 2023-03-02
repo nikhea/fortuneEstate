@@ -13,7 +13,6 @@ interface Image {
 const useSingleImage = (widgetRef: any) => {
   const { user } = useAuth();
   const cloudinaryRef = useRef();
-  //   const widgetRef = useRef();
   const [newImageData, setNewImageData] = useState<Image>();
   const queryClient = useQueryClient();
   const {
@@ -23,14 +22,7 @@ const useSingleImage = (widgetRef: any) => {
   } = useMutation(addProfileImage, {
     onMutate: () => {},
     onSettled: () => {
-      //invalidate cached properties query and refresh
-      // @ts-ignore
-      // queryClient.invalidateQueries();
       queryClient.invalidateQueries("auth-user");
-      // [queryKeys.properties, countryName],
-    },
-    onError: (_error, _hero, context) => {
-      // queryClient.setQueryData("", context.previouse);
     },
   });
   useEffect(() => {
@@ -51,23 +43,23 @@ const useSingleImage = (widgetRef: any) => {
       },
       function (error: any, result: any) {
         if (!error && result && result.event === "success") {
-          // console.log(result.data);
           return "please add an image";
         } else {
           if (
             result?.data?.info?.files[0]?.uploadInfo !== null ||
             result?.data?.info?.files[0]?.uploadInfo !== undefined
           ) {
-            const { asset_id, secure_url, thumbnail_url, public_id } =
+            const { url, asset_id, secure_url, thumbnail_url, public_id } =
               result?.data?.info?.files[0]?.uploadInfo;
             const data = {
+              url,
               asset_id,
               secure_url,
               thumbnail_url,
               public_id,
             };
-            setNewImageData(data);
             if (data) {
+              setNewImageData(data);
               const submitImage = async () => {
                 await mutateAsync(data);
               };
@@ -77,9 +69,10 @@ const useSingleImage = (widgetRef: any) => {
         }
       }
     );
-  }, [widgetRef]);
+  }, [widgetRef, newImageData, setNewImageData]);
+  // console.log(newImageData);
 
-  return UserData;
+  // return UserData;
 };
 
 export default useSingleImage;

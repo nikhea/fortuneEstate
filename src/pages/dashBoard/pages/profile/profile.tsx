@@ -11,7 +11,7 @@ const style = {
   container: `w-[95%] m-auto`,
   profileInfo: `bg-white shadow-lg  rounded-md h-[900px] lg:h-[400px] p-4 my-10`,
   dividerOneColumn: `grid gap-4 grid-cols-1 `,
-  dividerTwoColumn: `grid gap-4 grid-cols-12  h-full `,
+  dividerTwoColumn: `grid gap-4 grid-cols-12  h-full mb-5`,
   dividerThreeColumn: `grid gap-4 grid-cols-1 lg:grid-cols-3 `,
 };
 
