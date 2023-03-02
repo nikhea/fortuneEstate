@@ -49,3 +49,6 @@ select:focus {
   .css-1d8n9bt {
   border-right-width: 0px !important;
 }
+.react-select__value-container {
+  border: none !important;
+}
