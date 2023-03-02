@@ -6,7 +6,7 @@ import HeaderNavigation from "./components/HeaderNavigation";
 
 const style = {
   container: `w-[90%] m-auto my-[2rem] overflow-hidden text-[#11142D]`,
-  profileInfo: `bg-white shadow-md  rounded-md  my-10`,
+  profileInfo: `bg-white shadow-m  rounded-md  my-10`,
   ImgContainer: `rounded-md h-[400px] lg:h-[500px]  mb-20`,
   padding: `p`,
   header: `flex justify-between items-center`,

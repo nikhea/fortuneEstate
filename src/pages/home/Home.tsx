@@ -17,7 +17,7 @@ const App: FC = () => {
 
   return (
     <div className="relative">
-      <SEO title="Learning React Helmet" />
+      <SEO title="Fortune Estate" />
       <Header />
       {/* <div className="relative  -mt-20 z-50">
         <FilterCard />
