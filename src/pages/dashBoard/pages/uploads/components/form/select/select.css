@@ -44,3 +44,8 @@ input {
 select:focus {
   border-color: #2a6dc9 !important;
 }
+.react-select__value-container
+  .react-select__value-container--has-value
+  .css-1d8n9bt {
+  border-right-width: 0px !important;
+}
