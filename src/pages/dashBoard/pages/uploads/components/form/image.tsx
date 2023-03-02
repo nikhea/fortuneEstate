@@ -28,13 +28,11 @@ const style = {
 const image: FC<ImageComponentProps> = ({ nextStep, prevStep, errors }) => {
   const { setValue, register, watch } = useFormContext();
   const FormWatch = watch();
-  console.log(FormWatch, `Image Watch`);
 
   const [images, setImages] = useState<any[]>([]);
 
   const cloudinaryRef = useRef();
   const widgetRef = useRef();
-  console.log("loading localImage", images);
   useEffect(() => {
     const loadedImages = async () => {
       if (localStorage.getItem("propertiesImage")) {
@@ -49,7 +47,7 @@ const image: FC<ImageComponentProps> = ({ nextStep, prevStep, errors }) => {
 
     loadedImages();
     // setValue("propertyImages", localImage);
-  }, []);
+  }, [setValue, image]);
   useEffect(() => {
     //@ts-ignore
     cloudinaryRef.current = window?.cloudinary; //@ts-ignore
@@ -82,7 +80,6 @@ const image: FC<ImageComponentProps> = ({ nextStep, prevStep, errors }) => {
                 const uploadInfo = images[i].uploadInfo;
                 uploadInfoArray.push(uploadInfo);
               }
-              console.log(uploadInfoArray);
               localStorage.setItem(
                 "propertiesImage",
                 JSON.stringify(uploadInfoArray)
@@ -94,6 +91,7 @@ const image: FC<ImageComponentProps> = ({ nextStep, prevStep, errors }) => {
       }
     );
   }, []);
+  console.log(images);
 
   const openWidget = () => {
     //@ts-ignore

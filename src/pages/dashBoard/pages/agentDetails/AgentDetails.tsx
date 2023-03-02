@@ -25,7 +25,7 @@ const AgentDetails = () => {
     [queryKeys.agents, AgentId],
     () => getSingleAgent(AgentId)
   );
-  if (!agentData) return <PageLoading />;
+  if (!agentData?.data) return <PageLoading />;
 
   return (
     <div className={style.container}>
@@ -34,7 +34,7 @@ const AgentDetails = () => {
       </div>
       <div className={style.dividerTwoColumn}>
         <span className=" col-span-full lg:col-start-1 lg:col-end-5 ">
-          <AgentInfo />
+          <AgentInfo agentData={agentData?.data} />
         </span>
         <span className=" col-span-full lg:col-start-5 lg:col-end-13">
           <AgentSingleDetails />

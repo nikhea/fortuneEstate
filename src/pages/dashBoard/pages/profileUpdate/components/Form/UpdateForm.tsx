@@ -20,6 +20,7 @@ import Input from "../../../../../../components/UI/FormElement/input/input";
 import Select from "../../../../../../components/UI/FormElement/select/select";
 import Button from "../../../../../../components/UI/FormElement/Button";
 import { genderOPtions } from "../../../uploads/optionsValue";
+import { ThreeDots } from "react-loader-spinner";
 // import Select from "react-select";
 let profile = {
   gender: "male",
@@ -60,6 +61,7 @@ const UpdateForm = ({ user }: any) => {
   const {
     mutateAsync,
     status,
+    isLoading,
     data: ProfileData,
   } = useMutation(updateProfile, {
     onMutate: () => {},
@@ -71,7 +73,7 @@ const UpdateForm = ({ user }: any) => {
   });
   const submitForm = async (formData: FormData) => {
     console.log(formData);
-    if (formData) {
+    if (formData && !isLoading) {
       await mutateAsync(formData);
     }
     // if (ProfileData?.status === 200) {
@@ -265,12 +267,32 @@ const UpdateForm = ({ user }: any) => {
             </div>
           </div>
           <div className="text-center">
-            <Button primary Color="#7f7f7f" uppercase rounded marginHorizontal>
-              save
+            <Button
+              // center
+              primary
+              Color="#7f7f7f"
+              uppercase
+              rounded
+              marginHorizontal
+            >
+              {/* save */}
+              {isLoading ? (
+                <ThreeDots
+                  height="10"
+                  width="80"
+                  radius="9"
+                  color="#FFF"
+                  wrapperClass="flex text-center cursor-not-allowed"
+                  ariaLabel="three-dots-loading"
+                  visible={true}
+                />
+              ) : (
+                "save"
+              )}
             </Button>
           </div>
         </form>
-        <DevTool control={control} />
+        {/* <DevTool control={control} /> */}
       </FormProvider>
     </div>
   );

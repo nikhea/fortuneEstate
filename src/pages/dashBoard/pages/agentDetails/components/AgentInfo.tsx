@@ -6,6 +6,8 @@ import {
 } from "react-icons/ai";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import { GrFacebookOption, GrLinkedinOption } from "react-icons/gr";
+import { useAuth } from "../../../../../lib/auth";
+import { IAgentDetail } from "../../../../../interfaces/Agent";
 
 const style = {
   container: ` bg-white shadow-lg  rounded-md  h-full`,
@@ -20,46 +22,59 @@ const style = {
 };
 let urlImg = `https://images.unsplash.com/photo-1559705421-4ae9bf6fabb5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8dGh1bWJuYWlsfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60`;
 
-const AgentInfo = () => {
+const AgentInfo = ({ agentData }: IAgentDetail) => {
+  console.log(agentData, "agentData");
+
+  const { user } = useAuth();
+
   return (
     <div className={style.container}>
       <div
         className={style.imgContainer}
         style={{
-          backgroundImage: `url(${urlImg})`,
+          backgroundImage: `url(${agentData?.profile?.profileImage?.secure_url})`,
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
           // backgroundPosition: "100px",
         }}
       >
         <div className={style.profileImg}>
-          <LazyLoadImage className={style.thumbnailImage} src={urlImg} />
+          <LazyLoadImage
+            className={style.thumbnailImage}
+            src={agentData?.profile?.profileImage?.secure_url}
+          />
         </div>
         <div className="absolute -bottom-[55px] left-32 capitalize">
-          <h1>fortune imonikhea</h1>
-          <span className=" text-gray-500">agent</span>
+          <h1>{`${agentData?.firstname} ${agentData?.lastname}`}</h1>
+          <span className=" text-gray-500">{agentData?.role}</span>
         </div>
       </div>
       <div className={style.textContainer}>
         <div className={style.textItem}>
           <h1 className={style.textItemH1}>agent:</h1>
-          <span className={style.textItemSpan}>26</span>
+          <span className={style.textItemSpan}>{agentData?.profile?.age}</span>
         </div>
         <div className={style.textItem}>
           <h1 className={style.textItemH1}>city:</h1>
-          <span className={style.textItemSpan}>new york city</span>
+          <span className={style.textItemSpan}>{agentData?.profile?.city}</span>
         </div>
         <div className={style.textItem}>
           <h1 className={style.textItemH1}>state:</h1>
-          <span className={style.textItemSpan}>new york</span>
+          <span className={style.textItemSpan}>
+            {agentData?.profile?.state}
+          </span>
         </div>
         <div className={style.textItem}>
           <h1 className={style.textItemH1}>country:</h1>
-          <span className={style.textItemSpan}>usa</span>
+          <span className={style.textItemSpan}>
+            {agentData?.profile?.country}
+          </span>
         </div>
         <div className={style.textItem}>
           <h1 className={style.textItemH1}>post code:</h1>
-          <span className={style.textItemSpan}>1001</span>
+          <span className={style.textItemSpan}>
+            {agentData?.profile?.postcode}
+          </span>
         </div>
         <div className={style.textItem}>
           <h1 className={style.textItemH1}>agent ID:</h1>
@@ -67,12 +82,14 @@ const AgentInfo = () => {
         </div>
         <div className={style.textItem}>
           <h1 className={style.textItemH1}>phone:</h1>
-          <span className={style.textItemSpan}>+234 081 032 447 68</span>
+          <span className={style.textItemSpan}>
+            {agentData?.profile?.phone}
+          </span>
         </div>
         <div className={style.textItem}>
           <h1 className={style.textItemH1}>email:</h1>
           <span className={`${style.textItemSpan} lowercase pr-10 `}>
-            imonikheaugbodaga@gamil.com
+            {agentData?.email}
           </span>
         </div>
         <div className={style.social}>

@@ -23,7 +23,7 @@ const continentBanner: FC = () => {
             // data-aos-easing="ease-in-out"
             // data-aos-duration="1500"
           >
-            House48 <br /> Continents
+            Fortune Estate <br /> Continents
           </h1>
           <p
             className={style.description}
@@ -31,8 +31,8 @@ const continentBanner: FC = () => {
             // data-aos-easing="ease-in-out"
             // data-aos-duration="2500"
           >
-            House48 covers all regions of the worlds. Tap on any region to view
-            countries available within the area.
+            Fortune Estate covers all regions of the worlds. Tap on any region
+            to view countries available within the area.
           </p>
         </div>
 

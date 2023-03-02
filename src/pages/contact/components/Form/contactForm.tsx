@@ -139,7 +139,7 @@ const contactForm: FC = () => {
             submit
           </Button>
         </form>
-        <DevTool control={control} /> {/* set up the dev tool */}
+        {/* <DevTool control={control} />  */}
       </FormProvider>
     </div>
     // </div>
