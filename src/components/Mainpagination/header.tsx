@@ -4,6 +4,8 @@ import {
   MdOutlineList,
   MdOutlineHome,
 } from "react-icons/md";
+import { useController, useForm } from "react-hook-form";
+import Select from "../UI/FormElement/select/select";
 const style = {
   bgContainer: `bg-[#F6F6F6] py-[6em]  pl-[2em] overflow-hidden md:grid md:grid-cols-10`,
   container: ` w-full md:grid grid-cols-1 md:grid-cols-2   m-0 p-0 `,
@@ -35,11 +37,29 @@ const header: FC<IHeader> = ({
   sortProperties,
   setSortProperties,
 }) => {
+  const { register, handleSubmit, reset, control } = useForm();
+
+  const onSubmit = (data: any) => {
+    console.log(data);
+  };
   const handleChange = (event: {
     target: { value: React.SetStateAction<string> };
   }) => {
-    console.log(event.target.value);
+    // console.log(event.target.value);
     setSortProperties(event.target.value);
+  };
+  const { field: SortField } = useController({
+    name: "Sort",
+    control,
+  });
+  const handleSortChange = (option: any) => {
+    const parsedSort = parseInt(option.value);
+    // console.log(parsedSort);
+    setSortProperties(parsedSort);
+    reset();
+    // SortField.onChange(option.value);
+    // console.log(option.value);
+    // return SortField.onChange(option.value);
   };
   return (
     <div className={style.header}>
@@ -61,17 +81,35 @@ const header: FC<IHeader> = ({
             <MdOutlineGridView size={30} color="#" />
           </div>
         </div>
-        <select
-          value={sortProperties}
-          className={style.headerSelect}
-          onChange={handleChange}
-        >
-          <option value={1}>Religious center ascending</option>
-          <option value={-1}>Religious center descending</option>
-        </select>
+
+        <div className="-mt-[5%] w-full">
+          <Select
+            placeholder="Ascending"
+            options={options}
+            field={options.find(({ value }) => value === SortField.value)}
+            handleSelectChange={handleSortChange}
+            inputFull
+          />
+        </div>
       </div>
     </div>
   );
 };
 
 export default header;
+const options = [
+  { value: "1", label: "Ascending" },
+  { value: "-1", label: "Descending" },
+  // { value: "vanilla", label: "Religious center descending" },
+];
+
+{
+  /* <select
+          value={sortProperties}
+          className={style.headerSelect}
+          onChange={handleChange}
+        >
+          <option value={1}>Religious center ascending</option>
+          <option value={-1}>Religious center descending</option>
+        </select> */
+}

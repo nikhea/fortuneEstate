@@ -13,11 +13,11 @@ import { routes } from "../../routes/routes";
 import { countries } from "../../data/countries";
 import PageLoading from "../UI/Loading/PageLoading";
 const style = {
-  container: `w-[80%] m-auto my-10`,
+  container: `w-[95%] lg:w-[90%] m-auto my-10`,
   textContainer: `flex items-center text-center flex-col `,
   gridContainer: `gri grid-cols-1 grid-cols-2 `,
   image: `w-full h-full object-cover relative rounded`,
-  title: `text-[36px] tracking-wide `,
+  title: `text-[25px] lg:text-[36px] tracking-wide `,
   description: `text-[#999] text-[16px] mb-10 mt-5 tracking-widest `,
   gridItem: `relative rounded  h-[400px] object-cover`,
   hr: `m-5`,

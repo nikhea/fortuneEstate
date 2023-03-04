@@ -13,12 +13,14 @@ interface IFeatureCard {
   propertyImages: any[];
 }
 const style = {
-  container: `flex p-1 items-center justify-center  gap-x-3`,
+  container: `flex flex-col lg:flex-row p-1 lg:items-center lg:justify-center  gap-x-3`,
   textContainer: `flex flex-col justify-between `,
   textTitlePrice: `mt-2 text-[12px] lg:text-[12px] uppercase `,
-  imageContainer: `w-[300px] lg:max-w-[100px]   h-[100px] rounded-md flex`,
+  imageContainer: `w-[300px] w-full lg:max-w-[100px]  lg:h-[100px] rounded-md flex`,
   image: `h-full w-full object-cover rounded-md flex`,
 };
+// lawal08145.
+// lg:max-w-[100px]
 const FeatureCards: FC<IFeatureCard> = ({
   ID,
   title,

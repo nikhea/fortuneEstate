@@ -273,6 +273,8 @@ const UpdateForm = ({ user }: any) => {
               Color="#7f7f7f"
               uppercase
               rounded
+              // isCurve
+              // linearGradient
               marginHorizontal
             >
               {/* save */}

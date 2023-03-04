@@ -19,13 +19,14 @@ const style = {
   container: `flex  w-full m-auto `,
   cardContainer: ` w-[90%] m-auto rounded-[10px] bg-white shadow-2xl mb-3`,
   card: ` w-full py-8 `,
-  form: `w-[90%] m-auto flex items-cente flex-col `,
+  form: `w-[90%]  m-auto flex items-cente flex-col `,
   btn: `w-[90%] m-auto [&>*]:mr-5`,
   errors: `block text-red-500 capitalize  leading-4 tracking-wide my-4 ml-4`,
-  fillitersInput: `flex flex-col md:flex-row justify-between my-3 gap-1  w-full`,
-  searchInput: `-mb-2 lg:mb-0 relative`,
+  fillitersInput: `flex flex-col md:flex-row justify-between my-3 lg:gap-6 items-center w-full lg:[&>*]:w-[60%]`,
+  searchInput: `-mb-2 lg:mb-0 relative `,
   searchIcon: `absolute bottom-6 right-5`,
 };
+// lg:[&>*]:w-[60%]
 interface FormFilterData {
   searchProperties: string;
   searchPropertyType: string;
@@ -42,7 +43,7 @@ export const uploadSchema = yup.object().shape({
 });
 const filterCard: FC = () => {
   const methods = useForm<FormFilterData>({
-    resolver: yupResolver(uploadSchema),
+    // resolver: yupResolver(uploadSchema),
   });
   const {
     register,
@@ -129,16 +130,17 @@ const filterCard: FC = () => {
                     errors={errors}
                     inputRef={register("searchBathrooms")}
                   />
-
-                  <Select
-                    placeholder="property Type*"
-                    options={propertyTypeOPtions}
-                    field={propertyTypeOPtions.find(
-                      ({ value }) => value === propertyTypeField.value
-                    )}
-                    handleSelectChange={handlepropertyTypeChange}
-                    inputFull
-                  />
+                  <div className="-mt-[1.1%] w-full">
+                    <Select
+                      placeholder="Type*"
+                      options={propertyTypeOPtions}
+                      field={propertyTypeOPtions.find(
+                        ({ value }) => value === propertyTypeField.value
+                      )}
+                      handleSelectChange={handlepropertyTypeChange}
+                      inputFull
+                    />
+                  </div>
                 </div>
               </div>
               <div className={style.btn}>
