@@ -196,7 +196,7 @@ const Filiters: FC = () => {
                   inputHalf
                 />
               </div>
-              <div className=" w-[80] mt-[-.7]">
+              <div className=" w-[80] mt-[.3em]">
                 <Select
                   placeholder="Lisiting"
                   options={ListingTypeOPtions}
@@ -207,7 +207,7 @@ const Filiters: FC = () => {
                   inputHalf
                 />
               </div>
-              <div className="w-full lg:h-[70%] mt-[.3em] text-white">
+              <div className="w-full lg:h-[70%] mt-[.7em] text-white">
                 <button
                   onClick={() => setChecked(!checked)}
                   className={style.more}
