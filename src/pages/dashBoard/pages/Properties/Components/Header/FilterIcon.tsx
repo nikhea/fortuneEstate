@@ -6,7 +6,7 @@ const FilterIcon = () => {
       viewBox="0 0 18 18"
       fill="none"
       style={{
-        marginRight: "15px",
+        marginRight: "5px",
       }}
     >
       <path

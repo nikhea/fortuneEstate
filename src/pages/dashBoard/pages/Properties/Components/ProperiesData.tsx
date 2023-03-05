@@ -15,18 +15,20 @@ const style = {
   subContainer: ``,
 };
 const ProperiesData = () => {
-  let toastID: any;
   const { filterProperties, setFiliters } = useFilitersStore();
   const [pageNumber, setPageNumber] = useState(1);
-  const [limitProperties, setLimitProperties] = useState(10);
+  const [limitProperties, setLimitProperties] = useState(2);
   const [sortProperties, setSortProperties] = useState(1);
   // const [filterProperties, setFilterProperties] = useState({});
 
   useEffect(() => {
+    // console.log(filterProperties);
+    // if (typeof filterProperties) {
+    // }
     // if (isFetching === true) {
     //   toast.info("fetching data");
     // }
-    // if (isFetching === false) {
+    // if (!isFetching) {
     //   toast.success("success");
     // }
   }, [filterProperties]);
@@ -78,10 +80,6 @@ const ProperiesData = () => {
       setPageNumber(metadata.page - 1);
     }
   };
-  // if (isFetching) {
-  //   toastID = filterProperties;
-  //   toast.success("fetching data", { id: toastID });
-  // }
   return (
     <div className={style.container}>
       <div className="dashboardProperties">

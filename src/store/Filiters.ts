@@ -8,7 +8,7 @@ interface IFiilter {
 export const FilitersStore = (set: any) => ({
   filterProperties: {},
   setFiliters: (filters: any) =>
-    set((state: any) => ({
+    set(() => ({
       filterProperties: filters,
     })),
 });

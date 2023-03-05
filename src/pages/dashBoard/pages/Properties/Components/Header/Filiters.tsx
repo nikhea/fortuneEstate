@@ -10,6 +10,9 @@ import useFormPersist from "react-hook-form-persist";
 import Select from "../../../../../../pages/dashBoard/pages/uploads/components/form/select/select";
 
 import {
+  PriceOPtions,
+  BedOPtions,
+  BathOPtions,
   categoryOPtions,
   propertyTypeOPtions,
   ListingTypeOPtions,
@@ -23,12 +26,12 @@ const style = {
   form: `w-[99%] m-auto  gap-5 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 `,
   btn: `w-[99%] m-auto  my-5 flex justify-between items-center`,
   searchInput: ``,
-  more: `border bg-blue-500 rounded-full p-0 w-full h-full duration-500 ease-linear transition delay-150 flex items-center justify-center`,
+  more: `border bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full p-0 w-full h-full duration-500 ease-linear transition delay-150 flex items-center justify-center`,
 };
 interface FormFilterData {
   search: string;
   propertyType: string;
-  searchPrice: string;
+  price: string;
   bedrooms: string;
   bathrooms: string;
   listingType: string;
@@ -66,6 +69,18 @@ const Filiters: FC = () => {
     formState: { errors },
   } = methods;
 
+  const { field: priceField } = useController({
+    name: "price",
+    control,
+  });
+  const { field: bedroomsField } = useController({
+    name: "bedrooms",
+    control,
+  });
+  const { field: bathroomsField } = useController({
+    name: "bathrooms",
+    control,
+  });
   const { field: propertyTypeField } = useController({
     name: "propertyType",
     control,
@@ -82,7 +97,21 @@ const Filiters: FC = () => {
     name: "category",
     control,
   });
+  const handlepriceChange = (option: any) => {
+    priceField.onChange(option.value);
 
+    return priceField.onChange(option.value);
+  };
+  const handlebedroomsChange = (option: any) => {
+    bedroomsField.onChange(option.value);
+
+    return bedroomsField.onChange(option.value);
+  };
+  const handlebathroomsChange = (option: any) => {
+    bathroomsField.onChange(option.value);
+
+    return bathroomsField.onChange(option.value);
+  };
   const handlepropertyTypeChange = (option: any) => {
     propertyTypeField.onChange(option.value);
 
@@ -134,36 +163,39 @@ const Filiters: FC = () => {
                 inputRef={register("search")}
                 isBlackBg
               />
-              <Input
-                type="number"
-                placeholder="Enter Price?"
-                name="searchPrice"
-                rounded
-                isWhiteBg
-                inputFull
-                errors={errors}
-                inputRef={register("searchPrice")}
-              />
-              <Input
-                type="number"
-                placeholder="Bedrooms?"
-                name="bedrooms"
-                rounded
-                inputFull
-                isWhiteBg
-                errors={errors}
-                inputRef={register("bedrooms")}
-              />
-              <Input
-                type="number"
-                placeholder="Bathrooms?"
-                name="searchBed"
-                rounded
-                inputFull
-                isWhiteBg
-                errors={errors}
-                inputRef={register("bathrooms")}
-              />
+              <div className=" w-[80] mt-[.3em]">
+                <Select
+                  placeholder="Price"
+                  options={PriceOPtions}
+                  field={PriceOPtions.find(
+                    ({ value }) => value === priceField.value
+                  )}
+                  handleSelectChange={handlepriceChange}
+                  inputHalf
+                />
+              </div>
+              <div className=" w-[80] mt-[.3em]">
+                <Select
+                  placeholder="Bedrooms"
+                  options={BedOPtions}
+                  field={BedOPtions.find(
+                    ({ value }) => value === bedroomsField.value
+                  )}
+                  handleSelectChange={handlebedroomsChange}
+                  inputHalf
+                />
+              </div>
+              <div className=" w-[80] mt-[.3em]">
+                <Select
+                  placeholder="Bathrooms"
+                  options={BathOPtions}
+                  field={BathOPtions.find(
+                    ({ value }) => value === bathroomsField.value
+                  )}
+                  handleSelectChange={handlebathroomsChange}
+                  inputHalf
+                />
+              </div>
               <div className=" w-[80] mt-[-.7]">
                 <Select
                   placeholder="Lisiting"
@@ -266,5 +298,17 @@ field={ListingTypeOPtions.find(
 )}
 handleSelectChange={handleListingTypeChange}
 inputHalf
+/> */
+}
+{
+  /* <Input
+type="number"
+placeholder="Bedrooms?"
+name="bedrooms"
+rounded
+inputFull
+isWhiteBg
+errors={errors}
+inputRef={register("bedrooms")}
 /> */
 }
