@@ -4,6 +4,7 @@ import PropertiesListDashBoard from "./PropertiesListDashBoard";
 
 interface paginatedPropertiesProps {
   properties: [];
+  propertiesList: number;
 }
 interface Props {
   [x: string]: any;
@@ -32,7 +33,10 @@ const style = {
   container: ` w-full h-full grid grid-cols-1 md:grid-cols-2 gap-y-10 gap-x-2 md:gap-x-5 lg:gap-x-20  place-items-cente lg:place-items-start`,
 };
 // grid grid-cols-1 md:grid-cols-2
-const PaginationDashBoard: FC<paginatedPropertiesProps> = ({ properties }) => {
+const PaginationDashBoard: FC<paginatedPropertiesProps> = ({
+  properties,
+  propertiesList,
+}) => {
   const displayproperties = properties.map((property: Props, index: any) => (
     <div key={index} className=" h-full flex">
       <PropertiesListDashBoard
@@ -57,7 +61,11 @@ const PaginationDashBoard: FC<paginatedPropertiesProps> = ({ properties }) => {
     </div>
   ));
 
-  return <div className={style.container}>{displayproperties}</div>;
+  return (
+    <div className={style.container}>
+      {propertiesList <= 0 ? "no data" : displayproperties}
+    </div>
+  );
 };
 
 export default PaginationDashBoard;

@@ -1,9 +1,11 @@
-import { FC, useReducer, useRef } from "react";
+import { FC, useState } from "react";
 import * as yup from "yup";
 import Button from "../../../../../../components/UI/FormElement/Button";
 import Input from "../../../../../../components/UI/FormElement/input/input";
+import { motion } from "framer-motion";
 import { useForm, FormProvider, useController } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
+import Switch from "react-switch";
 import useFormPersist from "react-hook-form-persist";
 import Select from "../../../../../../pages/dashBoard/pages/uploads/components/form/select/select";
 
@@ -11,24 +13,27 @@ import {
   categoryOPtions,
   propertyTypeOPtions,
   ListingTypeOPtions,
-  currencySymbolOPtions,
   ViewOPtions,
-  measurementOPtions,
 } from "../../../../../../pages/dashBoard/pages/uploads/optionsValue";
+import FilterIcon from "./FilterIcon";
+import useFilitersStore from "../../../../../../store/Filiters";
 const style = {
-  container: `flex  w-full m-auto `,
-  card: ` w-full py-8 `,
+  container: `flex m-auto w-[95%] `,
+  card: ` w-full pt-8`,
   form: `w-[99%] m-auto  gap-5 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 `,
-  btn: `w-[99%] m-auto [&>*]:mr-5 my-5`,
+  btn: `w-[99%] m-auto  my-5 flex justify-between items-center`,
   searchInput: ``,
+  more: `border bg-blue-500 rounded-full p-0 w-full h-full duration-500 ease-linear transition delay-150 flex items-center justify-center`,
 };
 interface FormFilterData {
-  searchProperties: string;
-  searchPropertyType: string;
+  search: string;
+  propertyType: string;
   searchPrice: string;
-  searchBedrooms: string;
-  searchBathrooms: string;
-  searchLisitingType: string;
+  bedrooms: string;
+  bathrooms: string;
+  listingType: string;
+  view: string;
+  category: string;
 }
 interface OptionType {
   label: string;
@@ -42,18 +47,14 @@ export const uploadSchema = yup.object().shape({
   searchBedrooms: yup.string(),
   searchBathrooms: yup.string(),
 });
+interface IFiliters {
+  setFilterProperties: any;
+}
 const Filiters: FC = () => {
-  const selectRef = useRef(null);
-  const defaultValues = {
-    searchProperties: "",
-    searchPropertyType: "",
-    searchLisitingType: "",
-    searchPrice: "",
-    searchBedrooms: "",
-    searchBathrooms: "",
-  };
+  const { filterProperties, setFiliters } = useFilitersStore();
+  const [checked, setChecked] = useState(false);
   const methods = useForm<FormFilterData>({
-    resolver: yupResolver(uploadSchema),
+    // resolver: yupResolver(uploadSchema),
   });
   const {
     register,
@@ -66,11 +67,19 @@ const Filiters: FC = () => {
   } = methods;
 
   const { field: propertyTypeField } = useController({
-    name: "searchPropertyType",
+    name: "propertyType",
     control,
   });
   const { field: ListingTypeField } = useController({
-    name: "searchLisitingType",
+    name: "listingType",
+    control,
+  });
+  const { field: propertyViewField } = useController({
+    name: "view",
+    control,
+  });
+  const { field: ListingCategoryField } = useController({
+    name: "category",
     control,
   });
 
@@ -84,21 +93,31 @@ const Filiters: FC = () => {
 
     return ListingTypeField.onChange(option.value);
   };
+  const handleViewTypeChange = (option: any) => {
+    propertyViewField.onChange(option.value);
+
+    return propertyViewField.onChange(option.value);
+  };
+  const handleCategoryTypeChange = (option: any) => {
+    ListingCategoryField.onChange(option.value);
+
+    return ListingCategoryField.onChange(option.value);
+  };
+  const handleChange = (nextChecked: boolean) => {
+    setChecked(nextChecked);
+  };
+
   const submitFilterForm = (formData: any) => {
-    console.log(formData, "filter Data");
-    console.log(errors);
+    setFiliters({ ...filterProperties, ...formData });
   };
   const ResetForm = (e: any) => {
     reset();
-    // if (selectRef.current) {
-    //   selectRef.current.select.clearValue();
-    // }
   };
-  useFormPersist("filiterSearchKey", {
-    watch,
-    setValue,
-    storage: window.localStorage,
-  });
+  // useFormPersist("filiterSearchKey", {
+  //   watch,
+  //   setValue,
+  //   storage: window.localStorage,
+  // });
   return (
     <FormProvider {...methods}>
       <div className={style.container}>
@@ -112,7 +131,7 @@ const Filiters: FC = () => {
                 rounded
                 errors={errors}
                 inputFull
-                inputRef={register("searchProperties")}
+                inputRef={register("search")}
                 isBlackBg
               />
               <Input
@@ -128,12 +147,12 @@ const Filiters: FC = () => {
               <Input
                 type="number"
                 placeholder="Bedrooms?"
-                name="searchBedrooms"
+                name="bedrooms"
                 rounded
                 inputFull
                 isWhiteBg
                 errors={errors}
-                inputRef={register("searchBedrooms")}
+                inputRef={register("bedrooms")}
               />
               <Input
                 type="number"
@@ -143,16 +162,63 @@ const Filiters: FC = () => {
                 inputFull
                 isWhiteBg
                 errors={errors}
-                inputRef={register("searchBathrooms")}
+                inputRef={register("bathrooms")}
               />
-              <div className=" w-[80] mt-[-.7]"></div>
               <div className=" w-[80] mt-[-.7]">
                 <Select
-                  selectRef={selectRef}
+                  placeholder="Lisiting"
+                  options={ListingTypeOPtions}
+                  field={ListingTypeOPtions.find(
+                    ({ value }) => value === ListingTypeField.value
+                  )}
+                  handleSelectChange={handleListingTypeChange}
+                  inputHalf
+                />
+              </div>
+              <div className="w-full lg:h-[70%] mt-[.3em] text-white">
+                <button
+                  onClick={() => setChecked(!checked)}
+                  className={style.more}
+                >
+                  <FilterIcon /> {checked ? "STANDARD" : "ADVANCED"}
+                </button>
+              </div>
+            </div>
+            <div
+              className={`${style.form} ${
+                checked
+                  ? "flex duration-500 ease-linear transition delay-150 mt-5 lg:mt-0 "
+                  : "hidden duration-500 ease-linear transition delay-150"
+              }  `}
+            >
+              <div className=" w-[80] mt-[-.7]">
+                <Select
+                  placeholder="view"
+                  options={ViewOPtions}
+                  field={ViewOPtions.find(
+                    ({ value }) => value === propertyViewField.value
+                  )}
+                  handleSelectChange={handleViewTypeChange}
+                  inputHalf
+                />
+              </div>
+              <div className=" w-[80] mt-[-.7]">
+                <Select
+                  placeholder="category"
+                  options={categoryOPtions}
+                  field={categoryOPtions.find(
+                    ({ value }) => value === ListingCategoryField.value
+                  )}
+                  handleSelectChange={handleCategoryTypeChange}
+                  inputHalf
+                />
+              </div>
+              <div className=" w-[80] mt-[-.7]">
+                <Select
                   placeholder="Property"
                   options={propertyTypeOPtions}
                   field={propertyTypeOPtions.find(
-                    ({ value }) => value === ListingTypeField.value
+                    ({ value }) => value === propertyTypeField.value
                   )}
                   handleSelectChange={handlepropertyTypeChange}
                   inputHalf
@@ -160,18 +226,27 @@ const Filiters: FC = () => {
               </div>
             </div>
             <div className={style.btn}>
-              <Button types="submit" primary rounded linearGradient uppercase>
-                Search
-              </Button>
-              <Button
-                onClick={(e: any) => ResetForm(e)}
-                primary
-                rounded
-                linearGradient
-                uppercase
-              >
-                reset
-              </Button>
+              <span className="[&>*]:mr-5">
+                <Button types="submit" primary rounded linearGradient uppercase>
+                  Search
+                </Button>
+                <Button
+                  onClick={() => reset()}
+                  primary
+                  rounded
+                  linearGradient
+                  uppercase
+                >
+                  reset
+                </Button>
+              </span>
+              <div>
+                {/* <Switch
+                  onChange={handleChange}
+                  checked={checked}
+                  className="react-switch "
+                /> */}
+              </div>
             </div>
           </form>
         </div>

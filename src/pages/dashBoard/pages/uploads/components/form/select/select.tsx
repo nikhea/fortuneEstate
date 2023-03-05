@@ -23,7 +23,6 @@ interface inputProps {
   options: optionsProps[];
   field: any;
   handleSelectChange: any;
-  selectRef: any;
 }
 
 // const options = [
@@ -56,7 +55,6 @@ const InputSelect: FC<inputProps> = ({
   options,
   handleSelectChange,
   field,
-  selectRef,
 }) => {
   let inputSelectContainer = {
     // [`${style.input}`]: true,
@@ -92,7 +90,6 @@ const InputSelect: FC<inputProps> = ({
   return (
     <div>
       <Select
-        ref={selectRef}
         key={`my_unique_select_key__${field}`}
         value={field}
         placeholder={placeholder}

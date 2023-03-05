@@ -13,6 +13,8 @@ interface Props {
   limitProperties: number;
   sortProperties: any;
   setSortProperties: any;
+  // setFilterProperties: any;
+  properties: any;
 }
 export const MainPaginationDashboard: FC<Props> = ({
   children,
@@ -21,15 +23,21 @@ export const MainPaginationDashboard: FC<Props> = ({
   nextpage,
   handlePageClick,
   previouspage,
+  // setFilterProperties,
   limitProperties,
   propertiesLength,
   sortProperties,
   setSortProperties,
+  properties,
 }) => {
+  // if (!properties?.data.results[0].metadata[0]) {
+  //   return null;
+  // }
   return (
     <div>
-      <Filiters />
-      {children}
+      {/* <Filiters setFilterProperties={setFilterProperties} /> */}
+      {!properties?.data.results[0].metadata[0] ? null : children}
+      {/* {children} */}
       <Navigation
         page={page}
         total_Pages={total_Pages}
