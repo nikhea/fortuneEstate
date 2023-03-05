@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { queryKeys } from "../../../../../utils/queryKey";
 import { useQuery } from "react-query";
 import PageLoading from "../../../../../components/UI/Loading/PageLoading";
@@ -20,6 +21,15 @@ const ProperiesData = () => {
   const [limitProperties, setLimitProperties] = useState(10);
   const [sortProperties, setSortProperties] = useState(1);
   // const [filterProperties, setFilterProperties] = useState({});
+
+  useEffect(() => {
+    // if (isFetching === true) {
+    //   toast.info("fetching data");
+    // }
+    // if (isFetching === false) {
+    //   toast.success("success");
+    // }
+  }, [filterProperties]);
   const {
     data: properties,
     isLoading,
@@ -68,10 +78,10 @@ const ProperiesData = () => {
       setPageNumber(metadata.page - 1);
     }
   };
-  if (isFetching) {
-    toastID = filterProperties;
-    toast.success("fetching data", { id: toastID });
-  }
+  // if (isFetching) {
+  //   toastID = filterProperties;
+  //   toast.success("fetching data", { id: toastID });
+  // }
   return (
     <div className={style.container}>
       <div className="dashboardProperties">
