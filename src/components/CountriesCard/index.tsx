@@ -1,9 +1,9 @@
-import { FC } from "react";
+import { FC, useEffect } from "react";
 import "./countriesContainer.css";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
 // import { useQuery } from "@tanstack/react-query";
-import { useQuery } from "react-query";
+import { useQuery, useQueryClient } from "react-query";
 
 import { Link } from "react-router-dom";
 import { getAllCountry } from "../../services/api/shared";
@@ -33,34 +33,28 @@ const style = {
   `,
   overlay: `h-full w-full top-0 left-0 absolute bg-gradient-to-tl from-black hidden hover:bg-fixed`,
 };
+// const { data: countries, isLoading } = useQuery(
+//   [queryKeys.countries],
+//   getAllCountry
+// );
 const CountriesCard: FC = () => {
   const { data: countries, isLoading } = useQuery(
     [queryKeys.countries],
     getAllCountry
   );
-  if (isLoading) {
-    return <PageLoading />;
-  }
+  // if (isLoading) {
+  //   return <PageLoading />;
+  // }
   const countriesResult = countries?.data || [];
   return (
     <>
       {countriesResult.length !== 0 ? (
         <div className={style.container}>
           <div className={style.textContainer}>
-            <h1
-              className={style.title}
-              // data-aos="fade-up"
-              // data-aos-easing="ease-in-out"
-              // data-aos-duration="1000"
-            >
+            <h1 className={style.title}>
               Exceptional Properties Around The World
             </h1>
-            <p
-              className={style.description}
-              // data-aos="fade-up"
-              // data-aos-easing="ease-in-out"
-              // data-aos-duration="1000"
-            >
+            <p className={style.description}>
               Great cities or exclusive localities. Choose the luxury that suits
               you.
             </p>
@@ -74,91 +68,18 @@ const CountriesCard: FC = () => {
                   key={countries._id}
                   className="gridItem"
                 >
-                  {/* <div className="gridItem"> */}
+                  {" "}
                   <LazyLoadImage
                     src={countries.image}
                     alt={countries.name}
                     className={style.image}
-                    // data-aos={
-                    //   index === 0
-                    //     ? "fade-right"
-                    //     : index === 1
-                    //     ? "fade-left"
-                    //     : index === 2
-                    //     ? "zoom-in"
-                    //     : index === 3
-                    //     ? "zoom-in"
-                    //     : index === 4
-                    //     ? "zoom-in"
-                    //     : index === 5
-                    //     ? "fade-right"
-                    //     : index === 6
-                    //     ? "fade-left"
-                    //     : null
-                    // }
-                    // data-aos-easing="ease-in-out"
-                    // data-aos-duration={
-                    //   index === 0
-                    //     ? "2000"
-                    //     : index === 1
-                    //     ? "3500"
-                    //     : index === 2
-                    //     ? "5000"
-                    //     : index === 3
-                    //     ? "7000"
-                    //     : index === 4
-                    //     ? "9000"
-                    //     : index === 5
-                    //     ? "2200"
-                    //     : index === 6
-                    //     ? "2500"
-                    //     : null
-                    // }
                   />
-                  <p
-                    className={style.text}
-                    // data-aos={
-                    //   index === 0
-                    //     ? "fade-right"
-                    //     : index === 1
-                    //     ? "fade-left"
-                    //     : index === 2
-                    //     ? "zoom-in"
-                    //     : index === 3
-                    //     ? "zoom-in"
-                    //     : index === 4
-                    //     ? "zoom-in"
-                    //     : index === 5
-                    //     ? "fade-right"
-                    //     : index === 6
-                    //     ? "fade-left"
-                    //     : null
-                    // }
-                    // data-aos-easing="ease-in-out"
-                    // data-aos-duration={
-                    //   index === 0
-                    //     ? "2000"
-                    //     : index === 1
-                    //     ? "3500"
-                    //     : index === 2
-                    //     ? "5000"
-                    //     : index === 3
-                    //     ? "7000"
-                    //     : index === 4
-                    //     ? "9000"
-                    //     : index === 5
-                    //     ? "2200"
-                    //     : index === 6
-                    //     ? "2500"
-                    //     : null
-                    // }
-                  >
+                  <p className={style.text}>
                     <span className={style.hr}>{countries.name}</span>
                   </p>
                   {/* </div> */}
                 </Link>
               ))}
-            {/* <div className={style.overlay}></div> */}
           </div>
         </div>
       ) : null}
