@@ -16,9 +16,9 @@ interface FormData {
   password: string;
 }
 const style = {
-  container: `flex   h-full `,
+  container: `grid grid-cols-2  h-full `,
   img: `hidden md:flex h-full`,
-  content: `w-full mx-[5%]`,
+  content: `w-full mx-[-10%]`,
   text: `text-[#0A2952] text-[2.125rem] uppercase font-bold `,
   header: `flex items-center justify-between w-full mt-[20px] mb-[10px]`,
   formSignIn: ` h-full md:h-[65%]  flex flex-col items-center justify-center`,
