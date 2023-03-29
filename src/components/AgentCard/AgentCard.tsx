@@ -30,7 +30,13 @@ const AgentCard: FC<IAgent> = ({
         </div>
         <div className={style.textcontainer}>
           <h1 className={style.title}>
-            {firstname} {lastname}
+            {firstname}{" "}
+            <span>
+              {" "}
+              {lastname.length <= 5
+                ? lastname
+                : `${lastname.substring(0, 5)}...`}
+            </span>
           </h1>
           <h2 className={style.subTitile}>top agent</h2>
         </div>

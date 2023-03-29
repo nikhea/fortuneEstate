@@ -26,6 +26,7 @@ const style = {
 // ];
 // localStorage.setItem("propertiesImage", JSON.stringify(url));
 const image: FC<ImageComponentProps> = ({ nextStep, prevStep, errors }) => {
+  let displayPropertiesImages;
   const { setValue, register, watch } = useFormContext();
   const FormWatch = watch();
 
@@ -65,7 +66,6 @@ const image: FC<ImageComponentProps> = ({ nextStep, prevStep, errors }) => {
       },
       function (error: any, result: any) {
         if (!error && result && result.event === "success") {
-          console.log(result.data);
           return "please add an image";
         } else {
           if (
@@ -73,7 +73,6 @@ const image: FC<ImageComponentProps> = ({ nextStep, prevStep, errors }) => {
             result?.data?.info?.files[0]?.uploadInfo !== undefined
           ) {
             let images = result?.data?.info?.files;
-            console.log("lsjdjsl", images);
             if (images !== undefined || images.length >= 0 || images !== null) {
               const uploadInfoArray = [];
               for (let i = 0; i < images.length; i++) {
@@ -91,7 +90,6 @@ const image: FC<ImageComponentProps> = ({ nextStep, prevStep, errors }) => {
       }
     );
   }, []);
-  console.log(images);
 
   const openWidget = () => {
     //@ts-ignore
@@ -106,11 +104,13 @@ const image: FC<ImageComponentProps> = ({ nextStep, prevStep, errors }) => {
     e.preventDefault();
     prevStep();
   };
-  const displayproperties = images?.map((image: Props, index: any) => (
-    <div key={index} className={style.items}>
-      <ImageCard images={image} removeImage={removeImage} />
-    </div>
-  ));
+  if (images) {
+    displayPropertiesImages = images?.map((image: Props, index: any) => (
+      <div key={index} className={style.items}>
+        <ImageCard images={image} removeImage={removeImage} />
+      </div>
+    ));
+  }
   return (
     <div>
       <span style={{ display: "none" }}>
@@ -135,7 +135,7 @@ const image: FC<ImageComponentProps> = ({ nextStep, prevStep, errors }) => {
       ) : (
         <>
           <div onClick={openWidget}>upload</div>
-          {displayproperties}
+          {images ? displayPropertiesImages : null}
           <SlideBottons previous={previous} continues={continues} />
         </>
       )}

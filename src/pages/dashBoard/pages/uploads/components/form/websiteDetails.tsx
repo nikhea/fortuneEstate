@@ -72,12 +72,10 @@ const WebsiteDetails: FC<WebsiteDetailsProps> = ({
       const websiteLink = getValues("webSiteURL");
       if (websiteLink !== "") {
         if (Linkdata.url === ``) {
-          console.log(Linkdata, "Linkdata");
           const linkpreview = `http://api.linkpreview.net/?key=${key}&q=${websiteLink}`;
           let { data } = await axios.get(linkpreview);
           setData(data);
         } else if (Linkdata.url != ``) {
-          console.log("jhdskhjadshkjsahkaljkhsjkhdsjkj");
         } else {
           // const linkpreview = `http://api.linkpreview.net/?key=${key}&q=${websiteLink}`;
           // let { data } = await axios.get(linkpreview);
@@ -103,7 +101,6 @@ const WebsiteDetails: FC<WebsiteDetailsProps> = ({
   return (
     <div>
       {/* <h1>Website Details</h1> */}
-      {storageKeyWebSiteUrl.webSiteURL}
       <div className={style.gridContainer}>
         <div className={style.inputes}>
           <span>

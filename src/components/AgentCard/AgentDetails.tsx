@@ -2,6 +2,9 @@ import React, { FC } from "react";
 import AgentCard from "./AgentCard";
 import { IAgent, IAgentProps } from "../../interfaces/Agent";
 import { Link } from "react-router-dom";
+import { useQuery } from "react-query";
+import { getAllAgents } from "../../services/api/shared";
+import { queryKeys } from "../../utils/queryKey";
 
 const style = {
   container: `bg-white shadow-lg rounded-md p-4 h-full w-full flex flex-col  h-full   md:justify-between`,
@@ -10,8 +13,15 @@ const style = {
   SubmainFlex: `flex gap-1 flex-wrap items-center`,
   link: ` capitalize p-1 px-3 border border-[3px] rounded-md text-[18px] text-gray-400`,
 };
-const Agent: FC<IAgentProps> = ({ AgentData }) => {
-  const displayAgent = AgentData.map((agent: IAgent) => (
+const Agent: FC<IAgentProps> = ({}) => {
+  const { data: AgentData, isLoading } = useQuery(
+    [queryKeys.agents],
+    () => getAllAgents(),
+    {
+      keepPreviousData: true,
+    }
+  );
+  const displayAgent = AgentData?.data?.slice(0, 4).map((agent: IAgent) => (
     <div key={agent._id}>
       <AgentCard
         ID={agent._id}
@@ -21,6 +31,7 @@ const Agent: FC<IAgentProps> = ({ AgentData }) => {
         lastname={agent.lastname}
         username={agent.username}
         role={agent.role}
+        profile={agent.profile}
       />
     </div>
   ));
@@ -28,7 +39,7 @@ const Agent: FC<IAgentProps> = ({ AgentData }) => {
     <div className={style.container}>
       <div className="flex justify-between items-center">
         <h1 className={style.title}>top Agents</h1>
-        <Link to="#" className={style.link}>
+        <Link to="/dashboardagents" className={style.link}>
           view all
         </Link>
       </div>
