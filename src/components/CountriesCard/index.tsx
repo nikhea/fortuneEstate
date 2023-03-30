@@ -12,6 +12,8 @@ import { queryKeys } from "../../utils/queryKey";
 import { routes } from "../../routes/routes";
 import { countries } from "../../data/countries";
 import PageLoading from "../UI/Loading/PageLoading";
+import { countriesPlaceHolderData } from "../../data/countriesPlaceHolderData";
+import { CountriesPlaceholderData } from "../../interfaces/countries";
 const style = {
   container: `w-[95%] lg:w-[90%] m-auto my-10`,
   textContainer: `flex items-center text-center flex-col `,
@@ -38,9 +40,12 @@ const style = {
 //   getAllCountry
 // );
 const CountriesCard: FC = () => {
-  const { data: countries, isLoading } = useQuery(
+  const { data: countries, isLoading } = useQuery<any>(
     [queryKeys.countries],
-    getAllCountry
+    getAllCountry,
+    {
+      placeholderData: countriesPlaceHolderData,
+    }
   );
   // if (isLoading) {
   //   return <PageLoading />;

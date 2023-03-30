@@ -17,6 +17,7 @@ import { formatToCurrency, numberWithCommas } from "../../utils/formateNumbers";
 import { routes } from "../../routes/routes";
 import { Link } from "react-router-dom";
 import PageLoading from "../UI/Loading/PageLoading";
+import { AllPropertiesPlaceHolderData } from "../../data/AllPropertiesPlaceHolderData";
 
 const style = {
   container: `w-[80%] m-auto my-10 leading-[100px]`,
@@ -44,7 +45,9 @@ const SimilarProperties: FC<Props> = () => {
     data: properties,
     isLoading,
     status,
-  } = useQuery([queryKeys.properties], getAllProperties);
+  } = useQuery<any>([queryKeys.properties], getAllProperties, {
+    placeholderData: AllPropertiesPlaceHolderData,
+  });
   if (!properties) return;
   if (status === "success") {
     const p = properties?.data.results[0].data.slice(0, 6);
