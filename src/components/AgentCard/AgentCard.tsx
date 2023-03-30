@@ -32,7 +32,6 @@ const AgentCard: FC<IAgent> = ({
           <h1 className={style.title}>
             {firstname}{" "}
             <span>
-              {" "}
               {lastname.length <= 5
                 ? lastname
                 : `${lastname.substring(0, 5)}...`}

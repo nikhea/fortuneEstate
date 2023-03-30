@@ -25,7 +25,7 @@ const Agent: FC<IAgentProps> = ({}) => {
     <div key={agent._id}>
       <AgentCard
         ID={agent._id}
-        image={agent.image}
+        image={agent.profile?.profileImage?.secure_url}
         email={agent.email}
         firstname={agent.firstname}
         lastname={agent.lastname}
