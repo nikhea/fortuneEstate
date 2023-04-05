@@ -13,17 +13,18 @@ import { getAllCONTINENTS } from "../../services/api/shared";
 import { SEO } from "../../components/seo/seo";
 import PageLoading from "../../components/UI/Loading/PageLoading";
 const style = {
-  container: `w-[90%] m-auto items-center justify-center grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 grid-rows- my-[4rem]`,
+  container: `w-[90%] m-auto items-center justify-center grid gap-10 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 grid-rows- my-[4rem]`,
   items: `fle flex-col  mx-3 my-3`,
   // items: `mx-6 mb-9 leading-[2] fl items-center flex-col `,
-  title: ` uppercase text-[1.5rem] text-[#7f7f7f] font-normal tracking-[1.1px] text-center mt-2 mb-1`,
-  imgContainer: `flex`,
+  title: ` uppercase text-[1.5rem] text-[#7f7f7f] font-normal tracking-[1.1px] text-center  mb-5 absolute z-50  text-white`,
+  imgContainer: `flex h-[300px]`,
   image: ` w-[100vw] bg-black rounded-[15px] cursor-pointer`,
   link: `flex items-center text-center justify-center `,
   discoverContainer: `w-[92%] m-auto bg-[#e6e9efa3] h-[60vh] mb-[7%]`,
   discoverText: `text-center flex items-center h-full justify-center flex-col `,
   discoverTitle: `text-[#7f7f7f] capitalize font-bold text-5xl mb-[1em]`,
   // btn: `bg-[#06c4e5] w-full  text-center text-[0.9rem] tracking-[3px] text-white py-2  capitalize  rounded cursor-not-allowed`,
+  overlay: `h-full w-full top-0 left-0 absolute bg-black opacity-60 bg-fixed z-30 rounded-[15px]`,
 };
 interface Props {
   _id: number;
@@ -41,80 +42,31 @@ const Continents: FC = () => {
   }
   return (
     <div>
-      {/* <SEO title="continents" /> */}
-
+      <SEO title="continents" />
       <ContinentBanner />
       <div className={style.container}>
         {continents?.data.map((continent: Props, index: Key) => (
-          // <LazyLoadImage>
-          <div
-            className={style.items}
+          <Link
+            to={`${routes.countries}/${continent.name}`}
             key={continent._id}
-            // data-aos="fade-up"
-            // data-aos-easing="ease-in-out"
-            // data-aos-duration={
-            // index === 0
-            //   ? "24000"
-            // :  : index === 1
-            // ? "8000"
-            // : index === 2
-            // ? "5000"
-            // : index === 3
-            // ? "13000"
-            // : index === 4
-            // ? "17000"
-            // : index === 5
-            // ? "2200"
-            // : index === 6
-            // ? "2800"
-            //       null
-            // }
-            // data-aos-delay={
-            //   index === 0
-            //     ? "24000"
-            //     : index === 1
-            //     ? "8000"
-            //     : index === 2
-            //     ? "5000"
-            //     : index === 3
-            //     ? "13000"
-            //     : index === 4
-            //     ? "17000"
-            // :
-            // : index === 5
-            // ? "2200"
-            // : index === 6
-            // ? "2800"
-            //       null
-            // }
           >
-            <div className={style.imgContainer}>
-              <LazyLoadImage
-                alt={continent.name}
-                // effect="blur"
-                src={continent.image}
-                className={style.image}
-              />
-            </div>
-            <h1 className={style.title}>{continent.name}</h1>
-            <Link to={`${routes.countries}/${continent.name}`}>
-              <Button uppercase primary isCurve full marginHorizontal>
-                <div className={style.link}>
-                  <MdLocationPin
-                    size={20}
-                    color="#"
-                    style={{ marginRight: "11px" }}
-                  />{" "}
-                  view continents
-                  {/* <Spinner /> */}
+            <Tilt>
+              <div className="shadow-2xl relative flex justify-center items-end">
+                <div className={style.imgContainer}>
+                  <LazyLoadImage
+                    alt={continent.name}
+                    src={continent.image}
+                    className={style.image}
+                  />
                 </div>
-              </Button>
-            </Link>
-          </div>
-          // </LazyLoadImage>
+                <h1 className={style.title}>{continent.name}</h1>
+                <div className={style.overlay}></div>
+              </div>
+            </Tilt>
+          </Link>
         ))}
       </div>
-      <Discover />
+      {/* <Discover /> */}
     </div>
   );
 };
@@ -151,4 +103,92 @@ export const Discover = () => {
 }
 export default Continents;
 
+// <div className={style.imgContainer}>
+// <LazyLoadImage
+//   alt={continent.name}
+//   src={continent.image}
+//   className={style.image}
+// />
+// </div>
+// <h1 className={style.title}>{continent.name}</h1>
+// <Link to={`${routes.countries}/${continent.name}`}>
+// <Button uppercase primary isCurve full marginHorizontal>
+//   <div className={style.link}>
+//     <MdLocationPin
+//       size={20}
+//       color="#"
+//       style={{ marginRight: "11px" }}
+//     />{" "}
+//     view continents
+//   </div>
+// </Button>
+// </Link>
+
 // const { data: continents, error } = useQuery(["contients"],getAllCONTINENTS );
+
+// data-aos="fade-up"
+// data-aos-easing="ease-in-out"
+// data-aos-duration={
+// index === 0
+//   ? "24000"
+// :  : index === 1
+// ? "8000"
+// : index === 2
+// ? "5000"
+// : index === 3
+// ? "13000"
+// : index === 4
+// ? "17000"
+// : index === 5
+// ? "2200"
+// : index === 6
+// ? "2800"
+//       null
+// }
+// data-aos-delay={
+//   index === 0
+//     ? "24000"
+//     : index === 1
+//     ? "8000"
+//     : index === 2
+//     ? "5000"
+//     : index === 3
+//     ? "13000"
+//     : index === 4
+//     ? "17000"
+// :
+// : index === 5
+// ? "2200"
+// : index === 6
+// ? "2800"
+//       null
+// }
+
+{
+  /* <div className={style.container}>
+{continents?.data.map((continent: Props, index: Key) => (
+  <div className={style.items} key={continent._id}>
+    <div className={style.imgContainer}>
+      <LazyLoadImage
+        alt={continent.name}
+        src={continent.image}
+        className={style.image}
+      />
+    </div>
+    <h1 className={style.title}>{continent.name}</h1>
+    <Link to={`${routes.countries}/${continent.name}`}>
+      <Button uppercase primary isCurve full marginHorizontal>
+        <div className={style.link}>
+          <MdLocationPin
+            size={20}
+            color="#"
+            style={{ marginRight: "11px" }}
+          />{" "}
+          view continents
+        </div>
+      </Button>
+    </Link>
+  </div>
+))}
+</div> */
+}

@@ -1,5 +1,6 @@
 import { FC, Suspense, lazy } from "react";
 import PageLoading from "../../components/UI/Loading/PageLoading";
+import { SEO } from "../../components/seo/seo";
 
 const DashBoardLazy = lazy(() => import("./dashBoardLazy"));
 
@@ -13,6 +14,7 @@ const style = {
 const dashBoard: FC = () => {
   return (
     <Suspense fallback={<PageLoading />}>
+      <SEO title="DashBoard" />
       <DashBoardLazy />
     </Suspense>
   );

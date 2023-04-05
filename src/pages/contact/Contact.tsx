@@ -3,6 +3,7 @@ import FAQ from "./components/faq";
 import ContactBanner from "../../components/ContactBanner";
 import ContactForm from "./components/Form/contactForm";
 import FormLeft from "./components/formLeft/FormLeft";
+import { SEO } from "../../components/seo/seo";
 const style = {
   container: `w-[90%] m-auto items-center justify-center   my-[4rem] overflow-hidden `,
   containerForm: ` w-full md:grid grid-cols-1 md:grid-cols-2   m-0 p-0 gap-[8%]`,
@@ -19,6 +20,7 @@ const style = {
 const Contact = () => {
   return (
     <div>
+      <SEO title="contact us" />
       <ContactBanner />
       <div className={style.container}>
         <div className={style.containerForm}>
@@ -28,7 +30,7 @@ const Contact = () => {
         <FAQ />
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default Contact;

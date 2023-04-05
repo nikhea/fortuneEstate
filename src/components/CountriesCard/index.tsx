@@ -1,14 +1,12 @@
 import { FC, useEffect } from "react";
 import "./countriesContainer.css";
+import Tilt from "react-parallax-tilt";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
-// import { useQuery } from "@tanstack/react-query";
 import { useQuery, useQueryClient } from "react-query";
-
 import { Link } from "react-router-dom";
 import { getAllCountry } from "../../services/api/shared";
 import { queryKeys } from "../../utils/queryKey";
-
 import { routes } from "../../routes/routes";
 import { countries } from "../../data/countries";
 import PageLoading from "../UI/Loading/PageLoading";
@@ -73,7 +71,6 @@ const CountriesCard: FC = () => {
                   key={countries._id}
                   className="gridItem"
                 >
-                  {" "}
                   <LazyLoadImage
                     src={countries.image}
                     alt={countries.name}

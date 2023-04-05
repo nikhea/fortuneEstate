@@ -1,6 +1,7 @@
 import React from "react";
 import AdvertBanner from "../../components/AdvertBanner";
 import ListService from "./components/listService";
+import { SEO } from "../../components/seo/seo";
 
 const advertServices = () => {
   const style = {
@@ -8,6 +9,8 @@ const advertServices = () => {
   };
   return (
     <div>
+      <SEO title=" advert Services" />
+
       <AdvertBanner />
       <div className={style.container}>
         <ListService />

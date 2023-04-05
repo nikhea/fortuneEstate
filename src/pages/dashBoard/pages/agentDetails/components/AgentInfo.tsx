@@ -23,7 +23,7 @@ const style = {
 let urlImg = `https://images.unsplash.com/photo-1559705421-4ae9bf6fabb5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8dGh1bWJuYWlsfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60`;
 
 const AgentInfo = ({ agentData }: IAgentDetail) => {
-  console.log(agentData, "agentData");
+  // console.log(agentData, "agentData");
 
   const { user } = useAuth();
 

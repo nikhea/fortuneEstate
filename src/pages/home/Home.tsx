@@ -23,7 +23,7 @@ const App: FC = () => {
         <FilterCard />
       </div> */}
       <CountriesCard />
-      <Carousel />
+      {/* <Carousel /> */}
       <GolbalProperties />
       {lg ? <>{/* <PropertieSliderHome />{" "} */}</> : null}
       <ListService />

@@ -14,8 +14,8 @@ import { DevTool } from "@hookform/devtools";
 const style = {
   title: ` uppercase text-[2rem] text-[#7f7f7f] font-bold tracking-[1.1px]`,
   titleMessage: `text-[#7f7f7f] font-light tracking-[1.1px] text-justify`,
-  form: ` w-full flex flex-wrap justify-between   m-auto `,
-  inputContainer: `flex flex-col my-5 w-[45%]`,
+  form: ` w-full flex flex-col md:flex-row flex-wrap justify-between   m-auto `,
+  inputContainer: `flex flex-col my-5 md:w-[45%]`,
   inputContainerFull: `flex flex-col my-5 w-[99%]`,
   containerForm: ` w-full md:grid grid-cols-1 md:grid-cols-2   m-0 p-0 `,
   label: `capitalize tracking-[1.1px] font-light`,

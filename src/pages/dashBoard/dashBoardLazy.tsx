@@ -11,6 +11,7 @@ import { CustomerData } from "../../components/CustomerCard/CustomerData";
 import { SaleData } from "../../components/Sales/SaleData";
 // import PageStatistics from "./components/dashboard/PageStatistics";
 import { BsThreeDotsVertical } from "react-icons/bs";
+import { SEO } from "../../components/seo/seo";
 const Cards = lazy(() => import("./components/dashboard/Cards"));
 const PropertyReferrals = lazy(
   () => import("./components/dashboard/PropertyReferrals")
@@ -37,6 +38,7 @@ const style = {
 const DashBoardLazy: FC = () => {
   return (
     <Suspense fallback={<PageLoading />}>
+      <SEO title="DashBoard" />
       <div className={style.container}>
         <div className="flex items-center">
           <h1 className={style.h1}>Dashboard</h1>
