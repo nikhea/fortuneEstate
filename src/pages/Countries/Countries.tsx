@@ -14,7 +14,7 @@ import Spinner from "../../components/UI/Loading/spinner";
 const style = {
   container: `w-[90%] m-auto items-center justify-center grid gap-10 grid-cols-1 md:grid-cols-2 lg:grid-cols-3  my-[4rem] overflow-hidden`,
   items: `mx-6 mb-9 leading-[2] fl items-center flex-col `,
-  title: ` uppercase text-[1.5rem] text-[#7f7f7f] font-normal tracking-[1.1px] text-center  mb-5 absolute text-white z-50`,
+  title: ` uppercase text-[1.5rem]  font-normal tracking-[1.1px] text-center  mb-5 absolute text-white z-50`,
   imgContainer: `flex h-[300px] w-full`,
   image: ` w-[100vw] bg-black rounded-[15px] cursor-pointer `,
   link: `flex items-center text-center justify-center `,

@@ -15,8 +15,8 @@ import PageLoading from "../../components/UI/Loading/PageLoading";
 const style = {
   container: `w-[90%] m-auto items-center justify-center grid gap-10 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 grid-rows- my-[4rem]`,
   items: `fle flex-col  mx-3 my-3`,
-  // items: `mx-6 mb-9 leading-[2] fl items-center flex-col `,
-  title: ` uppercase text-[1.5rem] text-[#7f7f7f] font-normal tracking-[1.1px] text-center  mb-5 absolute z-50  text-white`,
+  // items: `mx-6 mb-9 leading-[2] fl items-center flex-col text-[#7f7f7f] `,
+  title: ` uppercase text-[1.5rem]  font-normal tracking-[1.1px] text-center  mb-5 absolute z-50  text-white`,
   imgContainer: `flex h-[300px]`,
   image: ` w-[100vw] bg-black rounded-[15px] cursor-pointer`,
   link: `flex items-center text-center justify-center `,
@@ -51,7 +51,7 @@ const Continents: FC = () => {
             key={continent._id}
           >
             <Tilt>
-              <div className="shadow-2xl relative flex justify-center items-end">
+              <div className="shadow-xl relative flex justify-center items-end">
                 <div className={style.imgContainer}>
                   <LazyLoadImage
                     alt={continent.name}
