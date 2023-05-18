@@ -36,7 +36,7 @@ export const getAllProperties = async (
   sortProperties?: number,
   filterProperties?: any
 ) => {
-  console.log(filterProperties, "filterProperties");
+  // console.log(filterProperties, "filterProperties");
 
   const res = await Axiosclient.get(
     `/properties?page=${pageNumber}&limit=${limitProperties}&sort=${sortProperties}`,

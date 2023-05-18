@@ -16,7 +16,7 @@ const style = {
   container: `w-[90%] m-auto items-center justify-center grid gap-10 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 grid-rows- my-[4rem]`,
   items: `fle flex-col  mx-3 my-3`,
   // items: `mx-6 mb-9 leading-[2] fl items-center flex-col text-[#7f7f7f] `,
-  title: ` uppercase text-[1.5rem]  font-normal tracking-[1.1px] text-center  mb-5 absolute z-50  text-white`,
+  title: ` uppercase text-[1.5rem]  font-normal tracking-[1.1px] text-center text-[#7f7f7f]    text-white`,
   imgContainer: `flex h-[300px]`,
   image: ` w-[100vw] bg-black rounded-[15px] cursor-pointer`,
   link: `flex items-center text-center justify-center `,
@@ -44,29 +44,35 @@ const Continents: FC = () => {
     <div>
       <SEO title="continents" />
       <ContinentBanner />
+      /*{" "}
       <div className={style.container}>
         {continents?.data.map((continent: Props, index: Key) => (
-          <Link
-            to={`${routes.countries}/${continent.name}`}
-            key={continent._id}
-          >
-            <Tilt>
-              <div className="shadow-xl relative flex justify-center items-end">
-                <div className={style.imgContainer}>
-                  <LazyLoadImage
-                    alt={continent.name}
-                    src={continent.image}
-                    className={style.image}
-                  />
+          <div className={style.items} key={continent._id}>
+            <div className={style.imgContainer}>
+              <LazyLoadImage
+                alt={continent.name}
+                src={continent.image}
+                className={style.image}
+              />
+            </div>
+            <h1 className={style.title}>{continent.name}</h1>
+            <Link to={`${routes.countries}/${continent.name}`}>
+              <Button uppercase primary isCurve full marginHorizontal>
+                <div className={style.link}>
+                  <MdLocationPin
+                    size={20}
+                    color="#"
+                    style={{ marginRight: "11px" }}
+                  />{" "}
+                  view continents
                 </div>
-                <h1 className={style.title}>{continent.name}</h1>
-                <div className={style.overlay}></div>
-              </div>
-            </Tilt>
-          </Link>
+              </Button>
+            </Link>
+          </div>
         ))}
-      </div>
-      {/* <Discover /> */}
+      </div>{" "}
+      */
+      <Discover />
     </div>
   );
 };
@@ -77,16 +83,16 @@ export const Discover = () => {
       <div className={style.discoverText}>
         <h1
           className={style.discoverTitle}
-          data-aos="fade-up"
-          data-aos-easing="ease-in-out"
-          data-aos-duration="3500"
+          // data-aos="fade-up"
+          // data-aos-easing="ease-in-out"
+          // data-aos-duration="3500"
         >
           discover your dream house
         </h1>
         <span
-          data-aos="fade-up"
-          data-aos-easing="ease-in-out"
-          data-aos-duration="4500"
+        // data-aos="fade-up"
+        // data-aos-easing="ease-in-out"
+        // data-aos-duration="4500"
         >
           <Link to={routes.contact}>
             <Button primary isCurve margin padding uppercase>
@@ -192,3 +198,53 @@ export default Continents;
 ))}
 </div> */
 }
+
+{
+  /* <div className={style.container}>
+{continents?.data.map((continent: Props, index: Key) => (
+  <Link
+    to={`${routes.countries}/${continent.name}`}
+    key={continent._id}
+  >
+    <Tilt>
+      <div className="shadow-xl relative flex justify-center items-end">
+        <div className={style.imgContainer}>
+          <LazyLoadImage
+            alt={continent.name}
+            src={continent.image}
+            className={style.image}
+          />
+        </div>
+        <h1 className={style.title}>{continent.name}</h1>
+        <div className={style.overlay}></div>
+      </div>
+    </Tilt>
+  </Link>
+))}
+</div> */
+}
+
+{
+  /* <div className={style.container}>
+{continents?.data.map((continent: Props, index: Key) => (
+  <Link
+    to={`${routes.countries}/${continent.name}`}
+    key={continent._id}
+  >
+    <Tilt>
+      <div className="shadow-xl relative flex justify-center items-end">
+        <div className={style.imgContainer}>
+          <LazyLoadImage
+            alt={continent.name}
+            src={continent.image}
+            className={style.image}
+          />
+        </div>
+        <h1 className={style.title}>{continent.name}</h1>
+        <div className={style.overlay}></div>
+      </div>
+    </Tilt>
+  </Link>
+))} */
+}
+// </div>

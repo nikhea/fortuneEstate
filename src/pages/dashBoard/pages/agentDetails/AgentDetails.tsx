@@ -46,5 +46,6 @@ const AgentDetails = () => {
     </div>
   );
 };
+// lawal08145.
 // lg:col-start-9 lg:col-end-13 lg:col-start-1 lg:col-end-9
 export default AgentDetails;

@@ -14,7 +14,8 @@ import Spinner from "../../components/UI/Loading/spinner";
 const style = {
   container: `w-[90%] m-auto items-center justify-center grid gap-10 grid-cols-1 md:grid-cols-2 lg:grid-cols-3  my-[4rem] overflow-hidden`,
   items: `mx-6 mb-9 leading-[2] fl items-center flex-col `,
-  title: ` uppercase text-[1.5rem]  font-normal tracking-[1.1px] text-center  mb-5 absolute text-white z-50`,
+  // mb-5 absolute
+  title: ` uppercase text-[1.5rem]  font-normal tracking-[1.1px] text-center text-[#7f7f7f] text-white z-50`,
   imgContainer: `flex h-[300px] w-full`,
   image: ` w-[100vw] bg-black rounded-[15px] cursor-pointer `,
   link: `flex items-center text-center justify-center `,
@@ -60,21 +61,23 @@ const Countrie: FC = () => {
       />
       <div className={style.container}>
         {countries?.map((countrie: Props, index: Key) => (
-          <Link to={`${routes.properties}/${countrie.name}`} key={countrie._id}>
-            <Tilt>
-              <div className="shadow-2xl relative flex justify-center items-end my-10">
-                <div className={style.imgContainer}>
-                  <LazyLoadImage
-                    alt={countrie.name}
-                    src={countrie.image}
-                    className={style.image}
-                  />
-                </div>
-                <h1 className={style.title}>{countrie.name}</h1>
-                <div className={style.overlay}></div>
-              </div>
-            </Tilt>
-          </Link>
+          <div className={style.items} key={countrie._id}>
+            <div className={style.imgContainer}>
+              <LazyLoadImage
+                alt={countrie.name}
+                // effect="blur"
+                src={countrie.image}
+                className={style.image}
+              />
+            </div>
+
+            <h1 className={style.title}>{countrie.name}</h1>
+            <Link to={`${routes.properties}/${countrie.name}`}>
+              <Button uppercase primary isCurve full>
+                <div className={style.link}>view properties</div>
+              </Button>
+            </Link>
+          </div>
         ))}
       </div>
     </div>
@@ -101,4 +104,21 @@ export default Countrie;
   </Button>
 </Link>
 </div> */
+}
+{
+  /* <Link to={`${routes.properties}/${countrie.name}`} key={countrie._id}>
+<Tilt>
+  <div className="shadow-2xl relative flex justify-center items-end my-10">
+    <div className={style.imgContainer}>
+      <LazyLoadImage
+        alt={countrie.name}
+        src={countrie.image}
+        className={style.image}
+      />
+    </div>
+    <h1 className={style.title}>{countrie.name}</h1>
+    <div className={style.overlay}></div>
+  </div>
+</Tilt>
+</Link> */
 }
