@@ -44,7 +44,6 @@ const Continents: FC = () => {
     <div>
       <SEO title="continents" />
       <ContinentBanner />
-      /*{" "}
       <div className={style.container}>
         {continents?.data.map((continent: Props, index: Key) => (
           <div className={style.items} key={continent._id}>
@@ -70,8 +69,7 @@ const Continents: FC = () => {
             </Link>
           </div>
         ))}
-      </div>{" "}
-      */
+      </div>
       <Discover />
     </div>
   );

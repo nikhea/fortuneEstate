@@ -30,6 +30,27 @@ select {
   border-right: 16px solid transparent;
 }
 
+/* For WebKit browsers (e.g. Chrome, Safari) */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  /* // background: #f1f1f1; */
+}
+
+::-webkit-scrollbar-thumb {
+  /* // background: ; */
+  @apply bg-gray-300;
+  border-radius: 10px;
+}
+
+/* For Firefox */
+/* scrollbar-color: pink #f1f1f1; */
+#specifyColor {
+  /* // accent-color: #fb2e86; */
+}
+
 .apexcharts-toolbar {
   top: -4rem !important;
 }
