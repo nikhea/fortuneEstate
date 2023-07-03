@@ -7,20 +7,20 @@ export const countriesPlaceHolderData = {
       name: "poland",
       description: "list of countries in poland",
       bgImage:
-        "https://www.thehouse48.com/wp-content/uploads/elementor/thumbs/armenia-3718707_1280-p1sb1i87wbwg0l4bzofk9rrlu4yosl74mct2wn5fa4.jpg",
+        "https://images.unsplash.com/photo-1549877452-9c387954fbc2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8cGxhY2VzfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60",
       image:
-        "https://www.thehouse48.com/wp-content/uploads/elementor/thumbs/armenia-3718707_1280-p1sb1i87wbwg0l4bzofk9rrlu4yosl74mct2wn5fa4.jpg",
+        "https://images.unsplash.com/photo-1549877452-9c387954fbc2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8cGxhY2VzfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60",
       continent: {
         _id: "63ae2381870a805b808ce07b",
         name: "eroupe",
         bgImage:
-          "https://www.thehouse48.com/wp-content/uploads/2021/12/funfact.jpg",
+          "https://images.hindustantimes.com/img/2023/01/11/550x309/pexels-sevenstorm-juhaszimrus-575362_1673406546125_1673406570360_1673406570360.jpg",
         image:
-          "https://www.thehouse48.com/wp-content/uploads/elementor/thumbs/ne-3-1-pdhigtacej4acirrui0rp7ghym6q37udkz78ahlg04.jpg",
+          "https://images.hindustantimes.com/img/2023/01/11/550x309/pexels-sevenstorm-juhaszimrus-575362_1673406546125_1673406570360_1673406570360.jpg",
         description: "view list of countries in eroupe",
         countries: ["63e323d59af44f04701dcd1d", "63e3252d9af44f04701dcd2f"],
         createdAt: "2022-12-29T23:32:17.158Z",
-        updatedAt: "2023-02-08T04:29:33.366Z",
+        updatedAt: "2023-07-03T05:07:26.254Z",
         __v: 2,
       },
       properties: [
@@ -32,7 +32,7 @@ export const countriesPlaceHolderData = {
         "63fcb2bbff431b01b1b01e1b",
       ],
       createdAt: "2023-02-08T04:23:49.113Z",
-      updatedAt: "2023-02-27T13:40:11.415Z",
+      updatedAt: "2023-07-03T04:32:11.224Z",
       __v: 6,
     },
     {
@@ -40,20 +40,20 @@ export const countriesPlaceHolderData = {
       name: "usa",
       description: "list of properties in usa",
       bgImage:
-        "https://www.thehouse48.com/wp-content/uploads/2022/01/beach-side-residence-ga255aa7a1_1280.jpg",
+        "https://i0.wp.com/theluxurytravelexpert.com/wp-content/uploads/2016/07/cavallo-point-lodge-san-francisco.jpg?ssl=1",
       image:
-        "https://www.thehouse48.com/wp-content/uploads/elementor/thumbs/ne-3-1-pdhigtacej4acirrui0rp7ghym6q37udkz78ahlg04.jpg",
+        "https://i0.wp.com/theluxurytravelexpert.com/wp-content/uploads/2016/07/cavallo-point-lodge-san-francisco.jpg?ssl=1",
       continent: {
         _id: "63ae2395870a805b808ce07d",
         name: "north america",
         bgImage:
-          "https://www.thehouse48.com/wp-content/uploads/2021/12/funfact.jpg",
+          "https://www.expedia.com/stories/wp-content/uploads/2021/09/22-ECOM-ViewfinderTopNorthAmerica-1000x667-VancouverBritishColumbia.jpg",
         image:
-          "https://www.thehouse48.com/wp-content/uploads/elementor/thumbs/ne-3-1-pdhigtacej4acirrui0rp7ghym6q37udkz78ahlg04.jpg",
+          "https://www.expedia.com/stories/wp-content/uploads/2021/09/22-ECOM-ViewfinderTopNorthAmerica-1000x667-VancouverBritishColumbia.jpg",
         description: "view list of countries in north america",
         countries: ["63e324d39af44f04701dcd28", "63eb2435c7553dee00c1bc2d"],
         createdAt: "2022-12-29T23:32:37.532Z",
-        updatedAt: "2023-02-14T06:03:33.461Z",
+        updatedAt: "2023-07-03T05:09:58.025Z",
         __v: 2,
       },
       properties: [
@@ -62,7 +62,7 @@ export const countriesPlaceHolderData = {
         "63fd127fc3b6e6da95ba00bc",
       ],
       createdAt: "2023-02-08T04:28:03.257Z",
-      updatedAt: "2023-02-27T20:28:48.253Z",
+      updatedAt: "2023-07-03T04:38:20.588Z",
       __v: 3,
     },
     {
@@ -70,25 +70,25 @@ export const countriesPlaceHolderData = {
       name: "iceland",
       description: "list of properties in iceland",
       bgImage:
-        "https://www.thehouse48.com/wp-content/uploads/elementor/thumbs/armenia-3718707_1280-p1sb1i87wbwg0l4bzofk9rrlu4yosl74mct2wn5fa4.jpg",
+        "https://i.insider.com/60b0eea602ac410018f93521?width=1000&format=jpeg&auto=webp",
       image:
-        "https://www.thehouse48.com/wp-content/uploads/elementor/thumbs/armenia-3718707_1280-p1sb1i87wbwg0l4bzofk9rrlu4yosl74mct2wn5fa4.jpg",
+        "https://i.insider.com/60b0eea602ac410018f93521?width=1000&format=jpeg&auto=webp",
       continent: {
         _id: "63ae2381870a805b808ce07b",
         name: "eroupe",
         bgImage:
-          "https://www.thehouse48.com/wp-content/uploads/2021/12/funfact.jpg",
+          "https://images.hindustantimes.com/img/2023/01/11/550x309/pexels-sevenstorm-juhaszimrus-575362_1673406546125_1673406570360_1673406570360.jpg",
         image:
-          "https://www.thehouse48.com/wp-content/uploads/elementor/thumbs/ne-3-1-pdhigtacej4acirrui0rp7ghym6q37udkz78ahlg04.jpg",
+          "https://images.hindustantimes.com/img/2023/01/11/550x309/pexels-sevenstorm-juhaszimrus-575362_1673406546125_1673406570360_1673406570360.jpg",
         description: "view list of countries in eroupe",
         countries: ["63e323d59af44f04701dcd1d", "63e3252d9af44f04701dcd2f"],
         createdAt: "2022-12-29T23:32:17.158Z",
-        updatedAt: "2023-02-08T04:29:33.366Z",
+        updatedAt: "2023-07-03T05:07:26.254Z",
         __v: 2,
       },
       properties: [],
       createdAt: "2023-02-08T04:29:33.094Z",
-      updatedAt: "2023-02-08T04:29:33.094Z",
+      updatedAt: "2023-07-03T04:41:38.844Z",
       __v: 0,
     },
     {
@@ -96,25 +96,25 @@ export const countriesPlaceHolderData = {
       name: "nigeria",
       description: "list of properties in nigeria",
       bgImage:
-        "https://www.thehouse48.com/wp-content/uploads/elementor/thumbs/manarola-village-rocks-and-sea-at-sunset-cinque-te-P7EGXQX-piw8npfmni8w1w60h7wblm3gchby9y5ri0ke3nme1o.jpg",
+        "https://miro.medium.com/v2/resize:fit:720/format:webp/1*upJWa6TH3oqZeGJwyOMjnQ.jpeg",
       image:
-        "https://www.thehouse48.com/wp-content/uploads/elementor/thumbs/manarola-village-rocks-and-sea-at-sunset-cinque-te-P7EGXQX-piw8npfmni8w1w60h7wblm3gchby9y5ri0ke3nme1o.jpg",
+        "https://miro.medium.com/v2/resize:fit:720/format:webp/1*upJWa6TH3oqZeGJwyOMjnQ.jpeg",
       continent: {
         _id: "63ae2369870a805b808ce073",
         name: "africa",
         bgImage:
-          "https://www.thehouse48.com/wp-content/uploads/2021/12/funfact.jpg",
+          "https://blog.dookinternational.com/wp-content/uploads/2022/11/1.Explore-Cape-Town-South-Africa-.jpg",
         image:
-          "https://www.thehouse48.com/wp-content/uploads/elementor/thumbs/ne-3-1-pdhigtacej4acirrui0rp7ghym6q37udkz78ahlg04.jpg",
+          "https://blog.dookinternational.com/wp-content/uploads/2022/11/1.Explore-Cape-Town-South-Africa-.jpg",
         description: "view list of countries in south",
         countries: ["63e3260f9af44f04701dcd3c", "63eb3281dc64fdb626d12509"],
         createdAt: "2022-12-29T23:31:53.281Z",
-        updatedAt: "2023-02-14T07:04:34.023Z",
+        updatedAt: "2023-07-03T04:59:41.641Z",
         __v: 2,
       },
       properties: [],
       createdAt: "2023-02-08T04:33:19.162Z",
-      updatedAt: "2023-02-08T04:33:19.162Z",
+      updatedAt: "2023-07-03T04:49:16.759Z",
       __v: 0,
     },
     {
@@ -122,25 +122,25 @@ export const countriesPlaceHolderData = {
       name: "canada",
       description: "list of properties in canada",
       bgImage:
-        "https://scontent.flos5-2.fna.fbcdn.net/v/t1.18169-9/12990840_1136668953051037_7058469792348880139_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=9267fe&_nc_eui2=AeHvSzEP2aO0vng4tREbiM3oguJS4n7BALCC4lLifsEAsIgku8ZslkYAT4jT9XoSNQ7BsjVsOi_LalgxPUfYD2S1&_nc_ohc=0MJpu1Zxc-sAX-y_PI8&_nc_ht=scontent.flos5-2.fna&oh=00_AfB9_9sinrSEW9cdZ8l0eOtu5RmvX-iM95-X784DEaILtQ&oe=6412981B",
+        "https://assets.traveltriangle.com/blog/wp-content/uploads/2017/08/Quebec-City.jpg",
       image:
-        "https://scontent.flos5-2.fna.fbcdn.net/v/t1.18169-9/12990840_1136668953051037_7058469792348880139_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=9267fe&_nc_eui2=AeHvSzEP2aO0vng4tREbiM3oguJS4n7BALCC4lLifsEAsIgku8ZslkYAT4jT9XoSNQ7BsjVsOi_LalgxPUfYD2S1&_nc_ohc=0MJpu1Zxc-sAX-y_PI8&_nc_ht=scontent.flos5-2.fna&oh=00_AfB9_9sinrSEW9cdZ8l0eOtu5RmvX-iM95-X784DEaILtQ&oe=6412981B",
+        "https://assets.traveltriangle.com/blog/wp-content/uploads/2017/08/Quebec-City.jpg",
       continent: {
         _id: "63ae2395870a805b808ce07d",
         name: "north america",
         bgImage:
-          "https://www.thehouse48.com/wp-content/uploads/2021/12/funfact.jpg",
+          "https://www.expedia.com/stories/wp-content/uploads/2021/09/22-ECOM-ViewfinderTopNorthAmerica-1000x667-VancouverBritishColumbia.jpg",
         image:
-          "https://www.thehouse48.com/wp-content/uploads/elementor/thumbs/ne-3-1-pdhigtacej4acirrui0rp7ghym6q37udkz78ahlg04.jpg",
+          "https://www.expedia.com/stories/wp-content/uploads/2021/09/22-ECOM-ViewfinderTopNorthAmerica-1000x667-VancouverBritishColumbia.jpg",
         description: "view list of countries in north america",
         countries: ["63e324d39af44f04701dcd28", "63eb2435c7553dee00c1bc2d"],
         createdAt: "2022-12-29T23:32:37.532Z",
-        updatedAt: "2023-02-14T06:03:33.461Z",
+        updatedAt: "2023-07-03T05:09:58.025Z",
         __v: 2,
       },
       properties: [],
       createdAt: "2023-02-14T06:03:33.177Z",
-      updatedAt: "2023-02-14T06:03:33.177Z",
+      updatedAt: "2023-07-03T04:46:52.893Z",
       __v: 0,
     },
     {
@@ -155,13 +155,13 @@ export const countriesPlaceHolderData = {
         _id: "63ae2369870a805b808ce073",
         name: "africa",
         bgImage:
-          "https://www.thehouse48.com/wp-content/uploads/2021/12/funfact.jpg",
+          "https://blog.dookinternational.com/wp-content/uploads/2022/11/1.Explore-Cape-Town-South-Africa-.jpg",
         image:
-          "https://www.thehouse48.com/wp-content/uploads/elementor/thumbs/ne-3-1-pdhigtacej4acirrui0rp7ghym6q37udkz78ahlg04.jpg",
+          "https://blog.dookinternational.com/wp-content/uploads/2022/11/1.Explore-Cape-Town-South-Africa-.jpg",
         description: "view list of countries in south",
         countries: ["63e3260f9af44f04701dcd3c", "63eb3281dc64fdb626d12509"],
         createdAt: "2022-12-29T23:31:53.281Z",
-        updatedAt: "2023-02-14T07:04:34.023Z",
+        updatedAt: "2023-07-03T04:59:41.641Z",
         __v: 2,
       },
       properties: [],
