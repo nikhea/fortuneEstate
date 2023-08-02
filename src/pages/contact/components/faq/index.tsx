@@ -15,7 +15,7 @@ const index = () => {
         {/* <div className={style.tage}>faq</div> */}
         <h1 className={style.title}>freqently asked questions.</h1>
       </div>
-      <Faq data={data} styles={styles} config={config}/>
+      <Faq data={data} styles={styles} config={config} />
     </div>
   );
 };
@@ -39,30 +39,22 @@ const data = {
   title: "FAQ (How it works)",
   rows: [
     {
-      title: "Lorem ipsum dolor sit amet,",
-      content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sed tempor sem. Aenean vel turpis feugiat,
-                ultricies metus at, consequat velit. Curabitur est nibh, varius in tellus nec, mattis pulvinar metus.
-                In maximus cursus lorem, nec laoreet velit eleifend vel. Ut aliquet mauris tortor, sed egestas libero interdum vitae.
-                Fusce sed commodo purus, at tempus turpis.`,
+      title: "How do I get started with FortuneEstate?,",
+      content: `Getting started with FortuneEstate is easy! Simply download the app from the App Store or Google Play, create an account, and start browsing through our extensive property listings. You can also connect with our support team through live chat, phone call, or message for personalized assistance.`,
     },
     {
-      title: "Nunc maximus, magna at ultricies elementum",
+      title: "How frequently are property listings updated?",
       content:
-        "Nunc maximus, magna at ultricies elementum, risus turpis vulputate quam, vitae convallis ex tortor sed dolor.",
+        "We strive to keep our property listings up-to-date at all times. Our team works diligently to ensure that new properties are added regularly, and existing listings reflect accurate availability and pricing information.",
     },
     {
-      title: "Curabitur laoreet, mauris vel blandit fringilla",
-      content: `Curabitur laoreet, mauris vel blandit fringilla, leo elit rhoncus nunc, ac sagittis leo elit vel lorem.
-              Fusce tempor lacus ut libero posuere viverra. Nunc velit dolor, tincidunt at varius vel, laoreet vel quam.
-              Sed dolor urna, lobortis in arcu auctor, tincidunt mattis ante. Vivamus venenatis ultricies nibh in volutpat.
-              Cras eu metus quis leo vestibulum feugiat nec sagittis lacus.Mauris vulputate arcu sed massa euismod dignissim. `,
+      title:
+        "What is the process for purchasing or renting a property through FortuneEstate?",
+      content: `Once you've found the property you're interested in, our experienced agents will guide you through the entire process. From negotiations to paperwork, we'll make sure your property transaction is smooth and hassle-free. `,
     },
     {
-      title: "Lorem ipsum dolor sit amet,",
-      content: `Curabitur laoreet, mauris vel blandit fringilla, leo elit rhoncus nunc, ac sagittis leo elit vel lorem.
-              Fusce tempor lacus ut libero posuere viverra. Nunc velit dolor, tincidunt at varius vel, laoreet vel quam.
-              Sed dolor urna, lobortis in arcu auctor, tincidunt mattis ante. Vivamus venenatis ultricies nibh in volutpat.
-              Cras eu metus quis leo vestibulum feugiat nec sagittis lacus.Mauris vulputate arcu sed massa euismod dignissim. `,
+      title: "What if I have technical issues with the app?",
+      content: `If you encounter any technical issues while using FortuneEstate, please reach out to our support team immediately. We will work diligently to resolve any problems and ensure a seamless user experience. `,
     },
   ],
 };
