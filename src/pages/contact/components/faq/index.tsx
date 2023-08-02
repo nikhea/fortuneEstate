@@ -48,9 +48,8 @@ const data = {
         "We strive to keep our property listings up-to-date at all times. Our team works diligently to ensure that new properties are added regularly, and existing listings reflect accurate availability and pricing information.",
     },
     {
-      title:
-        "What is the process for purchasing or renting a property through FortuneEstate?",
-      content: `Once you've found the property you're interested in, our experienced agents will guide you through the entire process. From negotiations to paperwork, we'll make sure your property transaction is smooth and hassle-free. `,
+      title: "Is my personal information safe with FortuneEstate?",
+      content: `Yes, your privacy and data security are of utmost importance to us. FortuneEstate follows strict privacy practices and uses encryption to protect your personal information. You can review our detailed privacy policy in the app for more information. `,
     },
     {
       title: "What if I have technical issues with the app?",
