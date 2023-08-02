@@ -53,12 +53,13 @@ const contactForm: FC = () => {
     <div>
       <h1 className={style.title}>send a message</h1>
       <p className={style.titleMessage}>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet mollitia
-        tempora quis sequi in itaque eos voluptate voluptatem dolor, nisi
-        commodi pariatur id perferendis quibusdam repellat, molestias sunt, illo
-        esse? Quo labore ea aliquam assumenda debitis consequuntur consequatur
-        ullam qui, inventore, laboriosam tenetur similique quasi recusandae
-        dignissimos corporis, odio incidunt ducimus.
+        Reach out to us anytime, anywhere using our convenient messaging system.
+        Fill out the simple form on our app, and our team will promptly respond
+        to your inquiries. Whether you need more details about a listing or want
+        to schedule a property tour, we are here to support you. Experience the
+        power of FortuneEstate, where your dream property is just a few clicks
+        away. Download our app now and let us help you embark on an exciting
+        real estate journey!
       </p>
       {/* <div className={style.containerForm}> */}
       <FormProvider {...methods}>

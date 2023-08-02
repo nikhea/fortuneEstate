@@ -16,10 +16,10 @@ const FormLeft = () => {
       <div className={style.textContainer}>
         <h1 className={style.title}> call us</h1>
         <p className={style.description}>
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fugit,
-          placeat mollitia. Accusamus voluptatum quasi esse necessitatibus in
-          doloremque facere facilis aliquid Lorem ipsum dolor, sit amet
-          consectetur adipisicing elit.
+          When you need personalized assistance or have pressing inquiries,
+          don't hesitate to give us a call. Our team of dedicated real estate
+          experts is ready to guide you through the process, provide valuable
+          insights, and ensure you make informed decisions.
         </p>
         <a className={style.link}>
           <BiPhoneCall size={20} style={{ marginRight: "10px" }} /> 833 448 1403
@@ -28,10 +28,10 @@ const FormLeft = () => {
       <div className={style.textContainer}>
         <h1 className={style.title}> visit us</h1>
         <p className={style.description}>
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fugit,
-          placeat mollitia. Accusamus voluptatum quasi esse necessitatibus in
-          doloremque facere facilis aliquid Lorem ipsum dolor, sit amet
-          consectetur adipisicing elit. 
+          Drop by our FortuneEstate office. Our welcoming staff will be
+          delighted to meet you in person and discuss your unique preferences.
+          Explore our diverse property portfolio and discover the opportunities
+          that await you in the world of real estate.
         </p>
         <a className={style.link}>
           <MdVisibility size={20} style={{ marginRight: "10px" }} />{" "}
@@ -43,10 +43,10 @@ const FormLeft = () => {
       <div className={style.textContainer}>
         <h1 className={style.title}>live chat</h1>
         <p className={style.description}>
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fugit,
-          placeat mollitia. Accusamus voluptatum quasi esse necessitatibus in
-          doloremque facere facilis aliquid Lorem ipsum dolor, sit amet
-          consectetur adipisicing elit. 
+          Engage in real-time conversations with our experienced representatives
+          through our Live Chat feature. No matter where you are, our Live Chat
+          is available during business hours to answer your questions, assist
+          with property searches, and address any concerns you may have.
         </p>
         <a className={style.link}>
           <BsFillChatDotsFill size={20} style={{ marginRight: "10px" }} />
