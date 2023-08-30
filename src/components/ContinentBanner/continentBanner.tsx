@@ -1,8 +1,8 @@
 import { FC } from "react";
 import { IoPlayCircleOutline } from "react-icons/io5";
-
+import Chuttersnap from "../../images/Chuttersnap.jpg";
 const style = {
-  bgImage: ` md:mt-[2em] w-full h-[60vh] md:h-[340px]  bg-cover bg-center bg-no-repeat relative bg-fixed object-content z-50 bg-[url('https://www.thehouse48.com/wp-content/uploads/2021/12/chuttersnap-603079-unsplash-e1546425079773.jpg')]`,
+  bgImage: ` md:mt-[2em] w-full h-[60vh] md:h-[340px]  bg-cover bg-center bg-no-repeat relative bg-fixed object-content z-50 bg-[url('https://res.cloudinary.com/djkqaqoj3/image/upload/v1693392467/Chuttersnap_m4zaoo.jpg')]`,
   container: `h-full  w-[85%] m-auto flex flex-col text-cente md:flex-row  justify-center md:justify-between md:items-center`,
   textContainer: `text-white z-50   md:text-start mt-5`,
   title: `text-5xl md:text-6xl font-black uppercase tracking-wider`,
@@ -11,6 +11,8 @@ const style = {
   overlay: `h-full w-full top-0 left-0 absolute bg-black opacity-60 bg-fixed -z-50`,
 };
 // bgImage: `mt-[15em] w-full h-[100vh] md:h-[340px]   bg-[url('${imageLink}')] relative bg-fixed object-content bg-cover bg-center bg-no-repeat -z-50`,
+// bgImage: ` md:mt-[2em] w-full h-[60vh] md:h-[340px]  bg-cover bg-center bg-no-repeat relative bg-fixed object-content z-50 bg-[url('https://www.thehouse48.com/wp-content/uploads/2021/12/chuttersnap-603079-unsplash-e1546425079773.jpg')]`,
+// bgImage: ` md:mt-[2em] w-full h-[60vh] md:h-[340px]  bg-cover bg-center bg-no-repeat relative bg-fixed object-content z-50 bg-[url(${Chuttersnap})]`,
 
 const continentBanner: FC = () => {
   return (
