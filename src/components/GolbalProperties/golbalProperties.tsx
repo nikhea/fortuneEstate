@@ -33,7 +33,7 @@ interface Props {
   lastname?: string;
 }
 const style = {
-  bgContainer: `bg-[#F6F6F6] py-[1em]  px-[0.5em] `,
+  bgContainer: `bg-[#F6F6F6] py-[1em]  px-[0.5em] md:px-[2em]`,
   container: `w-[80%] m-auto my-10 text-center`,
   textContainer: `flex items-center text-center flex-col`,
   gridContainer: `grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 `,
