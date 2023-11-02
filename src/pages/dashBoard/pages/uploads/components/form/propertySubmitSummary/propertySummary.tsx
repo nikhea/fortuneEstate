@@ -1,13 +1,13 @@
 import { FormData } from "../../formInterface";
 const PropertySummary: React.FC = () => {
-  const summary: FormData = JSON.parse(
+  const { category, title, priceSymbol }: FormData = JSON.parse(
     localStorage.getItem("storageKey") || "{}"
   );
-  console.log("summary", (summary as any).category);
+  console.log("summary");
 
   return (
     <div>
-      <h1>property title : {summary.title}</h1>
+      <h1>property title : {priceSymbol}</h1>
     </div>
   );
 };
