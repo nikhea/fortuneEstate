@@ -1,4 +1,4 @@
-export const displaPriceSymbol = (priceSymbol: string): string => {
+export const displaPriceSymbol = (priceSymbol: any): any => {
   switch (priceSymbol) {
     case "USD":
       return "$";

@@ -18,6 +18,7 @@ import { routes } from "../../routes/routes";
 import { Link } from "react-router-dom";
 import PageLoading from "../UI/Loading/PageLoading";
 import { AllPropertiesPlaceHolderData } from "../../data/AllPropertiesPlaceHolderData";
+import { displaPriceSymbol } from "../../utils/formatePriceSymbol";
 
 const style = {
   container: `w-[80%] m-auto my-10 leading-[100px]`,
@@ -87,7 +88,8 @@ const SimilarProperties: FC<Props> = () => {
             <div className={style.sub}>
               {/* <p className={style.tag}>{tage}</p> */}
               <p className={style.price}>
-                $ {formatToCurrency(property.price!)}
+                {displaPriceSymbol(property.priceSymbol?.toUpperCase())}{" "}
+                {formatToCurrency(property.price!)}
               </p>
             </div>
           </div>
