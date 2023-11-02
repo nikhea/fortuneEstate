@@ -1,5 +1,6 @@
 import { FC } from "react";
 import Button from "../../../../../../components/UI/FormElement/Button";
+import PropertySummary from "./propertySubmitSummary/propertySummary";
 
 interface SubmiteProps {
   register: any;
@@ -34,9 +35,7 @@ const Submit: FC<SubmiteProps> = ({
   };
   return (
     <div>
-      <div>
-        <h1>property title</h1>
-      </div>
+      <PropertySummary />
       <div className={style.buttonContainer}>
         <Button rounded primary Color="#8392A5" onClick={previous}>
           Pre
