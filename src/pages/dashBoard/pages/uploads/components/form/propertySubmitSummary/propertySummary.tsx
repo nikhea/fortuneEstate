@@ -1,11 +1,7 @@
-import React from "react";
+const PropertySummary: React.FC = () => {
+  const summary = JSON.parse(localStorage.getItem("storageKey") || "{}");
+  console.log("summary", (summary as any).category);
 
-const PropertySummary = () => {
-  const getLocalStorage = () => {
-    if (localStorage.getItem("data")) {
-      let localStorageItem = JSON.parse(localStorage.getItem("data"));
-    }
-  };
   return <div>propertySummary</div>;
 };
 
