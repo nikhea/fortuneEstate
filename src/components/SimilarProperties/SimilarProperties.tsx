@@ -88,7 +88,7 @@ const SimilarProperties: FC<Props> = () => {
             <div className={style.sub}>
               {/* <p className={style.tag}>{tage}</p> */}
               <p className={style.price}>
-                {displaPriceSymbol(property.priceSymbol?.toUpperCase())}{" "}
+                {displaPriceSymbol(property.priceSymbol)}{" "}
                 {formatToCurrency(property.price!)}
               </p>
             </div>

@@ -3,6 +3,7 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 import { Link } from "react-router-dom";
 import { routes } from "../../../../routes/routes";
 import { formatToCurrency } from "../../../../utils/formateNumbers";
+import { displaPriceSymbol } from "../../../../utils/formatePriceSymbol";
 
 interface IFeatureCard {
   ID: string;
@@ -49,6 +50,7 @@ const FeatureCards: FC<IFeatureCard> = ({
           </Link>
           <h1 className=" my-1">
             {priceSymbol}
+            {/* {displaPriceSymbol(priceSymbol)} */}
             <span className="text-blue-500 ml-1">
               {formatToCurrency(price!)}
             </span>

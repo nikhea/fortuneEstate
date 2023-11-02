@@ -2,6 +2,7 @@ import { FC } from "react";
 import { Link } from "react-router-dom";
 import { routes } from "../../../../routes/routes";
 import { formatToCurrency } from "../../../../utils/formateNumbers";
+import { displaPriceSymbol } from "../../../../utils/formatePriceSymbol";
 
 interface INewListingCard {
   ID: string;
@@ -50,7 +51,7 @@ const NewListingCard: FC<INewListingCard> = ({
           </Link>
           <div className={style.priceContainer}>
             <h2 className={style.price}>
-              {priceSymbol} {formatToCurrency(price!)}
+              {displaPriceSymbol(priceSymbol)} {formatToCurrency(price!)}
             </h2>
           </div>
         </div>
