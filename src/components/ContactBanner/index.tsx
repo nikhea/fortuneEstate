@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { IoPlayCircleOutline } from "react-icons/io5";
+// import { IoPlayCircleOutline } from "react-icons/io5";
 import { GrFacebookOption, GrInstagram, GrTwitter } from "react-icons/gr";
 import { FaTiktok } from "react-icons/fa";
 const style = {
