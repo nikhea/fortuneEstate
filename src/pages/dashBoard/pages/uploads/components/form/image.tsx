@@ -13,18 +13,7 @@ const style = {
   uploadImage: `border-4 border-dashed flex items-center justify-center h-[50vh] w-[40vw] m-auto mb-10 `,
   icon: ` cursor-pointer text-[#E5E5E5]  hover:text-[#0D304A]`,
 };
-// const url: any[] = [
-//   {
-//     url: `https://res.cloudinary.com/dwtx0sgd6/image/upload/v1671983131/propertyUploadImages/ravz7wxfocabke4vfquh.jpg`,
-//   },
-//   {
-//     url: `https://images.unsplash.com/photo-1559705421-4ae9bf6fabb5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8dGh1bWJuYWlsfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60`,
-//   },
-//   {
-//     url: `https://images.unsplash.com/photo-1559705421-4ae9bf6fabb5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8dGh1bWJuYWlsfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60`,
-//   },
-// ];
-// localStorage.setItem("propertiesImage", JSON.stringify(url));
+
 const image: FC<ImageComponentProps> = ({ nextStep, prevStep, errors }) => {
   let displayPropertiesImages;
   const { setValue, register, watch } = useFormContext();
@@ -157,19 +146,3 @@ interface Props {
   url: string;
   original_filename: string;
 }
-
-// useEffect(() => {
-//   const loadedImages = async () => {
-//     if (localStorage.getItem("propertiesImage")) {
-//       const ParsedImages = localStorage.getItem("propertiesImage");
-//       const localImage = JSON.parse(ParsedImages!);
-//       setValue("propertyImages", images);
-//       for (const file of localImage) {
-//         setImages((image) => [...image, file]);
-//       }
-//     }
-//     console.log("loading localImage", images);
-//   };
-
-//   loadedImages();
-// }, []);
