@@ -8,16 +8,20 @@ import { BiStats } from "react-icons/bi";
 import { SiGoogletagmanager } from "react-icons/si";
 import { HiHomeModern } from "react-icons/hi2";
 import { FiUsers } from "react-icons/fi";
+import ImageLogo from "../../../dist/assets/Frame65.png";
+// import ImageLogo from "../../../dist/assets/Frame64.png";
+// active: `   text-white`,
+
 const style = {
   sidBarLayout: ` bg-white overflow-hidde hidden md:flex flex-col h-full py-[1em]`,
   container: ` flex justify-between w-[95%]  m-auto m-0 text-cente items-center  `,
   lists: `capitalize justify-between  mt-8 w-full h-full lg:flex flex-col`,
-  list: `  w-full [&>*]:py-2 [&>*]:px-5  [&>*]:w-full my-5 [&>*]:inline-block [&>*]:flex [&>*]:items-center `,
+  list: `  w-full [&>*]:py-2 [&>*]:px-5  [&>*]:w-full my-5 [&>*]:inline-block [&>*]:flex [&>*]:items-center  hover:bg-[#8392A5] hover:text-white transition duration-300 ease-in-out`,
   upNavigation: ``,
   downNavigation: ``,
   logo: `w-[190px]`,
   icon: `text-red-300`,
-  active: ` bg-[#E5E5E5]  bg-[#8392A5]  text-white`,
+  active: `  bg-[#0D304A] !text-white transition duration-300 ease-in-out`,
   btn: `uppercase  rounded-full `,
   shadow: ``,
   btnadvertising: `hidden md:flex`,
@@ -35,7 +39,12 @@ const SideBar: FC = () => {
   return (
     <div className={style.sidBarLayout}>
       <Link to={routes.home} className={style.logoBig}>
-        Fortune Estate
+        {/* Fortune Estate */}
+        <img
+          className="w-50 h-10 object-contain"
+          src={ImageLogo}
+          alt="fortune estate"
+        />
         {/* <img src="https://www.thehouse48.com/wp-content/uploads/2021/11/cropped-H48-1280x400-1.png" /> */}
       </Link>
       <ul className={style.lists}>
