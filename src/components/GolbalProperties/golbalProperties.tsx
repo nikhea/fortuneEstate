@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { FC } from "react";
 import { Link } from "react-router-dom";
 import PropertiesList from "../../components/propertiesList/propertiesList";

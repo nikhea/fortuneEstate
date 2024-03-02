@@ -48,9 +48,9 @@ const Button: FC<Button> = ({
     btn: `border border-solid bg-transparen min-w-[100px] not-italic font-[400] text-[14px] outline-none cursor-pointer mx-0 py-[1.3em] px-0`,
 
     disabled: `cursor-not-allowed`,
-    primary: `text-white font-bold bg-[#06c4e5] `,
+    primary: `text-white  bg-[#0D304A] font-normal `,
     rounded: `rounded-[40px] `,
-    transparent: `bg-transparent border border-[#b9b9b9] border-solid	 text-[#000] `,
+    transparent: `bg-transparent border border-[#b9b9b9] border-solid	 text-[#111]  `,
     full: `w-full`,
     bold: ``,
     margin: `m-0`,
@@ -59,9 +59,10 @@ const Button: FC<Button> = ({
     curve: `rounded-[8px] `,
     uppercase: `uppercase`,
     padding: `!px-[5em] !py-[1em]`,
-    linearGradient: `bg-gradient-to-r from-cyan-500 to-blue-500 !px-[1.3em] !py-0 tracking-widest outline-none min-h-[44px] border-0 `,
+    linearGradient: `  bg-[#0D304A] text-white  !px-[1.3em] !py-0 tracking-widest outline-none min-h-[44px] border-0  `,
     border: `  tracking-widest     border-[2px]  `,
     center: `flex items-center w-fit`,
+    // linearGradient: `bg-gradient-to-r from-cyan-500 to-blue-500 !px-[1.3em] !py-0 tracking-widest outline-none min-h-[44px] border-0 `,
   };
   // btn: `bg-[#06c4e5] w-full  text-center text-[0.9rem] tracking-[3px] text-white py-2  capitalize  rounded `,
 

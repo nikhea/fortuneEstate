@@ -1,62 +1,79 @@
 import { FC } from "react";
 import Button from "../../components/UI/FormElement/Button";
 
+// bg-[#e6e9efa3]
 const style = {
-  container: `text-white  w-[85%] m-auto   flex flex-col lg:flex-row items-center justify-between  pt-[4.5%] pr-[0%] pb-[4%] pl-[0%] sm:mt-0 lg:mt-5 `,
-  bgContainer: `bg-[#2EA8F2]`,
+  discoverContainer: `capitalize text-center w-[92%] lg:w-[50%] m-auto  h-[40vh] bg-[#0D304A] text-white my-[7%] rounded-[30px]`,
+  container: ` flex items-center justify-center  flex-col  h-full`,
+  bgContainer: `bg-[#E5E5E5] `,
   textContainer: ``,
-  title: `text-3xl leading-[2em] lg:tracking-widest`,
-  subText: `text-base lg:tracking-widest`,
-  inputContainer: `relative w-[450px] max-w-[96%] mt-[2em]  `,
-  emailInput: `w-full outline-none text-black rounded-[30px] py-[15px] px-[32px] bg-[rgba(255,255,255,0.3)] text-[.9375rem] shadow-2xl shadow-[0 3px 35px #00000040]`,
-  btn: `z-2 right -top-8 right-0  bottom-0 absolute  h-2 outline-none my-9 mx-[5px]   `,
-  btns: `my-[4px] mx-[5px] py-[0] px-[25px] h-[44px] text-[1rem]  rounded-full z-2 right-0 absolute outline-none  bg-gradient-to-r from-cyan-500 to-blue-500`,
+  title: `text-3xl leading-[2em] `,
+  subText: ` text-sm text-base lg:tracking-`,
+  inputContainer: ` w-[450px] max-w-[96%] mt-[2em] flex flex-col justify-end items-end `,
+  emailInput: `w-full outline-none text-black rounded-[30px] py-[15px] px-[32px] outline-none text-[#111]  text-[.9375rem] `,
+  btn: ` bg-white my-3 px-[22px] py-[10px] text-[#0D304A] uppercase rounded-[30px]`,
+  btns: ``,
 };
-// btn: `my-[4px] mx-[5px] py-[0] px-[25px] h-[44px] text-[1rem]  rounded-full z-2 right-0 absolute outline-none  bg-gradient-to-r from-cyan-500 to-blue-500`,
-
-// 0 3px 35px #00000040
-const newsletter: FC = () => {
+// text-[#0D304A]  w-[85%] m-auto   flex flex-col lg:flex-row items-center justify-between  pt-[4.5%] pr-[0%] pb-[4%] pl-[0%] sm:mt-0 lg:mt-5
+export const Newsletter = () => {
+  const handleSubmit = (e: any) => {
+    e.preventDefault();
+  };
   return (
-    <div
-      className={style.bgContainer}
-      // data-aos="fade-up"
-      // data-aos-easing="ease-in-out"
-      // data-aos-duration="1600"
-    >
+    <div className={style.discoverContainer}>
       <div className={style.container}>
-        <div
-          className={style.textContainer}
-          // data-aos="fade-right"
-          // data-aos-easing="ease-in-out"
-          // data-aos-duration="9000"
-        >
+        <div className={style.textContainer}>
           <h2 className={style.title}>Sign Up For Our Daily Newsletter</h2>
           <p className={style.subText}>
             Sign up for our emails and be the first to know about special
             offers.
           </p>
         </div>
-        <form
-          className={style.inputContainer}
-          // data-aos="fade-left"
-          // data-aos-easing="ease-in-out"
-          // data-aos-duration="9500"
-        >
+        <form className={style.inputContainer} onSubmit={handleSubmit}>
           <input
             className={style.emailInput}
             type="email"
             placeholder="Enter Your Email"
           />
-          {/* <input className={style.btns} type="submit" value="SUBMIT" /> */}
-          <div className={style.btn}>
-            <Button primary rounded linearGradient uppercase>
-              submit
-            </Button>
-          </div>
+          <button className={style.btn}>submit</button>
         </form>
       </div>
     </div>
   );
 };
 
-export default newsletter;
+export default Newsletter;
+// const newsletter: FC = () => {
+//   return (
+//     <div className={style.bgContainer}>
+//       <div className={style.container}>
+//         <div className={style.textContainer}>
+//           <h2 className={style.title}>Sign Up For Our Daily Newsletter</h2>
+//           <p className={style.subText}>
+//             Sign up for our emails and be the first to know about special
+//             offers.
+//           </p>
+//         </div>
+//         <form className={style.inputContainer} onSubmit={handleSubmit}>
+//           <input
+//             className={style.emailInput}
+//             type="email"
+//             placeholder="Enter Your Email"
+//           />
+//           <button className={style.btn}>submit</button>
+//         </form>
+//       </div>
+//     </div>
+//   );
+// };
+// const style = {
+//   container: `text-[#0D304A]  w-[85%] m-auto   flex flex-col lg:flex-row items-center justify-between  pt-[4.5%] pr-[0%] pb-[4%] pl-[0%] sm:mt-0 lg:mt-5 `,
+//   bgContainer: `bg-[#E5E5E5] `,
+//   textContainer: ``,
+//   title: `text-3xl leading-[2em] `,
+//   subText: `text-base lg:tracking-`,
+//   inputContainer: ` w-[450px] max-w-[96%] mt-[2em] flex flex-col justify-end items-end `,
+//   emailInput: `w-full outline-none text-black rounded-[30px] py-[15px] px-[32px] outline-none text-[#111] rounded-md   text-[.9375rem] `,
+//   btn: ` bg-white my-3 px-[22px] py-[10px] text-[#0D304A] uppercase rounded-[30px]`,
+//   btns: ``,
+// };

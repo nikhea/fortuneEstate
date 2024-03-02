@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { FC, Key } from "react";
 import { useQuery } from "react-query";
 import { getAllProperties } from "../../services/api/shared";
@@ -25,15 +26,15 @@ const style = {
   similar: `font-semibold text-xl uppercase text-center`,
   mainContainer: `w-full flex rounded-xl flex-col relative `,
   image: ` w-full h-full object-cover flex rounded-xl  `,
-  textContainer: `rounded-b-xl flex flex-col justify-between pt-[1em] px-[1em] absolute bottom-0  left-0 right-0 z-20 `,
-  bgWhite: `pt-[1em] px-[1em] absolute bottom-0 bg-white left-0 right-0 rounded-b-xl hidde bg-gradient-to-r from-cyan-500 to-blue-500 text-white`,
-  title: `font-bold text-xl `,
+  textContainer: `rounded-b-xl flex flex-col justify-between py-[1em] px-[1em] absolute bottom-0  left-0 right-0 z-20 `,
+  bgWhite: `py-[1em] px-[1em] absolute bottom-0 bg-white left-0 right-0 rounded-b-xl hidde bg-gradient-to- from-cyan-500 to-blue-500 text-white !bg-[#0D304A]`,
+  title: `text-sm  font-bold lg:text-xl `,
   location: `font-[400]   flex items-center hidden md:flex`,
   bed: `text-sm   flex items-center`,
   span: `font-[400] `,
   bath: `text-sm  flex items-center`,
   sub: `flex justify-between items-center my-2`,
-  price: `text-[1.5rem]`,
+  price: `lg:text-[1.5rem]`,
   textPrice: `text-white mb-[50px] md:mb-[70px]`,
   listingType: `capitalize rounded-md   text-white absolute py-1 px-3 text-center z-[90] top-2 left-3 transistion ease-out duration-1000`,
   imgContainer: `w-full flex rounded-t-xl flex-col relative [&>p]:hover:hidde [&>p]:transistion [&>p]:ease-in [&>p]:duration-3000`,
@@ -51,7 +52,7 @@ const SimilarProperties: FC<Props> = () => {
   });
   if (!properties) return;
   if (status === "success") {
-    const p = properties?.data.results[0].data.slice(0, 6);
+    const p = properties?.data?.results[0].data.slice(0, 6);
     if (Array.isArray(p)) {
       propertiesResult = p || [];
     }
@@ -71,7 +72,7 @@ const SimilarProperties: FC<Props> = () => {
           />
           <p
             className={`${style.listingType} ${
-              property.listingType === "sale" ? "bg-purple-500" : "bg-red-500"
+              property.listingType === "sale" ? "bg-[#0D304A]" : "bg-[#0D304A]"
             }`}
           >
             for {property.listingType}
@@ -80,13 +81,10 @@ const SimilarProperties: FC<Props> = () => {
         <div className={style.textContainer}>
           <div className={style.textPrice}>
             <Link to={`${routes.property}/${property._id}`}>
-              {/* <a href={`${routes.property}/${property._id}`} target="_blank"> */}
               <h1 className={style.title}>{property.title}</h1>
-              {/* </a> */}
             </Link>
 
             <div className={style.sub}>
-              {/* <p className={style.tag}>{tage}</p> */}
               <p className={style.price}>
                 {displaPriceSymbol(property.priceSymbol)}{" "}
                 {formatToCurrency(property.price!)}
@@ -191,6 +189,16 @@ const responsive = {
     items: 1,
   },
 };
+// property.listingType === "sale" ? "bg-purple-500" : "bg-red-500"
+{
+  /* <p */
+}
+// className={`${style.listingType} ${
+//   property.listingType === "sale" ? "#0D304A" : "#0D304A"
+// }`}
+// >
+// for {property.listingType}
+// </p>
 interface Props {
   [x: string]: any;
   ID?: string;

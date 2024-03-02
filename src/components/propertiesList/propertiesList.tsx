@@ -95,7 +95,7 @@ const propertiesList: FC<propertiesList> = ({
               <p
                 // className={style.listingType}
                 className={`${style.listingType} ${
-                  listingType === "sale" ? "bg-purple-500" : "bg-red-500"
+                  listingType === "sale" ? "bg-[#0D304A]" : "bg-[#0D304A]"
                 }`}
               >
                 for {listingType}

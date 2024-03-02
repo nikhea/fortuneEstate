@@ -1,4 +1,5 @@
 import { FC } from "react";
+import ImageLogo from "../../../dist/assets/Frame65.png";
 
 const style = {
   container: `w-[95%] m-auto my-[4em] flex justify-center `,
@@ -11,13 +12,21 @@ const style = {
 const HouseBanner: FC = () => {
   return (
     <div className={style.container}>
-      <div className={style.logoBig}>FortuneEstate</div>
-      {/* <div className={style.logo}>
-        Fortune Estate */}
-      {/* <img className={style.img} src="https://www.thehouse48.com/wp-content/uploads/2021/11/cropped-H48-1280x400-1.png" /> */}
-      {/* </div> */}
+      <div className={style.logoBig}>
+        <img className="object-contain" src={ImageLogo} alt="fortune estate" />
+      </div>
     </div>
   );
 };
 
 export default HouseBanner;
+{
+  /* <div className={style.logo}>
+        Fortune Estate */
+}
+{
+  /* <img className={style.img} src="https://www.thehouse48.com/wp-content/uploads/2021/11/cropped-H48-1280x400-1.png" /> */
+}
+{
+  /* </div> */
+}

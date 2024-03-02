@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 import { FC } from "react";
 import { Routes, Route } from "react-router-dom";
 import { RouteComponentProps } from "@reach/router";

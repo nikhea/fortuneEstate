@@ -3,7 +3,7 @@ import { FC } from "react";
 import { GrFacebookOption, GrInstagram, GrTwitter } from "react-icons/gr";
 import { FaTiktok } from "react-icons/fa";
 const style = {
-  bgImage: ` md:mt-[2em] w-full h-[60vh] md:h-[440px]  bg-cover bg-center bg-no-repeat relative bg-fixed object-content z-50 bg-[url('https://res.cloudinary.com/djkqaqoj3/image/upload/v1693397026/photo-1683721003111-070bcc053d8b_aro2zx.jpg')]`,
+  bgImage: ` md:mt-[2em] w-full h-[40vh] md:h-[440px]  bg-cover bg-center bg-no-repeat relative bg-fixed object-content z-50 bg-[url('https://res.cloudinary.com/djkqaqoj3/image/upload/v1693397026/photo-1683721003111-070bcc053d8b_aro2zx.jpg')]`,
   container: `h-full  w-[85%] m-auto flex flex-col md:flex-row  justify-center md:justify-between md:items-center`,
   textContainer: `text-white z-50   md:text-start mt-5`,
   socialIcons: `flex  lg:justify-between bg-red-20 my-10`,
@@ -19,22 +19,9 @@ const contactBanner: FC = () => {
     <div className={style.bgImage}>
       <div className={style.container}>
         <div className={style.textContainer}>
-          <h1
-            className={style.title}
-            // data-aos="fade-right"
-            // data-aos-easing="ease-in-out"
-            // data-aos-duration="1500"
-          >
-            contact us
-          </h1>
+          <h1 className={style.title}>contact us</h1>
         </div>
-
-        <div
-          className={style.socialIcons}
-          // data-aos="fade-left"
-          // data-aos-easing="ease-in-out"
-          // data-aos-duration="2500"
-        >
+        <div className={style.socialIcons}>
           <div className={style.circle}>
             <GrFacebookOption color="#fff" size={20} />
           </div>
