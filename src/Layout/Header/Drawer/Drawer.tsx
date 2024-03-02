@@ -35,7 +35,7 @@ const DrawerComponent: FC<IDrawerProps> = ({ text, home }) => {
           direction="right"
           duration={1000}
           className="md:hidden text-[#0D304A]"
-          style={{ width: "60vw", zIndex: "999" }}
+          style={{ width: "80vw", zIndex: "999" }}
         >
           <button className={style.drawerInsidetoggle} onClick={toggleDrawer}>
             <Humburger toggled={isOpen} />

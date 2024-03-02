@@ -14,15 +14,15 @@ import { registerSchema } from "./SCHEMA";
 import { useAuth } from "../../lib/auth";
 
 const style = {
-  container: `grid grid-cols-2 h-full `,
-  ImgContainer: ` w-[100%] `,
-  img: `hidden md:flex h-full `,
-  content: `w-full mx-[-10%]`,
+  container: `grid lg:grid-cols-2 gap-0 h-full`,
+  ImgContainer: ` bg-green-200 hidden lg:flex h-full w-full`,
+  img: `hidden lg:flex h-full w-full`,
+  content: `  w-[90%] m-auto h-full   flex flex-col items-center justify-center`,
   text: `text-[#0A2952] text-[2.125rem] uppercase font-bold `,
   header: `flex items-center justify-between w-full mt-[20px] mb-[10px]`,
-  form: ` h-[] flex flex-col items-center justify-center`,
+  form: ` h-full flex flex-col items-center mt-20 `,
   checkbox: `flex items-center [&>*]:mr-[15px] font-light my-[20px]`,
-  inputHalf: `flex justify-between gap-1`,
+  inputHalf: `flex justify-between gap-1 my-5`,
   forgot: `flex justify-between items-center`,
   forgotpassword: `text-blue-600`,
   errors: `block `,
@@ -82,28 +82,25 @@ const auth: FC = () => {
   };
   return (
     <div className={style.container}>
-      {/* <StickyBox offsetTop={20} offsetBottom={20}> */}
-      <img src={AuthBG} alt={AuthBG} className={style.img} />
-      {/* </StickyBox> */}
-      {/* REGISTER */}
+      <div className={style.ImgContainer}>
+        <img src={AuthBG} alt={AuthBG} className={style.img} />
+      </div>
       <div className={style.content}>
         <div className={style.header}>
           <h2 className={style.text}>register</h2>
           <AiOutlineClose
-            size={20}
+            size={30}
             onClick={closeRegisterModal}
             style={{ cursor: "pointer" }}
-            //   style={{ marginRight: "11px" }}
           />
         </div>
         <form
           autoComplete="off"
-          //  autoComplete="nope"
           className={style.form}
           onSubmit={handleSubmit(submitForm)}
         >
           <div>
-            <span>
+            <span className={style.inputHalf}>
               <Input
                 type="email"
                 name="email"
@@ -119,7 +116,7 @@ const auth: FC = () => {
                 {errors.email?.message && <p>{errors.email?.message}</p>}
               </p>
             </span>
-            <span>
+            <span className={style.inputHalf}>
               <Input
                 type="text"
                 name="username"
@@ -196,8 +193,8 @@ const auth: FC = () => {
               <p className={style.errors}>{errors.role?.message}</p>
             </span>
             <div className={style.checkbox}>
-              {/* <input type="checkbox" />
-              <span>I Agree To The Terms Of Service</span> */}
+              <input type="checkbox" />
+              <span>I Agree To The Terms Of Service</span>
             </div>
           </div>
           <Button
@@ -219,3 +216,17 @@ const auth: FC = () => {
 };
 
 export default auth;
+// const style = {
+//   container: `grid grid-cols-2 h-full `,
+//   ImgContainer: ` w-[100%] `,
+//   img: `hidden md:flex h-full `,
+//   content: `w-full mx-[-10%]`,
+//   text: `text-[#0A2952] text-[2.125rem] uppercase font-bold `,
+//   header: `flex items-center justify-between w-full mt-[20px] mb-[10px]`,
+//   form: ` h-full flex flex-col items-center justify-center bg-red-200`,
+//   checkbox: `flex items-center [&>*]:mr-[15px] font-light my-[20px]`,
+//   inputHalf: `flex justify-between gap-1`,
+//   forgot: `flex justify-between items-center`,
+//   forgotpassword: `text-blue-600`,
+//   errors: `block `,
+// };

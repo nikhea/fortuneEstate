@@ -16,9 +16,10 @@ interface FormData {
   password: string;
 }
 const style = {
-  container: `grid grid-cols-2  h-full `,
-  img: `hidden md:flex h-full`,
-  content: `w-full mx-[-10%]`,
+  container: `grid lg:grid-cols-2 gap-0 h-full`,
+  ImgContainer: ` bg-green-200 hidden lg:flex h-full w-full`,
+  img: `hidden lg:flex h-full w-full`,
+  content: `  w-[90%] m-auto h-full   flex flex-col items-center `,
   text: `text-[#0A2952] text-[2.125rem] uppercase font-bold `,
   header: `flex items-center justify-between w-full mt-[20px] mb-[10px]`,
   formSignIn: ` h-full md:h-[65%]  flex flex-col items-center justify-center`,
@@ -62,20 +63,20 @@ const auth: FC = () => {
   }
   return (
     <div className={style.container}>
-      <img src={AuthBG} alt={AuthBG} className={style.img} />
-
+      <div className={style.ImgContainer}>
+        <img src={AuthBG} alt={AuthBG} className={style.img} />
+      </div>
       {/* SIGN UP */}
       <div className={style.content}>
         <div className={style.header}>
           <h2 className={style.text}>sign in</h2>
           <AiOutlineClose
-            size={20}
+            size={30}
             onClick={closeSignInModal}
             style={{ cursor: "pointer" }}
           />
         </div>
         <form
-          // autoComplete="off"
           autoComplete="nope"
           className={style.formSignIn}
           onSubmit={handleSubmit(submitForm)}
@@ -91,9 +92,7 @@ const auth: FC = () => {
               isWhiteBg
               inputRef={register("email", { required: true })}
             />
-            {/* <p className={style.errors}>
-              {errors.email?.message && <p>{errors.email?.message}</p>}
-            </p> */}
+
             <Input
               name="password"
               type="password"
@@ -104,18 +103,6 @@ const auth: FC = () => {
               isWhiteBg
               inputRef={register("password", { required: true })}
             />
-            {/* <p className={style.errors}>
-              {errors.password?.message && <p>{errors?.password?.message}</p>}
-            </p> */}
-            {/* <div className={style.forgot}>
-              <div className={style.checkbox}>
-                <input type="checkbox" />
-                <span>Remeber Me</span>
-              </div>
-              <p className={style.forgotpassword}>
-                <Link to="#">Forgot your password?</Link>
-              </p>
-            </div> */}
           </div>
           <div className={style.checkbox}></div>
           <Button
@@ -130,9 +117,6 @@ const auth: FC = () => {
           >
             login
           </Button>
-          {/* <button className={style.btn} type="submit">
-          
-          </button> */}
         </form>
       </div>
     </div>
@@ -141,6 +125,22 @@ const auth: FC = () => {
 
 export default auth;
 
+// const style = {
+//   container: `grid lg:grid-cols-2 gap-0 h-full`,
+//   ImgContainer: ` bg-green-200 hidden md:flex h-full w-full`,
+//   img: `hidden md:flex h-full w-full`,
+//   content: `w-full mx-[-10%]`,
+//   text: `text-[#0A2952] text-[2.125rem] uppercase font-bold `,
+//   header: `flex items-center justify-between w-full mt-[20px] mb-[10px]`,
+//   formSignIn: ` h-full md:h-[65%]  flex flex-col items-center justify-center`,
+//   checkbox: `flex items-center [&>*]:mr-[15px] font-light my-[5px]`,
+//   inputHalf: `flex justify-between [&>*]:w-[47%]`,
+//   input: `my-[12px] bg-[#f1f1f1] rounded-[25px] py-[15px] px-[23px] text-[#9a9a9a] text-[.9375rem] font-bol w-full outline-none pr-[23px]`,
+//   btn: `w-[100%] text-white  my-[4px] mx-[5px] py-[0] px-[25px] h-[44px] text-[1rem]  rounded-full  outline-none  bg-gradient-to-r from-cyan-500 to-blue-500 uppercase`,
+//   forgot: `flex justify-between items-center`,
+//   forgotpassword: `text-blue-600`,
+//   errors: ``,
+// };
 {
   /* REGISTER */
 }

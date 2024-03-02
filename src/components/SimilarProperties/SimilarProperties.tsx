@@ -27,7 +27,7 @@ const style = {
   mainContainer: `w-full flex rounded-xl flex-col relative `,
   image: ` w-full h-full object-cover flex rounded-xl  `,
   textContainer: `rounded-b-xl flex flex-col justify-between py-[1em] px-[1em] absolute bottom-0  left-0 right-0 z-20 `,
-  bgWhite: `py-[1em] px-[1em] absolute bottom-0 bg-white left-0 right-0 rounded-b-xl hidde bg-gradient-to- from-cyan-500 to-blue-500 text-white !bg-[#0D304A]`,
+  bgWhite: `py-[1em] px-[1em] absolute bottom-0  left-0 right-0 rounded-b-xl hidde bg-gradient-to- from-cyan-500 to-blue-500 text-white !bg-[#0D304A]`,
   title: `text-sm  font-bold lg:text-xl `,
   location: `font-[400]   flex items-center hidden md:flex`,
   bed: `text-sm   flex items-center`,
