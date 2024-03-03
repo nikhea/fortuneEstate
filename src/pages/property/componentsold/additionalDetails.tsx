@@ -55,7 +55,7 @@ const additionalDetails: FC<Props> = ({
             <span className={style.span}>property type : </span> {propertyType}
           </p>
           <p className={style.description}>
-            <span className={style.span}>listing type : </span> for
+            <span className={style.span}>listing type : </span>
             {listingType}
           </p>
           <p className={style.description}>

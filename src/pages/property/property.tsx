@@ -14,6 +14,7 @@ import Description from "./componentsold/Description";
 import AboutAuthor from "./componentsold/abountAuthor";
 import FormRequest from "./components/FormRequest";
 import SimilarProperties from "../../components/SimilarProperties/SimilarProperties";
+import PropertySocial from "./components/PropertySocial";
 
 const style = {
   // ImageBgContainer: ` w-[90%] lg:w-[70%] !h-[50%] m-auto lg:grid md:grid-cols-10 gap-10 mt-[80px]`,
@@ -61,7 +62,6 @@ const property: FC = () => {
 
   return (
     <>
-      {/* propertyImages={propertyImages} */}
       <div className={style.ImageBgContainer}>
         <div className={style.bgHalf}>
           <ImageCover image={propertyImages[0]} />
@@ -87,6 +87,9 @@ const property: FC = () => {
           </div>
         </div>
         <div className={style.bgSmall}>
+          <div className={style.card}>
+            <PropertySocial />
+          </div>
           <div className={style.card}>
             <FormRequest />
           </div>
@@ -160,7 +163,9 @@ const property: FC = () => {
           </div>
         </div>
       </div> */}
-      <SimilarProperties />
+      <div className="w-[90%] m-auto">
+        <SimilarProperties />
+      </div>
     </>
   );
 };
