@@ -28,9 +28,9 @@ import PageLoading from "./components/UI/Loading/PageLoading";
 const App: FC = () => {
   const [Loading, setLoading] = useState(true);
   const { user, logout } = useAuth();
-  useEffect(() => {
-    setTimeout(() => setLoading(false), 1000);
-  }, []);
+  // useEffect(() => {
+  //   setTimeout(() => setLoading(false), 1000);
+  // }, []);
   useEffect(() => {
     // AOS.init();
     AOS.init({ duration: 2000 });

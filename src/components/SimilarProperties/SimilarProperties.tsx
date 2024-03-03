@@ -50,6 +50,9 @@ const SimilarProperties: FC<Props> = () => {
   } = useQuery<any>([queryKeys.properties], getAllProperties, {
     placeholderData: AllPropertiesPlaceHolderData,
   });
+  if (isLoading) {
+    return <PageLoading />;
+  }
   if (!properties) return;
   if (status === "success") {
     const p = properties?.data?.results[0].data.slice(0, 6);
@@ -57,9 +60,7 @@ const SimilarProperties: FC<Props> = () => {
       propertiesResult = p || [];
     }
   }
-  if (isLoading) {
-    return <PageLoading />;
-  }
+
   loadProperties = propertiesResult?.map((property: Props, index: any) => (
     <div className="mx-4 flex h-full" key={index}>
       <div className={style.mainContainer}>

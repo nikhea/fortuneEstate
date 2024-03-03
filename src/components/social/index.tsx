@@ -2,7 +2,7 @@ import React from "react";
 
 const style = {
   container: `w-[95%] m-auto mb-[2em] flex flex-col justify-center items-center`,
-  Sociallogo: ``,
+  Sociallogo: ` flex items-center justify-center gap-5 cursor-pointer w-full`,
   textContainer: `text-center text-[#212121] leading-[1.5] font-extralight  text-[15px] my-[20px]`,
   language: `leading-[2] `,
   propertyLocations: `leading-[1.5]`,
@@ -12,7 +12,8 @@ const index = () => {
   return (
     <div className={style.container}>
       <div className={style.Sociallogo}>
-        <img src="https://www.thehouse48.com/wp-content/uploads/2021/06/Google-Play-and-Apple-App-Store-Logos-Two-Up-300x47.png" />
+        <img src="https://res.cloudinary.com/dwtx0sgd6/image/upload/v1709388064/play-store_s6hp3m.png" />
+        <img src="https://res.cloudinary.com/dwtx0sgd6/image/upload/v1709388064/app-store_wlpl01.png" />
       </div>
       <div className={style.textContainer}>
         <p className={style.language}>

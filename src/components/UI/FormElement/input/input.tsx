@@ -1,6 +1,5 @@
 import { FC } from "react";
 import classnames from "classnames";
-import { useForm } from "react-hook-form";
 interface inputProps {
   type: any;
   name: string;
@@ -21,7 +20,9 @@ interface inputProps {
   borderBottom?: boolean;
   Width?: string;
   isBlackBg?: boolean;
+  ml?: boolean;
 }
+
 const style = {
   input: `my-[10px]  py-[15px] px-[23px]  text-[.9375rem]   pr-[23px] outline-none`,
   mainInputStyle: ` bg-[#f1f1f1] outline-none text-[#9a9a9a]`,
@@ -30,14 +31,15 @@ const style = {
   curve: `rounded-[10px]`,
   rounded: `rounded-[25px]`,
   bold: `font-bold`,
-  isWhiteBg: `border border-[#C4C4C4] border-solid bg-white text-black  focus:outline-none focus:border-sky-500 `,
+  isWhiteBg: `border border-[#C4C4C4] border-solid bg-white text-black  focus:outline-none focus:border-[#0D304A] `,
   isBlackBg: `border border-[#C4C4C4] border-solid bg-[#2b2b2b] text-white placeholder-white  `,
   borderBottom: ` border-bottom border-t-0 border-l-0 border-r-0 border-b-2  py-[1px] px-[2px]`,
   errors: ``,
+  ml: `px-[40px]`,
 };
+// #0D304A
 // focus:ring-1 focus:ring-sky-500
 const input: FC<inputProps> = (props) => {
-  const { register } = useForm();
   const {
     type,
     placeholder,
@@ -58,6 +60,7 @@ const input: FC<inputProps> = (props) => {
     Width,
     borderBottom,
     isBlackBg,
+    ml,
     ...rest
   } = props;
   let Input = {
@@ -70,6 +73,7 @@ const input: FC<inputProps> = (props) => {
     [`${style.isWhiteBg}`]: isWhiteBg,
     [`${style.isBlackBg}`]: isBlackBg,
     [`${style.borderBottom}`]: borderBottom,
+    [`${style.ml}`]: ml,
   };
   return (
     <>

@@ -42,8 +42,7 @@ const auth: FC = () => {
   if (isRegistering === true) {
     console.log("registing...");
   }
-  if (user) {
-  }
+
   const {
     register,
     control,
