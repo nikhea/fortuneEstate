@@ -35,13 +35,13 @@ const App: FC = () => {
   }, []);
   return (
     <>
-      {Loading ? (
+      {/* {Loading ? (
         <PageLoading />
-      ) : (
-        <>
-          <RouteComponents />
-        </>
-      )}
+      ) : ( */}
+      <>
+        <RouteComponents />
+      </>
+      {/* )} */}
     </>
   );
 };

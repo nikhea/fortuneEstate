@@ -9,24 +9,24 @@ import ImageLogo from "../../../dist/assets/Frame65.png";
 import DrawerComponent from "./Drawer/Drawer";
 
 const style = {
-  container: ` flex justify-between w-[95%]  m-auto m-0  items-center  `,
+  container: ` flex justify-between w-[90%]  m-auto  items-center   `,
   lists: `capitalize hidden md:flex flex-wrap justify-center lg:justify-between lg:mr-[100px] mt-5 `,
   list: ` mx-5  mb-3 text-center items text-[#0D304A]`,
-  // list: `mx-5 lg:mx-[35px] text-center items  text-white mb-3`,
   logo: `w-[200px] mt-5`,
   active: `bg-[#0D304A] to-blue-500 text-white py-2 px-5 rounded-full`,
   activeSM: `text-blue-500 [&+*]:bg-blue-500`,
   btn: `uppercase  rounded-full `,
-  shadow: `my-5`,
-  btnadvertising: `hidden md:flex mt-5`,
+  shadow: `my-5 flex m-6 items-center bg-white fixe z-[999999999999999999999999999999999999] left-0 right-0`,
+  btnadvertising: `hidden md:flex `,
   drawertoggle: `md:hidden absolut z-[] right-10`,
   drawerInsidetoggle: `absolute right-10 top-[50px] cursor-pointer `,
   drawer: ` md:hidden`,
   listsSM: ` h-full w-full  flex flex-col flex-end justify-items-start  uppercase mt-[150px] !w-[80%] m-auto text-sm tracking-widest`,
   listSM: `  w-full h-ful  `,
   hr: `bg-[#181818] h-[1px] w-full my-3`,
-  logoBig: `font-extrabold text-transparent text-[20px] lg:text-[20px] bg-clip-text bg-gradient-to-r from-cyan-800 to-purple-400 px-[1.5em] lg:px-[3em]  py-0 tracking-widest`,
+  logoBig: `font-extrabold text-transparent text-[20px] lg:text-[20px] bg-clip-text bg-gradient-to-r from-cyan-800 to-purple-400  py-0 tracking-widest`,
 };
+// px-[1.5em] lg:px-[3em]
 const MainNav: FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const CloseDrawer = () => {
@@ -46,7 +46,7 @@ const MainNav: FC = () => {
           className={style.logoBig}
         >
           <img
-            className="w-50 h-10 object-contain "
+            className="w-50 h-10 object-contain  "
             src={ImageLogo}
             alt="fortune estate"
           />
@@ -112,8 +112,8 @@ const MainNav: FC = () => {
             adverties
           </Button>
         </span>
-        <DrawerComponent text="#111" />
       </div>
+      <DrawerComponent text="#111" />
     </div>
   );
 };

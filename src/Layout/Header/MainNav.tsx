@@ -8,7 +8,7 @@ import Button from "../../components/UI/FormElement/Button";
 import ImageLogo from "../../../dist/assets/Frame64.png";
 import DrawerComponent from "./Drawer/Drawer";
 const style = {
-  container: ` flex items-center  justify-between w-[95%]  m-auto m-0 text-cente items-center  `,
+  container: ` flex  justify-between w-[90%]  m-auto items-center  `,
   mainTop: ``,
   lists: `capitalize hidden md:flex flex-wrap justify-center lg:justify-between lg:mr-[100px] mt-5 `,
   // lists: `mt-5 capitalize grid grid-cols-3 lg:mx-[35px]`,
@@ -17,8 +17,8 @@ const style = {
   active: ` bg-[#0D304A] from-cyan-500 to-blue-500 text-white py-2 px-5 rounded-full`,
   btn: `uppercase  rounded-full `,
   activeSM: ` text-blue-500 [&+*]:bg-blue-500`,
-  shadow: `my-5`,
-  btnadvertising: `hidden md:flex mt-5`,
+  shadow: `my-5 flex mr-6 items-center`,
+  btnadvertising: `hidden md:flex `,
   drawertoggle: `md:hidden absolut z-[] right-10 text-white`,
   drawerInsidetoggle: `absolute right-10 top-[50px] cursor-pointer `,
   drawer: ` md:hidden`,
@@ -86,8 +86,8 @@ const MainNav: FC = () => {
             adverties
           </Button>
         </span>
-        <DrawerComponent text="white" home="home" />
       </div>
+      <DrawerComponent text="white" home="home" />
     </div>
   );
 };
