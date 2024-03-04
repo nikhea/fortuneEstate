@@ -2,10 +2,10 @@ import { ApexOptions } from "apexcharts";
 
 export const PageStatisticsOptions = {
   series: [
-    {
-      name: "Session Duration",
-      data: [45, 52, 38, 24, 33, 26, 21, 20, 6, 8, 15, 10],
-    },
+    // {
+    //   name: "Session Duration",
+    //   data: [45, 52, 38, 24, 33, 26, 21, 20, 6, 8, 15, 10],
+    // },
     {
       name: "Properties Statisticss",
       data: [35, 41, 62, 42, 13, 18, 29, 37, 36, 51, 32, 35],
@@ -104,5 +104,6 @@ export const PageStatisticsOptions = {
       //   borderColor: "#f1f1f1",
       show: false,
     },
+    colors: ["#0D304A", "#70a3c8"],
   },
 };

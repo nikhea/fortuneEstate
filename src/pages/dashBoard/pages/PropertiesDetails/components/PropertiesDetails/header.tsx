@@ -5,11 +5,14 @@ const style = {
   header: ` flex justify-between my-5 text-[#2B2B2B]`,
   details: ` grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 w-full place-items-center text-[#2B2B2B] capitalize`,
   description: `w-full font-[400]  text-lg lg:text-[1.2rem] flex items-center text-[#2B2B2B] my-2 capitalize`,
-  price: `bg-[#DADEFA] text-[#475BE8] rounded-md px-5 py-3 w-fit text-2xl`,
-  priceTage: `font-[500] text-[1.3rem] md:text-2xl  leading-10 capitalize`,
+  price: `bg-[#DADEFA] text-[#0D304A] rounded-md px-5 py-3 w-fit text-2xl`,
+  priceTage: `font-[500] text-[1rem]   leading-10 capitalize`,
   title: ` font-[500] text-[.8rem] md:text-lg  leading-10 capitalize`,
   location: `font-[400] text-[#8392A5] leading-10 flex items-center  flex-nowrap text-[.7rem] md:text-[.8rem] uppercase `,
 };
+
+// #0D304A
+// #475BE8
 interface IAddress {
   country: string;
   street: string;

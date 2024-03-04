@@ -10,7 +10,7 @@ const style = {
   image: `w-full h-full rounded-md object-cover`,
   textcontainer: `text-[15px] font-[300] text-[#11142d] mx-3 `,
   subTitile: `capitalize text-[14px] text-gray-400`,
-  price: `text-[20px] font-[600] text-blue-500`,
+  price: `text-[20px] font-[600] text-[#0D304A]`,
 };
 const SaleCard: FC<ISale> = ({ title, image, price, location }) => {
   return (

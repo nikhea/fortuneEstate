@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, useState } from "react";
 import { useQuery } from "react-query";
 import { useParams } from "react-router-dom";
 import { queryKeys } from "../../utils/queryKey";
@@ -15,19 +15,18 @@ import AboutAuthor from "./componentsold/abountAuthor";
 import FormRequest from "./components/FormRequest";
 import SimilarProperties from "../../components/SimilarProperties/SimilarProperties";
 import PropertySocial from "./components/PropertySocial";
+import BasicExample from "./components/imageGallery/imageGallery";
 
 const style = {
-  // ImageBgContainer: ` w-[90%] lg:w-[70%] !h-[50%] m-auto lg:grid md:grid-cols-10 gap-10 mt-[80px]`,
-
-  // py-[6em]  overflow-hidden md:grid md:grid-cols-10 w-[90%] m-auto gap-10
-  container: ``,
   card: ` bg-slate-50 border-solid p-5 h-fit  rounded-xl border  border-gray-300 `,
   ImageBgContainer: `w-[90%] lg:w-[70%] m-auto  lg:grid lg:grid-cols-10 gap-10 mt-[60px]`,
+  container: `w-[90%] lg:w-[70%] m-auto  mt-[60px] lg:grid  lg:grid-cols-10`,
   bgHalf: `col-start-1 col-end-7  w-full h-auto `,
   bgSmall: `col-start-7 col-end-11  h-auto space-y-12 mt-16 lg:mt-0`,
 };
-// aspect-w-16 aspect-h-9
 const property: FC = () => {
+  const [open, setOpen] = useState<boolean>(false);
+  const [index, setIndex] = useState<number>(-1);
   const { id: propertyID } = useParams();
   const { data: propertydata, isLoading } = useQuery(
     [queryKeys.properties, propertyID],
@@ -37,6 +36,17 @@ const property: FC = () => {
   if (isLoading) {
     return <PageLoading />;
   }
+  const handleOpen = (index?: any) => {
+    // console.log(index);
+
+    setOpen(!open);
+    // setIndex(index);
+  };
+
+  const handleClose = () => {
+    setOpen(!open);
+    // setIndex(-1);
+  };
   const {
     image,
     images,
@@ -62,14 +72,24 @@ const property: FC = () => {
 
   return (
     <>
+      {/* <BasicExample /> */}
+      <BasicExample
+        propertyImages={propertyImages}
+        handleOpen={handleOpen}
+        handleClose={handleClose}
+        open={open}
+        index={index}
+      />
+
       <div className={style.ImageBgContainer}>
         <div className={style.bgHalf}>
-          <ImageCover image={propertyImages[0]} />
+          <ImageCover image={propertyImages[0]} handleOpen={handleOpen} />
         </div>
         <div className={style.bgSmall}>
-          <Images propertyImages={propertyImages} />
+          <Images propertyImages={propertyImages} handleOpen={handleOpen} />
         </div>
       </div>
+      <div className={style.container}></div>
       <div className={`${style.ImageBgContainer} lg:max-h-[300px]`}>
         <div className={style.bgHalf}>
           <div className={style.card}>
@@ -142,6 +162,7 @@ const property: FC = () => {
           </div>
         </div>
       </div>
+      {/* {} */}
       {/* <div className={style.ImageBgContainer}>
         <div className={style.bgHalf}>
           <div className={style.card}>
@@ -171,19 +192,3 @@ const property: FC = () => {
 };
 
 export default property;
-{
-  /* <div className={style.bgHalf}>
-          <div className={style.card}></div>
-        </div>
-        <div className={style.bgSmall}>
-          <div className={style.card}></div>
-        </div> */
-}
-// const style = {
-//   container: ``,
-//   card: ` bg-slate-50 border-solid   h-fit  rounded-xl border  border-gray-300 `,
-//   ImageBgContainer: `h-[30vh] py-[6em] h-fit overflow-hidden md:grid md:grid-cols-10 w-[90%] m-auto gap-10`,
-//   full: ` col-start-1 col-end-11`,
-//   bgHalf: `col-start-1 col-end-7  w-full h-fit`,
-//   bgSmall: `col-start-7 col-end-11  h-full space-y-12`,
-// };
