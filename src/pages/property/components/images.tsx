@@ -21,8 +21,6 @@ import { TiCamera } from "react-icons/ti";
 //   },
 // ];
 const Images = ({ propertyImages }: any) => {
-  console.log(propertyImages);
-
   const style = {
     Container: `w-full rounded-2xl `,
     image: `w-full object-cover rounded-2xl`,
