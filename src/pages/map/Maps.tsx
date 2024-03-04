@@ -4,12 +4,16 @@ import icon from "./icon.png";
 import L from "leaflet";
 
 interface IMapProps {
-  coords: any;
-  display_name: string;
+  coords?: any;
+  display_name?: string;
+  street?: string;
+  lat: any;
+  long: any;
 }
 
-export default function Map({ coords, display_name }: IMapProps) {
-  const { latitude, longitude } = coords;
+export default function Map({ lat, long, street }: IMapProps) {
+  const latitude = lat;
+  const longitude = long;
 
   const customIcon = new L.Icon({
     //creating a custom icon to use in Marker
@@ -38,7 +42,12 @@ export default function Map({ coords, display_name }: IMapProps) {
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
       <Marker icon={customIcon} position={[latitude, longitude]}>
-        <Popup>{display_name}</Popup>
+        <Popup>
+          <h1>{street}</h1>
+          <p>
+            {latitude} {longitude}
+          </p>
+        </Popup>
       </Marker>
       <MapView />
     </MapContainer>

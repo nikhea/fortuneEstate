@@ -1,14 +1,61 @@
 import { FC } from "react";
 import "./hr.css";
 import PropertiesCard from "../../../components/card/PropertyCard";
-import Map from "../../../components/Map/Map";
+// import Map from "../../../components/Map/Map";
+import { useQuery } from "react-query";
+import Maps from "../../map/Maps";
+
 interface Props {
   street: string;
   country: string;
   city: string;
   address: any;
 }
+
+const fetchCoordinates = async (address: string, city: string) => {
+  let queryUrl = `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(
+    address
+  )}`;
+
+  try {
+    const response = await fetch(queryUrl);
+    const data = await response.json();
+
+    if (data && data.length > 0) {
+      return {
+        latitude: parseFloat(data[0].lat),
+        longitude: parseFloat(data[0].lon),
+      };
+    } else {
+      // If no data found for address, search by city
+      queryUrl = `https://nominatim.openstreetmap.org/search?format=json&city=${encodeURIComponent(
+        city
+      )}`;
+      const cityResponse = await fetch(queryUrl);
+      const cityData = await cityResponse.json();
+
+      if (cityData && cityData.length > 0) {
+        return {
+          latitude: parseFloat(cityData[0].lat),
+          longitude: parseFloat(cityData[0].lon),
+        };
+      } else {
+        throw new Error("No coordinates found for the provided city");
+      }
+    }
+  } catch (error) {
+    console.error("Error generating coordinates:", error);
+    return null;
+  }
+};
+
 const additionalDetails: FC<Props> = ({ street, country, city, address }) => {
+  const { data: coordinates, isLoading } = useQuery(
+    ["coordinates", address],
+    () => fetchCoordinates(street, city)
+  );
+  console.log(coordinates);
+
   const style = {
     header: ` flex items-center  w-full mb-5`,
     title: `ml-5 capitalize font-[600] text-[1.75rem]`,
@@ -50,10 +97,39 @@ const additionalDetails: FC<Props> = ({ street, country, city, address }) => {
           </p>
         </div>
       </div>
-      {/* {address && <Map address={address} />} */}
-      {/* </PropertiesCard> */}
+      <div className="h-[500px] overflow-clip">
+        {coordinates && (
+          <Maps
+            lat={coordinates.latitude}
+            long={coordinates.longitude}
+            street={street}
+            // city={city}
+          />
+        )}
+      </div>
     </span>
   );
 };
 
+// const LocationMap = ({ latitude, longitude, street, city, country }: any) => {
+//   const position = [latitude, longitude];
+
+//   return (
+//     <Map center={position} zoom={13} style={{ height: "400px", width: "100%" }}>
+//       <TileLayer
+//         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+//         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+//       />
+//       <Marker position={position}>
+//         <Popup>
+//           <div>
+//             <p>{street}</p>
+//             <p>{city}</p>
+//             <p>{country}</p>
+//           </div>
+//         </Popup>
+//       </Marker>
+//     </Map>
+//   );
+// };
 export default additionalDetails;
