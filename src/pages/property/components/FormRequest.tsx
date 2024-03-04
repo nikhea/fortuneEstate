@@ -40,7 +40,7 @@ const FormRequest = () => {
   return (
     <div>
       <header className={style.header}>
-        <div className="hr "></div>
+        {/* <div className="hr "></div> */}
         <h1 className={style.title}>form request</h1>
       </header>
       <form

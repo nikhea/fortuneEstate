@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { FaBookmark } from "react-icons/fa";
 
 import {
@@ -12,11 +12,29 @@ import {
   WhatsappShareButton,
 } from "react-share";
 const PropertySocial = () => {
+  const [saved, setSaved] = useState(false);
   const shareUrl = `https://fortuneestate.netlify.app/property/63fcb2bbff431b01b1b01e1b`;
+  // const handleSaved = () => {
+  //   setSaved(saved === "text-green-300" ? "" : "text-green-300");
+  // };
+
+  const handleSaved = () => {
+    setSaved(!saved);
+  };
   return (
     <div className="flex items-center justify-center flex-col">
-      <div className=" mb-4 border px-6 flex items-center justify-between space-x-6 py-3 rounded-lg bg-[#0D304A] text-white">
-        <FaBookmark color="" />
+      <div
+        onClick={handleSaved}
+        className=" mb-4 border cursor-pointer px-6 flex items-center justify-between space-x-6 py-3 rounded-lg bg-[#0D304A] text-white"
+      >
+        <FaBookmark
+          // color={saved ? "bg-green-200" : "currentColor"}
+
+          style={{
+            color: saved ? "#25D366" : "currentColor",
+          }}
+        />
+        {saved}
         <p className=" capitalize font-medium text-md">
           bookmark this property
         </p>
