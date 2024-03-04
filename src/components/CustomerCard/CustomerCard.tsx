@@ -5,11 +5,13 @@ const style = {
   container: ` h-full w-full flex justify-between items-center mb-10 lg:mb-1  p-10  lg:p-5`,
   title: `text-[1em] font-[400] text-gray-400 `,
   price: `text-[2em] font-[600] text-black`,
-  percentage: `text-[1.2em] font-[400] text-green-500`,
+  percentage: `text-[1.2em] font-[400] text-[#0D304A]`,
   textContainer: `capitalize flex flex-col justify-between`,
   imageContainer: ``,
   image: ``,
 };
+// colors: ["#0D304A", "#8392A5"],
+
 const CustomerCard: FC<ICustomer> = ({ title, price, percentage, image }) => {
   return (
     <div className={style.container}>

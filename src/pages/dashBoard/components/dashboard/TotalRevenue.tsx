@@ -23,11 +23,11 @@ const TotalRevenue = () => {
           <div className={style.SubmainFlex}>
             <FiArrowUpCircle
               size={25}
-              color="#475be8"
+              color="#0D304A"
               style={{ marginRight: "10px" }}
             />
             <div>
-              <h1 className="text-[15px]  text-[#475be8]"> 0.8%</h1>
+              <h1 className="text-[15px]  text-[#0D304A]"> 0.8%</h1>
               <h1 className="text-[12px]  text-[#808191]"> Than Last Month</h1>
             </div>
           </div>
@@ -43,7 +43,8 @@ const TotalRevenue = () => {
     </div>
   );
 };
-
+// colors: ["#0D304A", "#8392A5"],
+// #475be8
 export default TotalRevenue;
 {
   /* <ReactApexChart

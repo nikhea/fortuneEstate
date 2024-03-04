@@ -20,7 +20,7 @@ const style = {
   drawerInsidetoggleClose: `absolute left-[20px] top-[10px] cursor-pointer`,
   // drawerInsidetoggleClose: `absolute right-[10px] top-[10px] cursor-pointer`,
   drawer: ` md:hidden`,
-  list: `   w-full [&>*]:py-2 [&>*]:px-5  [&>*]:w-full my-5 [&>*]:inline-block [&>*]:flex [&>*]:items-center  hover:bg-[#8392A5] hover:text-white transition duration-300 ease-in-out`,
+  list: `   w-full [&>*]:py-2 [&>*]:px-5  [&>*]:w-full my-5 [&>*]:inline-block [&>*]:flex [&>*]:items-center  hover:bg-[#70a3c8]  hover:text-white transition duration-300 ease-in-out`,
   logo: `w-[150px]`,
   active: `bg-[#0D304A] text-white  `,
   listsSM: ` h-full w-full  flex flex-col justify-betwee uppercase mt-[40px] mb-[20px] w-full m-auto text-sm tracking-widest`,

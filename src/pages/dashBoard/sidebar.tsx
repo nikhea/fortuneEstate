@@ -16,7 +16,7 @@ const style = {
   sidBarLayout: ` bg-white overflow-hidde hidden md:flex flex-col h-full py-[1em]`,
   container: ` flex justify-between w-[95%]  m-auto m-0 text-cente items-center  `,
   lists: `capitalize justify-between  mt-8 w-full h-full lg:flex flex-col`,
-  list: `  w-full [&>*]:py-2 [&>*]:px-5  [&>*]:w-full my-5 [&>*]:inline-block [&>*]:flex [&>*]:items-center  hover:bg-[#8392A5] hover:text-white transition duration-300 ease-in-out`,
+  list: `  w-full [&>*]:py-2 [&>*]:px-5  [&>*]:w-full my-5 [&>*]:inline-block [&>*]:flex [&>*]:items-center  hover:bg-[#70a3c8] hover:text-white transition duration-300 ease-in-out`,
   upNavigation: ``,
   downNavigation: ``,
   logo: `w-[190px]`,

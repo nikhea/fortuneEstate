@@ -5,6 +5,11 @@ import {
   formatToCurrency,
   numberWithCommas,
 } from "../../../utils/formateNumbers";
+import { HiOutlineBuildingOffice2, HiSquaresPlus } from "react-icons/hi2";
+import { VscTypeHierarchySuper } from "react-icons/vsc";
+import { GrView } from "react-icons/gr";
+import { FaBath } from "react-icons/fa";
+import { GiCalendarHalfYear } from "react-icons/gi";
 interface Props {
   price: number;
   priceSymbol: string;
@@ -39,7 +44,7 @@ const additionalDetails: FC<Props> = ({
     header: ` flex items-center  w-full mb-5`,
     title: `ml-5 capitalize font-[600] text-[1.75rem]`,
     details: ` lg:items-center  justify-between  flex flex-col md:flex-row flex-wrap capitalize`,
-    description: `py-4 lg:w-[23%]  font-[400] text-[#0D304A] text-lg lg:text-base mr-[4rem]`,
+    description: `py-4 lg:w-[23%]  font-[400] text-[#0D304A] text-lg lg:text-base mr-[4rem] flex items-center`,
     span: `capitalize`,
   };
   return (
@@ -52,48 +57,54 @@ const additionalDetails: FC<Props> = ({
         </header>
         <div className={style.details}>
           <p className={style.description}>
-            <span className={style.span}>property type : </span> {propertyType}
+            <span className={style.span}>
+              {" "}
+              <HiOutlineBuildingOffice2
+                size={20}
+                style={{ marginRight: "15px" }}
+              />{" "}
+            </span>{" "}
+            {propertyType}
           </p>
           <p className={style.description}>
-            <span className={style.span}>listing type : </span>
-            {listingType}
+            <span className={style.span}>
+              <VscTypeHierarchySuper
+                size={20}
+                style={{ marginRight: "15px" }}
+              />
+            </span>
+            for {listingType}
+          </p>
+
+          <p className={style.description}>
+            <span className={style.span}>
+              <GrView size={20} style={{ marginRight: "15px" }} />{" "}
+            </span>
+            {view} view
+          </p>
+
+          <p className={style.description}>
+            <span className={style.span}>
+              <FaBath size={20} style={{ marginRight: "15px" }} />
+            </span>
+            {halfBathrooms <= 1
+              ? `  ${halfBathrooms} half Bathroom`
+              : `${halfBathrooms} half Baths`}
+          </p>
+
+          <p className={style.description}>
+            <span className={style.span}>
+              <GiCalendarHalfYear size={20} style={{ marginRight: "15px" }} />
+            </span>
+            {yearBuilt}
           </p>
           <p className={style.description}>
-            <span className={style.span}>listing ID : </span>1
-          </p>
-          {/* <p className={style.description}>
-            <span className={style.span}>price : </span> {priceSymbol}
-            {formatToCurrency(price)}
-          </p> */}
-          <p className={style.description}>
-            <span className={style.span}>view : </span>
-            {view}
-          </p>
-          {/* <p className={style.description}>
-            <span className={style.span}>bedrooms : </span> {bed}
-          </p>
-          <p className={style.description}>
-            <span className={style.span}>bathrooms : </span> {bath}
-          </p> */}
-          <p className={style.description}>
-            <span className={style.span}>half bathrooms : </span>
-            {halfBathrooms}
-          </p>
-          {/* <p className={style.description}>
-            <span className={style.span}>square footage : </span>
-            {numberWithCommas(squareFootage)} {squareSymbol}{" "}
-          </p> */}
-          <p className={style.description}>
-            <span className={style.span}>year built : </span> {yearBuilt}
-          </p>
-          <p className={style.description}>
-            <span className={style.span}>lot area : </span>
+            <span className={style.span}>
+              <HiSquaresPlus size={20} style={{ marginRight: "15px" }} />
+            </span>
             {numberWithCommas(lotArea)} {lotAreaSymbol}
           </p>
-          <p className={style.description}>
-            {/* <span className={style.span}>lot area : </span>
-            {numberWithCommas(lotArea)} {lotAreaSymbol} */}
-          </p>
+          <p className={style.description}></p>
         </div>
       </div>
       {/* </PropertiesCard> */}

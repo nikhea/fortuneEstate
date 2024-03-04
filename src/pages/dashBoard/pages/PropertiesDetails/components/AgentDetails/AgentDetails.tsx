@@ -60,7 +60,7 @@ const AgentDetails: FC<IAgentDetails> = ({ agent, property }) => {
   });
 
   const DeleteProperty = async (id: string) => {
-    await mutateAsync(id);
+    // await mutateAsync(id);
   };
   const OnDeleteProperty = async (id: string) => {
     DeleteProperty(id);
@@ -130,7 +130,7 @@ const AgentDetails: FC<IAgentDetails> = ({ agent, property }) => {
               <button
                 className={style.btn}
                 style={{
-                  backgroundColor: "#475BE8",
+                  backgroundColor: "#0D304A",
                 }}
               >
                 <TbMessage size={20} style={{ marginRight: "5px" }} />
@@ -139,9 +139,10 @@ const AgentDetails: FC<IAgentDetails> = ({ agent, property }) => {
               <button
                 className={style.btn}
                 style={{
-                  backgroundColor: "#2ED480",
+                  backgroundColor: "#70a3c8",
                 }}
               >
+                {/* #2ED480 */}
                 <MdCall size={20} style={{ marginRight: "5px" }} />
                 call
               </button>{" "}
@@ -153,7 +154,7 @@ const AgentDetails: FC<IAgentDetails> = ({ agent, property }) => {
       <a
         className={style.btn}
         style={{
-          backgroundColor: "#475BE8",
+          backgroundColor: "#0D304A",
         }}
         href={propertiesdata?.data.websiteCopy?.webSiteURL}
         target="_blank"
@@ -164,7 +165,7 @@ const AgentDetails: FC<IAgentDetails> = ({ agent, property }) => {
     </div>
   );
 };
-
+// #475BE8
 export default AgentDetails;
 const address = {
   country: "United States",

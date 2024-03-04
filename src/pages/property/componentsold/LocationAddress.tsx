@@ -54,13 +54,14 @@ const additionalDetails: FC<Props> = ({ street, country, city, address }) => {
     ["coordinates", address],
     () => fetchCoordinates(street, city)
   );
-  console.log(coordinates);
 
   const style = {
     header: ` flex items-center  w-full mb-5`,
     title: `ml-5 capitalize font-[600] text-[1.75rem]`,
     details: ` items-center  justify-between  flex flex-wrap `,
     description: `py-4 w-[23%] capitalize font-[400] text-[#0D304A] text-[1rem] mr-[4rem]`,
+    descriptions: `py-4  capitalize font-[400] text-[#0D304A] text-[1rem] mr-[4rem]`,
+
     span: `capitalize`,
   };
   return (
@@ -79,9 +80,7 @@ const additionalDetails: FC<Props> = ({ street, country, city, address }) => {
           <p className={style.description}>
             <span className={style.span}>country : </span> {country}
           </p>
-          <p className={style.description}>
-            <span className={style.span}>street : </span> {street}
-          </p>
+
           <p className={style.description}>
             <span className={style.span}>city : </span>
             {city}
@@ -95,15 +94,22 @@ const additionalDetails: FC<Props> = ({ street, country, city, address }) => {
           <p className={style.description}>
             <span className={style.span}>latitude : </span> N30 22'5"
           </p>
+          <p className={style.description}>
+            {/* <span className={style.span}>latitude : </span> N30 22'5" */}
+          </p>
         </div>
       </div>
+      {/* <div>
+        <p className={style.descriptions}>
+          <span className={style.span}>street : </span> {street}
+        </p>
+      </div> */}
       <div className="h-[500px] overflow-clip">
         {coordinates && (
           <Maps
             lat={coordinates.latitude}
             long={coordinates.longitude}
             street={street}
-            // city={city}
           />
         )}
       </div>
