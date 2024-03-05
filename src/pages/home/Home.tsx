@@ -27,7 +27,9 @@ const App: FC = () => {
       <GolbalProperties />
       {lg ? <>{/* <PropertieSliderHome />{" "} */}</> : null}
       <ListService />
-      <SimilarProperties />
+      <div className="lg:w-[90%] m-auto">
+        <SimilarProperties />
+      </div>
       <div className="mb-10 lg:mb-14"></div>
     </div>
   );
