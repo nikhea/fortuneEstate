@@ -34,10 +34,10 @@ interface Props {
   lastname?: string;
 }
 const style = {
-  bgContainer: `bg-[#F6F6F6] py-[1em]  px-[0.5em] md:px-[2em]`,
-  container: `w-[80%] m-auto my-10 text-center`,
+  bgContainer: `bg-[#F6F6F6]  py-[1em]  px-[0.5em] md:px-[2em]`,
+  container: `w-[80%]  m-auto  my-10 text-center`,
   textContainer: `flex items-center text-center flex-col`,
-  gridContainer: `grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 `,
+  gridContainer: `lg:w-[93%] m-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 `,
   image: `w-full h-full object-cover relative rounded`,
   title: `text-[36px] tracking-wide `,
   description: `text-[#999] text-[16px] mb-10 mt-5 tracking-widest `,

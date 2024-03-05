@@ -11,6 +11,7 @@ import {
 import "yet-another-react-lightbox/plugins/fullscreen";
 import "yet-another-react-lightbox/styles.css";
 import "yet-another-react-lightbox/plugins/thumbnails.css";
+import { useState } from "react";
 
 function generateSlides(originalArray: any) {
   return originalArray.map((item: any) => ({
@@ -19,6 +20,8 @@ function generateSlides(originalArray: any) {
 }
 
 const imageGallery = ({ propertyImages, handleClose, open, index }: any) => {
+  const [animationDuration, setAnimationDuration] = useState(500);
+
   const slides = generateSlides(propertyImages);
   return (
     <>
@@ -27,6 +30,8 @@ const imageGallery = ({ propertyImages, handleClose, open, index }: any) => {
         open={open}
         slides={slides}
         close={handleClose}
+        animation={{ zoom: animationDuration }}
+
         // index={index}
       />
     </>
