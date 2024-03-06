@@ -2,6 +2,7 @@ import { FC } from "react";
 import Button from "../../components/UI/FormElement/Button";
 import { Link } from "react-router-dom";
 import { routes } from "../../routes/routes";
+import CardFiliter from "./CardFiliter";
 const style = {
   container: `flex  w-[95%]  m-auto flex-col items-center justify-center h-full text-center  `,
   title: `text-[3rem] lg:text-[5.5rem] font-light`,
@@ -13,31 +14,33 @@ const MainText: FC = () => {
   return (
     <div className={style.container}>
       <h1
-        data-aos="fade-up"
-        data-aos-easing="ease-in-out"
-        data-aos-duration="1600"
+        // data-aos="fade-up"
+        // data-aos-easing="ease-in-out"
+        // data-aos-duration="1600"
         className={style.title}
       >
         The Largest Real Estate <br />
       </h1>
       <span
-        data-aos="fade-up"
-        data-aos-easing="ease-in-out"
-        data-aos-duration="1700"
+        // data-aos="fade-up"
+        // data-aos-easing="ease-in-out"
+        // data-aos-duration="1700"
         className={style.subTitle}
       >
         Online Marketplace
       </span>
       <span
-        data-aos="fade-up"
-        data-aos-easing="ease-in-out"
-        data-aos-duration="1800"
+        // data-aos="fade-up"
+        // data-aos-easing="ease-in-out"
+        // data-aos-duration="1800"
         className={style.text}
       >
         Find the best property that suits your desires using advanced search
         widget
       </span>
-      <Link
+      <CardFiliter />
+
+      {/* <Link
         data-aos="fade-up"
         data-aos-easing="ease-in-out"
         data-aos-duration="2000"
@@ -46,7 +49,7 @@ const MainText: FC = () => {
         <Button linearGradient rounded uppercase primary>
           explore countries
         </Button>
-      </Link>
+      </Link> */}
     </div>
   );
 };
