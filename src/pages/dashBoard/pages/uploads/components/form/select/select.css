@@ -46,6 +46,37 @@
   border-radius: 10px !important;
   @apply focus:outline-none focus:border-pink-500;
 }
+.react-select__value-container .css-1d8n9bt {
+  @apply bg-[#f1f1f1]   text-[#9a9a9a] text-[.9375rem]  outline-none  !rounded-[10px] rounded-r-none  py-[10px] px-[23px] border-0;
+  border-right-width: 0px !important;
+  @apply !rounded-full;
+}
+
+.css-nqaof0-control {
+  @apply bg-[#f1f1f1]   text-[#9a9a9a] text-[.9375rem]  outline-none  !rounded-[10px] rounded-r-none;
+  border-right-width: 0px !important;
+  @apply !rounded-full;
+}
+
+/* .css-1d8n9bt {
+  @apply bg-[#f1f1f1]   text-[#9a9a9a] text-[.9375rem]  outline-none  !rounded-[10px] rounded-r-none   border-0;
+  border-right-width: 0px !important;
+  border-radius: 10px !important;
+} */
+/* .css-13cymwt-control {
+  @apply focus:outline-none focus:border-pink-500;
+  border-radius: 10px !important;
+  height: 55px;
+} */
+/* .css-t3ipsp-control {
+  @apply focus:outline-none focus:border-pink-500 !border-pink-500;
+  height: 55px;
+} */
+
+/* .css-t3ipsp-control:hover {
+  @apply focus:outline-none focus:border-pink-500 !border-pink-500;
+} */
+
 /* .react-select__value-container
   .react-select__value-container--has-value
   .css-1kwwvb1-ValueContainer2 {
