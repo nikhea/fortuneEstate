@@ -4,7 +4,13 @@ import Input from "../../components/UI/FormElement/input/input";
 import { useForm, FormProvider, useController } from "react-hook-form";
 import useFormPersist from "react-hook-form-persist";
 import Select from "../../pages/dashBoard/pages/uploads/components/form/select/select";
-import { propertyTypeOPtions } from "../../pages/dashBoard/pages/uploads/optionsValue";
+import {
+  BathOPtions,
+  BedOPtions,
+  ListingTypeOPtions,
+  PriceOPtions,
+  propertyTypeOPtions,
+} from "../../pages/dashBoard/pages/uploads/optionsValue";
 import { useSearchParams, useNavigate, redirect } from "react-router-dom";
 import { useEffect, useState } from "react";
 const style = {
@@ -19,7 +25,17 @@ const style = {
 };
 const CardFiliter = ({ countries }: any) => {
   const navigate = useNavigate();
-
+  useEffect(() => {
+    const getData = async () => {
+      const arr: any = [];
+      let result = countries?.data;
+      result.map((countries: any) => {
+        return arr.push({ value: countries.name, label: countries.name });
+      });
+      setCountriesOptions(arr);
+    };
+    getData();
+  }, []);
   const methods = useForm<FormFilterData>({
     // resolver: yupResolver(uploadSchema),
   });
@@ -34,19 +50,28 @@ const CardFiliter = ({ countries }: any) => {
   } = methods;
   const [countriesOptions, setCountriesOptions] = useState([""]);
 
-  useEffect(() => {
-    const getData = async () => {
-      const arr: any = [];
-      let result = countries?.data;
-      result.map((countries: any) => {
-        return arr.push({ value: countries.name, label: countries.name });
-      });
-      setCountriesOptions(arr);
-    };
-    getData();
-  }, []);
+  const { field: priceField } = useController({
+    name: "price",
+    control,
+  });
   const { field: propertycountryField } = useController({
     name: "searchCountry",
+    control,
+  });
+  const { field: propertyTypeField } = useController({
+    name: "propertyType",
+    control,
+  });
+  const { field: ListingTypeField } = useController({
+    name: "listingType",
+    control,
+  });
+  const { field: bedroomsField } = useController({
+    name: "bedrooms",
+    control,
+  });
+  const { field: bathroomsField } = useController({
+    name: "bathrooms",
     control,
   });
   const handleCountryChange = (option: any) => {
@@ -54,18 +79,34 @@ const CardFiliter = ({ countries }: any) => {
 
     return propertycountryField.onChange(option.value);
   };
-  const { field: propertyTypeField } = useController({
-    name: "searchPropertyType",
-    control,
-  });
 
+  const handlepriceChange = (option: any) => {
+    priceField.onChange(option.value);
+
+    return priceField.onChange(option.value);
+  };
   const handlepropertyTypeChange = (option: any) => {
     propertyTypeField.onChange(option.value);
 
     return propertyTypeField.onChange(option.value);
   };
+  const handleListingTypeChange = (option: any) => {
+    ListingTypeField.onChange(option.value);
+
+    return ListingTypeField.onChange(option.value);
+  };
+  const handlebedroomsChange = (option: any) => {
+    bedroomsField.onChange(option.value);
+
+    return bedroomsField.onChange(option.value);
+  };
+  const handlebathroomsChange = (option: any) => {
+    bathroomsField.onChange(option.value);
+
+    return bathroomsField.onChange(option.value);
+  };
   const handleRset = () => {
-    setValue("searchPropertyType", "");
+    setValue("propertyType", "");
     reset();
   };
   const redirectPage = (formData: FormFilterData) => {
@@ -108,37 +149,46 @@ const CardFiliter = ({ countries }: any) => {
                   />
                 </div>
                 <div className={style.fillitersInput}>
-                  <Input
-                    type="number"
-                    placeholder="Enter Price"
-                    name="searchPrice"
-                    rounded
-                    isWhiteBg
-                    errors={errors}
-                    inputRef={register("searchPrice")}
-                  />
-                  <Input
-                    type="number"
-                    placeholder="No of Bedrooms"
-                    name="searchBedrooms"
-                    rounded
-                    isWhiteBg
-                    errors={errors}
-                    inputRef={register("searchBedrooms")}
+                  <Select
+                    placeholder="Lisiting"
+                    options={ListingTypeOPtions}
+                    field={ListingTypeOPtions.find(
+                      ({ value }) => value === ListingTypeField.value
+                    )}
+                    handleSelectChange={handleListingTypeChange}
+                    inputHalf
                   />
 
-                  <Input
-                    type="number"
-                    placeholder="No of Bathrooms"
-                    name="searchBed"
-                    rounded
-                    isWhiteBg
-                    errors={errors}
-                    inputRef={register("searchBathrooms")}
+                  <Select
+                    placeholder="Bedrooms"
+                    options={BedOPtions}
+                    field={BedOPtions.find(
+                      ({ value }) => value === bedroomsField.value
+                    )}
+                    handleSelectChange={handlebedroomsChange}
+                    inputHalf
                   />
-                  <div className="-mt-[1.1%] w-full  -mb-">
+                  <Select
+                    placeholder="Bathrooms"
+                    options={BathOPtions}
+                    field={BathOPtions.find(
+                      ({ value }) => value === bathroomsField.value
+                    )}
+                    handleSelectChange={handlebathroomsChange}
+                    inputHalf
+                  />
+                  <Select
+                    placeholder="Price"
+                    options={PriceOPtions}
+                    field={PriceOPtions.find(
+                      ({ value }) => value === priceField.value
+                    )}
+                    handleSelectChange={handlepriceChange}
+                    inputHalf
+                  />
+                  {/* <div className="-mt-[1.1%] w-full  -mb-">
                     <Select
-                      placeholder="Type*"
+                      placeholder="Property*"
                       options={propertyTypeOPtions}
                       field={propertyTypeOPtions.find(
                         ({ value }) => value === propertyTypeField.value
@@ -146,7 +196,7 @@ const CardFiliter = ({ countries }: any) => {
                       handleSelectChange={handlepropertyTypeChange}
                       inputFull
                     />
-                  </div>
+                  </div> */}
                 </div>
               </div>
               <div className={style.btn}>
@@ -175,10 +225,14 @@ const CardFiliter = ({ countries }: any) => {
 export default CardFiliter;
 interface FormFilterData {
   searchCountry: string;
-  searchPropertyType: string;
-  searchPrice: number;
-  searchBedrooms: number;
-  searchBathrooms: number;
+  country: string;
+  propertyType: string;
+  price: string;
+  bedrooms: string;
+  bathrooms: string;
+  listingType: string;
+  view: string;
+  category: string;
 }
 export const uploadSchema = yup.object().shape({
   searchCountry: yup.string(),
@@ -203,5 +257,37 @@ export const uploadSchema = yup.object().shape({
                     errors={errors}
                     inputRef={register("searchCountry")}
                     isBlackBg
+                  /> */
+}
+{
+  /* <Input
+                    type="number"
+                    placeholder="Enter Price"
+                    name="searchPrice"
+                    rounded
+                    isWhiteBg
+                    errors={errors}
+                    inputRef={register("searchPrice")}
+                  /> */
+}
+{
+  /* <Input
+                    type="number"
+                    placeholder="No of Bedrooms"
+                    name="searchBedrooms"
+                    rounded
+                    isWhiteBg
+                    errors={errors}
+                    inputRef={register("searchBedrooms")}
+                  />
+
+                  <Input
+                    type="number"
+                    placeholder="No of Bathrooms"
+                    name="searchBed"
+                    rounded
+                    isWhiteBg
+                    errors={errors}
+                    inputRef={register("searchBathrooms")}
                   /> */
 }
