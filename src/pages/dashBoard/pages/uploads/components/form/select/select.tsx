@@ -31,7 +31,7 @@ interface inputProps {
 //   { value: "vanilla", label: "Vanilla" },
 // ];
 const style = {
-  input: `my-[10px]  bg-[#f1f1f1]  py-[15px] px-[23px] text-[#9a9a9a] text-[.9375rem]  outline-none pr-[23px]`,
+  input: ` my-[10px]  bg-[#f1f1f1]  py-[15px] px-[23px] text-[#9a9a9a] text-[.9375rem]  outline-none pr-[23px]`,
   inputHalf: `w-[47%]`,
   inputFull: ` w-full`,
   curve: `rounded-[10px]`,
