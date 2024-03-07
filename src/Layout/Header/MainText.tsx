@@ -3,6 +3,10 @@ import Button from "../../components/UI/FormElement/Button";
 import { Link } from "react-router-dom";
 import { routes } from "../../routes/routes";
 import CardFiliter from "./CardFiliter";
+import { useQuery } from "react-query";
+import { queryKeys } from "../../utils/queryKey";
+import { getAllCountry } from "../../services/api/shared";
+import { countriesPlaceHolderData } from "../../data/countriesPlaceHolderData";
 const style = {
   container: `flex  w-[95%]  m-auto flex-col items-center justify-center h-full text-center  `,
   title: `text-[3rem] lg:text-[5.5rem] font-light`,
@@ -11,6 +15,13 @@ const style = {
   btn: ` mt-5 `,
 };
 const MainText: FC = () => {
+  const { data: countries, isLoading } = useQuery<any>(
+    [queryKeys.countries],
+    getAllCountry,
+    {
+      placeholderData: countriesPlaceHolderData,
+    }
+  );
   return (
     <div className={style.container}>
       <h1
@@ -38,7 +49,7 @@ const MainText: FC = () => {
         Find the best property that suits your desires using advanced search
         widget
       </span>
-      <CardFiliter />
+      <CardFiliter countries={countries} />
 
       {/* <Link
         data-aos="fade-up"
