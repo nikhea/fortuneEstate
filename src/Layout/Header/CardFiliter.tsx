@@ -9,7 +9,7 @@ import { useSearchParams, useNavigate, redirect } from "react-router-dom";
 import { useEffect, useState } from "react";
 const style = {
   container: ` mt-[24px] text-black  w-[60%] rounded-2xl text-start     `,
-  cardContainer: ` w-full  rounded-[10px] bg-white shadow-2xl`,
+  cardContainer: ` w-full  rounded-[10px] bg-gray-100 shadow-2xl`,
   card: ` w-full py-4 `,
   form: `w-[85%] lg:w-[90%]  m-auto flex  flex-col `,
   btn: `  [&>*]:mr-5 [&>*]:px-[4em] mt-[20px] text-center`,
