@@ -11,12 +11,12 @@ const style = {
 };
 const FilitersComponents = () => {
   return (
-    <div className={style.bgImage}>
-      <div className={style.container}>
-        <FilterCard />
-      </div>
-      <div className={style.overlay}></div>
-    </div>
+    // <div className={style.bgImage}>
+    //   <div className={style.container}>
+    <FilterCard />
+    //   </div>
+    //   <div className={style.overlay}></div>
+    // </div>
   );
 };
 

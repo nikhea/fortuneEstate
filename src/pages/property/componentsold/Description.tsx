@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, useState } from "react";
 import "./hr.css";
 import PropertiesCard from "../../../components/card/PropertyCard";
 import parse from "html-react-parser";
@@ -6,6 +6,11 @@ interface Props {
   description: string;
 }
 const additionalDetails: FC<Props> = ({ description }) => {
+  const [isTruncated, setIsTruncated] = useState<boolean>(true);
+  let displayContent;
+  const toggleTruncate = () => {
+    setIsTruncated(!isTruncated);
+  };
   const style = {
     header: ` flex items-center  w-full mb-5`,
     title: `ml-5 capitalize font-[600] text-[1.75rem]`,
@@ -13,27 +18,74 @@ const additionalDetails: FC<Props> = ({ description }) => {
     description: `py-4  text-[#0D304A] text-[1.1rem] mr-8 font-light leading-[2rem] tracking-wide text-justify`,
     span: `capitalize`,
   };
+  let content: any = parse(description);
+  let p = content?._owner;
 
+  if (p !== undefined) {
+    console.log(p);
+
+    const pz = p?.pendingProps || p?.memoizedProps;
+    // console.log(p, "ppppppp");
+    displayContent = pz?.description;
+  }
+  const circularSafeStringify = (obj: any) => {
+    // console.log(obj);
+
+    const seen = new WeakSet();
+    return JSON.stringify(obj, function (key, value) {
+      if (typeof value === "object" && value !== null) {
+        if (seen.has(value)) {
+          return;
+        }
+        seen.add(value);
+      }
+      return value;
+    });
+  };
+  const maxLength: number = 500;
+  const slicedDescription =
+    description.length > maxLength
+      ? `${description.slice(0, maxLength)}...`
+      : description;
   return (
-    <span
-    // data-aos="fade-up"
-    // data-aos-easing="ease-in-out"
-    // data-aos-duration="1100"
-    >
-      {/* <PropertiesCard width={100} height={100}> */}
+    <span>
       <div>
         <header className={style.header}>
           <div className="hr"></div>
           <h1 className={style.title}>description</h1>
         </header>
-        <div className={style.description}>{parse(description)}</div>
+        <div>
+          {/* <div className={style.description}>{content}</div> */}
+          {isTruncated ? (
+            <>
+              {description.length > maxLength ? (
+                <div>
+                  <div
+                    dangerouslySetInnerHTML={{ __html: slicedDescription }}
+                  />
+                  {/* {`${description.slice(0, maxLength)}...`} */}
+                  <button onClick={toggleTruncate}>Read More</button>
+                </div>
+              ) : (
+                <div>{description}</div>
+              )}
+            </>
+          ) : (
+            <>
+              <div>{content}</div>
+              <button onClick={toggleTruncate}>Read Less</button>
+            </>
+          )}
+        </div>
       </div>
-      {/* </PropertiesCard> */}
     </span>
   );
 };
 
 export default additionalDetails;
+{
+  /* <div className={style.description}>{content}</div> */
+}
 
 // const description = `Saramanda is an elegant, five bedroom villa set on the exclusive Sandy lane Estate, with its beautifully landscaped grounds, this property gives you the opportunity to enjoy a taste of Caribbean living with the freedom of a home away from home.
 

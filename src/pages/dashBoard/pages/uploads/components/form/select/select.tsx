@@ -23,6 +23,8 @@ interface inputProps {
   options: optionsProps[];
   field: any;
   handleSelectChange: any;
+  defaultValue?: any;
+  inputRef?: any;
 }
 
 // const options = [
@@ -55,6 +57,8 @@ const InputSelect: FC<inputProps> = ({
   options,
   handleSelectChange,
   field,
+  defaultValue,
+  inputRef,
 }) => {
   let inputSelectContainer = {
     // [`${style.input}`]: true,
@@ -92,6 +96,8 @@ const InputSelect: FC<inputProps> = ({
       <Select
         key={`my_unique_select_key__${field}`}
         value={field}
+        ref={inputRef}
+        defaultValue={defaultValue}
         placeholder={placeholder}
         name={name}
         styles={customStyles}

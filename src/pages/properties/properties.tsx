@@ -2,7 +2,7 @@ import { FC } from "react";
 // import { useQuery } from "@tanstack/react-query";
 import { useQuery } from "react-query";
 
-import { useParams } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import "./properties.css";
 import PropertiesList from "../../components/propertiesList/propertiesList";
 import Pagination from "../../components/UI/Pagination";
@@ -48,6 +48,7 @@ const properties: FC<propertiesProps> = ({
   propertiesPerPage,
 }) => {
   const { countryName } = useParams();
+
   const { data: propertiesdata, isLoading } = useQuery(
     [queryKeys.properties, countryName],
     () => getPropertiesByCountry(countryName)
@@ -58,6 +59,7 @@ const properties: FC<propertiesProps> = ({
   if (isLoading) {
     return <PageLoading />;
   }
+
   // let p = properties.map((prop: any) => {
   //   console.log(prop);
 
@@ -73,7 +75,10 @@ const properties: FC<propertiesProps> = ({
     <div className={style.bgContainer}>
       <div className=" col-start-1 col-end-8 w-full">
         {properties.length > 0 ? (
-          <PaginatedProperties properties={properties} />
+          <PaginatedProperties
+            properties={properties}
+            countryName={countryName}
+          />
         ) : (
           message
         )}

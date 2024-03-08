@@ -1,4 +1,5 @@
 import { FC, useState } from "react";
+import { useLocation } from "react-router-dom";
 import PropertiesList from "../../components/propertiesList/propertiesList";
 import Pagination from "../../components/UI/Pagination";
 import MainCard from "../../components/card/MainCard";
@@ -9,6 +10,7 @@ import {
 } from "react-icons/md";
 interface paginatedPropertiesProps {
   properties: [];
+  countryName: any;
 }
 interface Props {
   [x: string]: any;
@@ -48,7 +50,10 @@ const style = {
   headerSort: `flex items-center`,
   headerSelect: `ml-5`,
 };
-const paginatedProperties: FC<paginatedPropertiesProps> = ({ properties }) => {
+const paginatedProperties: FC<paginatedPropertiesProps> = ({
+  properties,
+  countryName,
+}) => {
   const [Slicedproperties] = useState(properties || []);
   const [pageNumber, setPageNumber] = useState(0);
   const propertiesPerPage = 4;
@@ -94,7 +99,9 @@ const paginatedProperties: FC<paginatedPropertiesProps> = ({ properties }) => {
             <MdOutlineHome size={40} color="#736efe" />
           </div>
           <div className={style.headerText}>
-            <h1> {propertiesLength} available properties</h1>
+            <h1>
+              {propertiesLength} available properties in {countryName}
+            </h1>
           </div>
         </div>
 

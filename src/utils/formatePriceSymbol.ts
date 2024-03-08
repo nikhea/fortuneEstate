@@ -33,6 +33,6 @@ export const displaPriceSymbol = (priceSymbol: any): string => {
     case "NGN":
       return "₦";
     default:
-      return "";
+      return "$";
   }
 };
