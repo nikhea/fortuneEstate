@@ -25,6 +25,8 @@ import {
 } from "../../pages/dashBoard/pages/uploads/optionsValue";
 import { useLocation, useNavigate } from "react-router-dom";
 import { FaFilter } from "react-icons/fa";
+import useQueryStringStore from "../../store/useQueryStore";
+import useSearchStore from "../../store/useSearchStore";
 const style = {
   container: `w-[80%] m-auto  mt-16 bg-gray-100 px-5 rounded-2xl py-5 `,
   form: ``,
@@ -34,18 +36,23 @@ const style = {
   searchInput: `w-[490px] `,
   searchIcon: ``,
 };
-
-const filterCard: FC = () => {
-  const [show, setShow] = useState(false);
-  const location = useLocation();
+interface FilterCardProps {
+  PageParams?: (formData: any, checkShow: any) => void;
+}
+const FilterCard: FC<FilterCardProps> = ({ PageParams }: any) => {
+  const { setFormData } = useSearchStore();
   const navigate = useNavigate();
+
+  const [show, setShow] = useState(false);
+
+  const location = useLocation();
+
   const queryParams = new URLSearchParams(location.search);
 
   const methods = useForm<FormFilterData>({});
   const {
     register,
     handleSubmit,
-    watch,
     reset,
     setValue,
     getValues,
@@ -55,7 +62,6 @@ const filterCard: FC = () => {
 
   useEffect(() => {
     const showParam = queryParams.get("show");
-
     setValue("searchProperties", queryParams.get("searchProperties") || "");
     setValue("price", queryParams.get("price") || "");
     setValue("listingType", queryParams.get("listingType") || "");
@@ -129,32 +135,38 @@ const filterCard: FC = () => {
 
     return ListingCategoryField.onChange(option.value);
   };
-  const PageParams = (formData: FormFilterData) => {
-    const { ...filteredFormDatas } = formData;
-    const filteredFormData = Object.entries(filteredFormDatas)
-      .filter(([key, value]) => value !== undefined && value !== "")
-      .reduce((obj: any, [key, value]) => {
-        obj[key] = value;
-        return obj;
-      }, {});
-    if (
-      (getValues("view") !== undefined && getValues("view") !== "") ||
-      (getValues("category") !== undefined && getValues("category") !== "")
-    ) {
-      filteredFormData["show"] = "true";
-    }
 
-    const queryString = new URLSearchParams(filteredFormData).toString();
-    navigate({
-      pathname: window.location.pathname,
-      search: queryString,
-    });
-  };
   const handleShow = () => {
     setShow(!show);
   };
-  const submitFilterForm = (formData: FormFilterData) => {
-    PageParams(formData);
+  // formData?: FormFilterData, checkShow?: any
+  // const PageParams = (formData?: FormFilterData, checkShow?: any) => {
+  //   const { ...filteredFormDatas } = formData;
+  //   const filteredFormData = Object.entries(filteredFormDatas)
+  //     .filter(([key, value]) => value !== undefined && value !== "")
+  //     .reduce((obj: any, [key, value]) => {
+  //       obj[key] = value;
+  //       return obj;
+  //     }, {});
+  //   if (checkShow) {
+  //     filteredFormData["show"] = "true";
+  //   }
+
+  //   const newQueryString = new URLSearchParams(filteredFormData).toString();
+  //   // setQueryString(newQueryString);
+
+  //   navigate({
+  //     pathname: window.location.pathname,
+  //     search: newQueryString,
+  //   });
+  // };
+
+  const submitFilterForm = (formData: any) => {
+    const checkShow =
+      (getValues("view") !== undefined && getValues("view") !== "") ||
+      (getValues("category") !== undefined && getValues("category") !== "");
+    PageParams(formData, checkShow);
+    setFormData(...formData);
   };
 
   return (
@@ -325,8 +337,8 @@ const filterCard: FC = () => {
   );
 };
 
-export default filterCard;
-interface FormFilterData {
+export default FilterCard;
+export interface FormFilterData {
   searchProperties: string;
   country: string;
   propertyType: string;
@@ -336,6 +348,7 @@ interface FormFilterData {
   listingType: string;
   view: string;
   category: string;
+  show?: any;
 }
 export const uploadSchema = yup.object().shape({
   searchProperties: yup.string(),
@@ -480,3 +493,10 @@ handleSelectChange={handlepropertyTypeChange}
 inputFull
 /> */
 }
+// useEffect(() => {
+//   const encodedQueryString = encodeURIComponent(queryString);
+//   navigate({
+//     pathname: window.location.pathname,
+//     search: encodedQueryString,
+//   });
+// }, []);

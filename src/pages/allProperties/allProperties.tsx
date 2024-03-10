@@ -1,80 +1,94 @@
-import { FC, SetStateAction, useState } from "react";
 import { useQuery } from "react-query";
-import Pagination from "./components/pagination";
 import { getAllProperties } from "../../services/api/shared";
 import { queryKeys } from "../../utils/queryKey";
-import Button from "../../components/UI/FormElement/Button";
-import PageLoading from "../../components/UI/Loading/PageLoading";
-import MainPagination from "../../components/Mainpagination";
-import useFiliters from "../../hooks/useFiliters";
-import PropertieSide from "../../components/PropertieSide";
 import SimilarProperties from "../../components/SimilarProperties/SimilarProperties";
-// import Button from "../UI/FormElement/Button";
+import FilterCard, { FormFilterData } from "../../components/card/filterCard";
+import Properties from "./components/Properties";
+import useQueryStringStore from "../../store/useQueryStore";
+import { useLocation, useNavigate } from "react-router-dom";
+import useSearchStore from "../../store/useSearchStore";
+import { useEffect, useState } from "react";
 const AllProperties = () => {
-  const [pageNumber, setPageNumber] = useState(1);
-  const [limitProperties, setLimitProperties] = useState(10);
-  const [sortProperties, setSortProperties] = useState(1);
+  const location = useLocation();
 
-  const { data: properties, isLoading } = useQuery(
-    [queryKeys.properties, pageNumber, limitProperties, sortProperties],
-    () => getAllProperties(pageNumber, limitProperties, sortProperties),
+  const queryParams = new URLSearchParams(location.search);
+
+  const queryParamsObject = Object.fromEntries(queryParams.entries());
+
+  const data = useQuery(
+    [queryKeys.properties, queryParamsObject],
+    () => getAllProperties(queryParamsObject),
     {
       keepPreviousData: true,
     }
   );
-  if (isLoading) {
-    return <PageLoading />;
-  }
-  if (!properties?.data.results[0].metadata[0]) {
-    return null;
-  }
+  const [datas, setDatas] = useState({});
+  const { queryString, setQueryString } = useQueryStringStore();
+  const { formData, pageNumber, limitProperties, sortProperties } =
+    useSearchStore();
 
-  const metadata = properties?.data.results[0].metadata[0];
+  const navigate = useNavigate();
 
-  const propertiesResult = properties?.data.results[0].data || [];
-  const handlePageClick = (page: SetStateAction<number>) => {
-    setPageNumber(page);
-    // onPageChange(page);
-  };
-  const nextpage = () => {
-    // setPageNumber(pageNumber + 1);
-    if (metadata.page < metadata.total_Pages) {
-      setPageNumber(metadata.page + 1);
+  // useEffect(() => {
+  //   PageParams();
+  //   updateQueryStringAndNavigate(
+  //     formData,
+  //     pageNumber,
+  //     limitProperties,
+  //     sortProperties
+  //   );
+  // }, [pageNumber]);
+  const updateQueryStringAndNavigate = (
+    formData?: any,
+    pageNumber?: any,
+    limitProperties?: any,
+    sortProperties?: any,
+    checkShow?: any
+  ) => {
+    const filteredFormData = { ...formData };
+    filteredFormData;
+
+    Object.keys(filteredFormData).forEach((key) => {
+      if (filteredFormData[key] === undefined || filteredFormData[key] === "") {
+        delete filteredFormData[key];
+      }
+    });
+    if (pageNumber !== 1 || pageNumber < 1) {
+      filteredFormData["pageNumber"] = pageNumber;
     }
-  };
-  const previouspage = () => {
-    // setPageNumber(pageNumber - 1);
-    if (metadata.page > 1) {
-      setPageNumber(metadata.page - 1);
+    filteredFormData["limitProperties"] = limitProperties;
+    filteredFormData["sortProperties"] = sortProperties;
+    if (checkShow) {
+      filteredFormData["show"] = "true";
     }
+    setDatas(filteredFormData);
+    const newQueryString = new URLSearchParams(filteredFormData).toString();
+
+    setQueryString(newQueryString);
+    navigate({ pathname: window.location.pathname, search: newQueryString });
   };
+
+  const PageParams = (formData?: any, checkShow?: any) => {
+    updateQueryStringAndNavigate(
+      formData,
+      pageNumber,
+      limitProperties,
+      sortProperties,
+      checkShow
+    );
+  };
+
   const style = {
-    bgContainer: `md:grid md:grid-cols-10 `,
+    bgContainer: `w-[85%] m-auto `,
     colRight: `col-start-1 col-end-8`,
-    colLeft: `col-start-8 col-end-11    `,
   };
   return (
     <>
+      <FilterCard PageParams={PageParams} />
       <div className={style.bgContainer}>
-        <div className={style.colRight}>
-          <MainPagination
-            page={metadata.page}
-            total_Pages={metadata.total_Pages}
-            nextpage={nextpage}
-            handlePageClick={handlePageClick}
-            previouspage={previouspage}
-            propertiesLength={metadata.total}
-            sortProperties={sortProperties}
-            setSortProperties={setSortProperties}
-          >
-            <Pagination properties={propertiesResult} />
-          </MainPagination>
-        </div>
-        <div className={style.colLeft}>
-          <PropertieSide />
-        </div>
+        <Properties data={data} />
+        <SimilarProperties />
       </div>
-      <SimilarProperties />
     </>
   );
 };
@@ -83,3 +97,62 @@ export default AllProperties;
 interface Props {
   properties?: any;
 }
+// const { data: properties, isLoading } = useQuery(
+//   [queryKeys.properties, pageNumber, limitProperties, sortProperties],
+//   () => getAllProperties(pageNumber, limitProperties, sortProperties),
+//   {
+//     keepPreviousData: true,
+//   }
+// );
+// useEffect(() => {
+//   PageParams();
+// }, [pageNumber, formData, limitProperties, sortProperties]);
+// formData?: FormFilterData, checkShow?: any
+// useEffect(() => {
+//   const filteredFormData: any = {};
+
+//   filteredFormData["pageNumber"] = pageNumber;
+//   filteredFormData["limitProperties"] = limitProperties;
+//   filteredFormData["sortProperties"] = sortProperties;
+
+//   const newQueryString = new URLSearchParams(filteredFormData).toString();
+//   setQueryString(newQueryString);
+
+//   navigate({
+//     pathname: window.location.pathname,
+//     search: newQueryString,
+//   });
+// }, [pageNumber, formData, limitProperties, sortProperties]);
+
+// const PageParams = (checkShow?: any) => {
+//   const { ...filteredFormDatas } = formData;
+//   const filteredFormData = Object.entries(filteredFormDatas)
+//     .filter(([key, value]) => value !== undefined && value !== "")
+//     .reduce((obj: any, [key, value]) => {
+//       obj[key] = value;
+//       return obj;
+//     }, {});
+//   if (checkShow) {
+//     filteredFormData["show"] = "true";
+//   }
+//   filteredFormData["pageNumber"] = pageNumber;
+//   filteredFormData["limitProperties"] = limitProperties;
+//   filteredFormData["sortProperties"] = sortProperties;
+
+//   const newQueryString = new URLSearchParams(filteredFormData).toString();
+//   setQueryString(newQueryString);
+
+//   navigate({
+//     pathname: window.location.pathname,
+//     search: newQueryString,
+//   });
+// };
+// useEffect(() => {
+//   PageParams();
+// updateQueryStringAndNavigate(
+//   formData,
+//   pageNumber,
+//   limitProperties,
+//   sortProperties
+// );
+// }, [formData, pageNumber, limitProperties, sortProperties]);

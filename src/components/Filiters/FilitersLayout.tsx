@@ -6,7 +6,7 @@ import SubNav from "../../Layout/Header/SubNav";
 import HouseBanner from "../HouseBanner/HouseBanner";
 import Social from "../social";
 import NewsLetter from "../../Layout/Newsletter/newsletter";
-import FilitersComponents from "./FilitersComponents";
+// import FilitersComponents from "./FilitersComponents";
 interface layout {
   children?: React.ReactNode;
 }
@@ -16,7 +16,7 @@ const Layout: FC<layout> = ({ children }) => {
     <div className="">
       <SubNav />
       {/* <MainNav /> */}
-      <FilitersComponents />
+      {/* <FilitersComponents /> */}
       <Outlet />
       <NewsLetter />
       <HouseBanner />

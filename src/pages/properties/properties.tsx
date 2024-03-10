@@ -83,7 +83,7 @@ const properties: FC<propertiesProps> = ({
           message
         )}
       </div>
-      <PropertieSide />
+      {/* <PropertieSide /> */}
     </div>
   );
 };
