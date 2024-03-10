@@ -30,20 +30,12 @@ export const getAllCountry = async () => {
     data: res.data.data,
   };
 };
-export const getAllProperties = async (
-  pageNumber?: number,
-  limitProperties?: number,
-  sortProperties?: number,
-  filterProperties?: any
-) => {
-  // console.log(filterProperties, "filterProperties");
+export const getAllProperties = async (filterProperties?: any) => {
+  console.log(filterProperties, "filterProperties");
 
-  const res = await Axiosclient.get(
-    `/properties?page=${pageNumber}&limit=${limitProperties}&sort=${sortProperties}`,
-    {
-      params: filterProperties,
-    }
-  );
+  const res = await Axiosclient.get(`/properties`, {
+    params: filterProperties,
+  });
   return {
     status: res.status,
     data: res.data.data,
@@ -120,6 +112,27 @@ export const updateProfile = async (data: any) => {
 
 // export const getProperties = async (id: number, countryName: string) => {
 //   const res = await Axiosclient.get(`/properties?populate=*`);
+//   return {
+//     status: res.status,
+//     data: res.data.data,
+//   };
+// };
+// export const getAllProperties = async (
+//   pageNumber?: number,
+//   limitProperties?: number,
+//   sortProperties?: number,
+//   filterProperties?: any
+// ) => {
+//   // console.log(filterProperties, "filterProperties");
+
+//   const res = await Axiosclient.get(
+//     // `/properties?page=${pageNumber}&limit=${limitProperties}&sort=${sortProperties}`,
+
+//     `/properties?page=${pageNumber}&limit=${limitProperties}&sort=${sortProperties}`,
+//     {
+//       params: filterProperties,
+//     }
+//   );
 //   return {
 //     status: res.status,
 //     data: res.data.data,

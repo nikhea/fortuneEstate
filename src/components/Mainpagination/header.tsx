@@ -32,34 +32,16 @@ interface IHeader {
   sortProperties: any;
   setSortProperties: any;
 }
-const header: FC<IHeader> = ({
-  propertiesLength,
-  sortProperties,
-  setSortProperties,
-}) => {
-  const { register, handleSubmit, reset, control } = useForm();
+const header: FC<IHeader> = ({ propertiesLength, setSortProperties }) => {
+  const { reset, control } = useForm();
 
-  const onSubmit = (data: any) => {
-    console.log(data);
-  };
-  const handleChange = (event: {
-    target: { value: React.SetStateAction<string> };
-  }) => {
-    // console.log(event.target.value);
-    setSortProperties(event.target.value);
-  };
   const { field: SortField } = useController({
     name: "Sort",
     control,
   });
   const handleSortChange = (option: any) => {
-    const parsedSort = parseInt(option.value);
-    // console.log(parsedSort);
-    setSortProperties(parsedSort);
+    setSortProperties(parseInt(option.value));
     reset();
-    // SortField.onChange(option.value);
-    // console.log(option.value);
-    // return SortField.onChange(option.value);
   };
   return (
     <div className={style.header}>
@@ -113,3 +95,13 @@ const options = [
           <option value={-1}>Religious center descending</option>
         </select> */
 }
+
+// const onSubmit = (data: any) => {
+//   console.log(data);
+// };
+// const handleChange = (event: {
+//   target: { value: React.SetStateAction<string> };
+// }) => {
+//   // console.log(event.target.value);
+//   setSortProperties(event.target.value);
+// };
