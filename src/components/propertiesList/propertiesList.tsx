@@ -36,7 +36,7 @@ const style = {
   textContainer: ` flex flex-col justify-between pt-[2em] px-[2em]`,
   sub: `flex justify-between items-center  mb-[20px] leading`,
   price: `text-[1rem]`,
-  title: `font-bold text-xl leading-10`,
+  title: `font-bold text-xl leading-10 capitalize text-[#0D304A]`,
   location: `font-[400] text-[#8392A5] leading-10 flex items-center `,
   bed: `text-sm  leading-10 flex items-center`,
   span: `font-[400] text-[#8392A5]`,
@@ -45,7 +45,7 @@ const style = {
   agent: `text-sm leading-10 font-[400] text-[#8392A5] ml-3`,
   agentImage: ` max-w-[35px]  h-[35px] rounded-full flex items-center`,
   imgAgent: ` w-full h-full rounded-full`,
-  agentDetails: `flex items-center`,
+  agentDetails: `flex items-center capitalize`,
   card: ` w-full rounded sm:fle block `,
   like: `cursor-pointer`,
   listingType: `capitalize rounded-md  text-white absolute py-1 px-3 text-center z-[90] top-2 left-3 transistion ease-out duration-1000`,
@@ -95,7 +95,7 @@ const propertiesList: FC<propertiesList> = ({
               <p
                 // className={style.listingType}
                 className={`${style.listingType} ${
-                  listingType === "sale" ? "bg-[#0D304A]" : "bg-[#0D304A]"
+                  listingType === "sale" ? "bg-[#0D304A] " : "bg-[#0D304A]"
                 }`}
               >
                 for {listingType}
@@ -114,7 +114,7 @@ const propertiesList: FC<propertiesList> = ({
               <MdLocationPin size={15} style={{ marginRight: "5px" }} />
               {location?.length! < 19
                 ? location
-                : `${location?.substring(0, 20)}...`}
+                : `${location?.substring(0, 30)}...`}
               {/* {location?.length} */}
             </div>
             <div className={style.sub}>

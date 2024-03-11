@@ -39,6 +39,7 @@ const Properties = ({ data }: any) => {
       {/* <div className={style.bgContainer}> */}
       <div className={style.colRight}>
         <MainPagination
+          total={metadata.total}
           page={metadata.page}
           total_Pages={metadata.total_Pages}
           nextpage={nextpage}

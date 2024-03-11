@@ -1,0 +1,47 @@
+.paginationContainer {
+  @apply flex items-center justify-between flex-row-reverse;
+  @apply mx-20 mb-10;
+  margin-top: 50px;
+}
+
+.LinkItem {
+  @apply hidden lg:block;
+}
+.activeClassName {
+  /* @apply px-3 py-1; */
+  @apply text-sm uppercase;
+  @apply transition duration-500 ease-in;
+  /* @apply rounded-[50%] h-10 w-10; */
+  @apply rounded-[50%] h-12 w-12;
+  @apply border-2 border-violet-600 text-violet-600;
+}
+.paginationDisabled {
+  @apply cursor-not-allowed;
+  @apply px-2 py-2;
+  @apply text-sm uppercase;
+  @apply transition duration-500 ease-in;
+  /* @apply rounded-full; */
+  @apply rounded-[50%] h-14 w-14;
+
+  @apply border-2 border-violet-600 text-violet-600 opacity-30;
+}
+
+.previousBtn {
+  @apply px-2 py-2;
+  @apply text-sm uppercase;
+  @apply transition duration-500 ease-in;
+  /* @apply rounded-full; */
+  @apply rounded-[50%] h-14 w-14;
+  @apply border-2 border-violet-600 text-violet-600;
+  /* @apply hover:bg-violet-600 hover:text-white; */
+}
+
+.paginationBtn {
+  @apply px-2 py-2;
+  @apply text-sm uppercase;
+  @apply transition duration-500 ease-in;
+  /* @apply rounded-full; */
+  @apply rounded-[50%] h-14 w-14;
+  @apply border-2 border-violet-600 text-violet-600;
+  @apply cursor-pointer;
+}

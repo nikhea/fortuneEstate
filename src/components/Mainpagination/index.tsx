@@ -5,6 +5,7 @@ import MainCard from "../card/MainCard";
 interface Props {
   children: JSX.Element[] | JSX.Element | ReactNode;
   page: number;
+  total: number;
   total_Pages: number;
   nextpage: () => void;
   handlePageClick: (page: number) => void;
@@ -20,6 +21,7 @@ const index: FC<Props> = ({
   children,
   page,
   total_Pages,
+  total,
   nextpage,
   handlePageClick,
   previouspage,
@@ -37,6 +39,7 @@ const index: FC<Props> = ({
         />
         {children}
         <Navigation
+          total={total}
           page={page}
           total_Pages={total_Pages}
           nextpage={nextpage}
