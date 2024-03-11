@@ -42,13 +42,14 @@ const style = {
   newListing: ``,
   newListingTitle: `text-[1.5rem] uppercase z-1 p-0 text-[#0D304A] text-center  unset font-[500] m-10`,
   header: `flex  justify-between items-center my-20 mx-10`,
-  icons: `text-[#09203F] cursor-pointer hover:text-[#736efe] active:text-[#736efe] mx-1`,
+  icons: `text-[#09203F] cursor-pointer hover:text-[#0D304A] active:text-[#0D304A] mx-1`,
   headerText: `mt-[px] capitalize text-[#09203F] font-bold tracking-widest `,
   headerLength: `flex items-end `,
   headerView: `flex items-center `,
   headerSort: `flex items-center`,
   headerSelect: `ml-5`,
 };
+// text-[#736efe]
 const paginatedProperties: FC<paginatedPropertiesProps> = ({ properties }) => {
   const displayproperties = properties.map((property: Props, index: any) => (
     <div key={index}>

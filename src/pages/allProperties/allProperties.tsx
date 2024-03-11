@@ -10,22 +10,21 @@ import useSearchStore from "../../store/useSearchStore";
 import { useEffect, useState } from "react";
 const AllProperties = () => {
   const location = useLocation();
-
+  const { formData, pageNumber, limitProperties, sortProperties } =
+    useSearchStore();
   const queryParams = new URLSearchParams(location.search);
 
   const queryParamsObject = Object.fromEntries(queryParams.entries());
 
   const data = useQuery(
-    [queryKeys.properties, queryParamsObject],
-    () => getAllProperties(queryParamsObject),
+    [queryKeys.properties, queryParamsObject, sortProperties, pageNumber],
+    () => getAllProperties(queryParamsObject, sortProperties, pageNumber),
     {
       keepPreviousData: true,
     }
   );
   const [datas, setDatas] = useState({});
   const { queryString, setQueryString } = useQueryStringStore();
-  const { formData, pageNumber, limitProperties, sortProperties } =
-    useSearchStore();
 
   const navigate = useNavigate();
 
@@ -53,11 +52,11 @@ const AllProperties = () => {
         delete filteredFormData[key];
       }
     });
-    if (pageNumber !== 1 || pageNumber < 1) {
-      filteredFormData["pageNumber"] = pageNumber;
-    }
-    filteredFormData["limitProperties"] = limitProperties;
-    filteredFormData["sortProperties"] = sortProperties;
+    // if (pageNumber !== 1 || pageNumber < 1) {
+    filteredFormData["pageNumber"] = pageNumber;
+    // }
+    filteredFormData["limit"] = limitProperties;
+    filteredFormData["sort"] = sortProperties;
     if (checkShow) {
       filteredFormData["show"] = "true";
     }
