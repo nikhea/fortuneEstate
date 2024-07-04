@@ -27,12 +27,16 @@ const style = {
 const property: FC = () => {
   const [open, setOpen] = useState<boolean>(false);
   const [index, setIndex] = useState<number>(-1);
-  const { id: propertyID } = useParams();
+  const { id: propertyID, name } = useParams();
   const { data: propertydata, isLoading } = useQuery(
     [queryKeys.properties, propertyID],
     () => getSingelProperties(propertyID)
   );
-
+  // const { id, name } = useParams();
+  // const { data: propertydata, isLoading } = useQuery(
+  //   [queryKeys.properties, id, name],
+  //   () => getSingelPropertiesByName(id, name)
+  // );
   if (isLoading) {
     return <PageLoading />;
   }

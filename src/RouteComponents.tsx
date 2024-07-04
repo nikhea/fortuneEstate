@@ -67,6 +67,10 @@ const RouteComponent = () => {
             <Route path={`${routes.countries}/:name`} element={<Countries />} />
 
             <Route path={`${routes.property}/:id`} element={<Property />} />
+            {/* <Route
+              path={`${routes.property}/:id/:name`}
+              element={<Property />}
+            /> */}
             {/* <Route path="/Continents/:id/Countries/:id/properties/id/property" element={<Property />} /> */}
           </Route>
           <Route path="" element={<Filiters />}>

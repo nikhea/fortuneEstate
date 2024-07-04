@@ -57,6 +57,15 @@ export const getPropertiesByCountry = async (countryName: any) => {
   };
 };
 
+export const getSingelPropertiesByName = async (id: any, name: any) => {
+  const res = await Axiosclient.get(`/properties/${id}/${name}`);
+
+  return {
+    status: res.status,
+    data: res.data.data,
+  };
+};
+
 export const getSingelProperties = async (id: any) => {
   const res = await Axiosclient.get(`/properties/${id}`);
   return {
